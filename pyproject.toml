@@ -1,6 +1,6 @@
 [project]
 name = "sparkfly-api-client"
-version = "1.0.0"
+version = "1.1.1"
 description = "Core Operations"
 authors = [
   {name = "Sparkfly Support Team",email = "support@sparkfly.com"},
@@ -42,6 +42,7 @@ extension-pkg-whitelist = "pydantic"
 [tool.mypy]
 files = [
   "openapi_client",
+  "sparkfly",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]

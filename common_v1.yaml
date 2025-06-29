@@ -18,7 +18,58 @@ info:
 servers:
   - url: "https://api-staging.sparkfly.com/v1.0"
     description: Staging
+
+# Define global security requirement
+security:
+  - XAuthToken: []
+
 paths:
+  # Add the auth endpoint
+  "/auth":
+    post:
+      tags:
+        - Authentication
+      summary: Request an Authentication Token
+      description: Request an authentication token that is required for most Sparkfly core API requests. An authentication token is good for 24 hours before expiring.
+      operationId: post-auth
+      security:
+        - XAuthIdentity: []
+        - XAuthKey: []
+      parameters:
+        - $ref: "#/components/parameters/XAuthScope"
+        - $ref: "#/components/parameters/XForwardedFor"
+      responses:
+        "204":
+          description: Authentication successful
+          headers:
+            X-Auth-Token:
+              description: Authentication token
+              schema:
+                type: string
+            Cache-Control:
+              description: Cache control header
+              schema:
+                type: string
+            Date:
+              description: RFC3339 timestamp
+              schema:
+                type: string
+                format: date-time
+            X-Ua-Compatible:
+              description: Browser compatibility
+              schema:
+                type: string
+        "401":
+          description: Authentication failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Invalid credentials"
+
   "/ctm/members/{site_id}":
     put:
       tags:
@@ -26,8 +77,9 @@ paths:
       summary: CTM Transaction Update
       description: ctm transaction update
       operationId: put-transaction-update-ctm
+      security:
+        - XAuthToken: []
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
         - $ref: "#/components/parameters/TermID"
@@ -53,7 +105,6 @@ paths:
       description: ctm allocate
       operationId: post-allocate-ctm
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
         - $ref: "#/components/parameters/TermID"
@@ -79,7 +130,6 @@ paths:
       description: ctm dealocate
       operationId: post-deallocate-ctm
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
         - $ref: "#/components/parameters/TermID"
@@ -106,7 +156,6 @@ paths:
       description: ctm qitems
       operationId: post-qitems-ctm
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
         - $ref: "#/components/parameters/TermID"
@@ -133,7 +182,6 @@ paths:
       description: ctm show response
       operationId: get-show-ctm
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/X-Sparkfly-Metadata"
         - $ref: "#/components/parameters/TranID"
@@ -162,7 +210,6 @@ paths:
       description: ctm update response
       operationId: put-update-ctm
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
         - $ref: "#/components/parameters/TermID"
@@ -189,7 +236,6 @@ paths:
       description: ctm update response
       operationId: post-update-ctm
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
         - $ref: "#/components/parameters/TermID"
@@ -215,7 +261,6 @@ paths:
       description: ctm show response
       operationId: put-show-ctm
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/X-Sparkfly-Metadata"
         - $ref: "#/components/parameters/TranID"
@@ -245,7 +290,6 @@ paths:
       description: ctm update response
       operationId: post-update-ctm-siteid
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
         - $ref: "#/components/parameters/TermID"
@@ -271,7 +315,6 @@ paths:
       description: ctm custom messages
       operationId: get-ctm-custom-messages
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
         "200":
@@ -293,7 +336,6 @@ paths:
       description: ctm stores
       operationId: get-ctm-store
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
         "200":
@@ -315,7 +357,6 @@ paths:
       description: Create a new member.
       operationId: post-members
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
         $ref: "#/components/requestBodies/Member"
@@ -339,7 +380,6 @@ paths:
       description: Update a member's data.
       operationId: put-members-member_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: member_id
           in: path
@@ -366,7 +406,6 @@ paths:
       description: Find a particular member by its' Sparkfly ID.
       operationId: get-members-member_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: member_id
           in: path
           description: unique ID
@@ -392,7 +431,6 @@ paths:
       description: Attempts to delete a member.
       operationId: delete-members-member_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: member_id
           in: path
           description: unique ID
@@ -419,7 +457,6 @@ paths:
       description: Performs a search of an already existing member using the identifier.
       operationId: get-members-search
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: identifier
           in: query
           description: unique member identifier
@@ -444,7 +481,6 @@ paths:
       description: "Creates or updates a member's profile. If Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned."
       operationId: post-members-profile
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
           in: path
@@ -478,7 +514,6 @@ paths:
       description: "Get a member's profile data. If the caller's Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned."
       operationId: get-members-profile
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: id
           in: path
           description: The member ID that represents the member.
@@ -506,7 +541,6 @@ paths:
       operationId: post-merchants-merchant_id-stores
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: merchant_id
           in: path
           description: merchant ID owning the stores
@@ -534,7 +568,6 @@ paths:
       description: Search for stores by merchant ID.
       operationId: get-merchants-merchant_id-stores
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/SearchText"
         - $ref: "#/components/parameters/StoreSortBy"
         - $ref: "#/components/parameters/Page"
@@ -567,7 +600,6 @@ paths:
       operationId: get-merchants-merchant_id-stores-store_id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: store_id
           in: path
           description: the store's primary key
@@ -598,7 +630,6 @@ paths:
       operationId: put-merchants-merchant_id-stores-store_id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: store_id
           in: path
           description: the store's primary key
@@ -633,7 +664,6 @@ paths:
       operationId: delete-merchants-merchant_id-stores-store_id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: store_id
           in: path
           description: the store's primary key
@@ -665,7 +695,6 @@ paths:
       operationId: get-merchants-merchant_id-stores-index
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
         - $ref: "#/components/parameters/Order"
@@ -700,7 +729,6 @@ paths:
       operationId: post-merchants-merchant_id-store_lists
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: merchant_id
           in: path
           description: merchant ID owning the store lists
@@ -741,7 +769,6 @@ paths:
       operationId: get-merchants-merchant_id-store_lists
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
         - $ref: "#/components/parameters/Order"
@@ -772,7 +799,6 @@ paths:
       operationId: put-merchants-merchant_id-store_lists-store_list_id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: merchant_id
           in: path
           description: merchant ID owning the store lists
@@ -806,7 +832,6 @@ paths:
       description: Remove a store list.
       operationId: delete-merchants-merchant_id-store_lists-store_list_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: merchant_id
           in: path
@@ -846,7 +871,6 @@ paths:
       operationId: get-merchants-merchant_id-store_lists-store_list_id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: page
           in: query
           description: page offset
@@ -908,7 +932,6 @@ paths:
       description: List all BI Store Lists by Account ID.
       operationId: get-merchants-bi_store_lists
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
         "200":
@@ -927,7 +950,6 @@ paths:
       operationId: get-offer_lists
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: sort_by
           in: query
           description: sort records by a field name
@@ -999,7 +1021,6 @@ paths:
       operationId: post-offer_lists
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
       requestBody:
         $ref: "#/components/requestBodies/OfferList"
       responses:
@@ -1023,7 +1044,6 @@ paths:
       operationId: put-offer_lists-offer_list_id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_list_id
           in: path
           description: primary id of the offer list
@@ -1068,7 +1088,6 @@ paths:
       description: Remove an offer list.
       operationId: delete-offer_lists-offer_list_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_list_id
           in: path
           description: primary id of the offer list
@@ -1102,7 +1121,6 @@ paths:
       description: Search for an offer list by ID.
       operationId: get-offer_lists-offer_list_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_list_id
           in: path
           description: primary id of the offer list
@@ -1129,7 +1147,6 @@ paths:
       description: Search for offers.
       operationId: get-offers
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
         - $ref: "#/components/parameters/Order"
@@ -1174,7 +1191,6 @@ paths:
       operationId: post-offers
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
       requestBody:
         $ref: "#/components/requestBodies/Offer"
       responses:
@@ -1200,7 +1216,6 @@ paths:
       operationId: get-offers-offer_id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_id
           in: path
           description: Primary ID of the offer
@@ -1227,7 +1242,6 @@ paths:
       operationId: put-offers-offer_id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_id
           in: path
           description: Primary ID of the offer
@@ -1254,7 +1268,6 @@ paths:
       operationId: delete-offers-offer_id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_id
           in: path
           description: Primary ID of the offer
@@ -1280,7 +1293,6 @@ paths:
       operationId: get-offers-offer_id-eligible_item_sets
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_id
           in: path
           description: Primary ID of the offer
@@ -1305,7 +1317,6 @@ paths:
       operationId: post-offers-offer_id-eligible_item_sets
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_id
           in: path
           description: Primary ID of the offer
@@ -1335,7 +1346,6 @@ paths:
       operationId: put-offers-offer_id-eligible_item_sets-id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_id
           in: path
           description: Primary ID of the offer
@@ -1368,7 +1378,6 @@ paths:
       operationId: get-offers-offer_id-eligible_item_sets-id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_id
           in: path
           description: Primary ID of the offer
@@ -1399,7 +1408,6 @@ paths:
       operationId: delete-offers-offer_id-eligible_item_sets-id
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: offer_id
           in: path
           description: Primary ID of the offer
@@ -1430,7 +1438,6 @@ paths:
       description: List offer POS offer codes for an offer ID.
       operationId: get-offers-offer_id-pos_offer_codes
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
           in: path
@@ -1455,7 +1462,6 @@ paths:
       description: Creates an offer POS offer code.
       operationId: post-offers-offer_id-pos_offer_codes
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
           in: path
@@ -1485,7 +1491,6 @@ paths:
       description: Updates an offer POS offer code by it's ID.
       operationId: put-offers-offer_id-pos_offer_codes-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
           in: path
@@ -1518,7 +1523,6 @@ paths:
       description: Gets an offer POS offer code from it's ID.
       operationId: get-offers-offer_id-pos_offer_codes-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
           in: path
@@ -1549,7 +1553,6 @@ paths:
       description: Removes an offer POS offer Code by from it's ID.
       operationId: delete-offers-offer_id-pos_offer_codes-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
           in: path
@@ -1581,7 +1584,6 @@ paths:
       description: Set the status of a currently pending or suspended campaign to active.
       operationId: put-campaigns-campaign_id-actions-approve
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: campaign_id
           in: path
           description: primary identifier of the campaign
@@ -1619,8 +1621,7 @@ paths:
       summary: Retrieve Campaign Tags
       description: Retrieve campaign tags.
       operationId: get-campaign-tags
-      parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
+      parameters: []
       responses:
         "200":
           $ref: "#/components/responses/CampaignTags"
@@ -1650,8 +1651,7 @@ paths:
 
         (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
       operationId: post-campaign
-      parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
+      parameters: []
       requestBody:
         $ref: "#/components/requestBodies/Campaign"
       responses:
@@ -1673,7 +1673,6 @@ paths:
       description: Retrieve a campaign.
       operationId: get-campaign-external-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ExternalID"
         - $ref: "#/components/parameters/OfferID"
       responses:
@@ -1694,7 +1693,6 @@ paths:
       description: Retrieves a campaign.
       operationId: get-campaign
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/CampaignID"
       responses:
         "200":
@@ -1713,7 +1711,6 @@ paths:
       description: Updates a campaign.
       operationId: put-campaign
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/CampaignID"
       requestBody:
         $ref: "#/components/requestBodies/Campaign"
@@ -1737,7 +1734,6 @@ paths:
       description: Retrieve all audiences associated with your account.
       operationId: get-audiences
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
         - $ref: "#/components/parameters/Order"
@@ -1771,7 +1767,6 @@ paths:
       operationId: post-audiences
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
-        - $ref: "#/components/parameters/X-Auth-Token"
       requestBody:
         $ref: "#/components/requestBodies/Audience"
       responses:
@@ -1792,7 +1787,6 @@ paths:
       description: Find an audience by its primary identifier.
       operationId: get-audiences-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: audience_id
           in: path
           description: audience to find or modify
@@ -1819,7 +1813,6 @@ paths:
       description: Updates an existing audience.
       operationId: put-audiences-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: audience_id
           in: path
@@ -1846,7 +1839,6 @@ paths:
       description: Removes an existing audience.
       operationId: delete-audiences-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: audience_id
           in: path
           description: audience to find or modify
@@ -1871,7 +1863,6 @@ paths:
       description: Search within all sub-audiences.
       operationId: get-audiences-id-sub_audiences
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
         - $ref: "#/components/parameters/Order"
@@ -1909,7 +1900,6 @@ paths:
       description: Creates a sub-audience within this audience.
       operationId: post-audiences-id-sub_audiences
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: audience_id
           in: path
@@ -1939,7 +1929,6 @@ paths:
       description: Get a sub-audience by it's primary identifier.
       operationId: get-audiences-id-sub_audiences-sub_audience_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: sub_audience_id
           in: path
           description: sub-audience to find or modify
@@ -1969,7 +1958,6 @@ paths:
       description: Updates an existing sub-audience.
       operationId: put-audiences-id-sub_audiences-sub_audience_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: sub_audience_id
           in: path
@@ -2006,7 +1994,6 @@ paths:
       description: Removes an existing sub-audience.
       operationId: delete-audiences-id-sub_audiences-sub_audience_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - name: sub_audience_id
           in: path
           description: sub-audience to find or modify
@@ -2039,7 +2026,6 @@ paths:
       description: Gets POS offer code by ID.
       operationId: get-pos_offer_codes-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
           in: path
@@ -2069,7 +2055,6 @@ paths:
       description: List POS offer codes by account ID.
       operationId: get-pos_offer_codes
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
         "200":
@@ -2089,7 +2074,6 @@ paths:
       description: Gets all templates.
       operationId: get-templates
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
         "200":
@@ -2109,7 +2093,6 @@ paths:
       description: "Gets an offer state from a token, credential_identifier, and/or an external_ref_id."
       operationId: get-members-offer_states
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/OSID"
         - $ref: "#/components/parameters/CredentialIdentifier"
@@ -2133,7 +2116,6 @@ paths:
       description: "Creates an offer state using the osid, offer_id or channel_id."
       operationId: post-members-offer_states
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/OSID"
         - $ref: "#/components/parameters/OfferID"
@@ -2160,7 +2142,6 @@ paths:
       description: Gets all offer states.
       operationId: get-members-member_id-offer_states
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/MemberIDPath"
       responses:
@@ -2182,7 +2163,6 @@ paths:
       description: "Creates an offer state from member, offer, and channel IDs."
       operationId: post-members-member_id-offer_states
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ChannelID"
         - $ref: "#/components/parameters/OfferID"
@@ -2207,7 +2187,6 @@ paths:
       description: Gets the offer state by the offer ID.
       operationId: get-members-member_id-offers-offer_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/MemberIDPath"
         - $ref: "#/components/parameters/OfferIDPath"
@@ -2231,7 +2210,6 @@ paths:
       description: Gets the offer state by the offer state ID.
       operationId: get-members-member_id-offer_states-offer_state_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/OfferStateIDPath"
         - $ref: "#/components/parameters/MemberIDPath"
@@ -2254,7 +2232,6 @@ paths:
       description: Updates an offer state by offer state ID.
       operationId: put-members-member_id-offer_states-offer_state_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/OfferStateIDPath"
         - $ref: "#/components/parameters/MemberIDPath"
@@ -2351,7 +2328,6 @@ paths:
       description: Creates an impression.
       operationId: post-impressions
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
         $ref: "#/components/requestBodies/Impression"
@@ -2372,7 +2348,6 @@ paths:
       description: List impressions.
       operationId: get-impressions
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
         "200":
@@ -2394,7 +2369,6 @@ paths:
       description: Deletes an impression.
       operationId: delete-impressions-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
           in: path
@@ -2422,7 +2396,6 @@ paths:
       description: "Email opt in with an address, xid, and code."
       operationId: post-optins
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Address"
         - $ref: "#/components/parameters/XID"
@@ -2447,7 +2420,6 @@ paths:
       description: Looks up and exports data for the member associated with the provided member_identifier or credential_identifier query parameter.
       operationId: get-privacy-member-export
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/MemberIdentifier"
         - $ref: "#/components/parameters/CredentialIdentifier"
@@ -2473,7 +2445,6 @@ paths:
       description: "Looks up and creates a deletion request for the member associated with the provided member_identifier or credential_identifier query parameter. For each deletion request, all member offers will first be voided, then after 7 days, or longer if specified in an Account's preferences, the member will be anonymized."
       operationId: post-privacy-member-delete_request
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/MemberIdentifier"
         - $ref: "#/components/parameters/CredentialIdentifier"
@@ -2499,7 +2470,6 @@ paths:
       description: Creates an item.
       operationId: post-items
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
         $ref: "#/components/requestBodies/Item"
@@ -2522,7 +2492,6 @@ paths:
       description: Get all items.
       operationId: get-items
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
@@ -2547,7 +2516,6 @@ paths:
       description: Gets an item.
       operationId: get-items-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
           in: path
@@ -2574,7 +2542,6 @@ paths:
       description: Deletes an item.
       operationId: delete-items-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
           in: path
@@ -2601,7 +2568,6 @@ paths:
       description: Updates an item.
       operationId: put-items-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
           in: path
@@ -2631,7 +2597,6 @@ paths:
       description: Get all item sets.
       operationId: get-item_sets
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
@@ -2655,7 +2620,6 @@ paths:
       description: Creates an item set.
       operationId: post-item_sets
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
         $ref: "#/components/requestBodies/ItemSet"
@@ -2679,7 +2643,6 @@ paths:
       description: Gets an item set.
       operationId: get-item_sets-item_set_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
       responses:
@@ -2699,7 +2662,6 @@ paths:
       description: Updates an item set.
       operationId: put-item_sets-item_set_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
       requestBody:
@@ -2725,7 +2687,6 @@ paths:
       description: Deletes an item set.
       operationId: delete-item_sets-item_set_id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
       responses:
@@ -2748,7 +2709,6 @@ paths:
       description: Adds an item to the item set.
       operationId: post-item_sets-item_set_id-items-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
         - name: id
@@ -2778,7 +2738,6 @@ paths:
       description: Removes an item from an item set.
       operationId: delete-item_sets-item_set_id-items-id
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
         - name: id
@@ -2809,7 +2768,6 @@ paths:
       description: Gets a list of items from the item set.
       operationId: get-item_sets-item_set_id-items
       parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
@@ -2836,8 +2794,7 @@ paths:
       summary: Issue an Offer to a member (high throughput)
       description: "Issues an offer to a member using an active Sparkfly campaign, optionally allowing attachment of external data, activation and expiration dates. An issued offer is referred to as an offer_state.\r\n\r\nThis endpoint provides a limited feature set aimed at high throughput offer issuance. This endpoint should be preferred when issuing offer_states to a large number of members.\r\n"
       operationId: post-members-id-offer_states-issue
-      parameters:
-        - $ref: "#/components/parameters/X-Auth-Token"
+      parameters: []
       requestBody:
         description: ""
         content:
@@ -2959,10 +2916,6 @@ tags:
     description: credential
   - name: Offer Lists
     description: offer lists
-  - name: Offers
-    description: offers
-  - name: Store Lists
-    description: store list
   - name: Stores
     description: store
   - name: Campaigns
@@ -2974,6 +2927,22 @@ tags:
   - name: Ctm
     description: ctm
 components:
+  securitySchemes:
+    XAuthToken:
+      type: apiKey
+      in: header
+      name: X-Auth-Token
+      description: Authentication token obtained from /auth endpoint
+    XAuthIdentity:
+      type: apiKey
+      in: header
+      name: X-Auth-Identity
+      description: Account identity for authentication
+    XAuthKey:
+      type: apiKey
+      in: header
+      name: X-Auth-Key
+      description: Account secret key for authentication
   parameters:
     StoreSortBy:
       name: sort_by
@@ -3214,24 +3183,6 @@ components:
       required: true
       schema:
         type: string
-    X-Auth-Token:
-      name: X-Auth-Token
-      in: header
-      description: Required authentication token
-      required: true
-      schema:
-        type: string
-        examples:
-          - "{{x-auth-token}}"
-    X-Sparkfly-Metadata:
-      name: X-Sparkfly-Metadata
-      in: header
-      description: Metadata
-      required: false
-      schema:
-        type: string
-        examples:
-          - "{{X-Sparkfly-Metadata}}"
     TranID:
       name: tran_id
       in: header
@@ -3259,6 +3210,29 @@ components:
         type: string
         examples:
           - application/json
+    XAuthScope:
+      name: X-Auth-Scope
+      in: header
+      description: API scope availability for an auth token
+      required: false
+      schema:
+        type: string
+    XForwardedFor:
+      name: X-Forwarded-For
+      in: header
+      description: Available IP address for an auth token
+      required: false
+      schema:
+        type: string
+    X-Sparkfly-Metadata:
+      name: X-Sparkfly-Metadata
+      in: header
+      description: Metadata
+      required: false
+      schema:
+        type: string
+        examples:
+          - "{{X-Sparkfly-Metadata}}"
   requestBodies:
     Store:
       content:

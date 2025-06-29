@@ -21,7 +21,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "sparkfly-api-client"
-VERSION = "1.0.0"
+VERSION = "1.1.1"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
@@ -46,5 +46,5 @@ setup(
     long_description="""\
     The Sparkfly Platform provides a full lifecycle for promotions and rewards from creation to distribution to settlement. The platform integrates in real-time at the point-of-sale and provides item level discounting and tracking. The capabilities of the Sparkfly Platform are available through the use of the Sparkfly Platform API.  The Sparkfly documentation site is under development. If the documentation you&#39;re after isn&#39;t available here, please contact support@sparkfly.com and we will get you what you need.
     """,  # noqa: E501
-    package_data={"sparkfly-api-client": ["py.typed"]},
+    package_data={"sparkfly": ["py.typed"]},
 )
