@@ -48,7 +48,6 @@ class AudiencesApi:
     @validate_call
     def delete_audiences_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         _request_timeout: Union[
             None,
@@ -67,8 +66,6 @@ class AudiencesApi:
 
         Removes an existing audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: audience to find or modify (required)
         :type audience_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -94,7 +91,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._delete_audiences_id_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -121,7 +117,6 @@ class AudiencesApi:
     @validate_call
     def delete_audiences_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         _request_timeout: Union[
             None,
@@ -140,8 +135,6 @@ class AudiencesApi:
 
         Removes an existing audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: audience to find or modify (required)
         :type audience_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -167,7 +160,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._delete_audiences_id_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -194,7 +186,6 @@ class AudiencesApi:
     @validate_call
     def delete_audiences_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         _request_timeout: Union[
             None,
@@ -213,8 +204,6 @@ class AudiencesApi:
 
         Removes an existing audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: audience to find or modify (required)
         :type audience_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -240,7 +229,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._delete_audiences_id_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -262,7 +250,6 @@ class AudiencesApi:
 
     def _delete_audiences_id_serialize(
         self,
-        x_auth_token,
         audience_id,
         _request_auth,
         _content_type,
@@ -292,8 +279,6 @@ class AudiencesApi:
             _path_params['audience_id'] = audience_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -302,6 +287,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -325,7 +311,6 @@ class AudiencesApi:
     @validate_call
     def delete_audiences_id_sub_audiences_sub_audience_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         _request_timeout: Union[
@@ -345,8 +330,6 @@ class AudiencesApi:
 
         Removes an existing sub-audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param sub_audience_id: sub-audience to find or modify (required)
         :type sub_audience_id: str
         :param audience_id: parent audience (required)
@@ -374,7 +357,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._delete_audiences_id_sub_audiences_sub_audience_id_serialize(
-            x_auth_token=x_auth_token,
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -403,7 +385,6 @@ class AudiencesApi:
     @validate_call
     def delete_audiences_id_sub_audiences_sub_audience_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         _request_timeout: Union[
@@ -423,8 +404,6 @@ class AudiencesApi:
 
         Removes an existing sub-audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param sub_audience_id: sub-audience to find or modify (required)
         :type sub_audience_id: str
         :param audience_id: parent audience (required)
@@ -452,7 +431,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._delete_audiences_id_sub_audiences_sub_audience_id_serialize(
-            x_auth_token=x_auth_token,
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -481,7 +459,6 @@ class AudiencesApi:
     @validate_call
     def delete_audiences_id_sub_audiences_sub_audience_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         _request_timeout: Union[
@@ -501,8 +478,6 @@ class AudiencesApi:
 
         Removes an existing sub-audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param sub_audience_id: sub-audience to find or modify (required)
         :type sub_audience_id: str
         :param audience_id: parent audience (required)
@@ -530,7 +505,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._delete_audiences_id_sub_audiences_sub_audience_id_serialize(
-            x_auth_token=x_auth_token,
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -554,7 +528,6 @@ class AudiencesApi:
 
     def _delete_audiences_id_sub_audiences_sub_audience_id_serialize(
         self,
-        x_auth_token,
         sub_audience_id,
         audience_id,
         _request_auth,
@@ -587,8 +560,6 @@ class AudiencesApi:
             _path_params['audience_id'] = audience_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -604,6 +575,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -627,7 +599,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
         order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
@@ -650,8 +621,6 @@ class AudiencesApi:
 
         Retrieve all audiences associated with your account.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param page: page offset to display a range of records from
         :type page: str
         :param per_page: maximum number of records to return in the search
@@ -685,7 +654,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_serialize(
-            x_auth_token=x_auth_token,
             page=page,
             per_page=per_page,
             order=order,
@@ -715,7 +683,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
         order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
@@ -738,8 +705,6 @@ class AudiencesApi:
 
         Retrieve all audiences associated with your account.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param page: page offset to display a range of records from
         :type page: str
         :param per_page: maximum number of records to return in the search
@@ -773,7 +738,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_serialize(
-            x_auth_token=x_auth_token,
             page=page,
             per_page=per_page,
             order=order,
@@ -803,7 +767,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
         order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
@@ -826,8 +789,6 @@ class AudiencesApi:
 
         Retrieve all audiences associated with your account.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param page: page offset to display a range of records from
         :type page: str
         :param per_page: maximum number of records to return in the search
@@ -861,7 +822,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_serialize(
-            x_auth_token=x_auth_token,
             page=page,
             per_page=per_page,
             order=order,
@@ -886,7 +846,6 @@ class AudiencesApi:
 
     def _get_audiences_serialize(
         self,
-        x_auth_token,
         page,
         per_page,
         order,
@@ -938,8 +897,6 @@ class AudiencesApi:
             _query_params.append(('search_text', search_text))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -955,6 +912,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -978,7 +936,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         _request_timeout: Union[
             None,
@@ -997,8 +954,6 @@ class AudiencesApi:
 
         Find an audience by its primary identifier.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: audience to find or modify (required)
         :type audience_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1024,7 +979,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_id_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1052,7 +1006,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         _request_timeout: Union[
             None,
@@ -1071,8 +1024,6 @@ class AudiencesApi:
 
         Find an audience by its primary identifier.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: audience to find or modify (required)
         :type audience_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1098,7 +1049,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_id_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1126,7 +1076,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         _request_timeout: Union[
             None,
@@ -1145,8 +1094,6 @@ class AudiencesApi:
 
         Find an audience by its primary identifier.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: audience to find or modify (required)
         :type audience_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1172,7 +1119,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_id_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1195,7 +1141,6 @@ class AudiencesApi:
 
     def _get_audiences_id_serialize(
         self,
-        x_auth_token,
         audience_id,
         _request_auth,
         _content_type,
@@ -1225,8 +1170,6 @@ class AudiencesApi:
             _path_params['audience_id'] = audience_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -1242,6 +1185,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1265,7 +1209,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_id_sub_audiences(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -1289,8 +1232,6 @@ class AudiencesApi:
 
         Search within all sub-audiences.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: parent audience (required)
         :type audience_id: str
         :param page: page offset to display a range of records from
@@ -1326,7 +1267,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_id_sub_audiences_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             page=page,
             per_page=per_page,
@@ -1357,7 +1297,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_id_sub_audiences_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -1381,8 +1320,6 @@ class AudiencesApi:
 
         Search within all sub-audiences.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: parent audience (required)
         :type audience_id: str
         :param page: page offset to display a range of records from
@@ -1418,7 +1355,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_id_sub_audiences_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             page=page,
             per_page=per_page,
@@ -1449,7 +1385,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_id_sub_audiences_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -1473,8 +1408,6 @@ class AudiencesApi:
 
         Search within all sub-audiences.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: parent audience (required)
         :type audience_id: str
         :param page: page offset to display a range of records from
@@ -1510,7 +1443,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_id_sub_audiences_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             page=page,
             per_page=per_page,
@@ -1536,7 +1468,6 @@ class AudiencesApi:
 
     def _get_audiences_id_sub_audiences_serialize(
         self,
-        x_auth_token,
         audience_id,
         page,
         per_page,
@@ -1591,8 +1522,6 @@ class AudiencesApi:
             _query_params.append(('search_text', search_text))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -1608,6 +1537,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1631,7 +1561,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_id_sub_audiences_sub_audience_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         _request_timeout: Union[
@@ -1651,8 +1580,6 @@ class AudiencesApi:
 
         Get a sub-audience by it's primary identifier.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param sub_audience_id: sub-audience to find or modify (required)
         :type sub_audience_id: str
         :param audience_id: parent audience (required)
@@ -1680,7 +1607,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_id_sub_audiences_sub_audience_id_serialize(
-            x_auth_token=x_auth_token,
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -1708,7 +1634,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_id_sub_audiences_sub_audience_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         _request_timeout: Union[
@@ -1728,8 +1653,6 @@ class AudiencesApi:
 
         Get a sub-audience by it's primary identifier.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param sub_audience_id: sub-audience to find or modify (required)
         :type sub_audience_id: str
         :param audience_id: parent audience (required)
@@ -1757,7 +1680,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_id_sub_audiences_sub_audience_id_serialize(
-            x_auth_token=x_auth_token,
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -1785,7 +1707,6 @@ class AudiencesApi:
     @validate_call
     def get_audiences_id_sub_audiences_sub_audience_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         _request_timeout: Union[
@@ -1805,8 +1726,6 @@ class AudiencesApi:
 
         Get a sub-audience by it's primary identifier.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param sub_audience_id: sub-audience to find or modify (required)
         :type sub_audience_id: str
         :param audience_id: parent audience (required)
@@ -1834,7 +1753,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._get_audiences_id_sub_audiences_sub_audience_id_serialize(
-            x_auth_token=x_auth_token,
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -1857,7 +1775,6 @@ class AudiencesApi:
 
     def _get_audiences_id_sub_audiences_sub_audience_id_serialize(
         self,
-        x_auth_token,
         sub_audience_id,
         audience_id,
         _request_auth,
@@ -1890,8 +1807,6 @@ class AudiencesApi:
             _path_params['audience_id'] = audience_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -1907,6 +1822,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1930,7 +1846,6 @@ class AudiencesApi:
     @validate_call
     def post_audiences(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_audiences_request: Optional[PostAudiencesRequest] = None,
         _request_timeout: Union[
@@ -1950,8 +1865,6 @@ class AudiencesApi:
 
         Creates a new audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param post_audiences_request:
@@ -1979,7 +1892,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._post_audiences_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             post_audiences_request=post_audiences_request,
             _request_auth=_request_auth,
@@ -2007,7 +1919,6 @@ class AudiencesApi:
     @validate_call
     def post_audiences_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_audiences_request: Optional[PostAudiencesRequest] = None,
         _request_timeout: Union[
@@ -2027,8 +1938,6 @@ class AudiencesApi:
 
         Creates a new audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param post_audiences_request:
@@ -2056,7 +1965,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._post_audiences_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             post_audiences_request=post_audiences_request,
             _request_auth=_request_auth,
@@ -2084,7 +1992,6 @@ class AudiencesApi:
     @validate_call
     def post_audiences_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_audiences_request: Optional[PostAudiencesRequest] = None,
         _request_timeout: Union[
@@ -2104,8 +2011,6 @@ class AudiencesApi:
 
         Creates a new audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param post_audiences_request:
@@ -2133,7 +2038,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._post_audiences_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             post_audiences_request=post_audiences_request,
             _request_auth=_request_auth,
@@ -2156,7 +2060,6 @@ class AudiencesApi:
 
     def _post_audiences_serialize(
         self,
-        x_auth_token,
         content_type,
         post_audiences_request,
         _request_auth,
@@ -2187,8 +2090,6 @@ class AudiencesApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if post_audiences_request is not None:
@@ -2219,6 +2120,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2242,7 +2144,6 @@ class AudiencesApi:
     @validate_call
     def post_audiences_id_sub_audiences(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_audiences_id_sub_audiences_request: Optional[PostAudiencesIdSubAudiencesRequest] = None,
@@ -2263,8 +2164,6 @@ class AudiencesApi:
 
         Creates a sub-audience within this audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: parent audience (required)
         :type audience_id: str
         :param content_type: application/json
@@ -2294,7 +2193,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._post_audiences_id_sub_audiences_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             content_type=content_type,
             post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request,
@@ -2324,7 +2222,6 @@ class AudiencesApi:
     @validate_call
     def post_audiences_id_sub_audiences_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_audiences_id_sub_audiences_request: Optional[PostAudiencesIdSubAudiencesRequest] = None,
@@ -2345,8 +2242,6 @@ class AudiencesApi:
 
         Creates a sub-audience within this audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: parent audience (required)
         :type audience_id: str
         :param content_type: application/json
@@ -2376,7 +2271,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._post_audiences_id_sub_audiences_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             content_type=content_type,
             post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request,
@@ -2406,7 +2300,6 @@ class AudiencesApi:
     @validate_call
     def post_audiences_id_sub_audiences_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_audiences_id_sub_audiences_request: Optional[PostAudiencesIdSubAudiencesRequest] = None,
@@ -2427,8 +2320,6 @@ class AudiencesApi:
 
         Creates a sub-audience within this audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: parent audience (required)
         :type audience_id: str
         :param content_type: application/json
@@ -2458,7 +2349,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._post_audiences_id_sub_audiences_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             content_type=content_type,
             post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request,
@@ -2483,7 +2373,6 @@ class AudiencesApi:
 
     def _post_audiences_id_sub_audiences_serialize(
         self,
-        x_auth_token,
         audience_id,
         content_type,
         post_audiences_id_sub_audiences_request,
@@ -2515,8 +2404,6 @@ class AudiencesApi:
             _path_params['audience_id'] = audience_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -2549,6 +2436,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2572,7 +2460,6 @@ class AudiencesApi:
     @validate_call
     def put_audiences_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_audiences_request: Optional[PostAudiencesRequest] = None,
@@ -2593,8 +2480,6 @@ class AudiencesApi:
 
         Updates an existing audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: audience to find or modify (required)
         :type audience_id: str
         :param content_type: application/json
@@ -2624,7 +2509,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._put_audiences_id_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             content_type=content_type,
             post_audiences_request=post_audiences_request,
@@ -2653,7 +2537,6 @@ class AudiencesApi:
     @validate_call
     def put_audiences_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_audiences_request: Optional[PostAudiencesRequest] = None,
@@ -2674,8 +2557,6 @@ class AudiencesApi:
 
         Updates an existing audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: audience to find or modify (required)
         :type audience_id: str
         :param content_type: application/json
@@ -2705,7 +2586,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._put_audiences_id_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             content_type=content_type,
             post_audiences_request=post_audiences_request,
@@ -2734,7 +2614,6 @@ class AudiencesApi:
     @validate_call
     def put_audiences_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_audiences_request: Optional[PostAudiencesRequest] = None,
@@ -2755,8 +2634,6 @@ class AudiencesApi:
 
         Updates an existing audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param audience_id: audience to find or modify (required)
         :type audience_id: str
         :param content_type: application/json
@@ -2786,7 +2663,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._put_audiences_id_serialize(
-            x_auth_token=x_auth_token,
             audience_id=audience_id,
             content_type=content_type,
             post_audiences_request=post_audiences_request,
@@ -2810,7 +2686,6 @@ class AudiencesApi:
 
     def _put_audiences_id_serialize(
         self,
-        x_auth_token,
         audience_id,
         content_type,
         post_audiences_request,
@@ -2842,8 +2717,6 @@ class AudiencesApi:
             _path_params['audience_id'] = audience_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -2876,6 +2749,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2899,7 +2773,6 @@ class AudiencesApi:
     @validate_call
     def put_audiences_id_sub_audiences_sub_audience_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -2921,8 +2794,6 @@ class AudiencesApi:
 
         Updates an existing sub-audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param sub_audience_id: sub-audience to find or modify (required)
         :type sub_audience_id: str
         :param audience_id: parent audience (required)
@@ -2954,7 +2825,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._put_audiences_id_sub_audiences_sub_audience_id_serialize(
-            x_auth_token=x_auth_token,
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             content_type=content_type,
@@ -2986,7 +2856,6 @@ class AudiencesApi:
     @validate_call
     def put_audiences_id_sub_audiences_sub_audience_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3008,8 +2877,6 @@ class AudiencesApi:
 
         Updates an existing sub-audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param sub_audience_id: sub-audience to find or modify (required)
         :type sub_audience_id: str
         :param audience_id: parent audience (required)
@@ -3041,7 +2908,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._put_audiences_id_sub_audiences_sub_audience_id_serialize(
-            x_auth_token=x_auth_token,
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             content_type=content_type,
@@ -3073,7 +2939,6 @@ class AudiencesApi:
     @validate_call
     def put_audiences_id_sub_audiences_sub_audience_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3095,8 +2960,6 @@ class AudiencesApi:
 
         Updates an existing sub-audience.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param sub_audience_id: sub-audience to find or modify (required)
         :type sub_audience_id: str
         :param audience_id: parent audience (required)
@@ -3128,7 +2991,6 @@ class AudiencesApi:
         """ # noqa: E501
 
         _param = self._put_audiences_id_sub_audiences_sub_audience_id_serialize(
-            x_auth_token=x_auth_token,
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             content_type=content_type,
@@ -3155,7 +3017,6 @@ class AudiencesApi:
 
     def _put_audiences_id_sub_audiences_sub_audience_id_serialize(
         self,
-        x_auth_token,
         sub_audience_id,
         audience_id,
         content_type,
@@ -3190,8 +3051,6 @@ class AudiencesApi:
             _path_params['audience_id'] = audience_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -3224,6 +3083,7 @@ class AudiencesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

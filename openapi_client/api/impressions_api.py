@@ -45,7 +45,6 @@ class ImpressionsApi:
     @validate_call
     def delete_impressions_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="primary id for impressions")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -65,8 +64,6 @@ class ImpressionsApi:
 
         Deletes an impression.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: primary id for impressions (required)
         :type id: str
         :param content_type: application/json
@@ -94,7 +91,6 @@ class ImpressionsApi:
         """ # noqa: E501
 
         _param = self._delete_impressions_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -123,7 +119,6 @@ class ImpressionsApi:
     @validate_call
     def delete_impressions_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="primary id for impressions")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -143,8 +138,6 @@ class ImpressionsApi:
 
         Deletes an impression.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: primary id for impressions (required)
         :type id: str
         :param content_type: application/json
@@ -172,7 +165,6 @@ class ImpressionsApi:
         """ # noqa: E501
 
         _param = self._delete_impressions_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -201,7 +193,6 @@ class ImpressionsApi:
     @validate_call
     def delete_impressions_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="primary id for impressions")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -221,8 +212,6 @@ class ImpressionsApi:
 
         Deletes an impression.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: primary id for impressions (required)
         :type id: str
         :param content_type: application/json
@@ -250,7 +239,6 @@ class ImpressionsApi:
         """ # noqa: E501
 
         _param = self._delete_impressions_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -274,7 +262,6 @@ class ImpressionsApi:
 
     def _delete_impressions_id_serialize(
         self,
-        x_auth_token,
         id,
         content_type,
         _request_auth,
@@ -305,8 +292,6 @@ class ImpressionsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -324,6 +309,7 @@ class ImpressionsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -347,7 +333,6 @@ class ImpressionsApi:
     @validate_call
     def get_impressions(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -366,8 +351,6 @@ class ImpressionsApi:
 
         List impressions.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -393,7 +376,6 @@ class ImpressionsApi:
         """ # noqa: E501
 
         _param = self._get_impressions_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -421,7 +403,6 @@ class ImpressionsApi:
     @validate_call
     def get_impressions_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -440,8 +421,6 @@ class ImpressionsApi:
 
         List impressions.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -467,7 +446,6 @@ class ImpressionsApi:
         """ # noqa: E501
 
         _param = self._get_impressions_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -495,7 +473,6 @@ class ImpressionsApi:
     @validate_call
     def get_impressions_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -514,8 +491,6 @@ class ImpressionsApi:
 
         List impressions.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -541,7 +516,6 @@ class ImpressionsApi:
         """ # noqa: E501
 
         _param = self._get_impressions_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -564,7 +538,6 @@ class ImpressionsApi:
 
     def _get_impressions_serialize(
         self,
-        x_auth_token,
         content_type,
         _request_auth,
         _content_type,
@@ -592,8 +565,6 @@ class ImpressionsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -611,6 +582,7 @@ class ImpressionsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -634,7 +606,6 @@ class ImpressionsApi:
     @validate_call
     def post_impressions(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         impression_request: Optional[ImpressionRequest] = None,
         _request_timeout: Union[
@@ -654,8 +625,6 @@ class ImpressionsApi:
 
         Creates an impression.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param impression_request:
@@ -683,7 +652,6 @@ class ImpressionsApi:
         """ # noqa: E501
 
         _param = self._post_impressions_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             impression_request=impression_request,
             _request_auth=_request_auth,
@@ -711,7 +679,6 @@ class ImpressionsApi:
     @validate_call
     def post_impressions_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         impression_request: Optional[ImpressionRequest] = None,
         _request_timeout: Union[
@@ -731,8 +698,6 @@ class ImpressionsApi:
 
         Creates an impression.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param impression_request:
@@ -760,7 +725,6 @@ class ImpressionsApi:
         """ # noqa: E501
 
         _param = self._post_impressions_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             impression_request=impression_request,
             _request_auth=_request_auth,
@@ -788,7 +752,6 @@ class ImpressionsApi:
     @validate_call
     def post_impressions_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         impression_request: Optional[ImpressionRequest] = None,
         _request_timeout: Union[
@@ -808,8 +771,6 @@ class ImpressionsApi:
 
         Creates an impression.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param impression_request:
@@ -837,7 +798,6 @@ class ImpressionsApi:
         """ # noqa: E501
 
         _param = self._post_impressions_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             impression_request=impression_request,
             _request_auth=_request_auth,
@@ -860,7 +820,6 @@ class ImpressionsApi:
 
     def _post_impressions_serialize(
         self,
-        x_auth_token,
         content_type,
         impression_request,
         _request_auth,
@@ -889,8 +848,6 @@ class ImpressionsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -923,6 +880,7 @@ class ImpressionsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

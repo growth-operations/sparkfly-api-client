@@ -43,7 +43,6 @@ class TemplatesApi:
     @validate_call
     def get_templates(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -62,8 +61,6 @@ class TemplatesApi:
 
         Gets all templates.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +86,6 @@ class TemplatesApi:
         """ # noqa: E501
 
         _param = self._get_templates_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -116,7 +112,6 @@ class TemplatesApi:
     @validate_call
     def get_templates_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -135,8 +130,6 @@ class TemplatesApi:
 
         Gets all templates.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -162,7 +155,6 @@ class TemplatesApi:
         """ # noqa: E501
 
         _param = self._get_templates_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -189,7 +181,6 @@ class TemplatesApi:
     @validate_call
     def get_templates_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -208,8 +199,6 @@ class TemplatesApi:
 
         Gets all templates.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -235,7 +224,6 @@ class TemplatesApi:
         """ # noqa: E501
 
         _param = self._get_templates_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -257,7 +245,6 @@ class TemplatesApi:
 
     def _get_templates_serialize(
         self,
-        x_auth_token,
         content_type,
         _request_auth,
         _content_type,
@@ -285,8 +272,6 @@ class TemplatesApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -304,6 +289,7 @@ class TemplatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

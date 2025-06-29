@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_pos_offer_codes**
-> PosOfferCodeIndexBody get_pos_offer_codes(x_auth_token, content_type=content_type)
+> PosOfferCodeIndexBody get_pos_offer_codes(content_type=content_type)
 
 List all POS Offer Codes
 
@@ -17,6 +17,7 @@ List POS offer codes by account ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -30,17 +31,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.POSOfferCodesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # List all POS Offer Codes
-        api_response = api_instance.get_pos_offer_codes(x_auth_token, content_type=content_type)
+        api_response = api_instance.get_pos_offer_codes(content_type=content_type)
         print("The response of POSOfferCodesApi->get_pos_offer_codes:\n")
         pprint(api_response)
     except Exception as e:
@@ -54,7 +64,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
 
 ### Return type
@@ -63,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -81,7 +90,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_pos_offer_codes_id**
-> PosOfferCode get_pos_offer_codes_id(x_auth_token, id, content_type=content_type)
+> PosOfferCode get_pos_offer_codes_id(id, content_type=content_type)
 
 Get a POS Offer Code
 
@@ -89,6 +98,7 @@ Gets POS offer code by ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -102,18 +112,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.POSOfferCodesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     id = 56 # int | The pos offer code ID that represents the pos offer code.
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get a POS Offer Code
-        api_response = api_instance.get_pos_offer_codes_id(x_auth_token, id, content_type=content_type)
+        api_response = api_instance.get_pos_offer_codes_id(id, content_type=content_type)
         print("The response of POSOfferCodesApi->get_pos_offer_codes_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -127,7 +146,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **id** | **int**| The pos offer code ID that represents the pos offer code. | 
  **content_type** | **str**| application/json | [optional] 
 
@@ -137,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

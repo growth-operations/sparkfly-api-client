@@ -45,7 +45,6 @@ class CampaignsApi:
     @validate_call
     def get_campaign(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
         _request_timeout: Union[
             None,
@@ -64,8 +63,6 @@ class CampaignsApi:
 
         Retrieves a campaign.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_id: search for records with a matching campaign ID (required)
         :type campaign_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -91,7 +88,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._get_campaign_serialize(
-            x_auth_token=x_auth_token,
             campaign_id=campaign_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -118,7 +114,6 @@ class CampaignsApi:
     @validate_call
     def get_campaign_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
         _request_timeout: Union[
             None,
@@ -137,8 +132,6 @@ class CampaignsApi:
 
         Retrieves a campaign.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_id: search for records with a matching campaign ID (required)
         :type campaign_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -164,7 +157,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._get_campaign_serialize(
-            x_auth_token=x_auth_token,
             campaign_id=campaign_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -191,7 +183,6 @@ class CampaignsApi:
     @validate_call
     def get_campaign_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
         _request_timeout: Union[
             None,
@@ -210,8 +201,6 @@ class CampaignsApi:
 
         Retrieves a campaign.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_id: search for records with a matching campaign ID (required)
         :type campaign_id: str
         :param _request_timeout: timeout setting for this request. If one
@@ -237,7 +226,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._get_campaign_serialize(
-            x_auth_token=x_auth_token,
             campaign_id=campaign_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -259,7 +247,6 @@ class CampaignsApi:
 
     def _get_campaign_serialize(
         self,
-        x_auth_token,
         campaign_id,
         _request_auth,
         _content_type,
@@ -289,8 +276,6 @@ class CampaignsApi:
             _path_params['campaign_id'] = campaign_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -306,6 +291,7 @@ class CampaignsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -329,7 +315,6 @@ class CampaignsApi:
     @validate_call
     def get_campaign_external_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         external_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching external ID")] = None,
         offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
         _request_timeout: Union[
@@ -349,8 +334,6 @@ class CampaignsApi:
 
         Retrieve a campaign.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param external_id: search for records with a matching external ID
         :type external_id: str
         :param offer_id: search for records with a matching offer id
@@ -378,7 +361,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._get_campaign_external_id_serialize(
-            x_auth_token=x_auth_token,
             external_id=external_id,
             offer_id=offer_id,
             _request_auth=_request_auth,
@@ -406,7 +388,6 @@ class CampaignsApi:
     @validate_call
     def get_campaign_external_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         external_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching external ID")] = None,
         offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
         _request_timeout: Union[
@@ -426,8 +407,6 @@ class CampaignsApi:
 
         Retrieve a campaign.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param external_id: search for records with a matching external ID
         :type external_id: str
         :param offer_id: search for records with a matching offer id
@@ -455,7 +434,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._get_campaign_external_id_serialize(
-            x_auth_token=x_auth_token,
             external_id=external_id,
             offer_id=offer_id,
             _request_auth=_request_auth,
@@ -483,7 +461,6 @@ class CampaignsApi:
     @validate_call
     def get_campaign_external_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         external_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching external ID")] = None,
         offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
         _request_timeout: Union[
@@ -503,8 +480,6 @@ class CampaignsApi:
 
         Retrieve a campaign.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param external_id: search for records with a matching external ID
         :type external_id: str
         :param offer_id: search for records with a matching offer id
@@ -532,7 +507,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._get_campaign_external_id_serialize(
-            x_auth_token=x_auth_token,
             external_id=external_id,
             offer_id=offer_id,
             _request_auth=_request_auth,
@@ -555,7 +529,6 @@ class CampaignsApi:
 
     def _get_campaign_external_id_serialize(
         self,
-        x_auth_token,
         external_id,
         offer_id,
         _request_auth,
@@ -592,8 +565,6 @@ class CampaignsApi:
             _query_params.append(('offer_id', offer_id))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -609,6 +580,7 @@ class CampaignsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -632,7 +604,6 @@ class CampaignsApi:
     @validate_call
     def get_campaign_tags(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -650,8 +621,6 @@ class CampaignsApi:
 
         Retrieve campaign tags.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -675,7 +644,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._get_campaign_tags_serialize(
-            x_auth_token=x_auth_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -701,7 +669,6 @@ class CampaignsApi:
     @validate_call
     def get_campaign_tags_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -719,8 +686,6 @@ class CampaignsApi:
 
         Retrieve campaign tags.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -744,7 +709,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._get_campaign_tags_serialize(
-            x_auth_token=x_auth_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -770,7 +734,6 @@ class CampaignsApi:
     @validate_call
     def get_campaign_tags_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -788,8 +751,6 @@ class CampaignsApi:
 
         Retrieve campaign tags.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -813,7 +774,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._get_campaign_tags_serialize(
-            x_auth_token=x_auth_token,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -834,7 +794,6 @@ class CampaignsApi:
 
     def _get_campaign_tags_serialize(
         self,
-        x_auth_token,
         _request_auth,
         _content_type,
         _headers,
@@ -861,8 +820,6 @@ class CampaignsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -878,6 +835,7 @@ class CampaignsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -901,7 +859,6 @@ class CampaignsApi:
     @validate_call
     def post_campaign(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_request: Optional[CampaignRequest] = None,
         _request_timeout: Union[
             None,
@@ -920,8 +877,6 @@ class CampaignsApi:
 
         Creates a campaign.  redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date. IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_request:
         :type campaign_request: CampaignRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -947,7 +902,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._post_campaign_serialize(
-            x_auth_token=x_auth_token,
             campaign_request=campaign_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -975,7 +929,6 @@ class CampaignsApi:
     @validate_call
     def post_campaign_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_request: Optional[CampaignRequest] = None,
         _request_timeout: Union[
             None,
@@ -994,8 +947,6 @@ class CampaignsApi:
 
         Creates a campaign.  redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date. IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_request:
         :type campaign_request: CampaignRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1021,7 +972,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._post_campaign_serialize(
-            x_auth_token=x_auth_token,
             campaign_request=campaign_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1049,7 +999,6 @@ class CampaignsApi:
     @validate_call
     def post_campaign_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_request: Optional[CampaignRequest] = None,
         _request_timeout: Union[
             None,
@@ -1068,8 +1017,6 @@ class CampaignsApi:
 
         Creates a campaign.  redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date. IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_request:
         :type campaign_request: CampaignRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1095,7 +1042,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._post_campaign_serialize(
-            x_auth_token=x_auth_token,
             campaign_request=campaign_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1118,7 +1064,6 @@ class CampaignsApi:
 
     def _post_campaign_serialize(
         self,
-        x_auth_token,
         campaign_request,
         _request_auth,
         _content_type,
@@ -1146,8 +1091,6 @@ class CampaignsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if campaign_request is not None:
@@ -1178,6 +1121,7 @@ class CampaignsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1201,7 +1145,6 @@ class CampaignsApi:
     @validate_call
     def put_campaign(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
         campaign_request: Optional[CampaignRequest] = None,
         _request_timeout: Union[
@@ -1221,8 +1164,6 @@ class CampaignsApi:
 
         Updates a campaign.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_id: search for records with a matching campaign ID (required)
         :type campaign_id: str
         :param campaign_request:
@@ -1250,7 +1191,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._put_campaign_serialize(
-            x_auth_token=x_auth_token,
             campaign_id=campaign_id,
             campaign_request=campaign_request,
             _request_auth=_request_auth,
@@ -1279,7 +1219,6 @@ class CampaignsApi:
     @validate_call
     def put_campaign_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
         campaign_request: Optional[CampaignRequest] = None,
         _request_timeout: Union[
@@ -1299,8 +1238,6 @@ class CampaignsApi:
 
         Updates a campaign.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_id: search for records with a matching campaign ID (required)
         :type campaign_id: str
         :param campaign_request:
@@ -1328,7 +1265,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._put_campaign_serialize(
-            x_auth_token=x_auth_token,
             campaign_id=campaign_id,
             campaign_request=campaign_request,
             _request_auth=_request_auth,
@@ -1357,7 +1293,6 @@ class CampaignsApi:
     @validate_call
     def put_campaign_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
         campaign_request: Optional[CampaignRequest] = None,
         _request_timeout: Union[
@@ -1377,8 +1312,6 @@ class CampaignsApi:
 
         Updates a campaign.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_id: search for records with a matching campaign ID (required)
         :type campaign_id: str
         :param campaign_request:
@@ -1406,7 +1339,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._put_campaign_serialize(
-            x_auth_token=x_auth_token,
             campaign_id=campaign_id,
             campaign_request=campaign_request,
             _request_auth=_request_auth,
@@ -1430,7 +1362,6 @@ class CampaignsApi:
 
     def _put_campaign_serialize(
         self,
-        x_auth_token,
         campaign_id,
         campaign_request,
         _request_auth,
@@ -1461,8 +1392,6 @@ class CampaignsApi:
             _path_params['campaign_id'] = campaign_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if campaign_request is not None:
@@ -1493,6 +1422,7 @@ class CampaignsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1516,7 +1446,6 @@ class CampaignsApi:
     @validate_call
     def put_campaigns_campaign_id_actions_approve(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_id: Annotated[StrictInt, Field(description="primary identifier of the campaign")],
         action: Annotated[StrictStr, Field(description="desired status of the campaign")],
         _request_timeout: Union[
@@ -1536,8 +1465,6 @@ class CampaignsApi:
 
         Set the status of a currently pending or suspended campaign to active.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_id: primary identifier of the campaign (required)
         :type campaign_id: int
         :param action: desired status of the campaign (required)
@@ -1565,7 +1492,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._put_campaigns_campaign_id_actions_approve_serialize(
-            x_auth_token=x_auth_token,
             campaign_id=campaign_id,
             action=action,
             _request_auth=_request_auth,
@@ -1593,7 +1519,6 @@ class CampaignsApi:
     @validate_call
     def put_campaigns_campaign_id_actions_approve_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_id: Annotated[StrictInt, Field(description="primary identifier of the campaign")],
         action: Annotated[StrictStr, Field(description="desired status of the campaign")],
         _request_timeout: Union[
@@ -1613,8 +1538,6 @@ class CampaignsApi:
 
         Set the status of a currently pending or suspended campaign to active.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_id: primary identifier of the campaign (required)
         :type campaign_id: int
         :param action: desired status of the campaign (required)
@@ -1642,7 +1565,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._put_campaigns_campaign_id_actions_approve_serialize(
-            x_auth_token=x_auth_token,
             campaign_id=campaign_id,
             action=action,
             _request_auth=_request_auth,
@@ -1670,7 +1592,6 @@ class CampaignsApi:
     @validate_call
     def put_campaigns_campaign_id_actions_approve_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         campaign_id: Annotated[StrictInt, Field(description="primary identifier of the campaign")],
         action: Annotated[StrictStr, Field(description="desired status of the campaign")],
         _request_timeout: Union[
@@ -1690,8 +1611,6 @@ class CampaignsApi:
 
         Set the status of a currently pending or suspended campaign to active.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param campaign_id: primary identifier of the campaign (required)
         :type campaign_id: int
         :param action: desired status of the campaign (required)
@@ -1719,7 +1638,6 @@ class CampaignsApi:
         """ # noqa: E501
 
         _param = self._put_campaigns_campaign_id_actions_approve_serialize(
-            x_auth_token=x_auth_token,
             campaign_id=campaign_id,
             action=action,
             _request_auth=_request_auth,
@@ -1742,7 +1660,6 @@ class CampaignsApi:
 
     def _put_campaigns_campaign_id_actions_approve_serialize(
         self,
-        x_auth_token,
         campaign_id,
         action,
         _request_auth,
@@ -1775,8 +1692,6 @@ class CampaignsApi:
             _path_params['action'] = action
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -1792,6 +1707,7 @@ class CampaignsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

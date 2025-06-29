@@ -2,6 +2,7 @@
 
 # import apis into api package
 from openapi_client.api.audiences_api import AudiencesApi
+from openapi_client.api.authentication_api import AuthenticationApi
 from openapi_client.api.bi_store_lists_api import BIStoreListsApi
 from openapi_client.api.campaigns_api import CampaignsApi
 from openapi_client.api.ctm_api import CtmApi

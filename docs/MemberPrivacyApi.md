@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **get_privacy_member_export**
-> MemberPrivacy get_privacy_member_export(x_auth_token, content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+> MemberPrivacy get_privacy_member_export(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
 
 Exports Data Associated with a Member
 
@@ -17,6 +17,7 @@ Looks up and exports data for the member associated with the provided member_ide
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -30,19 +31,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MemberPrivacyApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     member_identifier = 'member_identifier_example' # str | the member identifier attached to a member (optional)
     credential_identifier = 'credential_identifier_example' # str | The identifier of the credential (optional)
 
     try:
         # Exports Data Associated with a Member
-        api_response = api_instance.get_privacy_member_export(x_auth_token, content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+        api_response = api_instance.get_privacy_member_export(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
         print("The response of MemberPrivacyApi->get_privacy_member_export:\n")
         pprint(api_response)
     except Exception as e:
@@ -56,7 +66,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **member_identifier** | **str**| the member identifier attached to a member | [optional] 
  **credential_identifier** | **str**| The identifier of the credential | [optional] 
@@ -67,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -87,7 +96,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_privacy_member_delete_request**
-> post_privacy_member_delete_request(x_auth_token, content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+> post_privacy_member_delete_request(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
 
 Creates a Deletion Request for a Member
 
@@ -95,6 +104,7 @@ Looks up and creates a deletion request for the member associated with the provi
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -107,19 +117,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MemberPrivacyApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     member_identifier = 'member_identifier_example' # str | the member identifier attached to a member (optional)
     credential_identifier = 'credential_identifier_example' # str | The identifier of the credential (optional)
 
     try:
         # Creates a Deletion Request for a Member
-        api_instance.post_privacy_member_delete_request(x_auth_token, content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+        api_instance.post_privacy_member_delete_request(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
     except Exception as e:
         print("Exception when calling MemberPrivacyApi->post_privacy_member_delete_request: %s\n" % e)
 ```
@@ -131,7 +150,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **member_identifier** | **str**| the member identifier attached to a member | [optional] 
  **credential_identifier** | **str**| The identifier of the credential | [optional] 
@@ -142,7 +160,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

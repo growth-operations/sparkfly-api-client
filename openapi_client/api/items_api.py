@@ -48,7 +48,6 @@ class ItemsApi:
     @validate_call
     def delete_item_sets_item_set_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -68,8 +67,6 @@ class ItemsApi:
 
         Deletes an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -97,7 +94,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._delete_item_sets_item_set_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -126,7 +122,6 @@ class ItemsApi:
     @validate_call
     def delete_item_sets_item_set_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -146,8 +141,6 @@ class ItemsApi:
 
         Deletes an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -175,7 +168,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._delete_item_sets_item_set_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -204,7 +196,6 @@ class ItemsApi:
     @validate_call
     def delete_item_sets_item_set_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -224,8 +215,6 @@ class ItemsApi:
 
         Deletes an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -253,7 +242,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._delete_item_sets_item_set_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -277,7 +265,6 @@ class ItemsApi:
 
     def _delete_item_sets_item_set_id_serialize(
         self,
-        x_auth_token,
         item_set_id,
         content_type,
         _request_auth,
@@ -308,8 +295,6 @@ class ItemsApi:
             _path_params['item_set_id'] = item_set_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -320,6 +305,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -343,7 +329,6 @@ class ItemsApi:
     @validate_call
     def delete_item_sets_item_set_id_items_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         id: Annotated[StrictStr, Field(description="The primary key of the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -364,8 +349,6 @@ class ItemsApi:
 
         Removes an item from an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param id: The primary key of the item (required)
@@ -395,7 +378,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._delete_item_sets_item_set_id_items_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             id=id,
             content_type=content_type,
@@ -426,7 +408,6 @@ class ItemsApi:
     @validate_call
     def delete_item_sets_item_set_id_items_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         id: Annotated[StrictStr, Field(description="The primary key of the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -447,8 +428,6 @@ class ItemsApi:
 
         Removes an item from an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param id: The primary key of the item (required)
@@ -478,7 +457,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._delete_item_sets_item_set_id_items_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             id=id,
             content_type=content_type,
@@ -509,7 +487,6 @@ class ItemsApi:
     @validate_call
     def delete_item_sets_item_set_id_items_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         id: Annotated[StrictStr, Field(description="The primary key of the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -530,8 +507,6 @@ class ItemsApi:
 
         Removes an item from an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param id: The primary key of the item (required)
@@ -561,7 +536,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._delete_item_sets_item_set_id_items_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             id=id,
             content_type=content_type,
@@ -587,7 +561,6 @@ class ItemsApi:
 
     def _delete_item_sets_item_set_id_items_id_serialize(
         self,
-        x_auth_token,
         item_set_id,
         id,
         content_type,
@@ -621,8 +594,6 @@ class ItemsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -640,6 +611,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -663,7 +635,6 @@ class ItemsApi:
     @validate_call
     def delete_items_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -683,8 +654,6 @@ class ItemsApi:
 
         Deletes an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: Primary key for the item (required)
         :type id: str
         :param content_type: application/json
@@ -712,7 +681,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._delete_items_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -741,7 +709,6 @@ class ItemsApi:
     @validate_call
     def delete_items_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -761,8 +728,6 @@ class ItemsApi:
 
         Deletes an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: Primary key for the item (required)
         :type id: str
         :param content_type: application/json
@@ -790,7 +755,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._delete_items_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -819,7 +783,6 @@ class ItemsApi:
     @validate_call
     def delete_items_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -839,8 +802,6 @@ class ItemsApi:
 
         Deletes an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: Primary key for the item (required)
         :type id: str
         :param content_type: application/json
@@ -868,7 +829,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._delete_items_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -892,7 +852,6 @@ class ItemsApi:
 
     def _delete_items_id_serialize(
         self,
-        x_auth_token,
         id,
         content_type,
         _request_auth,
@@ -923,8 +882,6 @@ class ItemsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -942,6 +899,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -965,7 +923,6 @@ class ItemsApi:
     @validate_call
     def get_item_sets(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -989,8 +946,6 @@ class ItemsApi:
 
         Get all item sets.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param page: page offset to display a range of records from
@@ -1026,7 +981,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_item_sets_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -1058,7 +1012,6 @@ class ItemsApi:
     @validate_call
     def get_item_sets_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -1082,8 +1035,6 @@ class ItemsApi:
 
         Get all item sets.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param page: page offset to display a range of records from
@@ -1119,7 +1070,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_item_sets_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -1151,7 +1101,6 @@ class ItemsApi:
     @validate_call
     def get_item_sets_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -1175,8 +1124,6 @@ class ItemsApi:
 
         Get all item sets.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param page: page offset to display a range of records from
@@ -1212,7 +1159,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_item_sets_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -1239,7 +1185,6 @@ class ItemsApi:
 
     def _get_item_sets_serialize(
         self,
-        x_auth_token,
         content_type,
         page,
         per_page,
@@ -1292,8 +1237,6 @@ class ItemsApi:
             _query_params.append(('order', order))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -1311,6 +1254,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1334,7 +1278,6 @@ class ItemsApi:
     @validate_call
     def get_item_sets_item_set_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -1354,8 +1297,6 @@ class ItemsApi:
 
         Gets an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -1383,7 +1324,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_item_sets_item_set_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -1411,7 +1351,6 @@ class ItemsApi:
     @validate_call
     def get_item_sets_item_set_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -1431,8 +1370,6 @@ class ItemsApi:
 
         Gets an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -1460,7 +1397,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_item_sets_item_set_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -1488,7 +1424,6 @@ class ItemsApi:
     @validate_call
     def get_item_sets_item_set_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -1508,8 +1443,6 @@ class ItemsApi:
 
         Gets an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -1537,7 +1470,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_item_sets_item_set_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -1560,7 +1492,6 @@ class ItemsApi:
 
     def _get_item_sets_item_set_id_serialize(
         self,
-        x_auth_token,
         item_set_id,
         content_type,
         _request_auth,
@@ -1591,8 +1522,6 @@ class ItemsApi:
             _path_params['item_set_id'] = item_set_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -1610,6 +1539,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1633,7 +1563,6 @@ class ItemsApi:
     @validate_call
     def get_item_sets_item_set_id_items(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
@@ -1658,8 +1587,6 @@ class ItemsApi:
 
         Gets a list of items from the item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -1697,7 +1624,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_item_sets_item_set_id_items_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             page=page,
@@ -1731,7 +1657,6 @@ class ItemsApi:
     @validate_call
     def get_item_sets_item_set_id_items_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
@@ -1756,8 +1681,6 @@ class ItemsApi:
 
         Gets a list of items from the item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -1795,7 +1718,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_item_sets_item_set_id_items_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             page=page,
@@ -1829,7 +1751,6 @@ class ItemsApi:
     @validate_call
     def get_item_sets_item_set_id_items_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
@@ -1854,8 +1775,6 @@ class ItemsApi:
 
         Gets a list of items from the item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -1893,7 +1812,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_item_sets_item_set_id_items_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             page=page,
@@ -1922,7 +1840,6 @@ class ItemsApi:
 
     def _get_item_sets_item_set_id_items_serialize(
         self,
-        x_auth_token,
         item_set_id,
         content_type,
         page,
@@ -1978,8 +1895,6 @@ class ItemsApi:
             _query_params.append(('order', order))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -1997,6 +1912,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2020,7 +1936,6 @@ class ItemsApi:
     @validate_call
     def get_items(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -2044,8 +1959,6 @@ class ItemsApi:
 
         Get all items.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param page: page offset to display a range of records from
@@ -2081,7 +1994,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_items_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -2113,7 +2025,6 @@ class ItemsApi:
     @validate_call
     def get_items_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -2137,8 +2048,6 @@ class ItemsApi:
 
         Get all items.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param page: page offset to display a range of records from
@@ -2174,7 +2083,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_items_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -2206,7 +2114,6 @@ class ItemsApi:
     @validate_call
     def get_items_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -2230,8 +2137,6 @@ class ItemsApi:
 
         Get all items.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param page: page offset to display a range of records from
@@ -2267,7 +2172,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_items_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -2294,7 +2198,6 @@ class ItemsApi:
 
     def _get_items_serialize(
         self,
-        x_auth_token,
         content_type,
         page,
         per_page,
@@ -2347,8 +2250,6 @@ class ItemsApi:
             _query_params.append(('order', order))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -2366,6 +2267,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2389,7 +2291,6 @@ class ItemsApi:
     @validate_call
     def get_items_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -2409,8 +2310,6 @@ class ItemsApi:
 
         Gets an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: Primary key for the item (required)
         :type id: str
         :param content_type: application/json
@@ -2438,7 +2337,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_items_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -2467,7 +2365,6 @@ class ItemsApi:
     @validate_call
     def get_items_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -2487,8 +2384,6 @@ class ItemsApi:
 
         Gets an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: Primary key for the item (required)
         :type id: str
         :param content_type: application/json
@@ -2516,7 +2411,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_items_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -2545,7 +2439,6 @@ class ItemsApi:
     @validate_call
     def get_items_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -2565,8 +2458,6 @@ class ItemsApi:
 
         Gets an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: Primary key for the item (required)
         :type id: str
         :param content_type: application/json
@@ -2594,7 +2485,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._get_items_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -2618,7 +2508,6 @@ class ItemsApi:
 
     def _get_items_id_serialize(
         self,
-        x_auth_token,
         id,
         content_type,
         _request_auth,
@@ -2649,8 +2538,6 @@ class ItemsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -2668,6 +2555,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2691,7 +2579,6 @@ class ItemsApi:
     @validate_call
     def post_item_sets(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_set_request: Optional[ItemSetRequest] = None,
         _request_timeout: Union[
@@ -2711,8 +2598,6 @@ class ItemsApi:
 
         Creates an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param item_set_request:
@@ -2740,7 +2625,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._post_item_sets_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             item_set_request=item_set_request,
             _request_auth=_request_auth,
@@ -2769,7 +2653,6 @@ class ItemsApi:
     @validate_call
     def post_item_sets_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_set_request: Optional[ItemSetRequest] = None,
         _request_timeout: Union[
@@ -2789,8 +2672,6 @@ class ItemsApi:
 
         Creates an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param item_set_request:
@@ -2818,7 +2699,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._post_item_sets_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             item_set_request=item_set_request,
             _request_auth=_request_auth,
@@ -2847,7 +2727,6 @@ class ItemsApi:
     @validate_call
     def post_item_sets_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_set_request: Optional[ItemSetRequest] = None,
         _request_timeout: Union[
@@ -2867,8 +2746,6 @@ class ItemsApi:
 
         Creates an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param item_set_request:
@@ -2896,7 +2773,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._post_item_sets_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             item_set_request=item_set_request,
             _request_auth=_request_auth,
@@ -2920,7 +2796,6 @@ class ItemsApi:
 
     def _post_item_sets_serialize(
         self,
-        x_auth_token,
         content_type,
         item_set_request,
         _request_auth,
@@ -2949,8 +2824,6 @@ class ItemsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -2983,6 +2856,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -3006,7 +2880,6 @@ class ItemsApi:
     @validate_call
     def post_item_sets_item_set_id_items_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         id: Annotated[StrictStr, Field(description="The primary key of the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3027,8 +2900,6 @@ class ItemsApi:
 
         Adds an item to the item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param id: The primary key of the item (required)
@@ -3058,7 +2929,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._post_item_sets_item_set_id_items_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             id=id,
             content_type=content_type,
@@ -3089,7 +2959,6 @@ class ItemsApi:
     @validate_call
     def post_item_sets_item_set_id_items_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         id: Annotated[StrictStr, Field(description="The primary key of the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3110,8 +2979,6 @@ class ItemsApi:
 
         Adds an item to the item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param id: The primary key of the item (required)
@@ -3141,7 +3008,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._post_item_sets_item_set_id_items_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             id=id,
             content_type=content_type,
@@ -3172,7 +3038,6 @@ class ItemsApi:
     @validate_call
     def post_item_sets_item_set_id_items_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         id: Annotated[StrictStr, Field(description="The primary key of the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3193,8 +3058,6 @@ class ItemsApi:
 
         Adds an item to the item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param id: The primary key of the item (required)
@@ -3224,7 +3087,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._post_item_sets_item_set_id_items_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             id=id,
             content_type=content_type,
@@ -3250,7 +3112,6 @@ class ItemsApi:
 
     def _post_item_sets_item_set_id_items_id_serialize(
         self,
-        x_auth_token,
         item_set_id,
         id,
         content_type,
@@ -3284,8 +3145,6 @@ class ItemsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -3303,6 +3162,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -3326,7 +3186,6 @@ class ItemsApi:
     @validate_call
     def post_items(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_request: Optional[ItemRequest] = None,
         _request_timeout: Union[
@@ -3346,8 +3205,6 @@ class ItemsApi:
 
         Creates an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param item_request:
@@ -3375,7 +3232,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._post_items_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             item_request=item_request,
             _request_auth=_request_auth,
@@ -3404,7 +3260,6 @@ class ItemsApi:
     @validate_call
     def post_items_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_request: Optional[ItemRequest] = None,
         _request_timeout: Union[
@@ -3424,8 +3279,6 @@ class ItemsApi:
 
         Creates an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param item_request:
@@ -3453,7 +3306,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._post_items_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             item_request=item_request,
             _request_auth=_request_auth,
@@ -3482,7 +3334,6 @@ class ItemsApi:
     @validate_call
     def post_items_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_request: Optional[ItemRequest] = None,
         _request_timeout: Union[
@@ -3502,8 +3353,6 @@ class ItemsApi:
 
         Creates an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param item_request:
@@ -3531,7 +3380,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._post_items_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             item_request=item_request,
             _request_auth=_request_auth,
@@ -3555,7 +3403,6 @@ class ItemsApi:
 
     def _post_items_serialize(
         self,
-        x_auth_token,
         content_type,
         item_request,
         _request_auth,
@@ -3584,8 +3431,6 @@ class ItemsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -3618,6 +3463,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -3641,7 +3487,6 @@ class ItemsApi:
     @validate_call
     def put_item_sets_item_set_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_set_request: Optional[ItemSetRequest] = None,
@@ -3662,8 +3507,6 @@ class ItemsApi:
 
         Updates an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -3693,7 +3536,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._put_item_sets_item_set_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             item_set_request=item_set_request,
@@ -3724,7 +3566,6 @@ class ItemsApi:
     @validate_call
     def put_item_sets_item_set_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_set_request: Optional[ItemSetRequest] = None,
@@ -3745,8 +3586,6 @@ class ItemsApi:
 
         Updates an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -3776,7 +3615,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._put_item_sets_item_set_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             item_set_request=item_set_request,
@@ -3807,7 +3645,6 @@ class ItemsApi:
     @validate_call
     def put_item_sets_item_set_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_set_request: Optional[ItemSetRequest] = None,
@@ -3828,8 +3665,6 @@ class ItemsApi:
 
         Updates an item set.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param item_set_id: The primary key of the item set (required)
         :type item_set_id: str
         :param content_type: application/json
@@ -3859,7 +3694,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._put_item_sets_item_set_id_serialize(
-            x_auth_token=x_auth_token,
             item_set_id=item_set_id,
             content_type=content_type,
             item_set_request=item_set_request,
@@ -3885,7 +3719,6 @@ class ItemsApi:
 
     def _put_item_sets_item_set_id_serialize(
         self,
-        x_auth_token,
         item_set_id,
         content_type,
         item_set_request,
@@ -3917,8 +3750,6 @@ class ItemsApi:
             _path_params['item_set_id'] = item_set_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -3951,6 +3782,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -3974,7 +3806,6 @@ class ItemsApi:
     @validate_call
     def put_items_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_request: Optional[ItemRequest] = None,
@@ -3995,8 +3826,6 @@ class ItemsApi:
 
         Updates an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: Primary key for the item (required)
         :type id: str
         :param content_type: application/json
@@ -4026,7 +3855,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._put_items_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             item_request=item_request,
@@ -4056,7 +3884,6 @@ class ItemsApi:
     @validate_call
     def put_items_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_request: Optional[ItemRequest] = None,
@@ -4077,8 +3904,6 @@ class ItemsApi:
 
         Updates an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: Primary key for the item (required)
         :type id: str
         :param content_type: application/json
@@ -4108,7 +3933,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._put_items_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             item_request=item_request,
@@ -4138,7 +3962,6 @@ class ItemsApi:
     @validate_call
     def put_items_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_request: Optional[ItemRequest] = None,
@@ -4159,8 +3982,6 @@ class ItemsApi:
 
         Updates an item.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: Primary key for the item (required)
         :type id: str
         :param content_type: application/json
@@ -4190,7 +4011,6 @@ class ItemsApi:
         """ # noqa: E501
 
         _param = self._put_items_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             item_request=item_request,
@@ -4215,7 +4035,6 @@ class ItemsApi:
 
     def _put_items_id_serialize(
         self,
-        x_auth_token,
         id,
         content_type,
         item_request,
@@ -4247,8 +4066,6 @@ class ItemsApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -4281,6 +4098,7 @@ class ItemsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

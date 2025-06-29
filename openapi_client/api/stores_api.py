@@ -45,7 +45,6 @@ class StoresApi:
     @validate_call
     def delete_merchants_merchant_id_stores_store_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         store_id: Annotated[StrictStr, Field(description="the store's primary key")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the store ")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -66,8 +65,6 @@ class StoresApi:
 
         Remove a store.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param store_id: the store's primary key (required)
         :type store_id: str
         :param merchant_id: merchant ID owning the store  (required)
@@ -97,7 +94,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._delete_merchants_merchant_id_stores_store_id_serialize(
-            x_auth_token=x_auth_token,
             store_id=store_id,
             merchant_id=merchant_id,
             content_type=content_type,
@@ -126,7 +122,6 @@ class StoresApi:
     @validate_call
     def delete_merchants_merchant_id_stores_store_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         store_id: Annotated[StrictStr, Field(description="the store's primary key")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the store ")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -147,8 +142,6 @@ class StoresApi:
 
         Remove a store.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param store_id: the store's primary key (required)
         :type store_id: str
         :param merchant_id: merchant ID owning the store  (required)
@@ -178,7 +171,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._delete_merchants_merchant_id_stores_store_id_serialize(
-            x_auth_token=x_auth_token,
             store_id=store_id,
             merchant_id=merchant_id,
             content_type=content_type,
@@ -207,7 +199,6 @@ class StoresApi:
     @validate_call
     def delete_merchants_merchant_id_stores_store_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         store_id: Annotated[StrictStr, Field(description="the store's primary key")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the store ")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -228,8 +219,6 @@ class StoresApi:
 
         Remove a store.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param store_id: the store's primary key (required)
         :type store_id: str
         :param merchant_id: merchant ID owning the store  (required)
@@ -259,7 +248,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._delete_merchants_merchant_id_stores_store_id_serialize(
-            x_auth_token=x_auth_token,
             store_id=store_id,
             merchant_id=merchant_id,
             content_type=content_type,
@@ -283,7 +271,6 @@ class StoresApi:
 
     def _delete_merchants_merchant_id_stores_store_id_serialize(
         self,
-        x_auth_token,
         store_id,
         merchant_id,
         content_type,
@@ -319,8 +306,6 @@ class StoresApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -336,6 +321,7 @@ class StoresApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -359,7 +345,6 @@ class StoresApi:
     @validate_call
     def get_merchants_merchant_id_stores(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the stores")],
         search_text: Annotated[Optional[StrictStr], Field(description="search for records containing the text")] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="order the returned records by a specified field")] = None,
@@ -383,8 +368,6 @@ class StoresApi:
 
         Search for stores by merchant ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param merchant_id: merchant ID owning the stores (required)
         :type merchant_id: str
         :param search_text: search for records containing the text
@@ -420,7 +403,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._get_merchants_merchant_id_stores_serialize(
-            x_auth_token=x_auth_token,
             merchant_id=merchant_id,
             search_text=search_text,
             sort_by=sort_by,
@@ -453,7 +435,6 @@ class StoresApi:
     @validate_call
     def get_merchants_merchant_id_stores_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the stores")],
         search_text: Annotated[Optional[StrictStr], Field(description="search for records containing the text")] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="order the returned records by a specified field")] = None,
@@ -477,8 +458,6 @@ class StoresApi:
 
         Search for stores by merchant ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param merchant_id: merchant ID owning the stores (required)
         :type merchant_id: str
         :param search_text: search for records containing the text
@@ -514,7 +493,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._get_merchants_merchant_id_stores_serialize(
-            x_auth_token=x_auth_token,
             merchant_id=merchant_id,
             search_text=search_text,
             sort_by=sort_by,
@@ -547,7 +525,6 @@ class StoresApi:
     @validate_call
     def get_merchants_merchant_id_stores_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the stores")],
         search_text: Annotated[Optional[StrictStr], Field(description="search for records containing the text")] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="order the returned records by a specified field")] = None,
@@ -571,8 +548,6 @@ class StoresApi:
 
         Search for stores by merchant ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param merchant_id: merchant ID owning the stores (required)
         :type merchant_id: str
         :param search_text: search for records containing the text
@@ -608,7 +583,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._get_merchants_merchant_id_stores_serialize(
-            x_auth_token=x_auth_token,
             merchant_id=merchant_id,
             search_text=search_text,
             sort_by=sort_by,
@@ -636,7 +610,6 @@ class StoresApi:
 
     def _get_merchants_merchant_id_stores_serialize(
         self,
-        x_auth_token,
         merchant_id,
         search_text,
         sort_by,
@@ -691,8 +664,6 @@ class StoresApi:
             _query_params.append(('order', order))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -708,6 +679,7 @@ class StoresApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -731,7 +703,6 @@ class StoresApi:
     @validate_call
     def get_merchants_merchant_id_stores_index(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -755,8 +726,6 @@ class StoresApi:
 
         Search stores with active offers.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param page: page offset to display a range of records from
@@ -792,7 +761,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._get_merchants_merchant_id_stores_index_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -824,7 +792,6 @@ class StoresApi:
     @validate_call
     def get_merchants_merchant_id_stores_index_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -848,8 +815,6 @@ class StoresApi:
 
         Search stores with active offers.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param page: page offset to display a range of records from
@@ -885,7 +850,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._get_merchants_merchant_id_stores_index_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -917,7 +881,6 @@ class StoresApi:
     @validate_call
     def get_merchants_merchant_id_stores_index_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -941,8 +904,6 @@ class StoresApi:
 
         Search stores with active offers.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param page: page offset to display a range of records from
@@ -978,7 +939,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._get_merchants_merchant_id_stores_index_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -1005,7 +965,6 @@ class StoresApi:
 
     def _get_merchants_merchant_id_stores_index_serialize(
         self,
-        x_auth_token,
         content_type,
         page,
         per_page,
@@ -1060,8 +1019,6 @@ class StoresApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -1077,6 +1034,7 @@ class StoresApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1100,7 +1058,6 @@ class StoresApi:
     @validate_call
     def get_merchants_merchant_id_stores_store_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         store_id: Annotated[StrictStr, Field(description="the store's primary key")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the store ")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1121,8 +1078,6 @@ class StoresApi:
 
         Look a store up by it's ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param store_id: the store's primary key (required)
         :type store_id: str
         :param merchant_id: merchant ID owning the store  (required)
@@ -1152,7 +1107,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._get_merchants_merchant_id_stores_store_id_serialize(
-            x_auth_token=x_auth_token,
             store_id=store_id,
             merchant_id=merchant_id,
             content_type=content_type,
@@ -1181,7 +1135,6 @@ class StoresApi:
     @validate_call
     def get_merchants_merchant_id_stores_store_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         store_id: Annotated[StrictStr, Field(description="the store's primary key")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the store ")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1202,8 +1155,6 @@ class StoresApi:
 
         Look a store up by it's ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param store_id: the store's primary key (required)
         :type store_id: str
         :param merchant_id: merchant ID owning the store  (required)
@@ -1233,7 +1184,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._get_merchants_merchant_id_stores_store_id_serialize(
-            x_auth_token=x_auth_token,
             store_id=store_id,
             merchant_id=merchant_id,
             content_type=content_type,
@@ -1262,7 +1212,6 @@ class StoresApi:
     @validate_call
     def get_merchants_merchant_id_stores_store_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         store_id: Annotated[StrictStr, Field(description="the store's primary key")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the store ")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1283,8 +1232,6 @@ class StoresApi:
 
         Look a store up by it's ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param store_id: the store's primary key (required)
         :type store_id: str
         :param merchant_id: merchant ID owning the store  (required)
@@ -1314,7 +1261,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._get_merchants_merchant_id_stores_store_id_serialize(
-            x_auth_token=x_auth_token,
             store_id=store_id,
             merchant_id=merchant_id,
             content_type=content_type,
@@ -1338,7 +1284,6 @@ class StoresApi:
 
     def _get_merchants_merchant_id_stores_store_id_serialize(
         self,
-        x_auth_token,
         store_id,
         merchant_id,
         content_type,
@@ -1374,8 +1319,6 @@ class StoresApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -1391,6 +1334,7 @@ class StoresApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1414,7 +1358,6 @@ class StoresApi:
     @validate_call
     def post_merchants_merchant_id_stores(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the stores")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         store_request: Optional[StoreRequest] = None,
@@ -1435,8 +1378,6 @@ class StoresApi:
 
         Add a new store for a merchant.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param merchant_id: merchant ID owning the stores (required)
         :type merchant_id: str
         :param content_type: application/json
@@ -1466,7 +1407,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._post_merchants_merchant_id_stores_serialize(
-            x_auth_token=x_auth_token,
             merchant_id=merchant_id,
             content_type=content_type,
             store_request=store_request,
@@ -1496,7 +1436,6 @@ class StoresApi:
     @validate_call
     def post_merchants_merchant_id_stores_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the stores")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         store_request: Optional[StoreRequest] = None,
@@ -1517,8 +1456,6 @@ class StoresApi:
 
         Add a new store for a merchant.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param merchant_id: merchant ID owning the stores (required)
         :type merchant_id: str
         :param content_type: application/json
@@ -1548,7 +1485,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._post_merchants_merchant_id_stores_serialize(
-            x_auth_token=x_auth_token,
             merchant_id=merchant_id,
             content_type=content_type,
             store_request=store_request,
@@ -1578,7 +1514,6 @@ class StoresApi:
     @validate_call
     def post_merchants_merchant_id_stores_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the stores")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         store_request: Optional[StoreRequest] = None,
@@ -1599,8 +1534,6 @@ class StoresApi:
 
         Add a new store for a merchant.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param merchant_id: merchant ID owning the stores (required)
         :type merchant_id: str
         :param content_type: application/json
@@ -1630,7 +1563,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._post_merchants_merchant_id_stores_serialize(
-            x_auth_token=x_auth_token,
             merchant_id=merchant_id,
             content_type=content_type,
             store_request=store_request,
@@ -1655,7 +1587,6 @@ class StoresApi:
 
     def _post_merchants_merchant_id_stores_serialize(
         self,
-        x_auth_token,
         merchant_id,
         content_type,
         store_request,
@@ -1689,8 +1620,6 @@ class StoresApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if store_request is not None:
@@ -1721,6 +1650,7 @@ class StoresApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1744,7 +1674,6 @@ class StoresApi:
     @validate_call
     def put_merchants_merchant_id_stores_store_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         store_id: Annotated[StrictStr, Field(description="the store's primary key")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the store ")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1766,8 +1695,6 @@ class StoresApi:
 
         Update an existing store.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param store_id: the store's primary key (required)
         :type store_id: str
         :param merchant_id: merchant ID owning the store  (required)
@@ -1799,7 +1726,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._put_merchants_merchant_id_stores_store_id_serialize(
-            x_auth_token=x_auth_token,
             store_id=store_id,
             merchant_id=merchant_id,
             content_type=content_type,
@@ -1830,7 +1756,6 @@ class StoresApi:
     @validate_call
     def put_merchants_merchant_id_stores_store_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         store_id: Annotated[StrictStr, Field(description="the store's primary key")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the store ")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1852,8 +1777,6 @@ class StoresApi:
 
         Update an existing store.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param store_id: the store's primary key (required)
         :type store_id: str
         :param merchant_id: merchant ID owning the store  (required)
@@ -1885,7 +1808,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._put_merchants_merchant_id_stores_store_id_serialize(
-            x_auth_token=x_auth_token,
             store_id=store_id,
             merchant_id=merchant_id,
             content_type=content_type,
@@ -1916,7 +1838,6 @@ class StoresApi:
     @validate_call
     def put_merchants_merchant_id_stores_store_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         store_id: Annotated[StrictStr, Field(description="the store's primary key")],
         merchant_id: Annotated[StrictStr, Field(description="merchant ID owning the store ")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1938,8 +1859,6 @@ class StoresApi:
 
         Update an existing store.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param store_id: the store's primary key (required)
         :type store_id: str
         :param merchant_id: merchant ID owning the store  (required)
@@ -1971,7 +1890,6 @@ class StoresApi:
         """ # noqa: E501
 
         _param = self._put_merchants_merchant_id_stores_store_id_serialize(
-            x_auth_token=x_auth_token,
             store_id=store_id,
             merchant_id=merchant_id,
             content_type=content_type,
@@ -1997,7 +1915,6 @@ class StoresApi:
 
     def _put_merchants_merchant_id_stores_store_id_serialize(
         self,
-        x_auth_token,
         store_id,
         merchant_id,
         content_type,
@@ -2034,8 +1951,6 @@ class StoresApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if store_request is not None:
@@ -2066,6 +1981,7 @@ class StoresApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

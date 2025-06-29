@@ -27,6 +27,9 @@ paths:
   # Add the auth endpoint
   "/auth":
     post:
+      servers:
+        - url: "https://api-staging.sparkfly.com"
+          description: Staging (root, for auth only)
       tags:
         - Authentication
       summary: Request an Authentication Token

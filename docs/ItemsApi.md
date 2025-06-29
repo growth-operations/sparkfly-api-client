@@ -20,7 +20,7 @@ Method | HTTP request | Description
 
 
 # **delete_item_sets_item_set_id**
-> delete_item_sets_item_set_id(x_auth_token, item_set_id, content_type=content_type)
+> delete_item_sets_item_set_id(item_set_id, content_type=content_type)
 
 Delete an Item Set
 
@@ -28,6 +28,7 @@ Deletes an item set.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -40,18 +41,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Delete an Item Set
-        api_instance.delete_item_sets_item_set_id(x_auth_token, item_set_id, content_type=content_type)
+        api_instance.delete_item_sets_item_set_id(item_set_id, content_type=content_type)
     except Exception as e:
         print("Exception when calling ItemsApi->delete_item_sets_item_set_id: %s\n" % e)
 ```
@@ -63,7 +73,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **item_set_id** | **str**| The primary key of the item set | 
  **content_type** | **str**| application/json | [optional] 
 
@@ -73,7 +82,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -92,7 +101,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_item_sets_item_set_id_items_id**
-> delete_item_sets_item_set_id_items_id(x_auth_token, item_set_id, id, content_type=content_type)
+> delete_item_sets_item_set_id_items_id(item_set_id, id, content_type=content_type)
 
 Remove Item from Set
 
@@ -100,6 +109,7 @@ Removes an item from an item set.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -112,19 +122,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     id = 'id_example' # str | The primary key of the item
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Remove Item from Set
-        api_instance.delete_item_sets_item_set_id_items_id(x_auth_token, item_set_id, id, content_type=content_type)
+        api_instance.delete_item_sets_item_set_id_items_id(item_set_id, id, content_type=content_type)
     except Exception as e:
         print("Exception when calling ItemsApi->delete_item_sets_item_set_id_items_id: %s\n" % e)
 ```
@@ -136,7 +155,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **item_set_id** | **str**| The primary key of the item set | 
  **id** | **str**| The primary key of the item | 
  **content_type** | **str**| application/json | [optional] 
@@ -147,7 +165,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -167,7 +185,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_items_id**
-> delete_items_id(x_auth_token, id, content_type=content_type)
+> delete_items_id(id, content_type=content_type)
 
 Delete Item
 
@@ -175,6 +193,7 @@ Deletes an item.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -187,18 +206,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     id = 'id_example' # str | Primary key for the item
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Delete Item
-        api_instance.delete_items_id(x_auth_token, id, content_type=content_type)
+        api_instance.delete_items_id(id, content_type=content_type)
     except Exception as e:
         print("Exception when calling ItemsApi->delete_items_id: %s\n" % e)
 ```
@@ -210,7 +238,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **id** | **str**| Primary key for the item | 
  **content_type** | **str**| application/json | [optional] 
 
@@ -220,7 +247,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -239,7 +266,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_item_sets**
-> ItemSetIndexBody get_item_sets(x_auth_token, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+> ItemSetIndexBody get_item_sets(content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
 
 Item Set Index
 
@@ -247,6 +274,7 @@ Get all item sets.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -260,12 +288,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
     per_page = '5000' # str | maximum number of records to return in the search (optional) (default to '5000')
@@ -275,7 +312,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Item Set Index
-        api_response = api_instance.get_item_sets(x_auth_token, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+        api_response = api_instance.get_item_sets(content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
         print("The response of ItemsApi->get_item_sets:\n")
         pprint(api_response)
     except Exception as e:
@@ -289,7 +326,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **page** | **str**| page offset to display a range of records from | [optional] [default to &#39;1&#39;]
  **per_page** | **str**| maximum number of records to return in the search | [optional] [default to &#39;5000&#39;]
@@ -303,7 +339,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -321,7 +357,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_item_sets_item_set_id**
-> ItemSet get_item_sets_item_set_id(x_auth_token, item_set_id, content_type=content_type)
+> ItemSet get_item_sets_item_set_id(item_set_id, content_type=content_type)
 
 Get an Item Set
 
@@ -329,6 +365,7 @@ Gets an item set.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -342,18 +379,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get an Item Set
-        api_response = api_instance.get_item_sets_item_set_id(x_auth_token, item_set_id, content_type=content_type)
+        api_response = api_instance.get_item_sets_item_set_id(item_set_id, content_type=content_type)
         print("The response of ItemsApi->get_item_sets_item_set_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -367,7 +413,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **item_set_id** | **str**| The primary key of the item set | 
  **content_type** | **str**| application/json | [optional] 
 
@@ -377,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -395,7 +440,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_item_sets_item_set_id_items**
-> ItemIndexBody get_item_sets_item_set_id_items(x_auth_token, item_set_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+> ItemIndexBody get_item_sets_item_set_id_items(item_set_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
 
 Item Set Item Index
 
@@ -403,6 +448,7 @@ Gets a list of items from the item set.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -416,12 +462,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     content_type = 'content_type_example' # str | application/json (optional)
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
@@ -432,7 +487,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Item Set Item Index
-        api_response = api_instance.get_item_sets_item_set_id_items(x_auth_token, item_set_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+        api_response = api_instance.get_item_sets_item_set_id_items(item_set_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
         print("The response of ItemsApi->get_item_sets_item_set_id_items:\n")
         pprint(api_response)
     except Exception as e:
@@ -446,7 +501,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **item_set_id** | **str**| The primary key of the item set | 
  **content_type** | **str**| application/json | [optional] 
  **page** | **str**| page offset to display a range of records from | [optional] [default to &#39;1&#39;]
@@ -461,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -480,7 +534,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_items**
-> ItemIndexBody get_items(x_auth_token, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+> ItemIndexBody get_items(content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
 
 Item Index
 
@@ -488,6 +542,7 @@ Get all items.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -501,12 +556,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
     per_page = '5000' # str | maximum number of records to return in the search (optional) (default to '5000')
@@ -516,7 +580,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Item Index
-        api_response = api_instance.get_items(x_auth_token, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+        api_response = api_instance.get_items(content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
         print("The response of ItemsApi->get_items:\n")
         pprint(api_response)
     except Exception as e:
@@ -530,7 +594,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **page** | **str**| page offset to display a range of records from | [optional] [default to &#39;1&#39;]
  **per_page** | **str**| maximum number of records to return in the search | [optional] [default to &#39;5000&#39;]
@@ -544,7 +607,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -562,7 +625,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_items_id**
-> Item get_items_id(x_auth_token, id, content_type=content_type)
+> Item get_items_id(id, content_type=content_type)
 
 Get Item
 
@@ -570,6 +633,7 @@ Gets an item.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -583,18 +647,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     id = 'id_example' # str | Primary key for the item
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get Item
-        api_response = api_instance.get_items_id(x_auth_token, id, content_type=content_type)
+        api_response = api_instance.get_items_id(id, content_type=content_type)
         print("The response of ItemsApi->get_items_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -608,7 +681,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **id** | **str**| Primary key for the item | 
  **content_type** | **str**| application/json | [optional] 
 
@@ -618,7 +690,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -637,7 +709,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_item_sets**
-> ItemSet post_item_sets(x_auth_token, content_type=content_type, item_set_request=item_set_request)
+> ItemSet post_item_sets(content_type=content_type, item_set_request=item_set_request)
 
 Item Set Create
 
@@ -645,6 +717,7 @@ Creates an item set.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -659,18 +732,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     item_set_request = openapi_client.ItemSetRequest() # ItemSetRequest |  (optional)
 
     try:
         # Item Set Create
-        api_response = api_instance.post_item_sets(x_auth_token, content_type=content_type, item_set_request=item_set_request)
+        api_response = api_instance.post_item_sets(content_type=content_type, item_set_request=item_set_request)
         print("The response of ItemsApi->post_item_sets:\n")
         pprint(api_response)
     except Exception as e:
@@ -684,7 +766,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **item_set_request** | [**ItemSetRequest**](ItemSetRequest.md)|  | [optional] 
 
@@ -694,7 +775,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -713,7 +794,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_item_sets_item_set_id_items_id**
-> post_item_sets_item_set_id_items_id(x_auth_token, item_set_id, id, content_type=content_type)
+> post_item_sets_item_set_id_items_id(item_set_id, id, content_type=content_type)
 
 Add Item to Set
 
@@ -721,6 +802,7 @@ Adds an item to the item set.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -733,19 +815,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     id = 'id_example' # str | The primary key of the item
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Add Item to Set
-        api_instance.post_item_sets_item_set_id_items_id(x_auth_token, item_set_id, id, content_type=content_type)
+        api_instance.post_item_sets_item_set_id_items_id(item_set_id, id, content_type=content_type)
     except Exception as e:
         print("Exception when calling ItemsApi->post_item_sets_item_set_id_items_id: %s\n" % e)
 ```
@@ -757,7 +848,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **item_set_id** | **str**| The primary key of the item set | 
  **id** | **str**| The primary key of the item | 
  **content_type** | **str**| application/json | [optional] 
@@ -768,7 +858,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -788,7 +878,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_items**
-> Item post_items(x_auth_token, content_type=content_type, item_request=item_request)
+> Item post_items(content_type=content_type, item_request=item_request)
 
 Create Item
 
@@ -796,6 +886,7 @@ Creates an item.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -810,18 +901,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     item_request = openapi_client.ItemRequest() # ItemRequest |  (optional)
 
     try:
         # Create Item
-        api_response = api_instance.post_items(x_auth_token, content_type=content_type, item_request=item_request)
+        api_response = api_instance.post_items(content_type=content_type, item_request=item_request)
         print("The response of ItemsApi->post_items:\n")
         pprint(api_response)
     except Exception as e:
@@ -835,7 +935,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **item_request** | [**ItemRequest**](ItemRequest.md)|  | [optional] 
 
@@ -845,7 +944,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -864,7 +963,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_item_sets_item_set_id**
-> ItemSet put_item_sets_item_set_id(x_auth_token, item_set_id, content_type=content_type, item_set_request=item_set_request)
+> ItemSet put_item_sets_item_set_id(item_set_id, content_type=content_type, item_set_request=item_set_request)
 
 Update an Item Set
 
@@ -872,6 +971,7 @@ Updates an item set.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -886,19 +986,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     content_type = 'content_type_example' # str | application/json (optional)
     item_set_request = openapi_client.ItemSetRequest() # ItemSetRequest |  (optional)
 
     try:
         # Update an Item Set
-        api_response = api_instance.put_item_sets_item_set_id(x_auth_token, item_set_id, content_type=content_type, item_set_request=item_set_request)
+        api_response = api_instance.put_item_sets_item_set_id(item_set_id, content_type=content_type, item_set_request=item_set_request)
         print("The response of ItemsApi->put_item_sets_item_set_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -912,7 +1021,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **item_set_id** | **str**| The primary key of the item set | 
  **content_type** | **str**| application/json | [optional] 
  **item_set_request** | [**ItemSetRequest**](ItemSetRequest.md)|  | [optional] 
@@ -923,7 +1031,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -943,7 +1051,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_items_id**
-> Item put_items_id(x_auth_token, id, content_type=content_type, item_request=item_request)
+> Item put_items_id(id, content_type=content_type, item_request=item_request)
 
 Update Item
 
@@ -951,6 +1059,7 @@ Updates an item.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -965,19 +1074,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.ItemsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     id = 'id_example' # str | Primary key for the item
     content_type = 'content_type_example' # str | application/json (optional)
     item_request = openapi_client.ItemRequest() # ItemRequest |  (optional)
 
     try:
         # Update Item
-        api_response = api_instance.put_items_id(x_auth_token, id, content_type=content_type, item_request=item_request)
+        api_response = api_instance.put_items_id(id, content_type=content_type, item_request=item_request)
         print("The response of ItemsApi->put_items_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -991,7 +1109,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **id** | **str**| Primary key for the item | 
  **content_type** | **str**| application/json | [optional] 
  **item_request** | [**ItemRequest**](ItemRequest.md)|  | [optional] 
@@ -1002,7 +1119,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

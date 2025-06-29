@@ -176,7 +176,7 @@ You can customize the client configuration:
 client = Sparkfly(
     identity="your-account-identity",
     key="your-secret-key",
-    host="https://api-production.sparkfly.com/v1.0"  # Use production instead of staging
+    host="https://api.sparkfly.com/v1.0"  # Use production instead of staging
 )
 ```
 

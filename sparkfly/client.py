@@ -53,6 +53,8 @@ class Sparkfly:
             identity: Your Sparkfly account identity
             key: Your Sparkfly account secret key
             host: The API host URL (defaults to staging)
+                   - Staging: https://api-staging.sparkfly.com/v1.0
+                   - Production: https://api.sparkfly.com/v1.0
             token: Optional pre-existing auth token
             token_expires_at: Optional token expiration timestamp
         """
@@ -121,12 +123,19 @@ class Sparkfly:
         """
         try:
             # Request authentication token
-            self.auth.post_auth()
+            response = self.auth.post_auth_with_http_info()
 
-            # The token is automatically set in the API client configuration
-            # We need to extract it from the response headers or store it
-            # For now, we'll assume the token is valid for 24 hours
-            self._token = "authenticated"  # Placeholder - actual token handling depends on API response
+            # Extract the token from the response headers
+            if hasattr(response, "headers") and "X-Auth-Token" in response.headers:
+                self._token = response.headers["X-Auth-Token"]
+            else:
+                # Fallback: check if the token is in the API client configuration
+                self._token = self._config.api_key.get("XAuthToken")
+
+            if not self._token:
+                raise Exception("No authentication token received from the API")
+
+            # Set token expiration to 24 hours from now
             self._token_expires_at = time.time() + (24 * 60 * 60)  # 24 hours
 
             # Update the API client configuration with the token

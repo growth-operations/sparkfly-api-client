@@ -43,7 +43,6 @@ class MemberPrivacyApi:
     @validate_call
     def get_privacy_member_export(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
         credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
@@ -64,8 +63,6 @@ class MemberPrivacyApi:
 
         Looks up and exports data for the member associated with the provided member_identifier or credential_identifier query parameter.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param member_identifier: the member identifier attached to a member
@@ -95,7 +92,6 @@ class MemberPrivacyApi:
         """ # noqa: E501
 
         _param = self._get_privacy_member_export_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -126,7 +122,6 @@ class MemberPrivacyApi:
     @validate_call
     def get_privacy_member_export_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
         credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
@@ -147,8 +142,6 @@ class MemberPrivacyApi:
 
         Looks up and exports data for the member associated with the provided member_identifier or credential_identifier query parameter.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param member_identifier: the member identifier attached to a member
@@ -178,7 +171,6 @@ class MemberPrivacyApi:
         """ # noqa: E501
 
         _param = self._get_privacy_member_export_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -209,7 +201,6 @@ class MemberPrivacyApi:
     @validate_call
     def get_privacy_member_export_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
         credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
@@ -230,8 +221,6 @@ class MemberPrivacyApi:
 
         Looks up and exports data for the member associated with the provided member_identifier or credential_identifier query parameter.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param member_identifier: the member identifier attached to a member
@@ -261,7 +250,6 @@ class MemberPrivacyApi:
         """ # noqa: E501
 
         _param = self._get_privacy_member_export_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -287,7 +275,6 @@ class MemberPrivacyApi:
 
     def _get_privacy_member_export_serialize(
         self,
-        x_auth_token,
         content_type,
         member_identifier,
         credential_identifier,
@@ -325,8 +312,6 @@ class MemberPrivacyApi:
             _query_params.append(('credential_identifier', credential_identifier))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -344,6 +329,7 @@ class MemberPrivacyApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -367,7 +353,6 @@ class MemberPrivacyApi:
     @validate_call
     def post_privacy_member_delete_request(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
         credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
@@ -388,8 +373,6 @@ class MemberPrivacyApi:
 
         Looks up and creates a deletion request for the member associated with the provided member_identifier or credential_identifier query parameter. For each deletion request, all member offers will first be voided, then after 7 days, or longer if specified in an Account's preferences, the member will be anonymized.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param member_identifier: the member identifier attached to a member
@@ -419,7 +402,6 @@ class MemberPrivacyApi:
         """ # noqa: E501
 
         _param = self._post_privacy_member_delete_request_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -450,7 +432,6 @@ class MemberPrivacyApi:
     @validate_call
     def post_privacy_member_delete_request_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
         credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
@@ -471,8 +452,6 @@ class MemberPrivacyApi:
 
         Looks up and creates a deletion request for the member associated with the provided member_identifier or credential_identifier query parameter. For each deletion request, all member offers will first be voided, then after 7 days, or longer if specified in an Account's preferences, the member will be anonymized.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param member_identifier: the member identifier attached to a member
@@ -502,7 +481,6 @@ class MemberPrivacyApi:
         """ # noqa: E501
 
         _param = self._post_privacy_member_delete_request_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -533,7 +511,6 @@ class MemberPrivacyApi:
     @validate_call
     def post_privacy_member_delete_request_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
         credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
@@ -554,8 +531,6 @@ class MemberPrivacyApi:
 
         Looks up and creates a deletion request for the member associated with the provided member_identifier or credential_identifier query parameter. For each deletion request, all member offers will first be voided, then after 7 days, or longer if specified in an Account's preferences, the member will be anonymized.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param member_identifier: the member identifier attached to a member
@@ -585,7 +560,6 @@ class MemberPrivacyApi:
         """ # noqa: E501
 
         _param = self._post_privacy_member_delete_request_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -611,7 +585,6 @@ class MemberPrivacyApi:
 
     def _post_privacy_member_delete_request_serialize(
         self,
-        x_auth_token,
         content_type,
         member_identifier,
         credential_identifier,
@@ -649,8 +622,6 @@ class MemberPrivacyApi:
             _query_params.append(('credential_identifier', credential_identifier))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -661,6 +632,7 @@ class MemberPrivacyApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

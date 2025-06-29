@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **delete_offers_offer_id_eligible_item_sets_id**
-> delete_offers_offer_id_eligible_item_sets_id(x_auth_token, offer_id, id, content_type=content_type)
+> delete_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type)
 
 Remove an Eligible Item Set
 
@@ -20,6 +20,7 @@ Removes an eligible item set from an offer.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -32,19 +33,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.EligibleItemSetsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     id = 'id_example' # str | Primary ID of the eligible item set
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Remove an Eligible Item Set
-        api_instance.delete_offers_offer_id_eligible_item_sets_id(x_auth_token, offer_id, id, content_type=content_type)
+        api_instance.delete_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type)
     except Exception as e:
         print("Exception when calling EligibleItemSetsApi->delete_offers_offer_id_eligible_item_sets_id: %s\n" % e)
 ```
@@ -56,7 +66,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offer_id** | **str**| Primary ID of the offer | 
  **id** | **str**| Primary ID of the eligible item set | 
  **content_type** | **str**| application/json | [optional] 
@@ -67,7 +76,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -85,7 +94,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offers_offer_id_eligible_item_sets**
-> OfferEligibleItemsSetIndex get_offers_offer_id_eligible_item_sets(x_auth_token, offer_id, content_type=content_type)
+> OfferEligibleItemsSetIndex get_offers_offer_id_eligible_item_sets(offer_id, content_type=content_type)
 
 List all Eligible Item Sets
 
@@ -93,6 +102,7 @@ List all eligible item sets for an offer ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -106,18 +116,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.EligibleItemSetsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # List all Eligible Item Sets
-        api_response = api_instance.get_offers_offer_id_eligible_item_sets(x_auth_token, offer_id, content_type=content_type)
+        api_response = api_instance.get_offers_offer_id_eligible_item_sets(offer_id, content_type=content_type)
         print("The response of EligibleItemSetsApi->get_offers_offer_id_eligible_item_sets:\n")
         pprint(api_response)
     except Exception as e:
@@ -131,7 +150,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offer_id** | **str**| Primary ID of the offer | 
  **content_type** | **str**| application/json | [optional] 
 
@@ -141,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -159,7 +177,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offers_offer_id_eligible_item_sets_id**
-> OfferEligibleItemSet get_offers_offer_id_eligible_item_sets_id(x_auth_token, offer_id, id, content_type=content_type)
+> OfferEligibleItemSet get_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type)
 
 Get an Eligible Item Set
 
@@ -167,6 +185,7 @@ Get an eligible item set by offer ID and ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -180,19 +199,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.EligibleItemSetsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     id = 'id_example' # str | Primary ID of the eligible item set
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get an Eligible Item Set
-        api_response = api_instance.get_offers_offer_id_eligible_item_sets_id(x_auth_token, offer_id, id, content_type=content_type)
+        api_response = api_instance.get_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type)
         print("The response of EligibleItemSetsApi->get_offers_offer_id_eligible_item_sets_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -206,7 +234,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offer_id** | **str**| Primary ID of the offer | 
  **id** | **str**| Primary ID of the eligible item set | 
  **content_type** | **str**| application/json | [optional] 
@@ -217,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -235,7 +262,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_offers_offer_id_eligible_item_sets**
-> OfferEligibleItemSet post_offers_offer_id_eligible_item_sets(x_auth_token, offer_id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
+> OfferEligibleItemSet post_offers_offer_id_eligible_item_sets(offer_id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
 
 Create an Eligible Item Set
 
@@ -243,6 +270,7 @@ Creates an eligible item set on an offer.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -257,19 +285,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.EligibleItemSetsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     content_type = 'content_type_example' # str | application/json (optional)
     offer_eligible_item_set_request = openapi_client.OfferEligibleItemSetRequest() # OfferEligibleItemSetRequest |  (optional)
 
     try:
         # Create an Eligible Item Set
-        api_response = api_instance.post_offers_offer_id_eligible_item_sets(x_auth_token, offer_id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
+        api_response = api_instance.post_offers_offer_id_eligible_item_sets(offer_id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
         print("The response of EligibleItemSetsApi->post_offers_offer_id_eligible_item_sets:\n")
         pprint(api_response)
     except Exception as e:
@@ -283,7 +320,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offer_id** | **str**| Primary ID of the offer | 
  **content_type** | **str**| application/json | [optional] 
  **offer_eligible_item_set_request** | [**OfferEligibleItemSetRequest**](OfferEligibleItemSetRequest.md)|  | [optional] 
@@ -294,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -313,7 +349,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_offers_offer_id_eligible_item_sets_id**
-> OfferEligibleItemSet put_offers_offer_id_eligible_item_sets_id(x_auth_token, offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
+> OfferEligibleItemSet put_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
 
 Update an Eligible Item Set
 
@@ -321,6 +357,7 @@ Updates an eligible item set on an offer.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -335,12 +372,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.EligibleItemSetsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     id = 'id_example' # str | Primary ID of the eligible item set
     content_type = 'content_type_example' # str | application/json (optional)
@@ -348,7 +394,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Update an Eligible Item Set
-        api_response = api_instance.put_offers_offer_id_eligible_item_sets_id(x_auth_token, offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
+        api_response = api_instance.put_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
         print("The response of EligibleItemSetsApi->put_offers_offer_id_eligible_item_sets_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -362,7 +408,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offer_id** | **str**| Primary ID of the offer | 
  **id** | **str**| Primary ID of the eligible item set | 
  **content_type** | **str**| application/json | [optional] 
@@ -374,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

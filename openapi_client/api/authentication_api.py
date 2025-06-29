@@ -55,7 +55,7 @@ class AuthenticationApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> None:
         """Request an Authentication Token
 
@@ -127,7 +127,7 @@ class AuthenticationApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> ApiResponse[None]:
         """Request an Authentication Token
 
@@ -199,7 +199,7 @@ class AuthenticationApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
     ) -> RESTResponseType:
         """Request an Authentication Token
 
@@ -261,7 +261,10 @@ class AuthenticationApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _host = None
+        _hosts = [
+            'https://api-staging.sparkfly.com'
+        ]
+        _host = _hosts[_host_index]
 
         _collection_formats: Dict[str, str] = {
         }

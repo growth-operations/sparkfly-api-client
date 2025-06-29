@@ -43,7 +43,6 @@ class EmailOptInApi:
     @validate_call
     def post_optins(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         address: Annotated[StrictStr, Field(description="email address for email opt in")],
         xid: Annotated[StrictStr, Field(description="xid for email opt in")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -65,8 +64,6 @@ class EmailOptInApi:
 
         Email opt in with an address, xid, and code.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param address: email address for email opt in (required)
         :type address: str
         :param xid: xid for email opt in (required)
@@ -98,7 +95,6 @@ class EmailOptInApi:
         """ # noqa: E501
 
         _param = self._post_optins_serialize(
-            x_auth_token=x_auth_token,
             address=address,
             xid=xid,
             content_type=content_type,
@@ -129,7 +125,6 @@ class EmailOptInApi:
     @validate_call
     def post_optins_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         address: Annotated[StrictStr, Field(description="email address for email opt in")],
         xid: Annotated[StrictStr, Field(description="xid for email opt in")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -151,8 +146,6 @@ class EmailOptInApi:
 
         Email opt in with an address, xid, and code.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param address: email address for email opt in (required)
         :type address: str
         :param xid: xid for email opt in (required)
@@ -184,7 +177,6 @@ class EmailOptInApi:
         """ # noqa: E501
 
         _param = self._post_optins_serialize(
-            x_auth_token=x_auth_token,
             address=address,
             xid=xid,
             content_type=content_type,
@@ -215,7 +207,6 @@ class EmailOptInApi:
     @validate_call
     def post_optins_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         address: Annotated[StrictStr, Field(description="email address for email opt in")],
         xid: Annotated[StrictStr, Field(description="xid for email opt in")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -237,8 +228,6 @@ class EmailOptInApi:
 
         Email opt in with an address, xid, and code.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param address: email address for email opt in (required)
         :type address: str
         :param xid: xid for email opt in (required)
@@ -270,7 +259,6 @@ class EmailOptInApi:
         """ # noqa: E501
 
         _param = self._post_optins_serialize(
-            x_auth_token=x_auth_token,
             address=address,
             xid=xid,
             content_type=content_type,
@@ -296,7 +284,6 @@ class EmailOptInApi:
 
     def _post_optins_serialize(
         self,
-        x_auth_token,
         address,
         xid,
         content_type,
@@ -339,8 +326,6 @@ class EmailOptInApi:
             _query_params.append(('code', code))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -358,6 +343,7 @@ class EmailOptInApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

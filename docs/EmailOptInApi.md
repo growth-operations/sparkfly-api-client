@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **post_optins**
-> EmailOptIn post_optins(x_auth_token, address, xid, content_type=content_type, code=code)
+> EmailOptIn post_optins(address, xid, content_type=content_type, code=code)
 
 Email Opt In
 
@@ -16,6 +16,7 @@ Email opt in with an address, xid, and code.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -29,12 +30,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.EmailOptInApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     address = 'address_example' # str | email address for email opt in
     xid = 'xid_example' # str | xid for email opt in
     content_type = 'content_type_example' # str | application/json (optional)
@@ -42,7 +52,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Email Opt In
-        api_response = api_instance.post_optins(x_auth_token, address, xid, content_type=content_type, code=code)
+        api_response = api_instance.post_optins(address, xid, content_type=content_type, code=code)
         print("The response of EmailOptInApi->post_optins:\n")
         pprint(api_response)
     except Exception as e:
@@ -56,7 +66,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **address** | **str**| email address for email opt in | 
  **xid** | **str**| xid for email opt in | 
  **content_type** | **str**| application/json | [optional] 
@@ -68,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

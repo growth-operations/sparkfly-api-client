@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **delete_offer_lists_offer_list_id**
-> delete_offer_lists_offer_list_id(x_auth_token, offer_list_id)
+> delete_offer_lists_offer_list_id(offer_list_id)
 
 Remove an Offer List
 
@@ -20,6 +20,7 @@ Remove an offer list.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -32,17 +33,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offer_list_id = 'offer_list_id_example' # str | primary id of the offer list
 
     try:
         # Remove an Offer List
-        api_instance.delete_offer_lists_offer_list_id(x_auth_token, offer_list_id)
+        api_instance.delete_offer_lists_offer_list_id(offer_list_id)
     except Exception as e:
         print("Exception when calling OfferListsApi->delete_offer_lists_offer_list_id: %s\n" % e)
 ```
@@ -54,7 +64,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offer_list_id** | **str**| primary id of the offer list | 
 
 ### Return type
@@ -63,7 +72,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -81,7 +90,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offer_lists**
-> GetOfferLists200Response get_offer_lists(x_auth_token, content_type=content_type, sort_by=sort_by, search_text=search_text, page=page, per_page=per_page, order=order)
+> GetOfferLists200Response get_offer_lists(content_type=content_type, sort_by=sort_by, search_text=search_text, page=page, per_page=per_page, order=order)
 
 List all Offer Lists
 
@@ -89,6 +98,7 @@ Fetch a list of offer lists. The list may be filtered according to the request's
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -102,12 +112,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     sort_by = 'sort_by_example' # str | sort records by a field name (optional)
     search_text = 'search_text_example' # str | Attempts to match by name or id (optional)
@@ -117,7 +136,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # List all Offer Lists
-        api_response = api_instance.get_offer_lists(x_auth_token, content_type=content_type, sort_by=sort_by, search_text=search_text, page=page, per_page=per_page, order=order)
+        api_response = api_instance.get_offer_lists(content_type=content_type, sort_by=sort_by, search_text=search_text, page=page, per_page=per_page, order=order)
         print("The response of OfferListsApi->get_offer_lists:\n")
         pprint(api_response)
     except Exception as e:
@@ -131,7 +150,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **sort_by** | **str**| sort records by a field name | [optional] 
  **search_text** | **str**| Attempts to match by name or id | [optional] 
@@ -145,7 +163,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -163,7 +181,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offer_lists_offer_list_id**
-> InlineObject get_offer_lists_offer_list_id(x_auth_token, offer_list_id)
+> InlineObject get_offer_lists_offer_list_id(offer_list_id)
 
 Retrieve an Offer List
 
@@ -171,6 +189,7 @@ Search for an offer list by ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -184,17 +203,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offer_list_id = 'offer_list_id_example' # str | primary id of the offer list
 
     try:
         # Retrieve an Offer List
-        api_response = api_instance.get_offer_lists_offer_list_id(x_auth_token, offer_list_id)
+        api_response = api_instance.get_offer_lists_offer_list_id(offer_list_id)
         print("The response of OfferListsApi->get_offer_lists_offer_list_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -208,7 +236,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offer_list_id** | **str**| primary id of the offer list | 
 
 ### Return type
@@ -217,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -235,7 +262,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_offer_lists**
-> InlineObject post_offer_lists(x_auth_token, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
+> InlineObject post_offer_lists(content_type=content_type, post_offer_lists_request=post_offer_lists_request)
 
 Create an Offer List
 
@@ -243,6 +270,7 @@ Create a new offer list containing the specified offer IDs.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -257,18 +285,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     post_offer_lists_request = {offer_list={name=my offer list name, offer_ids=[1111, 2222, 3333, 4444]}} # PostOfferListsRequest |  (optional)
 
     try:
         # Create an Offer List
-        api_response = api_instance.post_offer_lists(x_auth_token, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
+        api_response = api_instance.post_offer_lists(content_type=content_type, post_offer_lists_request=post_offer_lists_request)
         print("The response of OfferListsApi->post_offer_lists:\n")
         pprint(api_response)
     except Exception as e:
@@ -282,7 +319,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **post_offer_lists_request** | [**PostOfferListsRequest**](PostOfferListsRequest.md)|  | [optional] 
 
@@ -292,7 +328,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -311,7 +347,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_offer_lists_offer_list_id**
-> InlineObject put_offer_lists_offer_list_id(x_auth_token, offer_list_id, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
+> InlineObject put_offer_lists_offer_list_id(offer_list_id, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
 
 Update an Offer List
 
@@ -319,6 +355,7 @@ Update an offer list's contents.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -333,19 +370,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offer_list_id = 'offer_list_id_example' # str | primary id of the offer list
     content_type = 'content_type_example' # str | application/json (optional)
     post_offer_lists_request = {offer_list={name=my offer list name, offer_ids=[1111, 2222, 3333, 4444]}} # PostOfferListsRequest |  (optional)
 
     try:
         # Update an Offer List
-        api_response = api_instance.put_offer_lists_offer_list_id(x_auth_token, offer_list_id, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
+        api_response = api_instance.put_offer_lists_offer_list_id(offer_list_id, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
         print("The response of OfferListsApi->put_offer_lists_offer_list_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -359,7 +405,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offer_list_id** | **str**| primary id of the offer list | 
  **content_type** | **str**| application/json | [optional] 
  **post_offer_lists_request** | [**PostOfferListsRequest**](PostOfferListsRequest.md)|  | [optional] 
@@ -370,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

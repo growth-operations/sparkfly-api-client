@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **delete_merchants_merchant_id_store_lists_store_list_id**
-> delete_merchants_merchant_id_store_lists_store_list_id(x_auth_token, merchant_id, store_list_id, content_type=content_type)
+> delete_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type)
 
 Remove a Store List
 
@@ -20,6 +20,7 @@ Remove a store list.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -32,19 +33,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.StoreListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     store_list_id = 'store_list_id_example' # str | the store list to search for
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Remove a Store List
-        api_instance.delete_merchants_merchant_id_store_lists_store_list_id(x_auth_token, merchant_id, store_list_id, content_type=content_type)
+        api_instance.delete_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type)
     except Exception as e:
         print("Exception when calling StoreListsApi->delete_merchants_merchant_id_store_lists_store_list_id: %s\n" % e)
 ```
@@ -56,7 +66,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **merchant_id** | **str**| merchant ID owning the store lists | 
  **store_list_id** | **str**| the store list to search for | 
  **content_type** | **str**| application/json | [optional] 
@@ -67,7 +76,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -85,7 +94,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_merchants_merchant_id_store_lists**
-> StoreListIndexBody get_merchants_merchant_id_store_lists(x_auth_token, merchant_id, content_type=content_type, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+> StoreListIndexBody get_merchants_merchant_id_store_lists(merchant_id, content_type=content_type, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
 
 List all Store Lists
 
@@ -93,6 +102,7 @@ Search for store lists by merchant ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -106,12 +116,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.StoreListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     content_type = 'content_type_example' # str | application/json (optional)
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
@@ -122,7 +141,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # List all Store Lists
-        api_response = api_instance.get_merchants_merchant_id_store_lists(x_auth_token, merchant_id, content_type=content_type, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+        api_response = api_instance.get_merchants_merchant_id_store_lists(merchant_id, content_type=content_type, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
         print("The response of StoreListsApi->get_merchants_merchant_id_store_lists:\n")
         pprint(api_response)
     except Exception as e:
@@ -136,7 +155,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **merchant_id** | **str**| merchant ID owning the store lists | 
  **content_type** | **str**| application/json | [optional] 
  **page** | **str**| page offset to display a range of records from | [optional] [default to &#39;1&#39;]
@@ -151,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -169,7 +187,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_merchants_merchant_id_store_lists_store_list_id**
-> StoreList get_merchants_merchant_id_store_lists_store_list_id(x_auth_token, merchant_id, store_list_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+> StoreList get_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
 
 Retrieve a Store List
 
@@ -177,6 +195,7 @@ Look up a store list by ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -190,12 +209,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.StoreListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     store_list_id = 'store_list_id_example' # str | the store list to search for
     content_type = 'content_type_example' # str | application/json (optional)
@@ -207,7 +235,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve a Store List
-        api_response = api_instance.get_merchants_merchant_id_store_lists_store_list_id(x_auth_token, merchant_id, store_list_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+        api_response = api_instance.get_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
         print("The response of StoreListsApi->get_merchants_merchant_id_store_lists_store_list_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -221,7 +249,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **merchant_id** | **str**| merchant ID owning the store lists | 
  **store_list_id** | **str**| the store list to search for | 
  **content_type** | **str**| application/json | [optional] 
@@ -237,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -255,7 +282,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_merchants_merchant_id_store_lists**
-> StoreList post_merchants_merchant_id_store_lists(x_auth_token, merchant_id, content_type=content_type, store_list_request=store_list_request)
+> StoreList post_merchants_merchant_id_store_lists(merchant_id, content_type=content_type, store_list_request=store_list_request)
 
 Create a Store List
 
@@ -263,6 +290,7 @@ Add a new store list for a merchant.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -277,19 +305,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.StoreListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     content_type = 'content_type_example' # str | application/json (optional)
     store_list_request = openapi_client.StoreListRequest() # StoreListRequest |  (optional)
 
     try:
         # Create a Store List
-        api_response = api_instance.post_merchants_merchant_id_store_lists(x_auth_token, merchant_id, content_type=content_type, store_list_request=store_list_request)
+        api_response = api_instance.post_merchants_merchant_id_store_lists(merchant_id, content_type=content_type, store_list_request=store_list_request)
         print("The response of StoreListsApi->post_merchants_merchant_id_store_lists:\n")
         pprint(api_response)
     except Exception as e:
@@ -303,7 +340,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **merchant_id** | **str**| merchant ID owning the store lists | 
  **content_type** | **str**| application/json | [optional] 
  **store_list_request** | [**StoreListRequest**](StoreListRequest.md)|  | [optional] 
@@ -314,7 +350,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -333,7 +369,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_merchants_merchant_id_store_lists_store_list_id**
-> StoreList put_merchants_merchant_id_store_lists_store_list_id(x_auth_token, merchant_id, store_list_id, content_type=content_type, store_list_request=store_list_request)
+> StoreList put_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type, store_list_request=store_list_request)
 
 Update a Store List
 
@@ -341,6 +377,7 @@ Update an existing store list.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -355,12 +392,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.StoreListsApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     store_list_id = 'store_list_id_example' # str | the store list to search for
     content_type = 'content_type_example' # str | application/json (optional)
@@ -368,7 +414,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Update a Store List
-        api_response = api_instance.put_merchants_merchant_id_store_lists_store_list_id(x_auth_token, merchant_id, store_list_id, content_type=content_type, store_list_request=store_list_request)
+        api_response = api_instance.put_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type, store_list_request=store_list_request)
         print("The response of StoreListsApi->put_merchants_merchant_id_store_lists_store_list_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -382,7 +428,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **merchant_id** | **str**| merchant ID owning the store lists | 
  **store_list_id** | **str**| the store list to search for | 
  **content_type** | **str**| application/json | [optional] 
@@ -394,7 +439,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

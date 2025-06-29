@@ -45,7 +45,6 @@ class OffersApi:
     @validate_call
     def delete_offers_offer_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -65,8 +64,6 @@ class OffersApi:
 
         Deletes an offer by ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -94,7 +91,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._delete_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -122,7 +118,6 @@ class OffersApi:
     @validate_call
     def delete_offers_offer_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -142,8 +137,6 @@ class OffersApi:
 
         Deletes an offer by ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -171,7 +164,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._delete_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -199,7 +191,6 @@ class OffersApi:
     @validate_call
     def delete_offers_offer_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -219,8 +210,6 @@ class OffersApi:
 
         Deletes an offer by ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -248,7 +237,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._delete_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -271,7 +259,6 @@ class OffersApi:
 
     def _delete_offers_offer_id_serialize(
         self,
-        x_auth_token,
         offer_id,
         content_type,
         _request_auth,
@@ -304,8 +291,6 @@ class OffersApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -321,6 +306,7 @@ class OffersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -344,7 +330,6 @@ class OffersApi:
     @validate_call
     def get_offers(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
         order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
@@ -372,8 +357,6 @@ class OffersApi:
 
         Search for offers.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param page: page offset to display a range of records from
         :type page: str
         :param per_page: maximum number of records to return in the search
@@ -417,7 +400,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._get_offers_serialize(
-            x_auth_token=x_auth_token,
             page=page,
             per_page=per_page,
             order=order,
@@ -453,7 +435,6 @@ class OffersApi:
     @validate_call
     def get_offers_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
         order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
@@ -481,8 +462,6 @@ class OffersApi:
 
         Search for offers.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param page: page offset to display a range of records from
         :type page: str
         :param per_page: maximum number of records to return in the search
@@ -526,7 +505,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._get_offers_serialize(
-            x_auth_token=x_auth_token,
             page=page,
             per_page=per_page,
             order=order,
@@ -562,7 +540,6 @@ class OffersApi:
     @validate_call
     def get_offers_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
         order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
@@ -590,8 +567,6 @@ class OffersApi:
 
         Search for offers.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param page: page offset to display a range of records from
         :type page: str
         :param per_page: maximum number of records to return in the search
@@ -635,7 +610,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._get_offers_serialize(
-            x_auth_token=x_auth_token,
             page=page,
             per_page=per_page,
             order=order,
@@ -666,7 +640,6 @@ class OffersApi:
 
     def _get_offers_serialize(
         self,
-        x_auth_token,
         page,
         per_page,
         order,
@@ -744,8 +717,6 @@ class OffersApi:
             _query_params.append(('offer_list_id', offer_list_id))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -761,6 +732,7 @@ class OffersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -784,7 +756,6 @@ class OffersApi:
     @validate_call
     def get_offers_offer_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_request: Optional[OfferRequest] = None,
@@ -805,8 +776,6 @@ class OffersApi:
 
         Finds an offer by the ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -836,7 +805,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._get_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             offer_request=offer_request,
@@ -865,7 +833,6 @@ class OffersApi:
     @validate_call
     def get_offers_offer_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_request: Optional[OfferRequest] = None,
@@ -886,8 +853,6 @@ class OffersApi:
 
         Finds an offer by the ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -917,7 +882,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._get_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             offer_request=offer_request,
@@ -946,7 +910,6 @@ class OffersApi:
     @validate_call
     def get_offers_offer_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_request: Optional[OfferRequest] = None,
@@ -967,8 +930,6 @@ class OffersApi:
 
         Finds an offer by the ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -998,7 +959,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._get_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             offer_request=offer_request,
@@ -1022,7 +982,6 @@ class OffersApi:
 
     def _get_offers_offer_id_serialize(
         self,
-        x_auth_token,
         offer_id,
         content_type,
         offer_request,
@@ -1056,8 +1015,6 @@ class OffersApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if offer_request is not None:
@@ -1088,6 +1045,7 @@ class OffersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1111,7 +1069,6 @@ class OffersApi:
     @validate_call
     def post_offers(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_request: Optional[OfferRequest] = None,
         _request_timeout: Union[
@@ -1131,8 +1088,6 @@ class OffersApi:
 
         Creates an offer. redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param offer_request:
@@ -1160,7 +1115,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._post_offers_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             offer_request=offer_request,
             _request_auth=_request_auth,
@@ -1190,7 +1144,6 @@ class OffersApi:
     @validate_call
     def post_offers_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_request: Optional[OfferRequest] = None,
         _request_timeout: Union[
@@ -1210,8 +1163,6 @@ class OffersApi:
 
         Creates an offer. redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param offer_request:
@@ -1239,7 +1190,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._post_offers_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             offer_request=offer_request,
             _request_auth=_request_auth,
@@ -1269,7 +1219,6 @@ class OffersApi:
     @validate_call
     def post_offers_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_request: Optional[OfferRequest] = None,
         _request_timeout: Union[
@@ -1289,8 +1238,6 @@ class OffersApi:
 
         Creates an offer. redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param offer_request:
@@ -1318,7 +1265,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._post_offers_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             offer_request=offer_request,
             _request_auth=_request_auth,
@@ -1343,7 +1289,6 @@ class OffersApi:
 
     def _post_offers_serialize(
         self,
-        x_auth_token,
         content_type,
         offer_request,
         _request_auth,
@@ -1374,8 +1319,6 @@ class OffersApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if offer_request is not None:
@@ -1406,6 +1349,7 @@ class OffersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1429,7 +1373,6 @@ class OffersApi:
     @validate_call
     def put_offers_offer_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_request: Optional[OfferRequest] = None,
@@ -1450,8 +1393,6 @@ class OffersApi:
 
         Updates an offer by ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -1481,7 +1422,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._put_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             offer_request=offer_request,
@@ -1510,7 +1450,6 @@ class OffersApi:
     @validate_call
     def put_offers_offer_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_request: Optional[OfferRequest] = None,
@@ -1531,8 +1470,6 @@ class OffersApi:
 
         Updates an offer by ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -1562,7 +1499,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._put_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             offer_request=offer_request,
@@ -1591,7 +1527,6 @@ class OffersApi:
     @validate_call
     def put_offers_offer_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_request: Optional[OfferRequest] = None,
@@ -1612,8 +1547,6 @@ class OffersApi:
 
         Updates an offer by ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -1643,7 +1576,6 @@ class OffersApi:
         """ # noqa: E501
 
         _param = self._put_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             offer_request=offer_request,
@@ -1667,7 +1599,6 @@ class OffersApi:
 
     def _put_offers_offer_id_serialize(
         self,
-        x_auth_token,
         offer_id,
         content_type,
         offer_request,
@@ -1701,8 +1632,6 @@ class OffersApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if offer_request is not None:
@@ -1733,6 +1662,7 @@ class OffersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

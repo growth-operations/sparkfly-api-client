@@ -46,7 +46,6 @@ class CtmApi:
     @validate_call
     def get_ctm_custom_messages(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -65,8 +64,6 @@ class CtmApi:
 
         ctm custom messages
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -92,7 +89,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._get_ctm_custom_messages_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -118,7 +114,6 @@ class CtmApi:
     @validate_call
     def get_ctm_custom_messages_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -137,8 +132,6 @@ class CtmApi:
 
         ctm custom messages
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -164,7 +157,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._get_ctm_custom_messages_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -190,7 +182,6 @@ class CtmApi:
     @validate_call
     def get_ctm_custom_messages_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -209,8 +200,6 @@ class CtmApi:
 
         ctm custom messages
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -236,7 +225,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._get_ctm_custom_messages_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -257,7 +245,6 @@ class CtmApi:
 
     def _get_ctm_custom_messages_serialize(
         self,
-        x_auth_token,
         content_type,
         _request_auth,
         _content_type,
@@ -285,8 +272,6 @@ class CtmApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -304,6 +289,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -327,7 +313,6 @@ class CtmApi:
     @validate_call
     def get_ctm_store(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -346,8 +331,6 @@ class CtmApi:
 
         ctm stores
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -373,7 +356,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._get_ctm_store_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -399,7 +381,6 @@ class CtmApi:
     @validate_call
     def get_ctm_store_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -418,8 +399,6 @@ class CtmApi:
 
         ctm stores
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -445,7 +424,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._get_ctm_store_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -471,7 +449,6 @@ class CtmApi:
     @validate_call
     def get_ctm_store_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -490,8 +467,6 @@ class CtmApi:
 
         ctm stores
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -517,7 +492,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._get_ctm_store_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -538,7 +512,6 @@ class CtmApi:
 
     def _get_ctm_store_serialize(
         self,
-        x_auth_token,
         content_type,
         _request_auth,
         _content_type,
@@ -566,8 +539,6 @@ class CtmApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -585,6 +556,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -608,7 +580,6 @@ class CtmApi:
     @validate_call
     def get_show_ctm(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -636,8 +607,6 @@ class CtmApi:
 
         ctm show response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -681,7 +650,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._get_show_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -717,7 +685,6 @@ class CtmApi:
     @validate_call
     def get_show_ctm_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -745,8 +712,6 @@ class CtmApi:
 
         ctm show response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -790,7 +755,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._get_show_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -826,7 +790,6 @@ class CtmApi:
     @validate_call
     def get_show_ctm_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -854,8 +817,6 @@ class CtmApi:
 
         ctm show response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -899,7 +860,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._get_show_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -930,7 +890,6 @@ class CtmApi:
 
     def _get_show_ctm_serialize(
         self,
-        x_auth_token,
         tran_id,
         term_id,
         site_id,
@@ -983,8 +942,6 @@ class CtmApi:
             _query_params.append(('pos_vendor', pos_vendor))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         if x_sparkfly_metadata is not None:
@@ -1023,6 +980,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1046,7 +1004,6 @@ class CtmApi:
     @validate_call
     def post_allocate_ctm(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -1071,8 +1028,6 @@ class CtmApi:
 
         ctm allocate
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -1110,7 +1065,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_allocate_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1143,7 +1097,6 @@ class CtmApi:
     @validate_call
     def post_allocate_ctm_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -1168,8 +1121,6 @@ class CtmApi:
 
         ctm allocate
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -1207,7 +1158,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_allocate_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1240,7 +1190,6 @@ class CtmApi:
     @validate_call
     def post_allocate_ctm_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -1265,8 +1214,6 @@ class CtmApi:
 
         ctm allocate
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -1304,7 +1251,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_allocate_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1332,7 +1278,6 @@ class CtmApi:
 
     def _post_allocate_ctm_serialize(
         self,
-        x_auth_token,
         tran_id,
         term_id,
         site_id,
@@ -1378,8 +1323,6 @@ class CtmApi:
             _query_params.append(('offer_id', offer_id))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         if tran_id is not None:
@@ -1394,6 +1337,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1417,7 +1361,6 @@ class CtmApi:
     @validate_call
     def post_deallocate_ctm(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -1443,8 +1386,6 @@ class CtmApi:
 
         ctm dealocate
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -1484,7 +1425,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_deallocate_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1518,7 +1458,6 @@ class CtmApi:
     @validate_call
     def post_deallocate_ctm_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -1544,8 +1483,6 @@ class CtmApi:
 
         ctm dealocate
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -1585,7 +1522,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_deallocate_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1619,7 +1555,6 @@ class CtmApi:
     @validate_call
     def post_deallocate_ctm_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -1645,8 +1580,6 @@ class CtmApi:
 
         ctm dealocate
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -1686,7 +1619,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_deallocate_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1715,7 +1647,6 @@ class CtmApi:
 
     def _post_deallocate_ctm_serialize(
         self,
-        x_auth_token,
         tran_id,
         term_id,
         site_id,
@@ -1768,8 +1699,6 @@ class CtmApi:
             _query_params.append(('pos_vendor', pos_vendor))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         if tran_id is not None:
@@ -1784,6 +1713,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1807,7 +1737,6 @@ class CtmApi:
     @validate_call
     def post_qitems_ctm(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -1832,8 +1761,6 @@ class CtmApi:
 
         ctm qitems
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -1871,7 +1798,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_qitems_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1904,7 +1830,6 @@ class CtmApi:
     @validate_call
     def post_qitems_ctm_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -1929,8 +1854,6 @@ class CtmApi:
 
         ctm qitems
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -1968,7 +1891,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_qitems_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2001,7 +1923,6 @@ class CtmApi:
     @validate_call
     def post_qitems_ctm_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -2026,8 +1947,6 @@ class CtmApi:
 
         ctm qitems
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -2065,7 +1984,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_qitems_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2093,7 +2011,6 @@ class CtmApi:
 
     def _post_qitems_ctm_serialize(
         self,
-        x_auth_token,
         tran_id,
         term_id,
         site_id,
@@ -2135,8 +2052,6 @@ class CtmApi:
             _query_params.append(('token', token))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         if tran_id is not None:
@@ -2166,6 +2081,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2189,7 +2105,6 @@ class CtmApi:
     @validate_call
     def post_update_ctm(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -2214,8 +2129,6 @@ class CtmApi:
 
         ctm update response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -2253,7 +2166,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_update_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2286,7 +2198,6 @@ class CtmApi:
     @validate_call
     def post_update_ctm_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -2311,8 +2222,6 @@ class CtmApi:
 
         ctm update response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -2350,7 +2259,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_update_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2383,7 +2291,6 @@ class CtmApi:
     @validate_call
     def post_update_ctm_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -2408,8 +2315,6 @@ class CtmApi:
 
         ctm update response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -2447,7 +2352,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_update_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2475,7 +2379,6 @@ class CtmApi:
 
     def _post_update_ctm_serialize(
         self,
-        x_auth_token,
         tran_id,
         term_id,
         site_id,
@@ -2517,8 +2420,6 @@ class CtmApi:
             _query_params.append(('token', token))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         if tran_id is not None:
@@ -2548,6 +2449,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2571,7 +2473,6 @@ class CtmApi:
     @validate_call
     def post_update_ctm_siteid(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -2595,8 +2496,6 @@ class CtmApi:
 
         ctm update response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -2632,7 +2531,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_update_ctm_siteid_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2664,7 +2562,6 @@ class CtmApi:
     @validate_call
     def post_update_ctm_siteid_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -2688,8 +2585,6 @@ class CtmApi:
 
         ctm update response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -2725,7 +2620,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_update_ctm_siteid_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2757,7 +2651,6 @@ class CtmApi:
     @validate_call
     def post_update_ctm_siteid_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -2781,8 +2674,6 @@ class CtmApi:
 
         ctm update response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -2818,7 +2709,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._post_update_ctm_siteid_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2845,7 +2735,6 @@ class CtmApi:
 
     def _post_update_ctm_siteid_serialize(
         self,
-        x_auth_token,
         tran_id,
         term_id,
         site_id,
@@ -2884,8 +2773,6 @@ class CtmApi:
             _query_params.append(('token', token))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         if tran_id is not None:
@@ -2915,6 +2802,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2938,7 +2826,6 @@ class CtmApi:
     @validate_call
     def put_show_ctm(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -2966,8 +2853,6 @@ class CtmApi:
 
         ctm show response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -3011,7 +2896,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._put_show_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3047,7 +2931,6 @@ class CtmApi:
     @validate_call
     def put_show_ctm_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -3075,8 +2958,6 @@ class CtmApi:
 
         ctm show response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -3120,7 +3001,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._put_show_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3156,7 +3036,6 @@ class CtmApi:
     @validate_call
     def put_show_ctm_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -3184,8 +3063,6 @@ class CtmApi:
 
         ctm show response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -3229,7 +3106,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._put_show_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3260,7 +3136,6 @@ class CtmApi:
 
     def _put_show_ctm_serialize(
         self,
-        x_auth_token,
         tran_id,
         term_id,
         site_id,
@@ -3313,8 +3188,6 @@ class CtmApi:
             _query_params.append(('pos_vendor', pos_vendor))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         if x_sparkfly_metadata is not None:
@@ -3353,6 +3226,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -3376,7 +3250,6 @@ class CtmApi:
     @validate_call
     def put_transaction_update_ctm(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -3400,8 +3273,6 @@ class CtmApi:
 
         ctm transaction update
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -3437,7 +3308,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._put_transaction_update_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3469,7 +3339,6 @@ class CtmApi:
     @validate_call
     def put_transaction_update_ctm_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -3493,8 +3362,6 @@ class CtmApi:
 
         ctm transaction update
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -3530,7 +3397,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._put_transaction_update_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3562,7 +3428,6 @@ class CtmApi:
     @validate_call
     def put_transaction_update_ctm_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -3586,8 +3451,6 @@ class CtmApi:
 
         ctm transaction update
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -3623,7 +3486,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._put_transaction_update_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3650,7 +3512,6 @@ class CtmApi:
 
     def _put_transaction_update_ctm_serialize(
         self,
-        x_auth_token,
         tran_id,
         term_id,
         site_id,
@@ -3689,8 +3550,6 @@ class CtmApi:
             _query_params.append(('token', token))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         if tran_id is not None:
@@ -3720,6 +3579,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -3743,7 +3603,6 @@ class CtmApi:
     @validate_call
     def put_update_ctm(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -3768,8 +3627,6 @@ class CtmApi:
 
         ctm update response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -3807,7 +3664,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._put_update_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3840,7 +3696,6 @@ class CtmApi:
     @validate_call
     def put_update_ctm_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -3865,8 +3720,6 @@ class CtmApi:
 
         ctm update response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -3904,7 +3757,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._put_update_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3937,7 +3789,6 @@ class CtmApi:
     @validate_call
     def put_update_ctm_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
         site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
@@ -3962,8 +3813,6 @@ class CtmApi:
 
         ctm update response
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param tran_id: Required transaction identifier (required)
         :type tran_id: str
         :param term_id: Required term identifier (required)
@@ -4001,7 +3850,6 @@ class CtmApi:
         """ # noqa: E501
 
         _param = self._put_update_ctm_serialize(
-            x_auth_token=x_auth_token,
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -4029,7 +3877,6 @@ class CtmApi:
 
     def _put_update_ctm_serialize(
         self,
-        x_auth_token,
         tran_id,
         term_id,
         site_id,
@@ -4071,8 +3918,6 @@ class CtmApi:
             _query_params.append(('token', token))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         if tran_id is not None:
@@ -4102,6 +3947,7 @@ class CtmApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

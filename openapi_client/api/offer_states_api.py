@@ -48,7 +48,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_member_id_offer_states(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -68,8 +67,6 @@ class OfferStatesApi:
 
         Gets all offer states.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: The member's primary key (required)
         :type member_id: str
         :param content_type: application/json
@@ -97,7 +94,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_offer_states_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -126,7 +122,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_member_id_offer_states_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -146,8 +141,6 @@ class OfferStatesApi:
 
         Gets all offer states.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: The member's primary key (required)
         :type member_id: str
         :param content_type: application/json
@@ -175,7 +168,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_offer_states_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -204,7 +196,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_member_id_offer_states_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -224,8 +215,6 @@ class OfferStatesApi:
 
         Gets all offer states.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: The member's primary key (required)
         :type member_id: str
         :param content_type: application/json
@@ -253,7 +242,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_offer_states_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -277,7 +265,6 @@ class OfferStatesApi:
 
     def _get_members_member_id_offer_states_serialize(
         self,
-        x_auth_token,
         member_id,
         content_type,
         _request_auth,
@@ -308,8 +295,6 @@ class OfferStatesApi:
             _path_params['member_id'] = member_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -327,6 +312,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -350,7 +336,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_member_id_offer_states_offer_state_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offerstate_id: Annotated[StrictStr, Field(description="The offer state's primary key")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -371,8 +356,6 @@ class OfferStatesApi:
 
         Gets the offer state by the offer state ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offerstate_id: The offer state's primary key (required)
         :type offerstate_id: str
         :param member_id: The member's primary key (required)
@@ -402,7 +385,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_offer_states_offer_state_id_serialize(
-            x_auth_token=x_auth_token,
             offerstate_id=offerstate_id,
             member_id=member_id,
             content_type=content_type,
@@ -432,7 +414,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_member_id_offer_states_offer_state_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offerstate_id: Annotated[StrictStr, Field(description="The offer state's primary key")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -453,8 +434,6 @@ class OfferStatesApi:
 
         Gets the offer state by the offer state ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offerstate_id: The offer state's primary key (required)
         :type offerstate_id: str
         :param member_id: The member's primary key (required)
@@ -484,7 +463,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_offer_states_offer_state_id_serialize(
-            x_auth_token=x_auth_token,
             offerstate_id=offerstate_id,
             member_id=member_id,
             content_type=content_type,
@@ -514,7 +492,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_member_id_offer_states_offer_state_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offerstate_id: Annotated[StrictStr, Field(description="The offer state's primary key")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -535,8 +512,6 @@ class OfferStatesApi:
 
         Gets the offer state by the offer state ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offerstate_id: The offer state's primary key (required)
         :type offerstate_id: str
         :param member_id: The member's primary key (required)
@@ -566,7 +541,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_offer_states_offer_state_id_serialize(
-            x_auth_token=x_auth_token,
             offerstate_id=offerstate_id,
             member_id=member_id,
             content_type=content_type,
@@ -591,7 +565,6 @@ class OfferStatesApi:
 
     def _get_members_member_id_offer_states_offer_state_id_serialize(
         self,
-        x_auth_token,
         offerstate_id,
         member_id,
         content_type,
@@ -625,8 +598,6 @@ class OfferStatesApi:
             _path_params['member_id'] = member_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -644,6 +615,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -667,7 +639,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_member_id_offers_offer_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         offer_id: Annotated[StrictStr, Field(description="The offer's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -688,8 +659,6 @@ class OfferStatesApi:
 
         Gets the offer state by the offer ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: The member's primary key (required)
         :type member_id: str
         :param offer_id: The offer's primary key (required)
@@ -719,7 +688,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             offer_id=offer_id,
             content_type=content_type,
@@ -749,7 +717,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_member_id_offers_offer_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         offer_id: Annotated[StrictStr, Field(description="The offer's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -770,8 +737,6 @@ class OfferStatesApi:
 
         Gets the offer state by the offer ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: The member's primary key (required)
         :type member_id: str
         :param offer_id: The offer's primary key (required)
@@ -801,7 +766,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             offer_id=offer_id,
             content_type=content_type,
@@ -831,7 +795,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_member_id_offers_offer_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         offer_id: Annotated[StrictStr, Field(description="The offer's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -852,8 +815,6 @@ class OfferStatesApi:
 
         Gets the offer state by the offer ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: The member's primary key (required)
         :type member_id: str
         :param offer_id: The offer's primary key (required)
@@ -883,7 +844,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_offers_offer_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             offer_id=offer_id,
             content_type=content_type,
@@ -908,7 +868,6 @@ class OfferStatesApi:
 
     def _get_members_member_id_offers_offer_id_serialize(
         self,
-        x_auth_token,
         member_id,
         offer_id,
         content_type,
@@ -942,8 +901,6 @@ class OfferStatesApi:
             _path_params['offer_id'] = offer_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -961,6 +918,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -984,7 +942,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_offer_states(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         token: Annotated[Optional[StrictStr], Field(description="An offer state's osid")] = None,
         credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
@@ -1006,8 +963,6 @@ class OfferStatesApi:
 
         Gets an offer state from a token, credential_identifier, and/or an external_ref_id.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param token: An offer state's osid
@@ -1039,7 +994,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_offer_states_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             token=token,
             credential_identifier=credential_identifier,
@@ -1070,7 +1024,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_offer_states_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         token: Annotated[Optional[StrictStr], Field(description="An offer state's osid")] = None,
         credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
@@ -1092,8 +1045,6 @@ class OfferStatesApi:
 
         Gets an offer state from a token, credential_identifier, and/or an external_ref_id.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param token: An offer state's osid
@@ -1125,7 +1076,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_offer_states_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             token=token,
             credential_identifier=credential_identifier,
@@ -1156,7 +1106,6 @@ class OfferStatesApi:
     @validate_call
     def get_members_offer_states_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         token: Annotated[Optional[StrictStr], Field(description="An offer state's osid")] = None,
         credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
@@ -1178,8 +1127,6 @@ class OfferStatesApi:
 
         Gets an offer state from a token, credential_identifier, and/or an external_ref_id.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param token: An offer state's osid
@@ -1211,7 +1158,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._get_members_offer_states_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             token=token,
             credential_identifier=credential_identifier,
@@ -1237,7 +1183,6 @@ class OfferStatesApi:
 
     def _get_members_offer_states_serialize(
         self,
-        x_auth_token,
         content_type,
         token,
         credential_identifier,
@@ -1280,8 +1225,6 @@ class OfferStatesApi:
             _query_params.append(('external_ref_id', external_ref_id))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -1299,6 +1242,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1322,7 +1266,6 @@ class OfferStatesApi:
     @validate_call
     def post_members_id_offer_states_issue(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         post_members_id_offer_states_issue_request: Optional[PostMembersIdOfferStatesIssueRequest] = None,
         _request_timeout: Union[
             None,
@@ -1341,8 +1284,6 @@ class OfferStatesApi:
 
         Issues an offer to a member using an active Sparkfly campaign, optionally allowing attachment of external data, activation and expiration dates. An issued offer is referred to as an offer_state.    This endpoint provides a limited feature set aimed at high throughput offer issuance. This endpoint should be preferred when issuing offer_states to a large number of members.  
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param post_members_id_offer_states_issue_request: 
         :type post_members_id_offer_states_issue_request: PostMembersIdOfferStatesIssueRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1368,7 +1309,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._post_members_id_offer_states_issue_serialize(
-            x_auth_token=x_auth_token,
             post_members_id_offer_states_issue_request=post_members_id_offer_states_issue_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1393,7 +1333,6 @@ class OfferStatesApi:
     @validate_call
     def post_members_id_offer_states_issue_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         post_members_id_offer_states_issue_request: Optional[PostMembersIdOfferStatesIssueRequest] = None,
         _request_timeout: Union[
             None,
@@ -1412,8 +1351,6 @@ class OfferStatesApi:
 
         Issues an offer to a member using an active Sparkfly campaign, optionally allowing attachment of external data, activation and expiration dates. An issued offer is referred to as an offer_state.    This endpoint provides a limited feature set aimed at high throughput offer issuance. This endpoint should be preferred when issuing offer_states to a large number of members.  
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param post_members_id_offer_states_issue_request: 
         :type post_members_id_offer_states_issue_request: PostMembersIdOfferStatesIssueRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1439,7 +1376,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._post_members_id_offer_states_issue_serialize(
-            x_auth_token=x_auth_token,
             post_members_id_offer_states_issue_request=post_members_id_offer_states_issue_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1464,7 +1400,6 @@ class OfferStatesApi:
     @validate_call
     def post_members_id_offer_states_issue_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         post_members_id_offer_states_issue_request: Optional[PostMembersIdOfferStatesIssueRequest] = None,
         _request_timeout: Union[
             None,
@@ -1483,8 +1418,6 @@ class OfferStatesApi:
 
         Issues an offer to a member using an active Sparkfly campaign, optionally allowing attachment of external data, activation and expiration dates. An issued offer is referred to as an offer_state.    This endpoint provides a limited feature set aimed at high throughput offer issuance. This endpoint should be preferred when issuing offer_states to a large number of members.  
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param post_members_id_offer_states_issue_request: 
         :type post_members_id_offer_states_issue_request: PostMembersIdOfferStatesIssueRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1510,7 +1443,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._post_members_id_offer_states_issue_serialize(
-            x_auth_token=x_auth_token,
             post_members_id_offer_states_issue_request=post_members_id_offer_states_issue_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1530,7 +1462,6 @@ class OfferStatesApi:
 
     def _post_members_id_offer_states_issue_serialize(
         self,
-        x_auth_token,
         post_members_id_offer_states_issue_request,
         _request_auth,
         _content_type,
@@ -1558,8 +1489,6 @@ class OfferStatesApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if post_members_id_offer_states_issue_request is not None:
@@ -1590,6 +1519,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1613,7 +1543,6 @@ class OfferStatesApi:
     @validate_call
     def post_members_member_id_offer_states(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         channel_id: Annotated[Optional[StrictStr], Field(description="The channel's primary key")] = None,
@@ -1635,8 +1564,6 @@ class OfferStatesApi:
 
         Creates an offer state from member, offer, and channel IDs.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: The member's primary key (required)
         :type member_id: str
         :param content_type: application/json
@@ -1668,7 +1595,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._post_members_member_id_offer_states_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             content_type=content_type,
             channel_id=channel_id,
@@ -1699,7 +1625,6 @@ class OfferStatesApi:
     @validate_call
     def post_members_member_id_offer_states_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         channel_id: Annotated[Optional[StrictStr], Field(description="The channel's primary key")] = None,
@@ -1721,8 +1646,6 @@ class OfferStatesApi:
 
         Creates an offer state from member, offer, and channel IDs.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: The member's primary key (required)
         :type member_id: str
         :param content_type: application/json
@@ -1754,7 +1677,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._post_members_member_id_offer_states_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             content_type=content_type,
             channel_id=channel_id,
@@ -1785,7 +1707,6 @@ class OfferStatesApi:
     @validate_call
     def post_members_member_id_offer_states_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         channel_id: Annotated[Optional[StrictStr], Field(description="The channel's primary key")] = None,
@@ -1807,8 +1728,6 @@ class OfferStatesApi:
 
         Creates an offer state from member, offer, and channel IDs.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: The member's primary key (required)
         :type member_id: str
         :param content_type: application/json
@@ -1840,7 +1759,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._post_members_member_id_offer_states_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             content_type=content_type,
             channel_id=channel_id,
@@ -1866,7 +1784,6 @@ class OfferStatesApi:
 
     def _post_members_member_id_offer_states_serialize(
         self,
-        x_auth_token,
         member_id,
         content_type,
         channel_id,
@@ -1907,8 +1824,6 @@ class OfferStatesApi:
             _query_params.append(('offer_id', offer_id))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -1926,6 +1841,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2241,6 +2157,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2531,6 +2448,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2823,6 +2741,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -2846,7 +2765,6 @@ class OfferStatesApi:
     @validate_call
     def post_members_offer_states(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         token: Annotated[Optional[StrictStr], Field(description="An offer state's osid")] = None,
         offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
@@ -2869,8 +2787,6 @@ class OfferStatesApi:
 
         Creates an offer state using the osid, offer_id or channel_id.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param token: An offer state's osid
@@ -2904,7 +2820,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._post_members_offer_states_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             token=token,
             offer_id=offer_id,
@@ -2936,7 +2851,6 @@ class OfferStatesApi:
     @validate_call
     def post_members_offer_states_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         token: Annotated[Optional[StrictStr], Field(description="An offer state's osid")] = None,
         offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
@@ -2959,8 +2873,6 @@ class OfferStatesApi:
 
         Creates an offer state using the osid, offer_id or channel_id.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param token: An offer state's osid
@@ -2994,7 +2906,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._post_members_offer_states_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             token=token,
             offer_id=offer_id,
@@ -3026,7 +2937,6 @@ class OfferStatesApi:
     @validate_call
     def post_members_offer_states_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         token: Annotated[Optional[StrictStr], Field(description="An offer state's osid")] = None,
         offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
@@ -3049,8 +2959,6 @@ class OfferStatesApi:
 
         Creates an offer state using the osid, offer_id or channel_id.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param token: An offer state's osid
@@ -3084,7 +2992,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._post_members_offer_states_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             token=token,
             offer_id=offer_id,
@@ -3111,7 +3018,6 @@ class OfferStatesApi:
 
     def _post_members_offer_states_serialize(
         self,
-        x_auth_token,
         content_type,
         token,
         offer_id,
@@ -3155,8 +3061,6 @@ class OfferStatesApi:
             _query_params.append(('channel_id', channel_id))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -3189,6 +3093,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -3212,7 +3117,6 @@ class OfferStatesApi:
     @validate_call
     def put_members_member_id_offer_states_offer_state_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offerstate_id: Annotated[StrictStr, Field(description="The offer state's primary key")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3234,8 +3138,6 @@ class OfferStatesApi:
 
         Updates an offer state by offer state ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offerstate_id: The offer state's primary key (required)
         :type offerstate_id: str
         :param member_id: The member's primary key (required)
@@ -3267,7 +3169,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._put_members_member_id_offer_states_offer_state_id_serialize(
-            x_auth_token=x_auth_token,
             offerstate_id=offerstate_id,
             member_id=member_id,
             content_type=content_type,
@@ -3298,7 +3199,6 @@ class OfferStatesApi:
     @validate_call
     def put_members_member_id_offer_states_offer_state_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offerstate_id: Annotated[StrictStr, Field(description="The offer state's primary key")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3320,8 +3220,6 @@ class OfferStatesApi:
 
         Updates an offer state by offer state ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offerstate_id: The offer state's primary key (required)
         :type offerstate_id: str
         :param member_id: The member's primary key (required)
@@ -3353,7 +3251,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._put_members_member_id_offer_states_offer_state_id_serialize(
-            x_auth_token=x_auth_token,
             offerstate_id=offerstate_id,
             member_id=member_id,
             content_type=content_type,
@@ -3384,7 +3281,6 @@ class OfferStatesApi:
     @validate_call
     def put_members_member_id_offer_states_offer_state_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offerstate_id: Annotated[StrictStr, Field(description="The offer state's primary key")],
         member_id: Annotated[StrictStr, Field(description="The member's primary key")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3406,8 +3302,6 @@ class OfferStatesApi:
 
         Updates an offer state by offer state ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offerstate_id: The offer state's primary key (required)
         :type offerstate_id: str
         :param member_id: The member's primary key (required)
@@ -3439,7 +3333,6 @@ class OfferStatesApi:
         """ # noqa: E501
 
         _param = self._put_members_member_id_offer_states_offer_state_id_serialize(
-            x_auth_token=x_auth_token,
             offerstate_id=offerstate_id,
             member_id=member_id,
             content_type=content_type,
@@ -3465,7 +3358,6 @@ class OfferStatesApi:
 
     def _put_members_member_id_offer_states_offer_state_id_serialize(
         self,
-        x_auth_token,
         offerstate_id,
         member_id,
         content_type,
@@ -3500,8 +3392,6 @@ class OfferStatesApi:
             _path_params['member_id'] = member_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -3534,6 +3424,7 @@ class OfferStatesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

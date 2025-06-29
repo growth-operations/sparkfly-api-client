@@ -46,7 +46,6 @@ class MembersApi:
     @validate_call
     def delete_members_member_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictInt, Field(description="unique ID")],
         _request_timeout: Union[
             None,
@@ -65,8 +64,6 @@ class MembersApi:
 
         Attempts to delete a member.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: unique ID (required)
         :type member_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -92,7 +89,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._delete_members_member_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -120,7 +116,6 @@ class MembersApi:
     @validate_call
     def delete_members_member_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictInt, Field(description="unique ID")],
         _request_timeout: Union[
             None,
@@ -139,8 +134,6 @@ class MembersApi:
 
         Attempts to delete a member.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: unique ID (required)
         :type member_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -166,7 +159,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._delete_members_member_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -194,7 +186,6 @@ class MembersApi:
     @validate_call
     def delete_members_member_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictInt, Field(description="unique ID")],
         _request_timeout: Union[
             None,
@@ -213,8 +204,6 @@ class MembersApi:
 
         Attempts to delete a member.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: unique ID (required)
         :type member_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -240,7 +229,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._delete_members_member_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -263,7 +251,6 @@ class MembersApi:
 
     def _delete_members_member_id_serialize(
         self,
-        x_auth_token,
         member_id,
         _request_auth,
         _content_type,
@@ -293,8 +280,6 @@ class MembersApi:
             _path_params['member_id'] = member_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -310,6 +295,7 @@ class MembersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -333,7 +319,6 @@ class MembersApi:
     @validate_call
     def get_members_member_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictInt, Field(description="unique ID")],
         _request_timeout: Union[
             None,
@@ -352,8 +337,6 @@ class MembersApi:
 
         Find a particular member by its' Sparkfly ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: unique ID (required)
         :type member_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -379,7 +362,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -407,7 +389,6 @@ class MembersApi:
     @validate_call
     def get_members_member_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictInt, Field(description="unique ID")],
         _request_timeout: Union[
             None,
@@ -426,8 +407,6 @@ class MembersApi:
 
         Find a particular member by its' Sparkfly ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: unique ID (required)
         :type member_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -453,7 +432,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -481,7 +459,6 @@ class MembersApi:
     @validate_call
     def get_members_member_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictInt, Field(description="unique ID")],
         _request_timeout: Union[
             None,
@@ -500,8 +477,6 @@ class MembersApi:
 
         Find a particular member by its' Sparkfly ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: unique ID (required)
         :type member_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -527,7 +502,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._get_members_member_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -550,7 +524,6 @@ class MembersApi:
 
     def _get_members_member_id_serialize(
         self,
-        x_auth_token,
         member_id,
         _request_auth,
         _content_type,
@@ -580,8 +553,6 @@ class MembersApi:
             _path_params['member_id'] = member_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -597,6 +568,7 @@ class MembersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -620,7 +592,6 @@ class MembersApi:
     @validate_call
     def get_members_profile(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictInt, Field(description="The member ID that represents the member.")],
         _request_timeout: Union[
             None,
@@ -639,8 +610,6 @@ class MembersApi:
 
         Get a member's profile data. If the caller's Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: The member ID that represents the member. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -666,7 +635,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._get_members_profile_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -694,7 +662,6 @@ class MembersApi:
     @validate_call
     def get_members_profile_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictInt, Field(description="The member ID that represents the member.")],
         _request_timeout: Union[
             None,
@@ -713,8 +680,6 @@ class MembersApi:
 
         Get a member's profile data. If the caller's Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: The member ID that represents the member. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -740,7 +705,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._get_members_profile_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -768,7 +732,6 @@ class MembersApi:
     @validate_call
     def get_members_profile_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictInt, Field(description="The member ID that represents the member.")],
         _request_timeout: Union[
             None,
@@ -787,8 +750,6 @@ class MembersApi:
 
         Get a member's profile data. If the caller's Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: The member ID that represents the member. (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -814,7 +775,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._get_members_profile_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -837,7 +797,6 @@ class MembersApi:
 
     def _get_members_profile_serialize(
         self,
-        x_auth_token,
         id,
         _request_auth,
         _content_type,
@@ -867,8 +826,6 @@ class MembersApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -884,6 +841,7 @@ class MembersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -907,7 +865,6 @@ class MembersApi:
     @validate_call
     def get_members_search(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         identifier: Annotated[StrictStr, Field(description="unique member identifier")],
         _request_timeout: Union[
             None,
@@ -926,8 +883,6 @@ class MembersApi:
 
         Performs a search of an already existing member using the identifier.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param identifier: unique member identifier (required)
         :type identifier: str
         :param _request_timeout: timeout setting for this request. If one
@@ -953,7 +908,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._get_members_search_serialize(
-            x_auth_token=x_auth_token,
             identifier=identifier,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -980,7 +934,6 @@ class MembersApi:
     @validate_call
     def get_members_search_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         identifier: Annotated[StrictStr, Field(description="unique member identifier")],
         _request_timeout: Union[
             None,
@@ -999,8 +952,6 @@ class MembersApi:
 
         Performs a search of an already existing member using the identifier.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param identifier: unique member identifier (required)
         :type identifier: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1026,7 +977,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._get_members_search_serialize(
-            x_auth_token=x_auth_token,
             identifier=identifier,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1053,7 +1003,6 @@ class MembersApi:
     @validate_call
     def get_members_search_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         identifier: Annotated[StrictStr, Field(description="unique member identifier")],
         _request_timeout: Union[
             None,
@@ -1072,8 +1021,6 @@ class MembersApi:
 
         Performs a search of an already existing member using the identifier.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param identifier: unique member identifier (required)
         :type identifier: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1099,7 +1046,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._get_members_search_serialize(
-            x_auth_token=x_auth_token,
             identifier=identifier,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1121,7 +1067,6 @@ class MembersApi:
 
     def _get_members_search_serialize(
         self,
-        x_auth_token,
         identifier,
         _request_auth,
         _content_type,
@@ -1153,8 +1098,6 @@ class MembersApi:
             _query_params.append(('identifier', identifier))
             
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -1170,6 +1113,7 @@ class MembersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1193,7 +1137,6 @@ class MembersApi:
     @validate_call
     def post_members(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_request: Optional[MemberRequest] = None,
         _request_timeout: Union[
@@ -1213,8 +1156,6 @@ class MembersApi:
 
         Create a new member.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param member_request:
@@ -1242,7 +1183,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._post_members_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             member_request=member_request,
             _request_auth=_request_auth,
@@ -1271,7 +1211,6 @@ class MembersApi:
     @validate_call
     def post_members_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_request: Optional[MemberRequest] = None,
         _request_timeout: Union[
@@ -1291,8 +1230,6 @@ class MembersApi:
 
         Create a new member.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param member_request:
@@ -1320,7 +1257,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._post_members_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             member_request=member_request,
             _request_auth=_request_auth,
@@ -1349,7 +1285,6 @@ class MembersApi:
     @validate_call
     def post_members_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_request: Optional[MemberRequest] = None,
         _request_timeout: Union[
@@ -1369,8 +1304,6 @@ class MembersApi:
 
         Create a new member.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param member_request:
@@ -1398,7 +1331,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._post_members_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             member_request=member_request,
             _request_auth=_request_auth,
@@ -1422,7 +1354,6 @@ class MembersApi:
 
     def _post_members_serialize(
         self,
-        x_auth_token,
         content_type,
         member_request,
         _request_auth,
@@ -1451,8 +1382,6 @@ class MembersApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -1485,6 +1414,7 @@ class MembersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1508,7 +1438,6 @@ class MembersApi:
     @validate_call
     def post_members_profile(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictInt, Field(description="The member ID that represents the member.")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_members_profile_request: Optional[PostMembersProfileRequest] = None,
@@ -1529,8 +1458,6 @@ class MembersApi:
 
         Creates or updates a member's profile. If Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: The member ID that represents the member. (required)
         :type id: int
         :param content_type: application/json
@@ -1560,7 +1487,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._post_members_profile_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             post_members_profile_request=post_members_profile_request,
@@ -1592,7 +1518,6 @@ class MembersApi:
     @validate_call
     def post_members_profile_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictInt, Field(description="The member ID that represents the member.")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_members_profile_request: Optional[PostMembersProfileRequest] = None,
@@ -1613,8 +1538,6 @@ class MembersApi:
 
         Creates or updates a member's profile. If Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: The member ID that represents the member. (required)
         :type id: int
         :param content_type: application/json
@@ -1644,7 +1567,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._post_members_profile_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             post_members_profile_request=post_members_profile_request,
@@ -1676,7 +1598,6 @@ class MembersApi:
     @validate_call
     def post_members_profile_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictInt, Field(description="The member ID that represents the member.")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         post_members_profile_request: Optional[PostMembersProfileRequest] = None,
@@ -1697,8 +1618,6 @@ class MembersApi:
 
         Creates or updates a member's profile. If Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: The member ID that represents the member. (required)
         :type id: int
         :param content_type: application/json
@@ -1728,7 +1647,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._post_members_profile_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             post_members_profile_request=post_members_profile_request,
@@ -1755,7 +1673,6 @@ class MembersApi:
 
     def _post_members_profile_serialize(
         self,
-        x_auth_token,
         id,
         content_type,
         post_members_profile_request,
@@ -1787,8 +1704,6 @@ class MembersApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -1821,6 +1736,7 @@ class MembersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1844,7 +1760,6 @@ class MembersApi:
     @validate_call
     def put_members_member_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictInt, Field(description="unique ID")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -1864,8 +1779,6 @@ class MembersApi:
 
         Update a member's data.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: unique ID (required)
         :type member_id: int
         :param content_type: application/json
@@ -1893,7 +1806,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._put_members_member_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -1922,7 +1834,6 @@ class MembersApi:
     @validate_call
     def put_members_member_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictInt, Field(description="unique ID")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -1942,8 +1853,6 @@ class MembersApi:
 
         Update a member's data.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: unique ID (required)
         :type member_id: int
         :param content_type: application/json
@@ -1971,7 +1880,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._put_members_member_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -2000,7 +1908,6 @@ class MembersApi:
     @validate_call
     def put_members_member_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         member_id: Annotated[StrictInt, Field(description="unique ID")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -2020,8 +1927,6 @@ class MembersApi:
 
         Update a member's data.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param member_id: unique ID (required)
         :type member_id: int
         :param content_type: application/json
@@ -2049,7 +1954,6 @@ class MembersApi:
         """ # noqa: E501
 
         _param = self._put_members_member_id_serialize(
-            x_auth_token=x_auth_token,
             member_id=member_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -2073,7 +1977,6 @@ class MembersApi:
 
     def _put_members_member_id_serialize(
         self,
-        x_auth_token,
         member_id,
         content_type,
         _request_auth,
@@ -2104,8 +2007,6 @@ class MembersApi:
             _path_params['member_id'] = member_id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -2123,6 +2024,7 @@ class MembersApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

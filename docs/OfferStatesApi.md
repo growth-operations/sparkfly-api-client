@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 
 # **get_members_member_id_offer_states**
-> OfferStateIndexBody get_members_member_id_offer_states(x_auth_token, member_id, content_type=content_type)
+> OfferStateIndexBody get_members_member_id_offer_states(member_id, content_type=content_type)
 
 Get all Offer States
 
@@ -26,6 +26,7 @@ Gets all offer states.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -39,18 +40,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferStatesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     member_id = 'member_id_example' # str | The member's primary key
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get all Offer States
-        api_response = api_instance.get_members_member_id_offer_states(x_auth_token, member_id, content_type=content_type)
+        api_response = api_instance.get_members_member_id_offer_states(member_id, content_type=content_type)
         print("The response of OfferStatesApi->get_members_member_id_offer_states:\n")
         pprint(api_response)
     except Exception as e:
@@ -64,7 +74,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **member_id** | **str**| The member&#39;s primary key | 
  **content_type** | **str**| application/json | [optional] 
 
@@ -74,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -93,7 +102,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members_member_id_offer_states_offer_state_id**
-> OfferStateIndexBody get_members_member_id_offer_states_offer_state_id(x_auth_token, offerstate_id, member_id, content_type=content_type)
+> OfferStateIndexBody get_members_member_id_offer_states_offer_state_id(offerstate_id, member_id, content_type=content_type)
 
 Get Offer State by Offer State ID
 
@@ -101,6 +110,7 @@ Gets the offer state by the offer state ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -114,19 +124,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferStatesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
     member_id = 'member_id_example' # str | The member's primary key
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get Offer State by Offer State ID
-        api_response = api_instance.get_members_member_id_offer_states_offer_state_id(x_auth_token, offerstate_id, member_id, content_type=content_type)
+        api_response = api_instance.get_members_member_id_offer_states_offer_state_id(offerstate_id, member_id, content_type=content_type)
         print("The response of OfferStatesApi->get_members_member_id_offer_states_offer_state_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -140,7 +159,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offerstate_id** | **str**| The offer state&#39;s primary key | 
  **member_id** | **str**| The member&#39;s primary key | 
  **content_type** | **str**| application/json | [optional] 
@@ -151,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -170,7 +188,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members_member_id_offers_offer_id**
-> OfferState get_members_member_id_offers_offer_id(x_auth_token, member_id, offer_id, content_type=content_type)
+> OfferState get_members_member_id_offers_offer_id(member_id, offer_id, content_type=content_type)
 
 Get Offer State by Offer ID
 
@@ -178,6 +196,7 @@ Gets the offer state by the offer ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -191,19 +210,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferStatesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     member_id = 'member_id_example' # str | The member's primary key
     offer_id = 'offer_id_example' # str | The offer's primary key
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get Offer State by Offer ID
-        api_response = api_instance.get_members_member_id_offers_offer_id(x_auth_token, member_id, offer_id, content_type=content_type)
+        api_response = api_instance.get_members_member_id_offers_offer_id(member_id, offer_id, content_type=content_type)
         print("The response of OfferStatesApi->get_members_member_id_offers_offer_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -217,7 +245,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **member_id** | **str**| The member&#39;s primary key | 
  **offer_id** | **str**| The offer&#39;s primary key | 
  **content_type** | **str**| application/json | [optional] 
@@ -228,7 +255,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -247,7 +274,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members_offer_states**
-> OfferState get_members_offer_states(x_auth_token, content_type=content_type, token=token, credential_identifier=credential_identifier, external_ref_id=external_ref_id)
+> OfferState get_members_offer_states(content_type=content_type, token=token, credential_identifier=credential_identifier, external_ref_id=external_ref_id)
 
 Get Offer State from Query Parameters
 
@@ -255,6 +282,7 @@ Gets an offer state from a token, credential_identifier, and/or an external_ref_
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -268,12 +296,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferStatesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     token = 'token_example' # str | An offer state's osid (optional)
     credential_identifier = 'credential_identifier_example' # str | The identifier of the credential (optional)
@@ -281,7 +318,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Offer State from Query Parameters
-        api_response = api_instance.get_members_offer_states(x_auth_token, content_type=content_type, token=token, credential_identifier=credential_identifier, external_ref_id=external_ref_id)
+        api_response = api_instance.get_members_offer_states(content_type=content_type, token=token, credential_identifier=credential_identifier, external_ref_id=external_ref_id)
         print("The response of OfferStatesApi->get_members_offer_states:\n")
         pprint(api_response)
     except Exception as e:
@@ -295,7 +332,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **token** | **str**| An offer state&#39;s osid | [optional] 
  **credential_identifier** | **str**| The identifier of the credential | [optional] 
@@ -307,7 +343,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -326,7 +362,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_members_id_offer_states_issue**
-> PostMembersIdOfferStatesIssue201Response post_members_id_offer_states_issue(x_auth_token, post_members_id_offer_states_issue_request=post_members_id_offer_states_issue_request)
+> PostMembersIdOfferStatesIssue201Response post_members_id_offer_states_issue(post_members_id_offer_states_issue_request=post_members_id_offer_states_issue_request)
 
 Issue an Offer to a member (high throughput)
 
@@ -337,6 +373,7 @@ This endpoint provides a limited feature set aimed at high throughput offer issu
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -351,17 +388,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferStatesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     post_members_id_offer_states_issue_request = openapi_client.PostMembersIdOfferStatesIssueRequest() # PostMembersIdOfferStatesIssueRequest |  (optional)
 
     try:
         # Issue an Offer to a member (high throughput)
-        api_response = api_instance.post_members_id_offer_states_issue(x_auth_token, post_members_id_offer_states_issue_request=post_members_id_offer_states_issue_request)
+        api_response = api_instance.post_members_id_offer_states_issue(post_members_id_offer_states_issue_request=post_members_id_offer_states_issue_request)
         print("The response of OfferStatesApi->post_members_id_offer_states_issue:\n")
         pprint(api_response)
     except Exception as e:
@@ -375,7 +421,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **post_members_id_offer_states_issue_request** | [**PostMembersIdOfferStatesIssueRequest**](PostMembersIdOfferStatesIssueRequest.md)|  | [optional] 
 
 ### Return type
@@ -384,7 +429,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -400,7 +445,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_members_member_id_offer_states**
-> OfferState post_members_member_id_offer_states(x_auth_token, member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id)
+> OfferState post_members_member_id_offer_states(member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id)
 
 Create Offer State
 
@@ -408,6 +453,7 @@ Creates an offer state from member, offer, and channel IDs.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -421,12 +467,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferStatesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     member_id = 'member_id_example' # str | The member's primary key
     content_type = 'content_type_example' # str | application/json (optional)
     channel_id = 'channel_id_example' # str | The channel's primary key (optional)
@@ -434,7 +489,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Create Offer State
-        api_response = api_instance.post_members_member_id_offer_states(x_auth_token, member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id)
+        api_response = api_instance.post_members_member_id_offer_states(member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id)
         print("The response of OfferStatesApi->post_members_member_id_offer_states:\n")
         pprint(api_response)
     except Exception as e:
@@ -448,7 +503,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **member_id** | **str**| The member&#39;s primary key | 
  **content_type** | **str**| application/json | [optional] 
  **channel_id** | **str**| The channel&#39;s primary key | [optional] 
@@ -460,7 +514,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -487,6 +541,7 @@ Updates the offer state by offer state ID through a post.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -501,6 +556,16 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -536,7 +601,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -563,6 +628,7 @@ Voids an offer state from an offer state ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -575,6 +641,16 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -606,7 +682,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -634,6 +710,7 @@ Voids an offer state by the member identifier.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -646,6 +723,16 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -677,7 +764,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -697,7 +784,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_members_offer_states**
-> OfferState post_members_offer_states(x_auth_token, content_type=content_type, token=token, offer_id=offer_id, channel_id=channel_id, offer_state_request=offer_state_request)
+> OfferState post_members_offer_states(content_type=content_type, token=token, offer_id=offer_id, channel_id=channel_id, offer_state_request=offer_state_request)
 
 Create Offer State from Query Parameters
 
@@ -705,6 +792,7 @@ Creates an offer state using the osid, offer_id or channel_id.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -719,12 +807,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferStatesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     token = 'token_example' # str | An offer state's osid (optional)
     offer_id = 'offer_id_example' # str | search for records with a matching offer id (optional)
@@ -733,7 +830,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Create Offer State from Query Parameters
-        api_response = api_instance.post_members_offer_states(x_auth_token, content_type=content_type, token=token, offer_id=offer_id, channel_id=channel_id, offer_state_request=offer_state_request)
+        api_response = api_instance.post_members_offer_states(content_type=content_type, token=token, offer_id=offer_id, channel_id=channel_id, offer_state_request=offer_state_request)
         print("The response of OfferStatesApi->post_members_offer_states:\n")
         pprint(api_response)
     except Exception as e:
@@ -747,7 +844,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **token** | **str**| An offer state&#39;s osid | [optional] 
  **offer_id** | **str**| search for records with a matching offer id | [optional] 
@@ -760,7 +856,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -779,7 +875,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_members_member_id_offer_states_offer_state_id**
-> OfferState put_members_member_id_offer_states_offer_state_id(x_auth_token, offerstate_id, member_id, content_type=content_type, offer_state_update=offer_state_update)
+> OfferState put_members_member_id_offer_states_offer_state_id(offerstate_id, member_id, content_type=content_type, offer_state_update=offer_state_update)
 
 Update Offer State
 
@@ -787,6 +883,7 @@ Updates an offer state by offer state ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -801,12 +898,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.OfferStatesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
     member_id = 'member_id_example' # str | The member's primary key
     content_type = 'content_type_example' # str | application/json (optional)
@@ -814,7 +920,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Update Offer State
-        api_response = api_instance.put_members_member_id_offer_states_offer_state_id(x_auth_token, offerstate_id, member_id, content_type=content_type, offer_state_update=offer_state_update)
+        api_response = api_instance.put_members_member_id_offer_states_offer_state_id(offerstate_id, member_id, content_type=content_type, offer_state_update=offer_state_update)
         print("The response of OfferStatesApi->put_members_member_id_offer_states_offer_state_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -828,7 +934,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **offerstate_id** | **str**| The offer state&#39;s primary key | 
  **member_id** | **str**| The member&#39;s primary key | 
  **content_type** | **str**| application/json | [optional] 
@@ -840,7 +945,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

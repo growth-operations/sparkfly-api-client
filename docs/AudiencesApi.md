@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **delete_audiences_id**
-> delete_audiences_id(x_auth_token, audience_id)
+> delete_audiences_id(audience_id)
 
 Remove an Audience
 
@@ -25,6 +25,7 @@ Removes an existing audience.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -37,17 +38,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     audience_id = 'audience_id_example' # str | audience to find or modify
 
     try:
         # Remove an Audience
-        api_instance.delete_audiences_id(x_auth_token, audience_id)
+        api_instance.delete_audiences_id(audience_id)
     except Exception as e:
         print("Exception when calling AudiencesApi->delete_audiences_id: %s\n" % e)
 ```
@@ -59,7 +69,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **audience_id** | **str**| audience to find or modify | 
 
 ### Return type
@@ -68,7 +77,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -86,7 +95,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_audiences_id_sub_audiences_sub_audience_id**
-> delete_audiences_id_sub_audiences_sub_audience_id(x_auth_token, sub_audience_id, audience_id)
+> delete_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
 
 Remove a Sub-Audience
 
@@ -94,6 +103,7 @@ Removes an existing sub-audience.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -106,18 +116,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     sub_audience_id = 'sub_audience_id_example' # str | sub-audience to find or modify
     audience_id = 'audience_id_example' # str | parent audience
 
     try:
         # Remove a Sub-Audience
-        api_instance.delete_audiences_id_sub_audiences_sub_audience_id(x_auth_token, sub_audience_id, audience_id)
+        api_instance.delete_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
     except Exception as e:
         print("Exception when calling AudiencesApi->delete_audiences_id_sub_audiences_sub_audience_id: %s\n" % e)
 ```
@@ -129,7 +148,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **sub_audience_id** | **str**| sub-audience to find or modify | 
  **audience_id** | **str**| parent audience | 
 
@@ -139,7 +157,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -158,7 +176,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences**
-> InlineObject2 get_audiences(x_auth_token, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+> InlineObject2 get_audiences(page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
 
 List all Audiences
 
@@ -166,6 +184,7 @@ Retrieve all audiences associated with your account.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -179,12 +198,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
     per_page = '5000' # str | maximum number of records to return in the search (optional) (default to '5000')
     order = asc # str | sort the records in either ascending (asc) or descending (desc) order (optional) (default to asc)
@@ -193,7 +221,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # List all Audiences
-        api_response = api_instance.get_audiences(x_auth_token, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+        api_response = api_instance.get_audiences(page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
         print("The response of AudiencesApi->get_audiences:\n")
         pprint(api_response)
     except Exception as e:
@@ -207,7 +235,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **page** | **str**| page offset to display a range of records from | [optional] [default to &#39;1&#39;]
  **per_page** | **str**| maximum number of records to return in the search | [optional] [default to &#39;5000&#39;]
  **order** | **str**| sort the records in either ascending (asc) or descending (desc) order | [optional] [default to asc]
@@ -220,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -237,7 +264,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences_id**
-> InlineObject1 get_audiences_id(x_auth_token, audience_id)
+> InlineObject1 get_audiences_id(audience_id)
 
 Retrieve an Audience
 
@@ -245,6 +272,7 @@ Find an audience by its primary identifier.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -258,17 +286,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     audience_id = 'audience_id_example' # str | audience to find or modify
 
     try:
         # Retrieve an Audience
-        api_response = api_instance.get_audiences_id(x_auth_token, audience_id)
+        api_response = api_instance.get_audiences_id(audience_id)
         print("The response of AudiencesApi->get_audiences_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -282,7 +319,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **audience_id** | **str**| audience to find or modify | 
 
 ### Return type
@@ -291,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -310,7 +346,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences_id_sub_audiences**
-> InlineObject4 get_audiences_id_sub_audiences(x_auth_token, audience_id, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+> InlineObject4 get_audiences_id_sub_audiences(audience_id, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
 
 List all Sub-Audiences
 
@@ -318,6 +354,7 @@ Search within all sub-audiences.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -331,12 +368,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     audience_id = 'audience_id_example' # str | parent audience
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
     per_page = '5000' # str | maximum number of records to return in the search (optional) (default to '5000')
@@ -346,7 +392,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # List all Sub-Audiences
-        api_response = api_instance.get_audiences_id_sub_audiences(x_auth_token, audience_id, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+        api_response = api_instance.get_audiences_id_sub_audiences(audience_id, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
         print("The response of AudiencesApi->get_audiences_id_sub_audiences:\n")
         pprint(api_response)
     except Exception as e:
@@ -360,7 +406,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **audience_id** | **str**| parent audience | 
  **page** | **str**| page offset to display a range of records from | [optional] [default to &#39;1&#39;]
  **per_page** | **str**| maximum number of records to return in the search | [optional] [default to &#39;5000&#39;]
@@ -374,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -391,7 +436,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences_id_sub_audiences_sub_audience_id**
-> InlineObject3 get_audiences_id_sub_audiences_sub_audience_id(x_auth_token, sub_audience_id, audience_id)
+> InlineObject3 get_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
 
 Retrieve a Sub-Audience
 
@@ -399,6 +444,7 @@ Get a sub-audience by it's primary identifier.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -412,18 +458,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     sub_audience_id = 'sub_audience_id_example' # str | sub-audience to find or modify
     audience_id = 'audience_id_example' # str | parent audience
 
     try:
         # Retrieve a Sub-Audience
-        api_response = api_instance.get_audiences_id_sub_audiences_sub_audience_id(x_auth_token, sub_audience_id, audience_id)
+        api_response = api_instance.get_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
         print("The response of AudiencesApi->get_audiences_id_sub_audiences_sub_audience_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -437,7 +492,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **sub_audience_id** | **str**| sub-audience to find or modify | 
  **audience_id** | **str**| parent audience | 
 
@@ -447,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -465,7 +519,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_audiences**
-> InlineObject1 post_audiences(x_auth_token, content_type=content_type, post_audiences_request=post_audiences_request)
+> InlineObject1 post_audiences(content_type=content_type, post_audiences_request=post_audiences_request)
 
 Create an Audience
 
@@ -473,6 +527,7 @@ Creates a new audience.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -487,18 +542,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     post_audiences_request = openapi_client.PostAudiencesRequest() # PostAudiencesRequest |  (optional)
 
     try:
         # Create an Audience
-        api_response = api_instance.post_audiences(x_auth_token, content_type=content_type, post_audiences_request=post_audiences_request)
+        api_response = api_instance.post_audiences(content_type=content_type, post_audiences_request=post_audiences_request)
         print("The response of AudiencesApi->post_audiences:\n")
         pprint(api_response)
     except Exception as e:
@@ -512,7 +576,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **post_audiences_request** | [**PostAudiencesRequest**](PostAudiencesRequest.md)|  | [optional] 
 
@@ -522,7 +585,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -540,7 +603,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_audiences_id_sub_audiences**
-> InlineObject3 post_audiences_id_sub_audiences(x_auth_token, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
+> InlineObject3 post_audiences_id_sub_audiences(audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
 
 Create a Sub-Audience
 
@@ -548,6 +611,7 @@ Creates a sub-audience within this audience.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -562,19 +626,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     audience_id = 'audience_id_example' # str | parent audience
     content_type = 'content_type_example' # str | application/json (optional)
     post_audiences_id_sub_audiences_request = openapi_client.PostAudiencesIdSubAudiencesRequest() # PostAudiencesIdSubAudiencesRequest |  (optional)
 
     try:
         # Create a Sub-Audience
-        api_response = api_instance.post_audiences_id_sub_audiences(x_auth_token, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
+        api_response = api_instance.post_audiences_id_sub_audiences(audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
         print("The response of AudiencesApi->post_audiences_id_sub_audiences:\n")
         pprint(api_response)
     except Exception as e:
@@ -588,7 +661,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **audience_id** | **str**| parent audience | 
  **content_type** | **str**| application/json | [optional] 
  **post_audiences_id_sub_audiences_request** | [**PostAudiencesIdSubAudiencesRequest**](PostAudiencesIdSubAudiencesRequest.md)|  | [optional] 
@@ -599,7 +671,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -618,7 +690,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_audiences_id**
-> InlineObject1 put_audiences_id(x_auth_token, audience_id, content_type=content_type, post_audiences_request=post_audiences_request)
+> InlineObject1 put_audiences_id(audience_id, content_type=content_type, post_audiences_request=post_audiences_request)
 
 Update an Audience
 
@@ -626,6 +698,7 @@ Updates an existing audience.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -640,19 +713,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     audience_id = 'audience_id_example' # str | audience to find or modify
     content_type = 'content_type_example' # str | application/json (optional)
     post_audiences_request = openapi_client.PostAudiencesRequest() # PostAudiencesRequest |  (optional)
 
     try:
         # Update an Audience
-        api_response = api_instance.put_audiences_id(x_auth_token, audience_id, content_type=content_type, post_audiences_request=post_audiences_request)
+        api_response = api_instance.put_audiences_id(audience_id, content_type=content_type, post_audiences_request=post_audiences_request)
         print("The response of AudiencesApi->put_audiences_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -666,7 +748,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **audience_id** | **str**| audience to find or modify | 
  **content_type** | **str**| application/json | [optional] 
  **post_audiences_request** | [**PostAudiencesRequest**](PostAudiencesRequest.md)|  | [optional] 
@@ -677,7 +758,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -695,7 +776,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_audiences_id_sub_audiences_sub_audience_id**
-> InlineObject3 put_audiences_id_sub_audiences_sub_audience_id(x_auth_token, sub_audience_id, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
+> InlineObject3 put_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
 
 Update a Sub-Audience
 
@@ -703,6 +784,7 @@ Updates an existing sub-audience.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -717,12 +799,21 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AudiencesApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     sub_audience_id = 'sub_audience_id_example' # str | sub-audience to find or modify
     audience_id = 'audience_id_example' # str | parent audience
     content_type = 'content_type_example' # str | application/json (optional)
@@ -730,7 +821,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Update a Sub-Audience
-        api_response = api_instance.put_audiences_id_sub_audiences_sub_audience_id(x_auth_token, sub_audience_id, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
+        api_response = api_instance.put_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
         print("The response of AudiencesApi->put_audiences_id_sub_audiences_sub_audience_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -744,7 +835,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **sub_audience_id** | **str**| sub-audience to find or modify | 
  **audience_id** | **str**| parent audience | 
  **content_type** | **str**| application/json | [optional] 
@@ -756,7 +846,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

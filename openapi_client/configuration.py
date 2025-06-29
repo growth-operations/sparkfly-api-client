@@ -114,6 +114,9 @@ HTTPSignatureAuthSetting = TypedDict(
 AuthSettings = TypedDict(
     "AuthSettings",
     {
+        "XAuthToken": APIKeyAuthSetting,
+        "XAuthIdentity": APIKeyAuthSetting,
+        "XAuthKey": APIKeyAuthSetting,
     },
     total=False,
 )
@@ -164,6 +167,26 @@ class Configuration:
     :param ca_cert_data: verify the peer using concatenated CA certificate data
       in PEM (str) or DER (bytes) format.
 
+    :Example:
+
+    API Key Authentication Example.
+    Given the following security scheme in the OpenAPI specification:
+      components:
+        securitySchemes:
+          cookieAuth:         # name for the security scheme
+            type: apiKey
+            in: cookie
+            name: JSESSIONID  # cookie name
+
+    You can programmatically set the cookie:
+
+conf = openapi_client.Configuration(
+    api_key={'cookieAuth': 'abc123'}
+    api_key_prefix={'cookieAuth': 'JSESSIONID'}
+)
+
+    The following cookie will be added to the HTTP request:
+       Cookie: JSESSIONID abc123
     """
 
     _default: ClassVar[Optional[Self]] = None
@@ -491,6 +514,33 @@ class Configuration:
         :return: The Auth Settings information dict.
         """
         auth: AuthSettings = {}
+        if 'XAuthToken' in self.api_key:
+            auth['XAuthToken'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'X-Auth-Token',
+                'value': self.get_api_key_with_prefix(
+                    'XAuthToken',
+                ),
+            }
+        if 'XAuthIdentity' in self.api_key:
+            auth['XAuthIdentity'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'X-Auth-Identity',
+                'value': self.get_api_key_with_prefix(
+                    'XAuthIdentity',
+                ),
+            }
+        if 'XAuthKey' in self.api_key:
+            auth['XAuthKey'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'X-Auth-Key',
+                'value': self.get_api_key_with_prefix(
+                    'XAuthKey',
+                ),
+            }
         return auth
 
     def to_debug_report(self) -> str:

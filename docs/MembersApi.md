@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **delete_members_member_id**
-> delete_members_member_id(x_auth_token, member_id)
+> delete_members_member_id(member_id)
 
 Remove a Member
 
@@ -22,6 +22,7 @@ Attempts to delete a member.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -34,17 +35,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MembersApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     member_id = 56 # int | unique ID
 
     try:
         # Remove a Member
-        api_instance.delete_members_member_id(x_auth_token, member_id)
+        api_instance.delete_members_member_id(member_id)
     except Exception as e:
         print("Exception when calling MembersApi->delete_members_member_id: %s\n" % e)
 ```
@@ -56,7 +66,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **member_id** | **int**| unique ID | 
 
 ### Return type
@@ -65,7 +74,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -84,7 +93,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members_member_id**
-> Member get_members_member_id(x_auth_token, member_id)
+> Member get_members_member_id(member_id)
 
 Find a Member
 
@@ -92,6 +101,7 @@ Find a particular member by its' Sparkfly ID.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -105,17 +115,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MembersApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     member_id = 56 # int | unique ID
 
     try:
         # Find a Member
-        api_response = api_instance.get_members_member_id(x_auth_token, member_id)
+        api_response = api_instance.get_members_member_id(member_id)
         print("The response of MembersApi->get_members_member_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -129,7 +148,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **member_id** | **int**| unique ID | 
 
 ### Return type
@@ -138,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -157,7 +175,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members_profile**
-> InlineObject5 get_members_profile(x_auth_token, id)
+> InlineObject5 get_members_profile(id)
 
 Retrieve a Member Profile
 
@@ -165,6 +183,7 @@ Get a member's profile data. If the caller's Sparkfly account is configured to s
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -178,17 +197,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MembersApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     id = 56 # int | The member ID that represents the member.
 
     try:
         # Retrieve a Member Profile
-        api_response = api_instance.get_members_profile(x_auth_token, id)
+        api_response = api_instance.get_members_profile(id)
         print("The response of MembersApi->get_members_profile:\n")
         pprint(api_response)
     except Exception as e:
@@ -202,7 +230,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **id** | **int**| The member ID that represents the member. | 
 
 ### Return type
@@ -211,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -230,7 +257,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members_search**
-> Member get_members_search(x_auth_token, identifier)
+> Member get_members_search(identifier)
 
 Search for a Member
 
@@ -238,6 +265,7 @@ Performs a search of an already existing member using the identifier.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -251,17 +279,26 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MembersApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     identifier = 'identifier_example' # str | unique member identifier
 
     try:
         # Search for a Member
-        api_response = api_instance.get_members_search(x_auth_token, identifier)
+        api_response = api_instance.get_members_search(identifier)
         print("The response of MembersApi->get_members_search:\n")
         pprint(api_response)
     except Exception as e:
@@ -275,7 +312,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **identifier** | **str**| unique member identifier | 
 
 ### Return type
@@ -284,7 +320,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -302,7 +338,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_members**
-> Member post_members(x_auth_token, content_type=content_type, member_request=member_request)
+> Member post_members(content_type=content_type, member_request=member_request)
 
 Create a Member
 
@@ -310,6 +346,7 @@ Create a new member.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -324,18 +361,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MembersApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     content_type = 'content_type_example' # str | application/json (optional)
     member_request = openapi_client.MemberRequest() # MemberRequest |  (optional)
 
     try:
         # Create a Member
-        api_response = api_instance.post_members(x_auth_token, content_type=content_type, member_request=member_request)
+        api_response = api_instance.post_members(content_type=content_type, member_request=member_request)
         print("The response of MembersApi->post_members:\n")
         pprint(api_response)
     except Exception as e:
@@ -349,7 +395,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **content_type** | **str**| application/json | [optional] 
  **member_request** | [**MemberRequest**](MemberRequest.md)|  | [optional] 
 
@@ -359,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -378,7 +423,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_members_profile**
-> post_members_profile(x_auth_token, id, content_type=content_type, post_members_profile_request=post_members_profile_request)
+> post_members_profile(id, content_type=content_type, post_members_profile_request=post_members_profile_request)
 
 Create/Update a Member Profile
 
@@ -386,6 +431,7 @@ Creates or updates a member's profile. If Sparkfly account is configured to stor
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -399,19 +445,28 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MembersApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     id = 56 # int | The member ID that represents the member.
     content_type = 'content_type_example' # str | application/json (optional)
     post_members_profile_request = openapi_client.PostMembersProfileRequest() # PostMembersProfileRequest |  (optional)
 
     try:
         # Create/Update a Member Profile
-        api_instance.post_members_profile(x_auth_token, id, content_type=content_type, post_members_profile_request=post_members_profile_request)
+        api_instance.post_members_profile(id, content_type=content_type, post_members_profile_request=post_members_profile_request)
     except Exception as e:
         print("Exception when calling MembersApi->post_members_profile: %s\n" % e)
 ```
@@ -423,7 +478,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **id** | **int**| The member ID that represents the member. | 
  **content_type** | **str**| application/json | [optional] 
  **post_members_profile_request** | [**PostMembersProfileRequest**](PostMembersProfileRequest.md)|  | [optional] 
@@ -434,7 +488,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 
@@ -455,7 +509,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_members_member_id**
-> Member put_members_member_id(x_auth_token, member_id, content_type=content_type)
+> Member put_members_member_id(member_id, content_type=content_type)
 
 Update a Member
 
@@ -463,6 +517,7 @@ Update a member's data.
 
 ### Example
 
+* Api Key Authentication (XAuthToken):
 
 ```python
 import openapi_client
@@ -476,18 +531,27 @@ configuration = openapi_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MembersApi(api_client)
-    x_auth_token = 'x_auth_token_example' # str | Required authentication token
     member_id = 56 # int | unique ID
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Update a Member
-        api_response = api_instance.put_members_member_id(x_auth_token, member_id, content_type=content_type)
+        api_response = api_instance.put_members_member_id(member_id, content_type=content_type)
         print("The response of MembersApi->put_members_member_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -501,7 +565,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x_auth_token** | **str**| Required authentication token | 
  **member_id** | **int**| unique ID | 
  **content_type** | **str**| application/json | [optional] 
 
@@ -511,7 +574,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[XAuthToken](../README.md#XAuthToken)
 
 ### HTTP request headers
 

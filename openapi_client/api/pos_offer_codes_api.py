@@ -44,7 +44,6 @@ class POSOfferCodesApi:
     @validate_call
     def get_pos_offer_codes(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -63,8 +62,6 @@ class POSOfferCodesApi:
 
         List POS offer codes by account ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -90,7 +87,6 @@ class POSOfferCodesApi:
         """ # noqa: E501
 
         _param = self._get_pos_offer_codes_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -117,7 +113,6 @@ class POSOfferCodesApi:
     @validate_call
     def get_pos_offer_codes_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -136,8 +131,6 @@ class POSOfferCodesApi:
 
         List POS offer codes by account ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -163,7 +156,6 @@ class POSOfferCodesApi:
         """ # noqa: E501
 
         _param = self._get_pos_offer_codes_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -190,7 +182,6 @@ class POSOfferCodesApi:
     @validate_call
     def get_pos_offer_codes_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -209,8 +200,6 @@ class POSOfferCodesApi:
 
         List POS offer codes by account ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -236,7 +225,6 @@ class POSOfferCodesApi:
         """ # noqa: E501
 
         _param = self._get_pos_offer_codes_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -258,7 +246,6 @@ class POSOfferCodesApi:
 
     def _get_pos_offer_codes_serialize(
         self,
-        x_auth_token,
         content_type,
         _request_auth,
         _content_type,
@@ -286,8 +273,6 @@ class POSOfferCodesApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -305,6 +290,7 @@ class POSOfferCodesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -328,7 +314,6 @@ class POSOfferCodesApi:
     @validate_call
     def get_pos_offer_codes_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictInt, Field(description="The pos offer code ID that represents the pos offer code.")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -348,8 +333,6 @@ class POSOfferCodesApi:
 
         Gets POS offer code by ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: The pos offer code ID that represents the pos offer code. (required)
         :type id: int
         :param content_type: application/json
@@ -377,7 +360,6 @@ class POSOfferCodesApi:
         """ # noqa: E501
 
         _param = self._get_pos_offer_codes_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -407,7 +389,6 @@ class POSOfferCodesApi:
     @validate_call
     def get_pos_offer_codes_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictInt, Field(description="The pos offer code ID that represents the pos offer code.")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -427,8 +408,6 @@ class POSOfferCodesApi:
 
         Gets POS offer code by ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: The pos offer code ID that represents the pos offer code. (required)
         :type id: int
         :param content_type: application/json
@@ -456,7 +435,6 @@ class POSOfferCodesApi:
         """ # noqa: E501
 
         _param = self._get_pos_offer_codes_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -486,7 +464,6 @@ class POSOfferCodesApi:
     @validate_call
     def get_pos_offer_codes_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         id: Annotated[StrictInt, Field(description="The pos offer code ID that represents the pos offer code.")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -506,8 +483,6 @@ class POSOfferCodesApi:
 
         Gets POS offer code by ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param id: The pos offer code ID that represents the pos offer code. (required)
         :type id: int
         :param content_type: application/json
@@ -535,7 +510,6 @@ class POSOfferCodesApi:
         """ # noqa: E501
 
         _param = self._get_pos_offer_codes_id_serialize(
-            x_auth_token=x_auth_token,
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -560,7 +534,6 @@ class POSOfferCodesApi:
 
     def _get_pos_offer_codes_id_serialize(
         self,
-        x_auth_token,
         id,
         content_type,
         _request_auth,
@@ -591,8 +564,6 @@ class POSOfferCodesApi:
             _path_params['id'] = id
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -610,6 +581,7 @@ class POSOfferCodesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

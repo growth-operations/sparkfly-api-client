@@ -20,6 +20,7 @@ __version__ = "1.0.0"
 # Define package exports
 __all__ = [
     "AudiencesApi",
+    "AuthenticationApi",
     "BIStoreListsApi",
     "CampaignsApi",
     "CtmApi",
@@ -155,6 +156,7 @@ __all__ = [
     "PosOfferCodeIndexBody",
     "PostAudiencesIdSubAudiencesRequest",
     "PostAudiencesRequest",
+    "PostAuth401Response",
     "PostMembersIdOfferStatesIssue201Response",
     "PostMembersIdOfferStatesIssue201ResponseOfferState",
     "PostMembersIdOfferStatesIssueRequest",
@@ -184,6 +186,7 @@ __all__ = [
 
 # import apis into sdk package
 from openapi_client.api.audiences_api import AudiencesApi as AudiencesApi
+from openapi_client.api.authentication_api import AuthenticationApi as AuthenticationApi
 from openapi_client.api.bi_store_lists_api import BIStoreListsApi as BIStoreListsApi
 from openapi_client.api.campaigns_api import CampaignsApi as CampaignsApi
 from openapi_client.api.ctm_api import CtmApi as CtmApi
@@ -323,6 +326,7 @@ from openapi_client.models.pos_offer_code_all_of_pos_offer_code import PosOfferC
 from openapi_client.models.pos_offer_code_index_body import PosOfferCodeIndexBody as PosOfferCodeIndexBody
 from openapi_client.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest as PostAudiencesIdSubAudiencesRequest
 from openapi_client.models.post_audiences_request import PostAudiencesRequest as PostAudiencesRequest
+from openapi_client.models.post_auth401_response import PostAuth401Response as PostAuth401Response
 from openapi_client.models.post_members_id_offer_states_issue201_response import PostMembersIdOfferStatesIssue201Response as PostMembersIdOfferStatesIssue201Response
 from openapi_client.models.post_members_id_offer_states_issue201_response_offer_state import PostMembersIdOfferStatesIssue201ResponseOfferState as PostMembersIdOfferStatesIssue201ResponseOfferState
 from openapi_client.models.post_members_id_offer_states_issue_request import PostMembersIdOfferStatesIssueRequest as PostMembersIdOfferStatesIssueRequest

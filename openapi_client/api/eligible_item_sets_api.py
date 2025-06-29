@@ -45,7 +45,6 @@ class EligibleItemSetsApi:
     @validate_call
     def delete_offers_offer_id_eligible_item_sets_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -66,8 +65,6 @@ class EligibleItemSetsApi:
 
         Removes an eligible item set from an offer.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param id: Primary ID of the eligible item set (required)
@@ -97,7 +94,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._delete_offers_offer_id_eligible_item_sets_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -126,7 +122,6 @@ class EligibleItemSetsApi:
     @validate_call
     def delete_offers_offer_id_eligible_item_sets_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -147,8 +142,6 @@ class EligibleItemSetsApi:
 
         Removes an eligible item set from an offer.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param id: Primary ID of the eligible item set (required)
@@ -178,7 +171,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._delete_offers_offer_id_eligible_item_sets_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -207,7 +199,6 @@ class EligibleItemSetsApi:
     @validate_call
     def delete_offers_offer_id_eligible_item_sets_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -228,8 +219,6 @@ class EligibleItemSetsApi:
 
         Removes an eligible item set from an offer.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param id: Primary ID of the eligible item set (required)
@@ -259,7 +248,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._delete_offers_offer_id_eligible_item_sets_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -283,7 +271,6 @@ class EligibleItemSetsApi:
 
     def _delete_offers_offer_id_eligible_item_sets_id_serialize(
         self,
-        x_auth_token,
         offer_id,
         id,
         content_type,
@@ -319,8 +306,6 @@ class EligibleItemSetsApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -336,6 +321,7 @@ class EligibleItemSetsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -359,7 +345,6 @@ class EligibleItemSetsApi:
     @validate_call
     def get_offers_offer_id_eligible_item_sets(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -379,8 +364,6 @@ class EligibleItemSetsApi:
 
         List all eligible item sets for an offer ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -408,7 +391,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._get_offers_offer_id_eligible_item_sets_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -436,7 +418,6 @@ class EligibleItemSetsApi:
     @validate_call
     def get_offers_offer_id_eligible_item_sets_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -456,8 +437,6 @@ class EligibleItemSetsApi:
 
         List all eligible item sets for an offer ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -485,7 +464,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._get_offers_offer_id_eligible_item_sets_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -513,7 +491,6 @@ class EligibleItemSetsApi:
     @validate_call
     def get_offers_offer_id_eligible_item_sets_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -533,8 +510,6 @@ class EligibleItemSetsApi:
 
         List all eligible item sets for an offer ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -562,7 +537,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._get_offers_offer_id_eligible_item_sets_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -585,7 +559,6 @@ class EligibleItemSetsApi:
 
     def _get_offers_offer_id_eligible_item_sets_serialize(
         self,
-        x_auth_token,
         offer_id,
         content_type,
         _request_auth,
@@ -618,8 +591,6 @@ class EligibleItemSetsApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -635,6 +606,7 @@ class EligibleItemSetsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -658,7 +630,6 @@ class EligibleItemSetsApi:
     @validate_call
     def get_offers_offer_id_eligible_item_sets_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -679,8 +650,6 @@ class EligibleItemSetsApi:
 
         Get an eligible item set by offer ID and ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param id: Primary ID of the eligible item set (required)
@@ -710,7 +679,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._get_offers_offer_id_eligible_item_sets_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -739,7 +707,6 @@ class EligibleItemSetsApi:
     @validate_call
     def get_offers_offer_id_eligible_item_sets_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -760,8 +727,6 @@ class EligibleItemSetsApi:
 
         Get an eligible item set by offer ID and ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param id: Primary ID of the eligible item set (required)
@@ -791,7 +756,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._get_offers_offer_id_eligible_item_sets_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -820,7 +784,6 @@ class EligibleItemSetsApi:
     @validate_call
     def get_offers_offer_id_eligible_item_sets_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -841,8 +804,6 @@ class EligibleItemSetsApi:
 
         Get an eligible item set by offer ID and ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param id: Primary ID of the eligible item set (required)
@@ -872,7 +833,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._get_offers_offer_id_eligible_item_sets_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -896,7 +856,6 @@ class EligibleItemSetsApi:
 
     def _get_offers_offer_id_eligible_item_sets_id_serialize(
         self,
-        x_auth_token,
         offer_id,
         id,
         content_type,
@@ -932,8 +891,6 @@ class EligibleItemSetsApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
 
@@ -949,6 +906,7 @@ class EligibleItemSetsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -972,7 +930,6 @@ class EligibleItemSetsApi:
     @validate_call
     def post_offers_offer_id_eligible_item_sets(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_eligible_item_set_request: Optional[OfferEligibleItemSetRequest] = None,
@@ -993,8 +950,6 @@ class EligibleItemSetsApi:
 
         Creates an eligible item set on an offer.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -1024,7 +979,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._post_offers_offer_id_eligible_item_sets_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             offer_eligible_item_set_request=offer_eligible_item_set_request,
@@ -1054,7 +1008,6 @@ class EligibleItemSetsApi:
     @validate_call
     def post_offers_offer_id_eligible_item_sets_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_eligible_item_set_request: Optional[OfferEligibleItemSetRequest] = None,
@@ -1075,8 +1028,6 @@ class EligibleItemSetsApi:
 
         Creates an eligible item set on an offer.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -1106,7 +1057,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._post_offers_offer_id_eligible_item_sets_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             offer_eligible_item_set_request=offer_eligible_item_set_request,
@@ -1136,7 +1086,6 @@ class EligibleItemSetsApi:
     @validate_call
     def post_offers_offer_id_eligible_item_sets_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         offer_eligible_item_set_request: Optional[OfferEligibleItemSetRequest] = None,
@@ -1157,8 +1106,6 @@ class EligibleItemSetsApi:
 
         Creates an eligible item set on an offer.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param content_type: application/json
@@ -1188,7 +1135,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._post_offers_offer_id_eligible_item_sets_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             content_type=content_type,
             offer_eligible_item_set_request=offer_eligible_item_set_request,
@@ -1213,7 +1159,6 @@ class EligibleItemSetsApi:
 
     def _post_offers_offer_id_eligible_item_sets_serialize(
         self,
-        x_auth_token,
         offer_id,
         content_type,
         offer_eligible_item_set_request,
@@ -1247,8 +1192,6 @@ class EligibleItemSetsApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if offer_eligible_item_set_request is not None:
@@ -1279,6 +1222,7 @@ class EligibleItemSetsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
@@ -1302,7 +1246,6 @@ class EligibleItemSetsApi:
     @validate_call
     def put_offers_offer_id_eligible_item_sets_id(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1324,8 +1267,6 @@ class EligibleItemSetsApi:
 
         Updates an eligible item set on an offer.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param id: Primary ID of the eligible item set (required)
@@ -1357,7 +1298,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._put_offers_offer_id_eligible_item_sets_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -1387,7 +1327,6 @@ class EligibleItemSetsApi:
     @validate_call
     def put_offers_offer_id_eligible_item_sets_id_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1409,8 +1348,6 @@ class EligibleItemSetsApi:
 
         Updates an eligible item set on an offer.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param id: Primary ID of the eligible item set (required)
@@ -1442,7 +1379,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._put_offers_offer_id_eligible_item_sets_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -1472,7 +1408,6 @@ class EligibleItemSetsApi:
     @validate_call
     def put_offers_offer_id_eligible_item_sets_id_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1494,8 +1429,6 @@ class EligibleItemSetsApi:
 
         Updates an eligible item set on an offer.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param offer_id: Primary ID of the offer (required)
         :type offer_id: str
         :param id: Primary ID of the eligible item set (required)
@@ -1527,7 +1460,6 @@ class EligibleItemSetsApi:
         """ # noqa: E501
 
         _param = self._put_offers_offer_id_eligible_item_sets_id_serialize(
-            x_auth_token=x_auth_token,
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -1552,7 +1484,6 @@ class EligibleItemSetsApi:
 
     def _put_offers_offer_id_eligible_item_sets_id_serialize(
         self,
-        x_auth_token,
         offer_id,
         id,
         content_type,
@@ -1589,8 +1520,6 @@ class EligibleItemSetsApi:
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         # process the form parameters
         # process the body parameter
         if offer_eligible_item_set_request is not None:
@@ -1621,6 +1550,7 @@ class EligibleItemSetsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(

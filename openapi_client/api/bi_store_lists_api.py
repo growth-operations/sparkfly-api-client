@@ -43,7 +43,6 @@ class BIStoreListsApi:
     @validate_call
     def get_merchants_bi_store_lists(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -62,8 +61,6 @@ class BIStoreListsApi:
 
         List all BI Store Lists by Account ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +86,6 @@ class BIStoreListsApi:
         """ # noqa: E501
 
         _param = self._get_merchants_bi_store_lists_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -115,7 +111,6 @@ class BIStoreListsApi:
     @validate_call
     def get_merchants_bi_store_lists_with_http_info(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -134,8 +129,6 @@ class BIStoreListsApi:
 
         List all BI Store Lists by Account ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -161,7 +154,6 @@ class BIStoreListsApi:
         """ # noqa: E501
 
         _param = self._get_merchants_bi_store_lists_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -187,7 +179,6 @@ class BIStoreListsApi:
     @validate_call
     def get_merchants_bi_store_lists_without_preload_content(
         self,
-        x_auth_token: Annotated[StrictStr, Field(description="Required authentication token")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
             None,
@@ -206,8 +197,6 @@ class BIStoreListsApi:
 
         List all BI Store Lists by Account ID.
 
-        :param x_auth_token: Required authentication token (required)
-        :type x_auth_token: str
         :param content_type: application/json
         :type content_type: str
         :param _request_timeout: timeout setting for this request. If one
@@ -233,7 +222,6 @@ class BIStoreListsApi:
         """ # noqa: E501
 
         _param = self._get_merchants_bi_store_lists_serialize(
-            x_auth_token=x_auth_token,
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -254,7 +242,6 @@ class BIStoreListsApi:
 
     def _get_merchants_bi_store_lists_serialize(
         self,
-        x_auth_token,
         content_type,
         _request_auth,
         _content_type,
@@ -282,8 +269,6 @@ class BIStoreListsApi:
         # process the path parameters
         # process the query parameters
         # process the header parameters
-        if x_auth_token is not None:
-            _header_params['X-Auth-Token'] = x_auth_token
         if content_type is not None:
             _header_params['Content-Type'] = content_type
         # process the form parameters
@@ -301,6 +286,7 @@ class BIStoreListsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'XAuthToken'
         ]
 
         return self.api_client.param_serialize(
