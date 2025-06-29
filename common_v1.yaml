@@ -1,0 +1,5969 @@
+openapi: 3.1.0
+info:
+  version: "1.0"
+  title: Core Operations
+  summary: "Documentation for the Platform API, used for automating tasks you would normally perform in the Sparkfly Portal. Allows creation of offers, members, campaigns, items, etc."
+  description: |-
+    The Sparkfly Platform provides a full lifecycle for promotions and rewards from creation to distribution to settlement. The platform integrates in real-time at the point-of-sale and provides item level discounting and tracking. The capabilities of the Sparkfly Platform are available through the use of the Sparkfly Platform API.
+
+    The Sparkfly documentation site is under development. If the documentation you're after isn't available here, please contact support@sparkfly.com and we will get you what you need.
+  termsOfService: Contact Sparkfly support for terms and conditions
+  contact:
+    email: support@sparkfly.com
+    name: Sparkfly Support Team
+    url: "https://help.sparkfly.com/"
+  license:
+    url: "https://help.sparkfly.com/"
+    name: Contact Sparkfly Support for
+servers:
+  - url: "https://api-staging.sparkfly.com/v1.0"
+    description: Staging
+paths:
+  "/ctm/members/{site_id}":
+    put:
+      tags:
+        - Ctm
+      summary: CTM Transaction Update
+      description: ctm transaction update
+      operationId: put-transaction-update-ctm
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/TranID"
+        - $ref: "#/components/parameters/TermID"
+        - $ref: "#/components/parameters/Token"
+        - $ref: "#/components/parameters/SiteID"
+      requestBody:
+        $ref: "#/components/requestBodies/CTMTransactionJob"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/ctm/allocate/{site_id}/{credential}":
+    post:
+      tags:
+        - Ctm
+      summary: CTM Allocate
+      description: ctm allocate
+      operationId: post-allocate-ctm
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/TranID"
+        - $ref: "#/components/parameters/TermID"
+        - $ref: "#/components/parameters/Token"
+        - $ref: "#/components/parameters/OfferID"
+        - $ref: "#/components/parameters/SiteID"
+        - $ref: "#/components/parameters/Credential"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/ctm/deallocate/{site_id}":
+    post:
+      tags:
+        - Ctm
+      summary: CTM Dealocate
+      description: ctm dealocate
+      operationId: post-deallocate-ctm
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/TranID"
+        - $ref: "#/components/parameters/TermID"
+        - $ref: "#/components/parameters/Token"
+        - $ref: "#/components/parameters/OfferID"
+        - $ref: "#/components/parameters/CredentialIdentifier"
+        - $ref: "#/components/parameters/PosVendor"
+        - $ref: "#/components/parameters/SiteID"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/ctm/qitems/{site_id}/{credential}":
+    post:
+      tags:
+        - Ctm
+      summary: CTM Qitems
+      description: ctm qitems
+      operationId: post-qitems-ctm
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/TranID"
+        - $ref: "#/components/parameters/TermID"
+        - $ref: "#/components/parameters/Token"
+        - $ref: "#/components/parameters/SiteID"
+        - $ref: "#/components/parameters/Credential"
+      requestBody:
+        $ref: "#/components/requestBodies/CTMQItems"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/ctm/members/{site_id}/{credential}":
+    get:
+      tags:
+        - Ctm
+      summary: CTM Show Response
+      description: ctm show response
+      operationId: get-show-ctm
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Sparkfly-Metadata"
+        - $ref: "#/components/parameters/TranID"
+        - $ref: "#/components/parameters/TermID"
+        - $ref: "#/components/parameters/Token"
+        - $ref: "#/components/parameters/PosVersion"
+        - $ref: "#/components/parameters/PosVendor"
+        - $ref: "#/components/parameters/SiteID"
+        - $ref: "#/components/parameters/Credential"
+      requestBody:
+        $ref: "#/components/requestBodies/CTMRedeptionJob"
+      responses:
+        "200":
+          $ref: "#/components/responses/CTMShow"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    put:
+      tags:
+        - Ctm
+      summary: CTM Update Response
+      description: ctm update response
+      operationId: put-update-ctm
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/TranID"
+        - $ref: "#/components/parameters/TermID"
+        - $ref: "#/components/parameters/Token"
+        - $ref: "#/components/parameters/SiteID"
+        - $ref: "#/components/parameters/Credential"
+      requestBody:
+        $ref: "#/components/requestBodies/CTMTransactionJob"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/v2/ctm/members/{site_id}/{credential}":
+    post:
+      tags:
+        - Ctm
+      summary: CTM Update Response
+      description: ctm update response
+      operationId: post-update-ctm
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/TranID"
+        - $ref: "#/components/parameters/TermID"
+        - $ref: "#/components/parameters/Token"
+        - $ref: "#/components/parameters/SiteID"
+        - $ref: "#/components/parameters/Credential"
+      requestBody:
+        $ref: "#/components/requestBodies/CTMTransactionJob"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    put:
+      tags:
+        - Ctm
+      summary: CTM Show Response
+      description: ctm show response
+      operationId: put-show-ctm
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Sparkfly-Metadata"
+        - $ref: "#/components/parameters/TranID"
+        - $ref: "#/components/parameters/TermID"
+        - $ref: "#/components/parameters/Token"
+        - $ref: "#/components/parameters/PosVersion"
+        - $ref: "#/components/parameters/PosVendor"
+        - $ref: "#/components/parameters/SiteID"
+        - $ref: "#/components/parameters/Credential"
+      requestBody:
+        $ref: "#/components/requestBodies/CTMRedeptionJob"
+      responses:
+        "200":
+          $ref: "#/components/responses/CTMShow"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/v2/ctm/members/{site_id}":
+    post:
+      tags:
+        - Ctm
+      summary: CTM Update Response
+      description: ctm update response
+      operationId: post-update-ctm-siteid
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/TranID"
+        - $ref: "#/components/parameters/TermID"
+        - $ref: "#/components/parameters/Token"
+        - $ref: "#/components/parameters/SiteID"
+      requestBody:
+        $ref: "#/components/requestBodies/CTMTransactionJob"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /v2/ctm/customposmessages:
+    get:
+      tags:
+        - Ctm
+      summary: CTM Custom Messages
+      description: ctm custom messages
+      operationId: get-ctm-custom-messages
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+        "500":
+          description: Internal Server Error
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /v2/ctm/stores:
+    get:
+      tags:
+        - Ctm
+      summary: CTM Stores
+      description: ctm stores
+      operationId: get-ctm-store
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+        "500":
+          description: Internal Server Error
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /members:
+    post:
+      tags:
+        - Members
+      summary: Create a Member
+      description: Create a new member.
+      operationId: post-members
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      requestBody:
+        $ref: "#/components/requestBodies/Member"
+      responses:
+        "201":
+          $ref: "#/components/responses/Member"
+        "400":
+          $ref: "#/components/responses/Member"
+        "401":
+          description: Unauthorized
+        "422":
+          $ref: "#/components/responses/Member"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/members/{member_id}":
+    put:
+      tags:
+        - Members
+      summary: Update a Member
+      description: Update a member's data.
+      operationId: put-members-member_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: member_id
+          in: path
+          description: unique ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          $ref: "#/components/responses/Member"
+        "401":
+          description: Unauthorized
+        "422":
+          $ref: "#/components/responses/Member"
+        "500":
+          description: Internal Server Error
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Members
+      summary: Find a Member
+      description: Find a particular member by its' Sparkfly ID.
+      operationId: get-members-member_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: member_id
+          in: path
+          description: unique ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          $ref: "#/components/responses/Member"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Members
+      summary: Remove a Member
+      description: Attempts to delete a member.
+      operationId: delete-members-member_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: member_id
+          in: path
+          description: unique ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: OK
+        "400":
+          $ref: "#/components/responses/APIError"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /members/search:
+    get:
+      tags:
+        - Members
+      summary: Search for a Member
+      description: Performs a search of an already existing member using the identifier.
+      operationId: get-members-search
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: identifier
+          in: query
+          description: unique member identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/Member"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/members/{id}/profile":
+    post:
+      tags:
+        - Members
+      summary: Create/Update a Member Profile
+      description: "Creates or updates a member's profile. If Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned."
+      operationId: post-members-profile
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: id
+          in: path
+          description: The member ID that represents the member.
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        $ref: "#/components/requestBodies/MemberProfile"
+      responses:
+        "200":
+          description: OK
+        "400":
+          $ref: "#/components/responses/APIError"
+        "403":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+      x-internal: false
+    get:
+      tags:
+        - Members
+      summary: Retrieve a Member Profile
+      description: "Get a member's profile data. If the caller's Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned."
+      operationId: get-members-profile
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: id
+          in: path
+          description: The member ID that represents the member.
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          $ref: "#/components/responses/MemberProfile"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "403":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/merchants/{merchant_id}/stores":
+    post:
+      tags:
+        - Stores
+      summary: Create a Store
+      description: Add a new store for a merchant.
+      operationId: post-merchants-merchant_id-stores
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: merchant_id
+          in: path
+          description: merchant ID owning the stores
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/Store"
+      responses:
+        "201":
+          $ref: "#/components/responses/Store"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Stores
+      summary: List all Stores
+      description: Search for stores by merchant ID.
+      operationId: get-merchants-merchant_id-stores
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/SearchText"
+        - $ref: "#/components/parameters/StoreSortBy"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Order"
+        - name: merchant_id
+          in: path
+          description: merchant ID owning the stores
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/StoreIndex"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/merchants/{merchant_id}/stores/{store_id}":
+    get:
+      tags:
+        - Stores
+      summary: Retrieve a Store
+      description: Look a store up by it's ID.
+      operationId: get-merchants-merchant_id-stores-store_id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: store_id
+          in: path
+          description: the store's primary key
+          required: true
+          schema:
+            type: string
+        - name: merchant_id
+          in: path
+          description: "merchant ID owning the store "
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/Store"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    put:
+      tags:
+        - Stores
+      summary: Update a Store
+      description: Update an existing store.
+      operationId: put-merchants-merchant_id-stores-store_id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: store_id
+          in: path
+          description: the store's primary key
+          required: true
+          schema:
+            type: string
+        - name: merchant_id
+          in: path
+          description: "merchant ID owning the store "
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/Store"
+      responses:
+        "200":
+          $ref: "#/components/responses/Store"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Stores
+      summary: Remove a Store
+      description: Remove a store.
+      operationId: delete-merchants-merchant_id-stores-store_id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: store_id
+          in: path
+          description: the store's primary key
+          required: true
+          schema:
+            type: string
+        - name: merchant_id
+          in: path
+          description: "merchant ID owning the store "
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /merchants/stores/index:
+    get:
+      tags:
+        - Stores
+      summary: List all Stores with Active Offers
+      description: Search stores with active offers.
+      operationId: get-merchants-merchant_id-stores-index
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Order"
+        - $ref: "#/components/parameters/SearchText"
+        - name: sort_by
+          in: query
+          description: sort records by the specified field
+          schema:
+            type: string
+            enum:
+              - id
+              - name
+              - number
+              - created_at
+            default: id
+      responses:
+        "200":
+          $ref: "#/components/responses/StoreIndex"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/merchants/{merchant_id}/store_lists":
+    post:
+      tags:
+        - Store Lists
+      summary: Create a Store List
+      description: Add a new store list for a merchant.
+      operationId: post-merchants-merchant_id-store_lists
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: merchant_id
+          in: path
+          description: merchant ID owning the store lists
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/StoreList"
+      responses:
+        "201":
+          $ref: "#/components/responses/StoreList"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Store Lists
+      summary: List all Store Lists
+      description: Search for store lists by merchant ID.
+      operationId: get-merchants-merchant_id-store_lists
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Order"
+        - $ref: "#/components/parameters/StoreSortBy"
+        - $ref: "#/components/parameters/SearchText"
+        - name: merchant_id
+          in: path
+          description: merchant ID owning the store lists
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/StoreListIndex"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/merchants/{merchant_id}/store_lists/{store_list_id}":
+    put:
+      tags:
+        - Store Lists
+      summary: Update a Store List
+      description: Update an existing store list.
+      operationId: put-merchants-merchant_id-store_lists-store_list_id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: merchant_id
+          in: path
+          description: merchant ID owning the store lists
+          required: true
+          schema:
+            type: string
+        - name: store_list_id
+          in: path
+          description: the store list to search for
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/StoreList"
+      responses:
+        "200":
+          $ref: "#/components/responses/StoreList"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Store Lists
+      summary: Remove a Store List
+      description: Remove a store list.
+      operationId: delete-merchants-merchant_id-store_lists-store_list_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: merchant_id
+          in: path
+          description: merchant ID owning the store lists
+          required: true
+          schema:
+            type: string
+        - name: store_list_id
+          in: path
+          description: the store list to search for
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Store Lists
+      summary: Retrieve a Store List
+      description: Look up a store list by ID.
+      operationId: get-merchants-merchant_id-store_lists-store_list_id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: page
+          in: query
+          description: page offset
+          schema:
+            type: integer
+        - name: per_page
+          in: query
+          description: number of items per page
+          schema:
+            type: integer
+        - name: search_text
+          in: query
+          description: search for matching text
+          schema:
+            type: string
+        - name: sort_by
+          in: query
+          description: id or name
+          schema:
+            type: string
+            enum:
+              - id
+              - name
+        - name: order
+          in: query
+          description: "asc or desc for ascending or descending, respectively"
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: merchant_id
+          in: path
+          description: merchant ID owning the store lists
+          required: true
+          schema:
+            type: string
+        - name: store_list_id
+          in: path
+          description: the store list to search for
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/StoreList"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /merchants/bi_store_lists:
+    get:
+      tags:
+        - BI Store Lists
+      summary: List all BI Store Lists
+      description: List all BI Store Lists by Account ID.
+      operationId: get-merchants-bi_store_lists
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      responses:
+        "200":
+          $ref: "#/components/responses/BIStoreList"
+        "401":
+          description: Unauthorized
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /offer_lists:
+    get:
+      tags:
+        - Offer Lists
+      summary: List all Offer Lists
+      description: "Fetch a list of offer lists. The list may be filtered according to the request's query parameters. If no filters are applied, the complete list of available offer lists will be returned."
+      operationId: get-offer_lists
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: sort_by
+          in: query
+          description: sort records by a field name
+          schema:
+            type: string
+            enum:
+              - id
+              - name
+        - name: search_text
+          in: query
+          description: Attempts to match by name or id
+          schema:
+            type: string
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Order"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                  per_page:
+                    type: integer
+                  total_entries:
+                    type: integer
+                  total_pages:
+                    type: integer
+                  offer_lists:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        offer_list:
+                          $ref: "#/components/schemas/Offer-List"
+                        errors:
+                          $ref: "#/components/schemas/ResponseBodyErrors"
+                x-examples:
+                  Example 1:
+                    page: 1
+                    per_page: 5000
+                    total_entries: 1
+                    total_pages: 1
+                    store_lists:
+                      - offer_list:
+                          id: 1
+                          name: my offer list name
+                          offer_ids:
+                            - 1111
+                            - 2222
+                            - 3333
+                        errors: {}
+        "400":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    post:
+      tags:
+        - Offer Lists
+      summary: Create an Offer List
+      description: Create a new offer list containing the specified offer IDs.
+      operationId: post-offer_lists
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+      requestBody:
+        $ref: "#/components/requestBodies/OfferList"
+      responses:
+        "201":
+          $ref: "#/components/responses/OfferList"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/offer_lists/{offer_list_id}":
+    put:
+      tags:
+        - Offer Lists
+      summary: Update an Offer List
+      description: Update an offer list's contents.
+      operationId: put-offer_lists-offer_list_id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_list_id
+          in: path
+          description: primary id of the offer list
+          required: true
+          schema:
+            type: string
+            examples:
+              - "1"
+      requestBody:
+        $ref: "#/components/requestBodies/OfferList"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferList"
+        "400":
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+        "404":
+          description: |-
+            Not Found.
+
+            Either the offer list with the specified ID does not exist or one of the provided offer IDs does not exist.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Offer Lists
+      summary: Remove an Offer List
+      description: Remove an offer list.
+      operationId: delete-offer_lists-offer_list_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_list_id
+          in: path
+          description: primary id of the offer list
+          required: true
+          schema:
+            type: string
+            examples:
+              - "1"
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/API_Error"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Offer Lists
+      summary: Retrieve an Offer List
+      description: Search for an offer list by ID.
+      operationId: get-offer_lists-offer_list_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_list_id
+          in: path
+          description: primary id of the offer list
+          required: true
+          schema:
+            type: string
+            examples:
+              - "1"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferList"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/AudienceIndex"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /offers:
+    get:
+      tags:
+        - Offers
+      summary: List all Offers
+      description: Search for offers.
+      operationId: get-offers
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Order"
+        - name: search_text
+          in: query
+          description: Attempts to match by name or id
+          schema:
+            type: string
+        - name: sort_by
+          in: query
+          description: sort records by a field name
+          schema:
+            type: string
+        - $ref: "#/components/parameters/Status"
+        - $ref: "#/components/parameters/MerchantID"
+        - $ref: "#/components/parameters/ManufacturerID"
+        - $ref: "#/components/parameters/StoreID"
+        - $ref: "#/components/parameters/OfferListID"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferIndex"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    post:
+      tags:
+        - Offers
+      summary: Create an Offer
+      description: |-
+        Creates an offer.
+        redemption_grace_period is the grace period provided for generating and redeeming codes. 
+        If not provided. The default will be the related Campaign's End Date.
+        If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.
+
+        In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.
+
+        (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
+      operationId: post-offers
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+      requestBody:
+        $ref: "#/components/requestBodies/Offer"
+      responses:
+        "201":
+          $ref: "#/components/responses/Offer"
+        "400":
+          $ref: "#/components/responses/Offer"
+        "401":
+          description: Unauthorized
+        "422":
+          $ref: "#/components/responses/Offer"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/offers/{offer_id}":
+    get:
+      tags:
+        - Offers
+      summary: Find an Offer
+      description: Finds an offer by the ID.
+      operationId: get-offers-offer_id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/Offer"
+      responses:
+        "200":
+          $ref: "#/components/responses/Offer"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    put:
+      tags:
+        - Offers
+      summary: Update an Offer
+      description: Updates an offer by ID.
+      operationId: put-offers-offer_id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/Offer"
+      responses:
+        "200":
+          $ref: "#/components/responses/Offer"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Offers
+      summary: Delete an Offer
+      description: Deletes an offer by ID.
+      operationId: delete-offers-offer_id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/offers/{offer_id}/eligible_item_sets":
+    get:
+      tags:
+        - Eligible Item Sets
+      summary: List all Eligible Item Sets
+      description: List all eligible item sets for an offer ID.
+      operationId: get-offers-offer_id-eligible_item_sets
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferEligibleItemSetIndex"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    post:
+      tags:
+        - Eligible Item Sets
+      summary: Create an Eligible Item Set
+      description: Creates an eligible item set on an offer.
+      operationId: post-offers-offer_id-eligible_item_sets
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/OfferEligibleItemSet"
+      responses:
+        "201":
+          $ref: "#/components/responses/OfferEligibleItemSet"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/offers/{offer_id}/eligible_item_sets/{id}":
+    put:
+      tags:
+        - Eligible Item Sets
+      summary: Update an Eligible Item Set
+      description: Updates an eligible item set on an offer.
+      operationId: put-offers-offer_id-eligible_item_sets-id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: Primary ID of the eligible item set
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/OfferEligibleItemSet"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferEligibleItemSet"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Eligible Item Sets
+      summary: Get an Eligible Item Set
+      description: Get an eligible item set by offer ID and ID.
+      operationId: get-offers-offer_id-eligible_item_sets-id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: Primary ID of the eligible item set
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferEligibleItemSet"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Eligible Item Sets
+      summary: Remove an Eligible Item Set
+      description: Removes an eligible item set from an offer.
+      operationId: delete-offers-offer_id-eligible_item_sets-id
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: Primary ID of the eligible item set
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/offers/{offer_id}/pos_offer_codes":
+    get:
+      tags:
+        - Offer POS Offer Codes
+      summary: List all Offer POS Offer Codes
+      description: List offer POS offer codes for an offer ID.
+      operationId: get-offers-offer_id-pos_offer_codes
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferPOSOfferCodeIndex"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    post:
+      tags:
+        - Offer POS Offer Codes
+      summary: Create an Offer POS Offer Code
+      description: Creates an offer POS offer code.
+      operationId: post-offers-offer_id-pos_offer_codes
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/OfferPOSOfferCode"
+      responses:
+        "201":
+          $ref: "#/components/responses/OfferPOSOfferCode"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/offers/{offer_id}/pos_offer_codes/{id}":
+    put:
+      tags:
+        - Offer POS Offer Codes
+      summary: Update an Offer POS Offer Code
+      description: Updates an offer POS offer code by it's ID.
+      operationId: put-offers-offer_id-pos_offer_codes-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: Primary ID of the offer code offer
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/OfferPOSOfferCode"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferPOSOfferCode"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Offer POS Offer Codes
+      summary: Get an Offer POS Offer Code
+      description: Gets an offer POS offer code from it's ID.
+      operationId: get-offers-offer_id-pos_offer_codes-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: Primary ID of the offer code offer
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferPOSOfferCode"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Offer POS Offer Codes
+      summary: Remove an Offer POS Offer Code
+      description: Removes an offer POS offer Code by from it's ID.
+      operationId: delete-offers-offer_id-pos_offer_codes-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: offer_id
+          in: path
+          description: Primary ID of the offer
+          required: true
+          schema:
+            type: string
+        - name: id
+          in: path
+          description: Primary ID of the offer code offer
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/campaigns/{campaign_id}/actions/{action}":
+    put:
+      tags:
+        - Campaigns
+      summary: Set a Campaign's Status
+      description: Set the status of a currently pending or suspended campaign to active.
+      operationId: put-campaigns-campaign_id-actions-approve
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: campaign_id
+          in: path
+          description: primary identifier of the campaign
+          required: true
+          schema:
+            type: integer
+            examples:
+              - 1234
+        - name: action
+          in: path
+          description: desired status of the campaign
+          required: true
+          schema:
+            type: string
+            enum:
+              - approve
+              - suspend
+              - archive
+            examples:
+              - approve
+      responses:
+        "200":
+          $ref: "#/components/responses/Campaign"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /campaigns/tags:
+    get:
+      tags:
+        - Campaigns
+      summary: Retrieve Campaign Tags
+      description: Retrieve campaign tags.
+      operationId: get-campaign-tags
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+      responses:
+        "200":
+          $ref: "#/components/responses/CampaignTags"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /campaigns:
+    post:
+      tags:
+        - Campaigns
+      summary: Create a Campaign
+      description: |-
+        Creates a campaign.
+
+        redemption_grace_period is the grace period provided for generating and redeeming codes. 
+        If not provided. The default will be the related Campaign's End Date.
+        If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.
+
+        If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date.
+        IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.
+
+        In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.
+
+        (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
+      operationId: post-campaign
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+      requestBody:
+        $ref: "#/components/requestBodies/Campaign"
+      responses:
+        "200":
+          $ref: "#/components/responses/Campaign"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Campaigns
+      summary: Retrieve a Campaign by External ID and Offer ID
+      description: Retrieve a campaign.
+      operationId: get-campaign-external-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ExternalID"
+        - $ref: "#/components/parameters/OfferID"
+      responses:
+        "200":
+          $ref: "#/components/responses/Campaign"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/campaigns/{campaign_id}":
+    get:
+      tags:
+        - Campaigns
+      summary: Retrieve a Campaign by Campaign ID
+      description: Retrieves a campaign.
+      operationId: get-campaign
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/CampaignID"
+      responses:
+        "200":
+          $ref: "#/components/responses/Campaign"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    put:
+      tags:
+        - Campaigns
+      summary: Update a Campaign by Campaign ID
+      description: Updates a campaign.
+      operationId: put-campaign
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/CampaignID"
+      requestBody:
+        $ref: "#/components/requestBodies/Campaign"
+      responses:
+        "200":
+          $ref: "#/components/responses/Campaign"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /audiences:
+    get:
+      tags:
+        - Audiences
+      summary: List all Audiences
+      description: Retrieve all audiences associated with your account.
+      operationId: get-audiences
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Order"
+        - name: sort_by
+          in: query
+          description: sort records by a field name
+          schema:
+            type: string
+            enum:
+              - id
+              - name
+        - name: search_text
+          in: query
+          description: search for records containing the text
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/AudienceIndex"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+      x-internal: false
+    post:
+      tags:
+        - Audiences
+      summary: Create an Audience
+      description: Creates a new audience.
+      operationId: post-audiences
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/X-Auth-Token"
+      requestBody:
+        $ref: "#/components/requestBodies/Audience"
+      responses:
+        "201":
+          $ref: "#/components/responses/Audience"
+        "400":
+          description: Your request was malformed
+        "422":
+          description: "Your request was parseable, but a validation error occurred."
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/audiences/{audience_id}":
+    get:
+      tags:
+        - Audiences
+      summary: Retrieve an Audience
+      description: Find an audience by its primary identifier.
+      operationId: get-audiences-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: audience_id
+          in: path
+          description: audience to find or modify
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/Audience"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/SubAudience"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+      x-internal: false
+    put:
+      tags:
+        - Audiences
+      summary: Update an Audience
+      description: Updates an existing audience.
+      operationId: put-audiences-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: audience_id
+          in: path
+          description: audience to find or modify
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/Audience"
+      responses:
+        "200":
+          $ref: "#/components/responses/Audience"
+        "404":
+          description: Not Found
+        "422":
+          description: Validation Error
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Audiences
+      summary: Remove an Audience
+      description: Removes an existing audience.
+      operationId: delete-audiences-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: audience_id
+          in: path
+          description: audience to find or modify
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not Found
+        "422":
+          description: Could not be deleted -- may be in use.
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/audiences/{audience_id}/sub_audiences":
+    get:
+      tags:
+        - Audiences
+      summary: List all Sub-Audiences
+      description: Search within all sub-audiences.
+      operationId: get-audiences-id-sub_audiences
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Order"
+        - name: sort_by
+          in: query
+          description: sort records by a field name
+          schema:
+            type: string
+            enum:
+              - id
+              - name
+        - name: search_text
+          in: query
+          description: search for records containing the text
+          schema:
+            type: string
+        - name: audience_id
+          in: path
+          description: parent audience
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/SubAudienceIndex"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    post:
+      tags:
+        - Audiences
+      summary: Create a Sub-Audience
+      description: Creates a sub-audience within this audience.
+      operationId: post-audiences-id-sub_audiences
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: audience_id
+          in: path
+          description: parent audience
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/SubAudience"
+      responses:
+        "201":
+          $ref: "#/components/responses/SubAudience"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/audiences/{audience_id}/sub_audiences/{sub_audience_id}":
+    get:
+      tags:
+        - Audiences
+      summary: Retrieve a Sub-Audience
+      description: Get a sub-audience by it's primary identifier.
+      operationId: get-audiences-id-sub_audiences-sub_audience_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: sub_audience_id
+          in: path
+          description: sub-audience to find or modify
+          required: true
+          schema:
+            type: string
+        - name: audience_id
+          in: path
+          description: parent audience
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/SubAudience"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    put:
+      tags:
+        - Audiences
+      summary: Update a Sub-Audience
+      description: Updates an existing sub-audience.
+      operationId: put-audiences-id-sub_audiences-sub_audience_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: sub_audience_id
+          in: path
+          description: sub-audience to find or modify
+          required: true
+          schema:
+            type: string
+        - name: audience_id
+          in: path
+          description: parent audience
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/SubAudience"
+      responses:
+        "200":
+          $ref: "#/components/responses/SubAudience"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/SubAudience"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Audiences
+      summary: Remove a Sub-Audience
+      description: Removes an existing sub-audience.
+      operationId: delete-audiences-id-sub_audiences-sub_audience_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - name: sub_audience_id
+          in: path
+          description: sub-audience to find or modify
+          required: true
+          schema:
+            type: string
+        - name: audience_id
+          in: path
+          description: parent audience
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "400":
+          $ref: "#/components/responses/APIError"
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/pos_offer_codes/{id}":
+    get:
+      tags:
+        - POS Offer Codes
+      summary: Get a POS Offer Code
+      description: Gets POS offer code by ID.
+      operationId: get-pos_offer_codes-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: id
+          in: path
+          description: The pos offer code ID that represents the pos offer code.
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          $ref: "#/components/responses/POSOfferCode"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /pos_offer_codes:
+    get:
+      tags:
+        - POS Offer Codes
+      summary: List all POS Offer Codes
+      description: List POS offer codes by account ID.
+      operationId: get-pos_offer_codes
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      responses:
+        "200":
+          $ref: "#/components/responses/POSOfferCodeIndex"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /templates:
+    get:
+      tags:
+        - Templates
+      summary: Get all Templates
+      description: Gets all templates.
+      operationId: get-templates
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      responses:
+        "200":
+          $ref: "#/components/responses/Template"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /members/offer_states:
+    get:
+      tags:
+        - Offer States
+      summary: Get Offer State from Query Parameters
+      description: "Gets an offer state from a token, credential_identifier, and/or an external_ref_id."
+      operationId: get-members-offer_states
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/OSID"
+        - $ref: "#/components/parameters/CredentialIdentifier"
+        - $ref: "#/components/parameters/ExternalRefID"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferState"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/OfferStateError"
+        "500":
+          $ref: "#/components/responses/OfferStateError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    post:
+      tags:
+        - Offer States
+      summary: Create Offer State from Query Parameters
+      description: "Creates an offer state using the osid, offer_id or channel_id."
+      operationId: post-members-offer_states
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/OSID"
+        - $ref: "#/components/parameters/OfferID"
+        - $ref: "#/components/parameters/ChannelID"
+      requestBody:
+        $ref: "#/components/requestBodies/OfferState"
+      responses:
+        "201":
+          $ref: "#/components/responses/OfferState"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/OfferStateError"
+        "500":
+          $ref: "#/components/responses/OfferStateError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/members/{member_id}/offer_states":
+    get:
+      tags:
+        - Offer States
+      summary: Get all Offer States
+      description: Gets all offer states.
+      operationId: get-members-member_id-offer_states
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/MemberIDPath"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferStateIndex"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/OfferStateError"
+        "500":
+          $ref: "#/components/responses/OfferStateError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    post:
+      tags:
+        - Offer States
+      summary: Create Offer State
+      description: "Creates an offer state from member, offer, and channel IDs."
+      operationId: post-members-member_id-offer_states
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/ChannelID"
+        - $ref: "#/components/parameters/OfferID"
+        - $ref: "#/components/parameters/MemberIDPath"
+      responses:
+        "201":
+          $ref: "#/components/responses/OfferState"
+        "401":
+          description: Unauthorized
+        "403":
+          $ref: "#/components/responses/OfferStateError"
+        "500":
+          $ref: "#/components/responses/OfferStateError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/members/{member_id}/offers/{offer_id}":
+    get:
+      tags:
+        - Offer States
+      summary: Get Offer State by Offer ID
+      description: Gets the offer state by the offer ID.
+      operationId: get-members-member_id-offers-offer_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/MemberIDPath"
+        - $ref: "#/components/parameters/OfferIDPath"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferState"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/OfferStateError"
+        "500":
+          $ref: "#/components/responses/OfferStateError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/members/{member_id}/offer_states/{offerstate_id}":
+    get:
+      tags:
+        - Offer States
+      summary: Get Offer State by Offer State ID
+      description: Gets the offer state by the offer state ID.
+      operationId: get-members-member_id-offer_states-offer_state_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/OfferStateIDPath"
+        - $ref: "#/components/parameters/MemberIDPath"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferStateIndex"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/OfferStateError"
+        "500":
+          $ref: "#/components/responses/OfferStateError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    put:
+      tags:
+        - Offer States
+      summary: Update Offer State
+      description: Updates an offer state by offer state ID.
+      operationId: put-members-member_id-offer_states-offer_state_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/OfferStateIDPath"
+        - $ref: "#/components/parameters/MemberIDPath"
+      requestBody:
+        $ref: "#/components/requestBodies/OfferStateUpdate"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferState"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/OfferStateError"
+        "500":
+          $ref: "#/components/responses/OfferStateError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    post:
+      tags:
+        - Offer States
+      summary: Update Offer State - Post
+      description: Updates the offer state by offer state ID through a post.
+      operationId: post-members-member_id-offer_states-offerstate_id
+      parameters:
+        - $ref: "#/components/parameters/OfferStateIDPath"
+        - $ref: "#/components/parameters/MemberIDPath"
+      requestBody:
+        $ref: "#/components/requestBodies/OfferStateUpdate"
+      responses:
+        "200":
+          $ref: "#/components/responses/OfferState"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/OfferStateError"
+        "500":
+          $ref: "#/components/responses/OfferStateError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/members/offer_states/{offerstate_id}/void":
+    post:
+      tags:
+        - Offer States
+      summary: Void Offer State by Member Identifier
+      description: Voids an offer state by the member identifier.
+      operationId: post-members-member_id-offer_states-offerstate_id-void?member_identifier=-member_identifier
+      parameters:
+        - $ref: "#/components/parameters/MemberIdentifier"
+        - $ref: "#/components/parameters/OfferStateIDPath"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          description: Internal Server Error
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/members/{member_id}/offer_states/{offerstate_id}/void":
+    post:
+      tags:
+        - Offer States
+      summary: Void Offer State
+      description: Voids an offer state from an offer state ID.
+      operationId: post-members-member_id-offer_states-offerstate_id-void
+      parameters:
+        - $ref: "#/components/parameters/MemberIDPath"
+        - $ref: "#/components/parameters/OfferStateIDPath"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /impressions:
+    post:
+      tags:
+        - Impressions
+      summary: Create an Impression
+      description: Creates an impression.
+      operationId: post-impressions
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      requestBody:
+        $ref: "#/components/requestBodies/Impression"
+      responses:
+        "201":
+          $ref: "#/components/responses/Impression"
+        "401":
+          description: Unauthorized
+        "422":
+          $ref: "#/components/responses/Impression"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Impressions
+      summary: List Impressions
+      description: List impressions.
+      operationId: get-impressions
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      responses:
+        "200":
+          $ref: "#/components/responses/ImpressionIndex"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/ImpressionError"
+        "500":
+          $ref: "#/components/responses/ImpressionError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/impressions/{id}":
+    delete:
+      tags:
+        - Impressions
+      summary: Delete an Impression
+      description: Deletes an impression.
+      operationId: delete-impressions-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: id
+          in: path
+          description: primary id for impressions
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/ImpressionError"
+        "500":
+          $ref: "#/components/responses/ImpressionError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /optins:
+    post:
+      tags:
+        - Email Opt In
+      summary: Email Opt In
+      description: "Email opt in with an address, xid, and code."
+      operationId: post-optins
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/Address"
+        - $ref: "#/components/parameters/XID"
+        - $ref: "#/components/parameters/Code"
+      responses:
+        "200":
+          $ref: "#/components/responses/EmailOptIn"
+        "401":
+          description: Unauthorized
+        "422":
+          $ref: "#/components/responses/EmailOptInError"
+        "500":
+          $ref: "#/components/responses/EmailOptInError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /privacy/member/export:
+    get:
+      tags:
+        - Member Privacy
+      summary: Exports Data Associated with a Member
+      description: Looks up and exports data for the member associated with the provided member_identifier or credential_identifier query parameter.
+      operationId: get-privacy-member-export
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/MemberIdentifier"
+        - $ref: "#/components/parameters/CredentialIdentifier"
+      responses:
+        "200":
+          $ref: "#/components/responses/MemberPrivacy"
+        "400":
+          $ref: "#/components/responses/APIError"
+        "401":
+          description: Unauthorized
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /privacy/member/delete_request:
+    post:
+      tags:
+        - Member Privacy
+      summary: Creates a Deletion Request for a Member
+      description: "Looks up and creates a deletion request for the member associated with the provided member_identifier or credential_identifier query parameter. For each deletion request, all member offers will first be voided, then after 7 days, or longer if specified in an Account's preferences, the member will be anonymized."
+      operationId: post-privacy-member-delete_request
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/MemberIdentifier"
+        - $ref: "#/components/parameters/CredentialIdentifier"
+      responses:
+        "200":
+          description: Successfully created a member deletion request
+        "400":
+          description: Bad Request
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity (WebDAV) - Member could not be located from the member or credential identifiers
+        "500":
+          description: Internal Server Error - Internal issue creating a member deletion request
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /items:
+    post:
+      tags:
+        - Items
+      summary: Create Item
+      description: Creates an item.
+      operationId: post-items
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      requestBody:
+        $ref: "#/components/requestBodies/Item"
+      responses:
+        "201":
+          $ref: "#/components/responses/Item"
+        "401":
+          description: Unauthorized
+        "422":
+          $ref: "#/components/responses/Item"
+        "500":
+          description: Internal Server Error
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    get:
+      tags:
+        - Items
+      summary: Item Index
+      description: Get all items.
+      operationId: get-items
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/SearchText"
+        - $ref: "#/components/parameters/StoreSortBy"
+        - $ref: "#/components/parameters/Order"
+      responses:
+        "200":
+          $ref: "#/components/responses/ItemIndex"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/items/{id}":
+    get:
+      tags:
+        - Items
+      summary: Get Item
+      description: Gets an item.
+      operationId: get-items-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: id
+          in: path
+          description: Primary key for the item
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/Item"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Items
+      summary: Delete Item
+      description: Deletes an item.
+      operationId: delete-items-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: id
+          in: path
+          description: Primary key for the item
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    put:
+      tags:
+        - Items
+      summary: Update Item
+      description: Updates an item.
+      operationId: put-items-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - name: id
+          in: path
+          description: Primary key for the item
+          required: true
+          schema:
+            type: string
+      requestBody:
+        $ref: "#/components/requestBodies/Item"
+      responses:
+        "200":
+          $ref: "#/components/responses/Item"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /item_sets:
+    get:
+      tags:
+        - Items
+      summary: Item Set Index
+      description: Get all item sets.
+      operationId: get-item_sets
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/SearchText"
+        - $ref: "#/components/parameters/StoreSortBy"
+        - $ref: "#/components/parameters/Order"
+      responses:
+        "200":
+          $ref: "#/components/responses/ItemSetIndex"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    post:
+      tags:
+        - Items
+      summary: Item Set Create
+      description: Creates an item set.
+      operationId: post-item_sets
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      requestBody:
+        $ref: "#/components/requestBodies/ItemSet"
+      responses:
+        "201":
+          $ref: "#/components/responses/ItemSet"
+        "401":
+          description: Unauthorized
+        "422":
+          $ref: "#/components/responses/ItemSet"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/item_sets/{item_set_id}":
+    get:
+      tags:
+        - Items
+      summary: Get an Item Set
+      description: Gets an item set.
+      operationId: get-item_sets-item_set_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/ItemSetIDPath"
+      responses:
+        "200":
+          $ref: "#/components/responses/ItemSet"
+        "401":
+          description: Unauthorized
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    put:
+      tags:
+        - Items
+      summary: Update an Item Set
+      description: Updates an item set.
+      operationId: put-item_sets-item_set_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/ItemSetIDPath"
+      requestBody:
+        $ref: "#/components/requestBodies/ItemSet"
+      responses:
+        "200":
+          $ref: "#/components/responses/ItemSet"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Items
+      summary: Delete an Item Set
+      description: Deletes an item set.
+      operationId: delete-item_sets-item_set_id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/ItemSetIDPath"
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/item_sets/{item_set_id}/items/{id}":
+    post:
+      tags:
+        - Items
+      summary: Add Item to Set
+      description: Adds an item to the item set.
+      operationId: post-item_sets-item_set_id-items-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/ItemSetIDPath"
+        - name: id
+          in: path
+          description: The primary key of the item
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+    delete:
+      tags:
+        - Items
+      summary: Remove Item from Set
+      description: Removes an item from an item set.
+      operationId: delete-item_sets-item_set_id-items-id
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/ItemSetIDPath"
+        - name: id
+          in: path
+          description: The primary key of the item
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: OK
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/APIError"
+        "422":
+          $ref: "#/components/responses/APIError"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  "/item_sets/{item_set_id}/items":
+    get:
+      tags:
+        - Items
+      summary: Item Set Item Index
+      description: Gets a list of items from the item set.
+      operationId: get-item_sets-item_set_id-items
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+        - $ref: "#/components/parameters/ContentTypeJSON"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/SearchText"
+        - $ref: "#/components/parameters/StoreSortBy"
+        - $ref: "#/components/parameters/Order"
+        - $ref: "#/components/parameters/ItemSetIDPath"
+      responses:
+        "200":
+          $ref: "#/components/responses/ItemIndex"
+        "401":
+          description: Unauthorized
+        "404":
+          $ref: "#/components/responses/ItemIndex"
+        "500":
+          $ref: "#/components/responses/APIError"
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+  /members/offer_states/issue:
+    post:
+      tags:
+        - Offer States
+      summary: Issue an Offer to a member (high throughput)
+      description: "Issues an offer to a member using an active Sparkfly campaign, optionally allowing attachment of external data, activation and expiration dates. An issued offer is referred to as an offer_state.\r\n\r\nThis endpoint provides a limited feature set aimed at high throughput offer issuance. This endpoint should be preferred when issuing offer_states to a large number of members.\r\n"
+      operationId: post-members-id-offer_states-issue
+      parameters:
+        - $ref: "#/components/parameters/X-Auth-Token"
+      requestBody:
+        description: ""
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                offer_state:
+                  type: object
+                  description: The offer_state to issue to the member.
+                  properties:
+                    external_ref_id:
+                      type:
+                        - string
+                        - "null"
+                      description: An external reference identifier that will be attached to the offer_state. Meaning and value are not specified and may be useful for external systems that wish to attach data to an offer_state.
+                    campaign_id:
+                      type: string
+                      description: The Sparkfly campaign XID to use when issuing the offer_state. Must be an active (non-suspended) campaign under an active offer.
+                    activates_at:
+                      type:
+                        - string
+                        - "null"
+                      description: When the issued offer should become redeemable at the POS.
+                      format: date-time
+                    expires_at:
+                      type:
+                        - string
+                        - "null"
+                      description: When the issued offer should stop being redeemable at the POS.
+                      format: date-time
+                    member_identifier:
+                      type: string
+                      description: The member's external identifier. This field is required if member_id is absent.
+                    member_id:
+                      type: integer
+                      description: The primary identifier of the member. This field is required if member_identifier is absent.
+                  required:
+                    - campaign_id
+      responses:
+        "201":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  offer_state:
+                    type: object
+                    description: The newly created offer_state
+                    properties:
+                      id:
+                        type: integer
+                        description: The unique ID of the offer_state.
+                        format: int64
+                        examples:
+                          - 10000
+                      member_id:
+                        type: integer
+                        description: The member ID the offer_state was issued to.
+                        format: int64
+                        examples:
+                          - 20000
+                      offer_id:
+                        type: integer
+                        description: The ID of the offer that was issued to the member.
+                        format: int32
+                        examples:
+                          - 100
+                      campaign_id:
+                        type: string
+                        description: The Campaign XID of the campaign that was used to perform the issuance.
+                      activates_at:
+                        type: string
+                        description: "When the offer_state will become redeemable at the POS, if specified in the request."
+                        format: date-time
+                      expires_at:
+                        type: string
+                        description: "When the offer_state will stop being redeemable at the POS, if specified in the request."
+                        format: date-time
+                      credential_identifier:
+                        type: string
+                        description: The credential identifier that can be entered or scanned at the POS to redeem the issued offer_state.
+                    required:
+                      - id
+                      - member_id
+                      - offer_id
+                      - campaign_id
+                      - credential_identifier
+                required:
+                  - offer_state
+      servers:
+        - url: "https://api-staging.sparkfly.com/v1.0"
+          description: Staging
+tags:
+  - name: Items
+    description: items
+  - name: Health Check
+    description: health check
+  - name: Email Opt In
+    description: email opt in
+  - name: Offer States
+    description: offer states
+  - name: Member Privacy
+    description: member privacy
+  - name: Impressions
+    description: impressions
+  - name: POS Offer Codes
+    description: pos offer codes
+  - name: BI Store Lists
+    description: bi store lists
+  - name: Eligible Item Sets
+    description: eligible item sets
+  - name: Offer POS Offer Codes
+    description: offer pos offer codes
+  - name: Templates
+    description: templates
+  - name: Credential
+    description: credential
+  - name: Offer Lists
+    description: offer lists
+  - name: Offers
+    description: offers
+  - name: Store Lists
+    description: store list
+  - name: Stores
+    description: store
+  - name: Campaigns
+    description: campaigns
+  - name: Audiences
+    description: audiences
+  - name: Members
+    description: members
+  - name: Ctm
+    description: ctm
+components:
+  parameters:
+    StoreSortBy:
+      name: sort_by
+      in: query
+      description: order the returned records by a specified field
+      schema:
+        type: string
+        enum:
+          - id
+          - name
+          - number
+          - created_at
+        default: id
+    SearchText:
+      name: search_text
+      in: query
+      description: search for records containing the text
+      required: false
+      schema:
+        type: string
+    Page:
+      name: page
+      in: query
+      description: page offset to display a range of records from
+      required: false
+      schema:
+        type: string
+        minLength: 1
+        default: "1"
+        examples:
+          - "10"
+    PerPage:
+      name: per_page
+      in: query
+      description: maximum number of records to return in the search
+      required: false
+      schema:
+        type: string
+        minLength: 1
+        default: "5000"
+        examples:
+          - "255"
+    Order:
+      name: order
+      in: query
+      description: sort the records in either ascending (asc) or descending (desc) order
+      required: false
+      schema:
+        type: string
+        enum:
+          - asc
+          - desc
+        default: asc
+        examples:
+          - desc
+    Status:
+      name: status
+      in: query
+      description: search for records matching the desired status
+      required: false
+      schema:
+        type: string
+        enum:
+          - pending
+          - approved
+          - suspended
+          - archived
+    MerchantID:
+      name: merchant_id
+      in: query
+      description: search for records with a matching merchant ID
+      required: false
+      schema:
+        type: integer
+    ManufacturerID:
+      name: manufacturer_id
+      in: query
+      description: search for records with a matching manufacturer ID
+      required: false
+      schema:
+        type: integer
+    StoreID:
+      name: store_id
+      in: query
+      description: search for records with a matching store ID
+      required: false
+      schema:
+        type: integer
+    ExternalID:
+      name: external_id
+      in: query
+      description: search for records with a matching external ID
+      required: false
+      schema:
+        type: string
+    OfferID:
+      name: offer_id
+      in: query
+      description: search for records with a matching offer id
+      required: false
+      schema:
+        type: string
+    Token:
+      name: token
+      in: query
+      description: search for records with a matching token
+      required: false
+      schema:
+        type: string
+    PosVendor:
+      name: pos_vendor
+      in: query
+      description: search for records with a pos vendor
+      required: false
+      schema:
+        type: string
+    PosVersion:
+      name: pos_version
+      in: query
+      description: search for records with a pos version
+      required: false
+      schema:
+        type: string
+    OfferListID:
+      name: offer_list_id
+      in: query
+      description: search for records with a matching offer list ID
+      required: false
+      schema:
+        type: array
+        examples:
+          - - 12
+            - 15
+            - 19
+            - 114
+    Address:
+      name: address
+      in: query
+      description: email address for email opt in
+      required: true
+      schema:
+        type: string
+    XID:
+      name: xid
+      in: query
+      description: xid for email opt in
+      required: true
+      schema:
+        type: string
+    Code:
+      name: code
+      in: query
+      description: code for email opt in
+      required: false
+      schema:
+        type: string
+    MemberIdentifier:
+      name: member_identifier
+      in: query
+      description: the member identifier attached to a member
+      required: false
+      schema:
+        type: string
+    ChannelID:
+      name: channel_id
+      in: query
+      description: The channel's primary key
+      required: false
+      schema:
+        type: string
+    OSID:
+      name: token
+      in: query
+      description: An offer state's osid
+      required: false
+      schema:
+        type: string
+    CredentialIdentifier:
+      name: credential_identifier
+      in: query
+      description: The identifier of the credential
+      required: false
+      schema:
+        type: string
+    ExternalRefID:
+      name: external_ref_id
+      in: query
+      description: An external reference id
+      required: false
+      schema:
+        type: string
+    CampaignID:
+      name: campaign_id
+      in: path
+      description: search for records with a matching campaign ID
+      required: true
+      schema:
+        type: string
+    Credential:
+      name: credential
+      in: path
+      description: search for records with a matching credential
+      required: true
+      schema:
+        type: string
+    SiteID:
+      name: site_id
+      in: path
+      description: search for records with a matching site id
+      required: true
+      schema:
+        type: string
+    MemberIDPath:
+      name: member_id
+      in: path
+      description: The member's primary key
+      required: true
+      schema:
+        type: string
+    OfferStateIDPath:
+      name: offerstate_id
+      in: path
+      description: The offer state's primary key
+      required: true
+      schema:
+        type: string
+    OfferIDPath:
+      name: offer_id
+      in: path
+      description: The offer's primary key
+      required: true
+      schema:
+        type: string
+    ItemSetIDPath:
+      name: item_set_id
+      in: path
+      description: The primary key of the item set
+      required: true
+      schema:
+        type: string
+    X-Auth-Token:
+      name: X-Auth-Token
+      in: header
+      description: Required authentication token
+      required: true
+      schema:
+        type: string
+        examples:
+          - "{{x-auth-token}}"
+    X-Sparkfly-Metadata:
+      name: X-Sparkfly-Metadata
+      in: header
+      description: Metadata
+      required: false
+      schema:
+        type: string
+        examples:
+          - "{{X-Sparkfly-Metadata}}"
+    TranID:
+      name: tran_id
+      in: header
+      description: Required transaction identifier
+      required: true
+      schema:
+        type: string
+        examples:
+          - "{{X-TRANID}}"
+    TermID:
+      name: term_id
+      in: header
+      description: Required term identifier
+      required: true
+      schema:
+        type: string
+        examples:
+          - "{{X-TERMID}}"
+    ContentTypeJSON:
+      name: Content-Type
+      in: header
+      description: application/json
+      required: false
+      schema:
+        type: string
+        examples:
+          - application/json
+  requestBodies:
+    Store:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/store_request"
+    StoreList:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/store_list_request"
+    OfferList:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              offer_list:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  offer_ids:
+                    type: array
+                    items:
+                      type: integer
+          examples:
+            Example 1:
+              value:
+                offer_list:
+                  name: my offer list name
+                  offer_ids:
+                    - 1111
+                    - 2222
+                    - 3333
+                    - 4444
+    Audience:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              audience:
+                $ref: "#/components/schemas/Audience"
+    SubAudience:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              subaudience:
+                $ref: "#/components/schemas/Audience"
+    Campaign:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/campaign_request"
+    MemberProfile:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              member_profile:
+                $ref: "#/components/schemas/MemberProfile"
+    Member:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/member_request"
+    Impression:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/impression_request"
+    Offer:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_request"
+    CTMRedeptionJob:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ctm_redemption_job_request"
+    CTMQItems:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ctm_qitems_request"
+    CTMTransactionJob:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ctm_transaction_job_request"
+    OfferEligibleItemSet:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_eligible_item_set_request"
+    OfferPOSOfferCode:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_pos_offer_code_request"
+    CredentialBatch:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/credential_batch_request"
+    Item:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/item_request"
+    ItemSet:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/item_set_request"
+    OfferState:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_state_request"
+    OfferStateUpdate:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_state_update"
+    ClarkAndRiggs:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clark_and_riggs_product_create_body"
+  responses:
+    Store:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/store"
+    StoreList:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/store_list"
+          examples:
+            Example 1:
+              value:
+                store_list:
+                  id: 1234
+                  merchant_id: 10
+                  name: Metro Atlanta Area
+                  store_ids:
+                    - 101
+                    - 102
+                    - 104
+                    - 107
+                errors: {}
+    StoreIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/store_index_body"
+    StoreListIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/store_list_index_body"
+    OfferList:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              offer_list:
+                $ref: "#/components/schemas/Offer-List"
+              errors:
+                $ref: "#/components/schemas/ResponseBodyErrors"
+            x-examples:
+              Example 1:
+                offer_list:
+                  id: 1
+                  name: my offer list
+                  offer_ids:
+                    - 1111
+                    - 2222
+                    - 3333
+                    - 4444
+                errors: {}
+    Campaign:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/campaign_response"
+    CampaignTags:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/campaign_tags_response"
+    Audience:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              audience:
+                $ref: "#/components/schemas/Audience"
+              errors:
+                $ref: "#/components/schemas/ResponseBodyErrors"
+    AudienceIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/PageResponseBody"
+              - type: object
+                properties:
+                  audiences:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        audience:
+                          $ref: "#/components/schemas/Audience"
+                        errors:
+                          $ref: "#/components/schemas/ResponseBodyErrors"
+    SubAudience:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              subaudience:
+                $ref: "#/components/schemas/SubAudience"
+              errors:
+                $ref: "#/components/schemas/ResponseBodyErrors"
+    SubAudienceIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: "#/components/schemas/PageResponseBody"
+              - type: object
+                properties:
+                  subaudiences:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        subaudience:
+                          $ref: "#/components/schemas/SubAudience"
+                        errors:
+                          $ref: "#/components/schemas/ResponseBodyErrors"
+    APIError:
+      description: "An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request. "
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/API_Error"
+          examples:
+            Example 1:
+              value:
+                trace: 7b633ad0e507bd462a25c220e182dc5d
+                error: please contact support for additional information
+    MemberProfile:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              member_profile:
+                $ref: "#/components/schemas/MemberProfile"
+              errors:
+                $ref: "#/components/schemas/ResponseBodyErrors"
+    Member:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/member"
+    CTMShow:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ctm_transaction_show_response"
+    MemberIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/member_index_body"
+    MemberPrivacy:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/member_privacy"
+    Impression:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/impression"
+    POSOfferCode:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/pos_offer_code"
+    POSOfferCodeIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/pos_offer_code_index_body"
+    BIStoreList:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/bi_store_list"
+            x-examples:
+              Example 1:
+                store_lists:
+                  - id: 1
+                    name: Test
+          examples:
+            Example 1:
+              value:
+                store_lists:
+                  - id: 0
+                    name: string
+    Offer:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer"
+    OfferIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_index_body"
+    OfferEligibleItemSet:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_eligible_item_set"
+    OfferEligibleItemSetIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_eligible_items_set_index"
+    OfferPOSOfferCode:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_pos_offer_code"
+    OfferPOSOfferCodeIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_pos_offer_code_index"
+    Template:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/template"
+    CredentialBatch:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/credential_batch_response_body"
+    CredentialBatchIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/credential_batch_index_body"
+    Item:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/item"
+    ItemIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/item_index_body"
+    ItemSet:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/item_set"
+    ItemSetIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/item_set_index_body"
+    ImpressionIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/impression_index_body"
+    ImpressionError:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/impression_error_body"
+    HealthCheck:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/health_check"
+    EmailOptIn:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/email_opt_in"
+    EmailOptInError:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/email_opt_in_error"
+    OfferState:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_state"
+    OfferStateIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_state_index_body"
+    OfferStateError:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_state_error"
+    ClarkAndRiggs:
+      description: Clark and Riggs product response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clark_and_riggs_product_response_body"
+    ClarkAndRiggsIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/clark_and_riggs_index_body"
+  schemas:
+    API_Error:
+      type: object
+      title: API Error
+      properties:
+        trace:
+          type: string
+        error:
+          type: string
+    Offer-List:
+      type: object
+      title: Offer List
+      description: Contains a list of offer IDs
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        offer_ids:
+          type: array
+          items:
+            type: integer
+      examples:
+        - id: 1
+          name: my offer list name
+          offer_ids:
+            - 11
+            - 12
+            - 13
+            - 14
+            - 15
+    ResponseBodyErrors:
+      type: object
+      title: ResponseBodyErrors
+    store_request:
+      type: object
+      title: store_request
+      properties:
+        store:
+          type: object
+          properties:
+            name:
+              type: string
+            site_id:
+              type: string
+            number:
+              type: string
+            description:
+              type: string
+            is_active:
+              type: boolean
+            phone:
+              type: string
+            contacts:
+              type: object
+              properties:
+                primary:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    phone:
+                      type: string
+                    email:
+                      type: string
+                secondary:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    phone:
+                      type: string
+                    email:
+                      type: string
+            location:
+              type: object
+              properties:
+                address:
+                  type: string
+                address2:
+                  type: string
+                city:
+                  type: string
+                state:
+                  type: string
+                zip:
+                  type: string
+                country:
+                  type: string
+                lat:
+                  type: number
+                lng:
+                  type: number
+      x-examples:
+        Example 1:
+          store:
+            name: Queue Burger
+            site_id: 999-999
+            number: "9001"
+            description: enqueue dequeue donkey
+            is_active: true
+            phone: 555-555-5555
+            contacts:
+              primary:
+                name: Bilbo
+                phone: 551-555-5555
+                email: bilbo@email.com
+              secondary:
+                name: frodo
+                phone: 551-555-5555
+                email: frodo@email.com
+            location:
+              address: 1 main st
+              address2: apt 1
+              city: Atlanta
+              state: GA
+              zip: "30306"
+              country: united states
+              lat: 37.749
+              lng: 84.388
+    store_list_request:
+      type: object
+      title: store_list_request
+      properties:
+        store_list:
+          type: object
+          properties:
+            name:
+              type: string
+            store_ids:
+              type: array
+              items:
+                type: integer
+      x-examples:
+        Example 1:
+          store_list:
+            name: Metro Atlanta Area
+            store_ids:
+              - 4
+              - 5
+              - 6
+    Audience:
+      type: object
+      title: Audience
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    campaign_request:
+      type: object
+      title: campaign_request
+      properties:
+        campaign:
+          type: object
+          properties:
+            external_id:
+              type: string
+            pos_offer_code:
+              type: string
+            code_ref:
+              type: string
+            channel_name:
+              type: string
+            start_display_at:
+              type: string
+            stop_display_at:
+              type: string
+            finding_source:
+              type: string
+            eligible_store_numbers:
+              type: array
+              items:
+                type: string
+            eligible_Storelist_numbers:
+              type: array
+            landing_page_image_template_id:
+              type: string
+            description_template_id:
+              type: string
+            terms_and_conditions_template_id:
+              type: string
+            code_count:
+              type: string
+            redemption_allowed:
+              type: string
+            sub_audience_id:
+              type: integer
+            audience_id:
+              type: integer
+            redemption_grace_period:
+              type: integer
+              format: int32
+              exclusiveMinimum: 0
+              multipleOf: 60
+              default: null
+    MemberProfile:
+      type: object
+      title: MemberProfile
+      description: |-
+        Represents personal identifying information associated with a Sparkfly Member. No fields are required nor guaranteed to be stored.
+        Member profile data may be outsourced to third party client's upon request.
+      properties:
+        first_name:
+          type: string
+          description: The member's first name.
+        last_name:
+          type: string
+          description: The member's last name.
+        phone:
+          type: string
+          description: The member's contact phone number.
+        email:
+          type: string
+          description: The member's e-mail address.
+        birth_month:
+          type: integer
+          description: "Month of birth expressed as a 1-based index (1 = January, 2 = February, etc.)"
+          minimum: 1
+          maximum: 12
+        birth_day:
+          type: integer
+          description: The day of the month the member was born.
+        custom_data:
+          type: object
+          description: Arbitrary additional data attached to this member's profile.
+    member_request:
+      type: object
+      title: member_request
+      properties:
+        member:
+          type: object
+          properties:
+            identifier:
+              type: string
+            notification_mode:
+              type: string
+    impression_request:
+      type: object
+      title: impression_request
+      properties:
+        impression:
+          type: object
+          properties:
+            cookie_id:
+              type: string
+            offer_xid:
+              type: string
+            annotations:
+              type: object
+              properties:
+                str1:
+                  type: integer
+                str2:
+                  type: integer
+                str3:
+                  type: string
+                str4:
+                  type: boolean
+                str5:
+                  type: string
+          required:
+            - cookie_id
+            - offer_xid
+      examples:
+        - impression:
+            cookie_id: string
+            offer_xid: string
+            annotations:
+              str1: 0
+              str2: 0
+              str3: string
+              str4: true
+              str5: string
+      x-examples:
+        Example 1:
+          impression:
+            cookie_id: jacob_jan13_0
+            offer_xid: oxid
+            annotations:
+              str1: 1
+              str2: 2
+              str3: three
+              str4: false
+              str5: ".5"
+    offer_request:
+      type: object
+      title: offer_request
+      properties:
+        offer:
+          type: object
+          properties:
+            name:
+              type: string
+            offer_type:
+              type: integer
+            redemption_grace_period:
+              type: integer
+              format: int32
+              exclusiveMinimum: 0
+              multipleOf: 60
+              default: null
+      x-examples:
+        Example 1:
+          offer:
+            name: string
+            offer_type: 0
+    ctm_redemption_job_request:
+      type: object
+      title: ctm_redemption_job_request
+      description: used for ctm show
+      properties:
+        offers:
+          type: array
+          items:
+            type: integer
+        redeemed_offers:
+          type: array
+          items:
+            type: object
+            properties:
+              offer_id:
+                type: integer
+              value:
+                type: integer
+              override_ammount:
+                type: integer
+              credential:
+                type: string
+              rpe_auth_code:
+                type: string
+              pos_offer_code_type:
+                type: string
+              linked_item_entry_id:
+                type: string
+              qualifying_items:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    line_number:
+                      type: string
+                    entry_id:
+                      type: string
+                    qualification_type:
+                      type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              ln:
+                type: string
+              lln:
+                type: string
+              entry_id:
+                type: string
+              linked_entry_id:
+                type: string
+              cat:
+                type: string
+              desc:
+                type: string
+              ic:
+                type: string
+              qw:
+                type: integer
+              original_qw:
+                type: integer
+              price:
+                type: integer
+              original_price:
+                type: integer
+              disc_val:
+                type: integer
+              seat:
+                type: string
+              level:
+                type: string
+              voided:
+                type: boolean
+              type:
+                type: string
+        credentials:
+          type: array
+          items:
+            type: string
+        purchase_amt:
+          type: integer
+        site_id:
+          type: string
+        store_number:
+          type: string
+        credential:
+          type: string
+        term_id:
+          type: string
+        tran_id:
+          type: string
+        external_transaction_id:
+          type: string
+        operator_id:
+          type: string
+        reciept_id:
+          type: string
+        business_date:
+          type: string
+        translator_id:
+          type: string
+        num_guests:
+          type: integer
+        till_id:
+          type: string
+        status:
+          type: string
+        total_due:
+          type: integer
+        total_discount:
+          type: integer
+        total_service:
+          type: integer
+        total_tax:
+          type: integer
+        total_paid:
+          type: integer
+        pos_vendor:
+          type: string
+        pos_version:
+          type: string
+        selected_offers:
+          type: array
+          items:
+            type: object
+            properties:
+              offer_id:
+                type: string
+        revenue_center:
+          type: string
+        account_id:
+          type: string
+      x-examples:
+        Example 1:
+          offers:
+            - 0
+          redeemed_offers:
+            - offer_id: 0
+              value: 0
+              override_ammount: 0
+              credential: hello
+              rpe_auth_code: code
+              pos_offer_code_type: type
+              linked_entry_id: "0"
+              qualifying_items:
+                - line_number: "0"
+                  entry_id: "0"
+                  qualification_type: type
+          items:
+            - ln: "0"
+              lln: "0"
+              entry_id: "0"
+              linked_entry_id: "0"
+              cat: foo
+              desc: bar
+              ic: baz
+              qw: 0
+              original_qw: 0
+              price: 0
+              original_price: 0
+              disc_val: 0
+              seat: ""
+              level: "1"
+              voided: false
+              type: type
+          credentials:
+            - hello
+          purchase_amt: 0
+          site_id: "0"
+          store_number: "0"
+          credential: hello
+          term_id: "0"
+          tran_id: "0"
+          external_transaction_id: "0"
+          operator_id: "0"
+          reciept_id: "0"
+          budiness_date: "0"
+          translator_id: "0"
+          num_guests: 0
+          till_id: "0"
+          status: completed
+          total_due: 0
+          total_discount: 0
+          total_service: 0
+          total_tax: 0
+          total_paid: 0
+          pos_vendor: foo
+          pos_version: bar
+          selected_offers:
+            - offer_id: "0"
+          revenue_center: bin
+          account_id: 0
+    ctm_qitems_request:
+      type: object
+      title: ctm_qitems_request
+      description: dd
+      properties:
+        RewardId:
+          type: string
+        RemoteId:
+          type: string
+        Instant:
+          type: string
+        LineNumber:
+          type: string
+        Method:
+          type: string
+        DescShort:
+          type: string
+        DescLong:
+          type: string
+        Items:
+          type: array
+          items:
+            type: object
+        Value:
+          type: integer
+        Tip:
+          type: integer
+        Quantity:
+          type: integer
+        Voided:
+          type: boolean
+        SparkflyIdentifier:
+          type: string
+        Identifier:
+          type: string
+        Auth:
+          type: string
+        CampaignID:
+          type: string
+        ExternalRefID:
+          type: string
+    ctm_transaction_job_request:
+      type: object
+      title: ctm_transaction_job_request
+      description: used for ctm update and transaction update
+      properties:
+        credentials:
+          type: array
+          items:
+            type: string
+        items:
+          type: array
+          items:
+            type: object
+        purchase_amt:
+          type: integer
+        site_id:
+          type: string
+        term_id:
+          type: string
+        tran_id:
+          type: string
+        receipt_id:
+          type: string
+        operator_id:
+          type: string
+        business_date:
+          type: string
+        translator_id:
+          type: string
+        num_guests:
+          type: integer
+        till_id:
+          type: string
+        total_due:
+          type: integer
+        total_discount:
+          type: integer
+        total_service:
+          type: integer
+        total_tax:
+          type: integer
+        total_paid:
+          type: integer
+        account_id:
+          type: integer
+    offer_eligible_item_set_request:
+      type: object
+      title: offer_eligible_item_set_request
+      properties:
+        eligible_item_set:
+          type: object
+          properties:
+            list_type:
+              type: integer
+            req_qty:
+              type: integer
+            item_set_id:
+              type: integer
+      x-examples:
+        Example 1:
+          eligible_item_set:
+            list_type: 0
+            req_qty: 0
+            item_set_id: 0
+    offer_pos_offer_code_request:
+      type: object
+      title: offer_pos_offer_code_request
+      properties:
+        offer_pos_offer_code:
+          type: object
+          properties:
+            pos_offer_code_id:
+              type: integer
+      x-examples:
+        Example 1:
+          offer_pos_offer_code:
+            pos_offer_code_id: 0
+    credential_batch_request:
+      type: object
+      title: credential_batch_request
+      properties:
+        campaign_id:
+          type: string
+        offer_id:
+          type: integer
+        quantity:
+          type: integer
+        name:
+          type: string
+        fulfillment_method:
+          type: string
+      x-examples:
+        Example 1:
+          campaign_id: string
+          offer_id: 0
+          quantity: 0
+          name: string
+          fulfillment_method: string
+    item_request:
+      type: object
+      title: item_request
+      properties:
+        item:
+          type: object
+          properties:
+            name:
+              type: string
+            code:
+              type: string
+            item_type:
+              type: string
+              enum:
+                - item
+                - catagory
+                - option
+                - aloha_promo
+      x-examples:
+        Example 1:
+          item:
+            name: Chili Cheese Dog
+            code: "00000000"
+            item_type: item
+    item_set_request:
+      type: object
+      title: item_set_request
+      properties:
+        item_set:
+          type: object
+          properties:
+            name:
+              type: string
+      x-examples:
+        Example 1:
+          item_set:
+            name: Happy Hour Menu
+    offer_state_request:
+      type: object
+      title: offer_state_request
+      properties:
+        offer_state:
+          type: object
+          properties:
+            activates_at:
+              type: string
+            expires_at:
+              type: string
+            external_ref_id:
+              type: string
+            campaign_id:
+              type: string
+      x-examples:
+        Example 1:
+          offer_state:
+            activates_at: "2020-10-10T13:26:00+00:00"
+            expires_at: "2021-10-10T13:26:00+00:00"
+            external_ref_id: sxjbvnG
+            campaign_id: "2"
+    offer_state_update:
+      type: object
+      title: offer_state_update
+      properties:
+        offer_state:
+          type: object
+          properties:
+            offer_state_id:
+              type: integer
+            offer_id:
+              type: integer
+            member_id:
+              type: integer
+            status:
+              type: string
+            value:
+              type: integer
+            offer_name:
+              type: string
+            offer_value_required:
+              type: "null"
+            locked:
+              type: boolean
+            is_reward:
+              type: boolean
+      x-examples:
+        Example 1:
+          offer_state:
+            offer_state_id: 7
+            offer_id: 3
+            member_id: 2
+            status: incomplete
+            value: 5
+            offer_name: brian_offer
+            offer_value_required: null
+            locked: false
+            is_reward: false
+            activates_at: null
+            expires_at: null
+    clark_and_riggs_product_create_body:
+      type: object
+      title: clark_and_riggs_product_create_body
+      properties:
+        eligible_channel_id:
+          type: integer
+        offer_id:
+          type: integer
+        product_id:
+          type: string
+        book_size:
+          type: integer
+      x-examples:
+        Example 1:
+          eligible_channel_id: 1
+          offer_id: 1
+          product_id: "Campaign: 1 Offer: 1 Test Product"
+          book_size: 10
+    store:
+      title: store
+      allOf:
+        - type: object
+          properties:
+            store:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    merchant_id:
+                      type: integer
+                    name:
+                      type: string
+                    site_id:
+                      type: string
+                    number:
+                      type: string
+                    is_active:
+                      type: boolean
+                    description:
+                      type: string
+                    phone:
+                      type: string
+                    contacts:
+                      type: object
+                      properties:
+                        primary:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            phone:
+                              type: string
+                            email:
+                              type: string
+                        secondary:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            phone:
+                              type: string
+                            email:
+                              type: string
+                    location:
+                      type: object
+                      properties:
+                        address:
+                          type: string
+                        address2:
+                          type: string
+                        city:
+                          type: string
+                        state:
+                          type: string
+                        zip:
+                          type: string
+                        country:
+                          type: string
+                        lat:
+                          type: integer
+                        lng:
+                          type: integer
+                    icon_url:
+                      type: string
+                    online_ordering_id:
+                      type: string
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          store:
+            id: 0
+            merchant_id: 0
+            name: string
+            site_id: string
+            number: string
+            is_active: true
+            description: string
+            phone: string
+            contacts:
+              primary:
+                name: string
+                phone: string
+                email: string
+              secondary:
+                name: string
+                phone: string
+                email: string
+            location:
+              address: string
+              address2: string
+              city: string
+              state: string
+              zip: string
+              country: string
+              lat: 0
+              lng: 0
+            icon_url: string
+            online_ordering_id: string
+    id:
+      x-internal: true
+      x-stoplight:
+        internallyExcluded: true
+        errorMessage: This object is set as internal and excluded.
+    errors:
+      type: object
+      title: errors
+      properties:
+        errors:
+          $ref: "#/components/schemas/ResponseBodyErrors"
+    store_list:
+      title: store_list
+      allOf:
+        - type: object
+          properties:
+            store_list:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    merchant_id:
+                      type: integer
+                    name:
+                      type: string
+                    store_ids:
+                      type: array
+                      items:
+                        type: integer
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          store_list:
+            id: 0
+            merchant_id: 1
+            name: Metro Atlanta Area
+            store_ids:
+              - 4
+              - 5
+              - 6
+          errors: {}
+    store_index_body:
+      title: store_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            stores:
+              type: array
+              items:
+                $ref: "#/components/schemas/store"
+    PageResponseBody:
+      type: object
+      title: PageResponseBody
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total_entries:
+          type: integer
+        total_pages:
+          type: integer
+    store_list_index_body:
+      title: store_list_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            store_lists:
+              type: array
+              items:
+                $ref: "#/components/schemas/store_list"
+    campaign_response:
+      type: object
+      properties:
+        campaign:
+          allOf:
+            - $ref: "#/components/schemas/id"
+            - type: object
+              properties:
+                xid:
+                  type: string
+                name:
+                  type: string
+                code_ref:
+                  type: string
+                code_count:
+                  type: string
+                external_id:
+                  type: string
+                offer_id:
+                  type: integer
+                channel_id:
+                  type: integer
+                channel_name:
+                  type: string
+                pos_offer_code:
+                  type: string
+                online_offer_code:
+                  type: string
+                activation_date:
+                  type: "null"
+                expiration_date:
+                  type: string
+                start_display_at:
+                  type: string
+                funding_source:
+                  type: string
+                eligible_channel_tags:
+                  type: array
+                  items:
+                    type: object
+                eligible_store_ids:
+                  type: array
+                  items:
+                    type: object
+                eligible_store_numbers:
+                  type: array
+                  items:
+                    type: object
+                eligible_storelist_ids:
+                  type: array
+                  items:
+                    type: object
+                eligible_storelist_numbers:
+                  type: array
+                  items:
+                    type: object
+                landing_page_image_template_id:
+                  type: string
+                description_template_id:
+                  type: string
+                description:
+                  type: string
+                terms_and_conditions_template_id:
+                  type: string
+                terms_and_conditions:
+                  type: string
+                security:
+                  type: string
+                landing_page_urls:
+                  type: object
+                allow_return_later:
+                  type: boolean
+                redemption_identifier_type:
+                  type: integer
+                member_required:
+                  type: boolean
+                max_redemptions_per_member:
+                  type: string
+                dynamic_expiration:
+                  type: string
+                sub_audience_id:
+                  type: integer
+                audience_id:
+                  type: integer
+                status:
+                  type: string
+                redemption_grace_period:
+                  type: integer
+                  format: int32
+                  exclusiveMinimum: 0
+                  multipleOf: 60
+                  default: null
+        errors:
+          $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          errors: []
+          campaign:
+            id: 0
+            xid: string
+            name: string
+            code_ref: string
+            code_count: string
+            external_id: string
+            offer_id: 0
+            channel_id: 0
+            channel_name: string
+            pos_offer_code: string
+            online_offer_code: string
+            activation_date: null
+            expiration_date: string
+            start_display_at: string
+            funding_source: string
+            eligible_channel_tags: []
+            eligible_store_ids: []
+            eligible_store_numbers: []
+            eligible_storelist_ids: []
+            eligible_storelist_numbers: []
+            landing_page_image_template_id: string
+            description_template_id: string
+            description: string
+            terms_and_conditions_template_id: string
+            terms_and_conditions: string
+            security: string
+            landing_page_urls: {}
+            allow_return_later: true
+            redemption_identifier_type: 0
+            member_required: true
+            max_redemptions_per_member: string
+            dynamic_expiration: string
+            sub_audience_id: 0
+            audience_id: 0
+            status: string
+    campaign_tags_response:
+      type: object
+      title: campaign_tags_response
+      properties:
+        eligible_channel_tags:
+          type: array
+          examples:
+            - - example
+              - tags
+          items:
+            type: string
+    SubAudience:
+      type: object
+      title: SubAudience
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    member:
+      title: member
+      examples: []
+      allOf:
+        - type: object
+          properties:
+            member:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    identifier:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    notification_mode:
+                      type: string
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          id: 1186
+          identifier: newuser123@gmail.com
+          account_id: 1
+          notification_mode: app
+          created_at: "2023-06-22T18:36:32.271393505Z"
+          updated_at: "2023-06-22T18:36:32.271393505Z"
+    ctm_transaction_show_response:
+      type: object
+      title: ctm_transaction_show_response
+      properties:
+        account_id:
+          type: integer
+        offers:
+          type: array
+          items:
+            type: integer
+        loyalty_id:
+          type: string
+        reusable:
+          type: boolean
+        transaction:
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  pos_offer_code:
+                    type: string
+                  pos_offer_code_type:
+                    type: string
+                  validation_id:
+                    type: string
+                  code:
+                    type: string
+                  priority: {}
+            display_messages:
+              type: array
+              items:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  priority:
+                    type: integer
+            reciept_messages:
+              type: array
+              items:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  barcode_format:
+                    type: string
+                  priority:
+                    type: integer
+                  reciept_type:
+                    type: integer
+            credentials:
+              type: array
+              items:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+                  TxCredential:
+                    type: object
+                    properties:
+                      rpe_identifier:
+                        type: string
+                      display:
+                        type: string
+                      external_identifier:
+                        type: string
+                      external_identifier_type:
+                        type: string
+            add_offers:
+              type: array
+              items:
+                type: object
+                properties:
+                  credential_identifier:
+                    type: string
+                  rpe_auth_code:
+                    type: string
+                  pos_offer_code:
+                    type: string
+                  pos_offer_code_type:
+                    type: string
+                  quantity:
+                    type: string
+                  ammount:
+                    type: string
+                  name:
+                    type: string
+                  qualifying_items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        line_number:
+                          type: string
+                        entry_id:
+                          type: string
+                        item_code:
+                          type: string
+                        qualification_type:
+                          type: string
+                  tip:
+                    type: string
+                  identifier:
+                    type: string
+                  auth:
+                    type: string
+            remove_offers:
+              type: array
+              items:
+                type: object
+                properties:
+                  credential_identifier:
+                    type: string
+                  rpe_auth_code:
+                    type: string
+                  pos_offer_code:
+                    type: string
+                  pos_offer_code_type:
+                    type: string
+                  quantity:
+                    type: string
+                  ammount:
+                    type: string
+                  name:
+                    type: string
+                  qualifying_items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        line_number:
+                          type: string
+                        entry_id:
+                          type: string
+                        item_code:
+                          type: string
+                        qualification_type:
+                          type: string
+                  tip:
+                    type: string
+                  identifier:
+                    type: string
+                  auth:
+                    type: string
+            availible_offers:
+              type: array
+              items:
+                type: object
+                properties:
+                  offer_id:
+                    type: string
+                  name:
+                    type: string
+                  valid_now:
+                    type: boolean
+                  invalid_reason:
+                    type: string
+                  expiration_date:
+                    type: string
+        availible_offers:
+          type: array
+          items:
+            type: object
+            properties:
+              offer_state_id:
+                type: integer
+              offer_id:
+                type: integer
+              eligible_channel_id:
+                type: integer
+              activation_date:
+                type: string
+              expiration_date:
+                type: string
+              external_ref_id:
+                type: string
+        reusable_offers:
+          type: object
+          properties:
+            redemption_limit:
+              type: integer
+            redeem_until_depleted:
+              type: boolean
+        store_default_language:
+          type: string
+        account_default_language:
+          type: string
+    member_index_body:
+      x-internal: true
+      x-stoplight:
+        internallyExcluded: true
+        errorMessage: This object is set as internal and excluded.
+    member_privacy:
+      type: object
+      title: member_privacy
+      properties:
+        member:
+          type: object
+          properties:
+            created_at:
+              type: string
+            identifier:
+              type: string
+        credentials:
+          type: array
+          items:
+            type: object
+            properties:
+              identifier:
+                type: string
+              offer_ids:
+                type: "null"
+        offer_activities:
+          type: array
+          items:
+            type: object
+        transactions:
+          type: array
+          items:
+            type: object
+        impressions:
+          type: array
+          items:
+            type: object
+      x-examples:
+        Example 1:
+          member:
+            created_at: string
+            identifier: string
+          credentials:
+            - identifier: string
+              offer_ids: null
+          offer_activities: []
+          transactions: []
+          impressions: []
+    impression:
+      type: object
+      title: impression
+      examples:
+        - impression:
+            id: 0
+            cookie_id: string
+            offer_xid: string
+            annotations:
+              str1: 0
+              str2: 0
+              str3: string
+              str4: true
+              str5: string
+            created_at: string
+            updated_at: string
+            channel_id: null
+            channel_name: null
+            creative_name: null
+            errors: {}
+      allOf:
+        - type: object
+          properties:
+            impression:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    cookie_id:
+                      type: string
+                    offer_xid:
+                      type: string
+                    annotations:
+                      type: object
+                      properties:
+                        str1:
+                          type: integer
+                        str2:
+                          type: integer
+                        str3:
+                          type: string
+                        str4:
+                          type: boolean
+                        str5:
+                          type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    channel_id:
+                      type: "null"
+                    channel_name:
+                      type: "null"
+                    creative_name:
+                      type: "null"
+                    errors:
+                      $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          impression:
+            id: 0
+            cookie_id: jacob_jan13_0
+            offer_xid: oxid
+            annotations:
+              str1: 1
+              str2: 2
+              str3: three
+              str4: false
+              str5: ".5"
+            created_at: "0001-01-01T00:00:00Z"
+            updated_at: "0001-01-01T00:00:00Z"
+            channel_id: null
+            channel_name: null
+            creative_name: null
+            errors: {}
+    pos_offer_code:
+      title: pos_offer_code
+      examples:
+        - pos_offer_code:
+            id: 0
+            account_id: 0
+            code: string
+            description: string
+            pos_offer_code_type_id: null
+            pos_offer_code_pos_id: null
+            pos_offer_code_type_name: null
+            pos_offer_code_pos_name: null
+          errors: {}
+      allOf:
+        - type: object
+          properties:
+            pos_offer_code:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    account_id:
+                      type: integer
+                    code:
+                      type: string
+                    description:
+                      type: string
+                    pos_offer_code_type_id:
+                      type: "null"
+                    pos_offer_code_pos_id:
+                      type: "null"
+                    pos_offer_code_type_name:
+                      type: "null"
+                    pos_offer_code_pos_name:
+                      type: "null"
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          pos_offer_code:
+            id: 2
+            account_id: 3
+            code: "101"
+            description: BackupPOSOfferCode
+            pos_offer_code_type_id: null
+            pos_offer_code_pos_id: null
+            pos_offer_code_type_name: null
+            pos_offer_code_pos_name: null
+          errors: {}
+    pos_offer_code_index_body:
+      title: pos_offer_code_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            pos_offer_codes:
+              type: array
+              items:
+                $ref: "#/components/schemas/pos_offer_code"
+    bi_store_list:
+      type: object
+      title: bi_store_list
+      properties:
+        store_lists:
+          type: array
+          items:
+            allOf:
+              - $ref: "#/components/schemas/id"
+              - type: object
+                properties:
+                  name:
+                    type: string
+      x-examples:
+        Example 1:
+          store_lists:
+            - id: 1
+              name: Test
+    offer:
+      title: offer
+      allOf:
+        - type: object
+          properties:
+            offer:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    status:
+                      type: string
+                    merchant_id:
+                      type: "null"
+                    manufacturer_id:
+                      type: "null"
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    description_template_id:
+                      type: "null"
+                    offer_type:
+                      type: integer
+                    category:
+                      type: string
+                    offer_code:
+                      type: string
+                    pos_offer_code:
+                      type: string
+                    criteria:
+                      type: object
+                    points_earning_value:
+                      type: integer
+                    points_required_value:
+                      type: integer
+                    reward_item_description:
+                      type: string
+                    reward_item_value:
+                      type: integer
+                    terms_and_conditions:
+                      type: string
+                    terms_and_conditions_template_id:
+                      type: "null"
+                    quest_only:
+                      type: "null"
+                    merchant_name:
+                      type: string
+                    external_reward:
+                      type: string
+                    is_reward:
+                      type: boolean
+                    locked:
+                      type: "null"
+                    activates_at:
+                      type: string
+                    expires_at:
+                      type: string
+                    stop_offering_at:
+                      type: string
+                    created_at:
+                      type: string
+                    updated_at:
+                      type: string
+                    max_amount:
+                      type: integer
+                    min_spend_amount:
+                      type: integer
+                    trigger_amount:
+                      type: "null"
+                    max_redemptions:
+                      type: integer
+                    max_redemptions_per_member:
+                      type: integer
+                    max_redemptions_per_member_per_day:
+                      type: integer
+                    account_id:
+                      type: integer
+                    initial_value_mode:
+                      type: string
+                    offer_value_text:
+                      type: string
+                    offer_value_text_es:
+                      type: string
+                    formatting:
+                      type: object
+                      properties:
+                        bg_image:
+                          type: string
+                        custom_offer_group:
+                          type: string
+                        description:
+                          type: string
+                        eligible_store_map:
+                          type: object
+                          properties:
+                            hello:
+                              type: string
+                        mobile_thumb_url:
+                          type: string
+                        mobile_url:
+                          type: string
+                        no_printable:
+                          type: boolean
+                        offer_store_highlight_text_template:
+                          type: string
+                        offer_storelist_highlight_text_template:
+                          type: string
+                        short_name:
+                          type: string
+                        web_thumb_url:
+                          type: string
+                        web_url:
+                          type: string
+                    eligibility:
+                      type: object
+                      properties:
+                        merchant_ids:
+                          type: array
+                          items:
+                            type: integer
+                        store_list_ids:
+                          type: array
+                          items:
+                            type: object
+                        member_list_ids:
+                          type: array
+                          items:
+                            type: object
+                        channel_ids:
+                          type: array
+                          items:
+                            type: object
+                    redeem_until_depleted:
+                      type: boolean
+                    redemption_grace_period:
+                      type: integer
+                      format: int32
+                      exclusiveMinimum: 0
+                      multipleOf: 60
+                      default: null
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          offer:
+            id: 13
+            status: pending
+            merchant_id: null
+            manufacturer_id: null
+            name: offernametest
+            description: created offer description
+            description_template_id: null
+            offer_type: 21
+            category: created category
+            offer_code: created offer code
+            pos_offer_code: created pos offer code
+            criteria: {}
+            points_earning_value: 369
+            points_required_value: 48
+            reward_item_description: created reward item description
+            reward_item_value: 25
+            terms_and_conditions: created terms and conditions
+            terms_and_conditions_template_id: null
+            quest_only: null
+            merchant_name: created merchant name
+            external_reward: created external reward
+            is_reward: true
+            locked: null
+            activates_at: "2025-11-01T00:00:00Z"
+            expires_at: "2045-11-01T00:00:00Z"
+            stop_offering_at: "2041-11-01T00:00:00Z"
+            created_at: "2023-06-27T20:33:01Z"
+            updated_at: "2023-06-27T20:33:01Z"
+            max_amount: 35
+            min_spend_amount: 25
+            trigger_amount: null
+            max_redemptions: 8
+            max_redemptions_per_member: 6
+            max_redemptions_per_member_per_day: 2
+            account_id: 3
+            initial_value_mode: static
+            offer_value_text: 25% off
+            offer_value_text_es: 25% de descuento
+            formatting:
+              bg_image: bg_image
+              custom_offer_group: custom_offer_group
+              description: description
+              eligible_store_map:
+                hello: world
+              mobile_thumb_url: mobile_thumb_url
+              mobile_url: mobile_url
+              no_printable: true
+              offer_store_highlight_text_template: offer_store_highlight_text_template
+              offer_storelist_highlight_text_template: offer_storelist_highlight_text_template
+              short_name: short_name
+              web_thumb_url: web_thumb_url
+              web_url: web_url
+            eligibility:
+              merchant_ids:
+                - 1
+              store_list_ids: []
+              member_list_ids: []
+              channel_ids: []
+            redeem_until_depleted: false
+          errors: {}
+    offer_index_body:
+      title: offer_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            offers:
+              type: array
+              items:
+                $ref: "#/components/schemas/offer"
+    offer_eligible_item_set:
+      title: offer_eligible_item_set
+      allOf:
+        - type: object
+          properties:
+            eligible_item_set:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    offer_id:
+                      type: integer
+                    item_set_id:
+                      type: integer
+                    list_type:
+                      type: integer
+                    type_name:
+                      type: string
+                    req_qty:
+                      type: integer
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          eligible_item_set:
+            id: 0
+            offer_id: 0
+            item_set_id: 0
+            list_type: 0
+            type_name: string
+            req_qty: 0
+          errors: {}
+    offer_eligible_items_set_index:
+      title: offer_eligible_items_set_index
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            offer_eligible_item_sets:
+              type: array
+              items:
+                $ref: "#/components/schemas/offer_eligible_item_set"
+    offer_pos_offer_code:
+      title: offer_pos_offer_code
+      allOf:
+        - type: object
+          properties:
+            offer_pos_offer_code:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    offer_id:
+                      type: integer
+                    pos_offer_code_id:
+                      type: integer
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          offer_pos_offer_code:
+            id: 0
+            offer_id: 0
+            pos_offer_code_id: 0
+          errors: {}
+    offer_pos_offer_code_index:
+      title: offer_pos_offer_code_index
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            offer_pose_codes:
+              type: array
+              items:
+                $ref: "#/components/schemas/offer_pos_offer_code"
+    template:
+      type: object
+      title: template
+      properties:
+        templates:
+          type: array
+          items:
+            type: object
+            properties:
+              template:
+                $ref: "#/components/schemas/template_2"
+      x-examples:
+        Example 1:
+          templates:
+            - template:
+                id: 1
+                template_type: Test
+                name: Test
+                value: Test
+                options: null
+                errors: {}
+    template_2:
+      title: template
+      allOf:
+        - $ref: "#/components/schemas/id"
+        - type: object
+          properties:
+            template_type:
+              type: string
+            name:
+              type: string
+            value:
+              type: string
+            options:
+              type: string
+        - $ref: "#/components/schemas/errors"
+    credential_batch_response_body:
+      type: object
+      properties:
+        credential_batch:
+          allOf:
+            - $ref: "#/components/schemas/id"
+            - type: object
+              properties:
+                offer:
+                  type: object
+                  properties:
+                    offer_id:
+                      type: integer
+                    offer_name:
+                      type: string
+                campaign:
+                  type: object
+                  properties:
+                    campaign_id:
+                      type: integer
+                    campaign_name:
+                      type: string
+                name:
+                  type: string
+                quantity:
+                  type: integer
+                fulfillment_method:
+                  type: string
+                status:
+                  type: string
+      x-examples:
+        Example 1:
+          credential_batch:
+            id: 0
+            offer:
+              offer_id: 0
+              offer_name: string
+            campaign:
+              campaign_id: 0
+              campaign_name: string
+            name: string
+            quantity: 0
+            fulfillment_method: string
+            status: string
+    credential_batch_index_body:
+      title: credential_batch_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            credential_batches:
+              type: array
+              items:
+                $ref: "#/components/schemas/credential_batch_response_body"
+    item:
+      title: item
+      allOf:
+        - type: object
+          properties:
+            item:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    name:
+                      type: string
+                    code:
+                      type: string
+                    merchant_id:
+                      type: "null"
+                    manufacturer_id:
+                      type: "null"
+                    item_type:
+                      type: string
+                      enum:
+                        - item
+                        - catagory
+                        - option
+                        - aloha_promo
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          item:
+            id: 1
+            name: Chili Cheese Dog
+            code: "00000000"
+            merchant_id: null
+            manufacturer_id: null
+            item_type: item
+          errors: {}
+    item_index_body:
+      title: item_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            items:
+              type: array
+              items:
+                $ref: "#/components/schemas/item"
+    item_set:
+      title: item_set
+      allOf:
+        - type: object
+          properties:
+            item_set:
+              allOf:
+                - $ref: "#/components/schemas/id"
+                - type: object
+                  properties:
+                    name:
+                      type: string
+                    merchant_id:
+                      type: "null"
+                    manufacturer_id:
+                      type: "null"
+                    manufacturer_name:
+                      type: "null"
+                    item_ids:
+                      type: array
+                      items:
+                        type: object
+                    set_type:
+                      type: integer
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          item_set:
+            id: 2
+            name: Happy Hour Menu
+            merchant_id: null
+            manufacturer_id: null
+            manufacturer_name: null
+            item_ids: []
+            set_type: 0
+          errors: {}
+    item_set_index_body:
+      title: item_set_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            item_sets:
+              type: array
+              items:
+                $ref: "#/components/schemas/item_set"
+    impression_index_body:
+      title: impression_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            impressions:
+              type: array
+              items:
+                $ref: "#/components/schemas/impression"
+    impression_error_body:
+      type: object
+      title: impression_error_body
+      properties:
+        error:
+          type: string
+      x-examples:
+        Example 1:
+          error: 'Couldn''t find Impression with id=1 [WHERE "impressions"."account_id" = 3]'
+    health_check:
+      type: object
+      title: health_check
+      properties:
+        message:
+          type: string
+      x-examples:
+        Example 1:
+          message: Blaze OK
+    email_opt_in:
+      type: object
+      title: email_opt_in
+      properties:
+        text:
+          type: string
+      x-examples:
+        Example 1:
+          error: Error parsing email optin - acceptor failed
+    email_opt_in_error:
+      type: object
+      title: email_opt_in_error
+      properties:
+        error:
+          type: string
+      x-examples:
+        Example 1:
+          error: Error parsing email optin - acceptor failed
+    offer_state:
+      title: offer_state
+      allOf:
+        - type: object
+          properties:
+            offer_state:
+              type: object
+              properties:
+                offer_state_id:
+                  type: integer
+                offer_id:
+                  type: integer
+                member_id:
+                  type: integer
+                status:
+                  type: string
+                value:
+                  type: integer
+                locked:
+                  type: boolean
+                activates_at:
+                  type: string
+                expires_at:
+                  type: string
+                external_ref_id:
+                  type: string
+                custom_data:
+                  type: "null"
+                credential_custom_data:
+                  type: "null"
+                offer_activities:
+                  type: array
+                  items:
+                    type: object
+                offer_name:
+                  type: string
+                offer_short_name:
+                  type: string
+                offer_campaign_name:
+                  type: string
+                offer_group:
+                  type: string
+                offer_description:
+                  type: string
+                offer_value_required:
+                  type: integer
+                offer_terms_and_conditions:
+                  type: string
+                offer_web_image_url:
+                  type: string
+                offer_web_thumb_url:
+                  type: string
+                offer_mobile_image_url:
+                  type: string
+                offer_mobile_thumb_url:
+                  type: string
+                is_reward:
+                  type: boolean
+                credential_identifier:
+                  type: string
+                token:
+                  type: string
+                transferable:
+                  type: boolean
+                reusable:
+                  type: boolean
+                offer_tags:
+                  type: array
+                  items:
+                    type: object
+                offer_campaign_tags:
+                  type: array
+                  items:
+                    type: object
+                campaign_external_id:
+                  type: string
+                campaign_xid:
+                  type: string
+                campaign_id:
+                  type: integer
+        - $ref: "#/components/schemas/errors"
+      x-examples:
+        Example 1:
+          offer_state:
+            offer_state_id: 7
+            offer_id: 3
+            member_id: 2
+            status: incomplete
+            value: 0
+            locked: false
+            activates_at: "2023-04-10T13:26:00Z"
+            expires_at: "2023-04-10T13:26:00Z"
+            external_ref_id: sxjbvnG
+            custom_data: null
+            credential_custom_data: null
+            offer_activities: []
+            offer_name: created offer name
+            offer_short_name: short_name
+            offer_campaign_name: ""
+            offer_group: custom_offer_group
+            offer_description: created offer description
+            offer_value_required: 48
+            offer_terms_and_conditions: created terms and conditions
+            offer_web_image_url: web_url
+            offer_web_thumb_url: web_thumb_url
+            offer_mobile_image_url: mobile_url
+            offer_mobile_thumb_url: mobile_thumb_url
+            is_reward: true
+            credential_identifier: VK32
+            token: GkFxFAgcHo49blXlJLXpleDEckvmQPDxfWGLMrjl0EqkZRTOgAeqQJJy1nIEfUcNY3wEWsif30aDUmOb0hNg
+            transferable: true
+            reusable: false
+            offer_tags: []
+            offer_campaign_tags: []
+            campaign_external_id: ""
+            campaign_xid: ""
+            campaign_id: 1
+          errors: {}
+    offer_state_index_body:
+      title: offer_state_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            offer_states:
+              type: array
+              items:
+                $ref: "#/components/schemas/offer_state"
+    offer_state_error:
+      type: object
+      title: offer_state_error
+      properties:
+        error:
+          type: string
+      x-examples:
+        Example 1:
+          error: OfferState not found - not found
+    clark_and_riggs_product_response_body:
+      type: object
+      title: clark_and_riggs_product_response_body
+      properties:
+        clark_and_riggs_product:
+          type: object
+          properties:
+            id:
+              type: integer
+            offer:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+            eligible_channel:
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+            product_id:
+              type: string
+            book_size:
+              type: integer
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
+      x-examples:
+        Example 1:
+          clark_and_riggs_product:
+            id: 1
+            offer:
+              id: 1
+              name: DefaultReusable
+            eligible_channel:
+              id: 1
+              name: ""
+            product_id: "Campaign: 1 Offer: 1 Test Product"
+            book_size: 10
+            created_at: "2024-04-30T19:27:11.911238Z"
+            updated_at: "2024-04-30T19:27:11.911238Z"
+    clark_and_riggs_index_body:
+      type: object
+      title: clark_and_riggs_index_body
+      properties:
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total_entries:
+          type: integer
+        total_pages:
+          type: integer
+        clark_and_riggs_products:
+          type: array
+          items:
+            $ref: "#/components/schemas/clark_and_riggs_product_response_body"
+      x-examples:
+        Example 1:
+          page: 1
+          per_page: 5000
+          total_entries: 1
+          total_pages: 1
+          clark_and_riggs_products: []
