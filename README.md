@@ -173,10 +173,24 @@ items_in_set = client.items.get_item_sets_item_set_id_items(item_set_id="123")
 You can customize the client configuration:
 
 ```python
+# Use staging (default)
+client = Sparkfly(
+    identity="your-account-identity",
+    key="your-secret-key"
+)
+
+# Use production
 client = Sparkfly(
     identity="your-account-identity",
     key="your-secret-key",
-    host="https://api.sparkfly.com/v1.0"  # Use production instead of staging
+    environment="production"
+)
+
+# Use a custom host URL
+client = Sparkfly(
+    identity="your-account-identity",
+    key="your-secret-key",
+    host="https://api.sparkfly.com"  # Must be a valid Sparkfly URL
 )
 ```
 

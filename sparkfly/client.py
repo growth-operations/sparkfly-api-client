@@ -42,7 +42,8 @@ class Sparkfly:
         self,
         identity: str,
         key: str,
-        host: str = "https://api-staging.sparkfly.com/v1.0",
+        environment: str = "staging",
+        host: Optional[str] = None,
         token: Optional[str] = None,
         token_expires_at: Optional[float] = None,
     ):
@@ -52,21 +53,46 @@ class Sparkfly:
         Args:
             identity: Your Sparkfly account identity
             key: Your Sparkfly account secret key
-            host: The API host URL (defaults to staging)
-                   - Staging: https://api-staging.sparkfly.com/v1.0
-                   - Production: https://api.sparkfly.com/v1.0
+            environment: The environment to use ('staging' or 'production')
+            host: Optional custom host URL (overrides environment).
+                 Must be one of the valid Sparkfly base URLs:
+                 - https://api-staging.sparkfly.com (staging)
+                 - https://api.sparkfly.com (production)
+                 The /v1.0 suffix will be added automatically
             token: Optional pre-existing auth token
             token_expires_at: Optional token expiration timestamp
         """
         self.identity = identity
         self.key = key
-        self.host = host
+        self.environment = environment
+
+        # Determine the host URL
+        if host:
+            # Validate that the host is one of the valid base URLs
+            valid_base_hosts = [
+                "https://api-staging.sparkfly.com",
+                "https://api.sparkfly.com",
+            ]
+            if host not in valid_base_hosts:
+                raise ValueError(
+                    f"Invalid host URL. Must be one of: {', '.join(valid_base_hosts)}"
+                )
+
+            # Always append /v1.0 to the base URL
+            self.host = f"{host}/v1.0"
+        elif environment.lower() == "production":
+            self.host = "https://api.sparkfly.com/v1.0"
+        elif environment.lower() == "staging":
+            self.host = "https://api-staging.sparkfly.com/v1.0"
+        else:
+            raise ValueError("Environment must be 'staging' or 'production'")
+
         self._token = token
         self._token_expires_at = token_expires_at
 
         # Initialize the API client
         self._config = Configuration(
-            host=host,
+            host=self.host,
             api_key={
                 "XAuthIdentity": identity,
                 "XAuthKey": key,
