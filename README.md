@@ -5,7 +5,7 @@ A Python client library for the Sparkfly Platform API.
 ## Installation
 
 ```bash
-pip install sparkfly-api-client
+pip install sparkfly_api_client
 ```
 
 ## Quick Start
