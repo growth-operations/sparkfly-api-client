@@ -44,7 +44,7 @@ setup(
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
     include_package_data=True,
-    license="Contact Sparkfly Support for",
+    license="MIT",
     long_description_content_type='text/markdown',
     long_description="""\
     The Sparkfly Platform provides a full lifecycle for promotions and rewards from creation to distribution to settlement. The platform integrates in real-time at the point-of-sale and provides item level discounting and tracking. The capabilities of the Sparkfly Platform are available through the use of the Sparkfly Platform API.  The Sparkfly documentation site is under development. If the documentation you&#39;re after isn&#39;t available here, please contact support@sparkfly.com and we will get you what you need.
