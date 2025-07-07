@@ -177,14 +177,16 @@ class Sparkfly:
 
             def __getattribute__(self, name):
                 """Override to wrap async methods with retry logic."""
-                # Get the attribute normally first
-                attr = super().__getattribute__(name)
+                # Use object.__getattribute__ to avoid recursion
+                attr = object.__getattribute__(self, name)
 
                 # Only wrap async methods that are callable and not private
+                # Exclude authentication methods to prevent infinite recursion
                 if (
                     asyncio.iscoroutinefunction(attr)
                     and callable(attr)
                     and not name.startswith("_")
+                    and not name.startswith("post_auth")  # Exclude auth methods
                 ):
                     # Create a wrapped version that preserves the method binding
                     async def retry_wrapper(*args, **kwargs):
