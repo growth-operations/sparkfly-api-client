@@ -13,8 +13,8 @@ info:
     name: Sparkfly Support Team
     url: "https://help.sparkfly.com/"
   license:
-    name: "MIT"
-    url: "https://opensource.org/licenses/MIT"
+    name: MIT
+    url: https://opensource.org/licenses/MIT
 servers:
   - url: "https://api-staging.sparkfly.com/v1.0"
     description: Staging
