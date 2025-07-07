@@ -7,8 +7,9 @@ A simplified wrapper around the generated OpenAPI client.
 import asyncio
 import time
 from typing import Optional, Callable
-from sparkfly_api_client import ApiClient, Configuration
-from sparkfly_api_client.api import (
+from .api_client import ApiClient
+from .configuration import Configuration
+from .api import (
     AuthenticationApi,
     CampaignsApi,
     StoresApi,

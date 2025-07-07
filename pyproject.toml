@@ -1,11 +1,11 @@
 [project]
-name = "sparkfly_api_client"
+name = "sparkfly"
 version = "1.1.4"
 description = "Core Operations"
 authors = [
   {name = "Sparkfly Support Team",email = "support@sparkfly.com"},
 ]
-license = {text = "Contact Sparkfly Support for"}
+license = "Contact Sparkfly Support for"
 readme = "README.md"
 keywords = ["OpenAPI", "OpenAPI-Generator", "Core Operations"]
 requires-python = ">=3.9"
@@ -43,7 +43,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "sparkfly_api_client",
+  "sparkfly",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
@@ -81,7 +81,7 @@ disallow_any_generics = true
 
 [[tool.mypy.overrides]]
 module = [
-  "sparkfly_api_client.configuration",
+  "sparkfly.configuration",
 ]
 warn_unused_ignores = true
 strict_equality = true

@@ -1,7 +1,7 @@
 library: asyncio
-packageName: sparkfly_api_client
+packageName: sparkfly
 projectName: sparkfly-api-client
-packageVersion: 1.0.0
-packageUrl: https://github.com/sparkfly/sparkfly-api-client
+packageVersion: 1.1.4
+packageUrl: https://github.com/growth-operations/sparkfly-api-client
 hideGenerationTimestamp: true
 generateSourceCodeOnly: false
