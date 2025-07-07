@@ -1,6 +1,6 @@
 [project]
 name = "sparkfly"
-version = "1.1.4"
+version = "1.1.5"
 description = "Core Operations"
 authors = [
   {name = "Sparkfly Support Team",email = "support@sparkfly.com"},
@@ -20,7 +20,7 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/growth-operations/sparkfly-api-client"
+Repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 
 [tool.poetry]
 requires-poetry = ">=2.0"

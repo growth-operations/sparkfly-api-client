@@ -158,6 +158,7 @@ docs/Template2.md
 docs/TemplateTemplatesInner.md
 docs/TemplatesApi.md
 git_push.sh
+pyproject.toml
 requirements.txt
 setup.cfg
 setup.py
