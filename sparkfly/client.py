@@ -137,25 +137,35 @@ class Sparkfly:
         self._api_client = ApiClient(configuration=self._config)
 
         # Initialize API classes with retry wrappers
-        self.auth = self._create_retry_wrapper(AuthenticationApi)
-        self.campaigns = self._create_retry_wrapper(CampaignsApi)
-        self.stores = self._create_retry_wrapper(StoresApi)
-        self.offers = self._create_retry_wrapper(OffersApi)
-        self.offer_states = self._create_retry_wrapper(OfferStatesApi)
-        self.members = self._create_retry_wrapper(MembersApi)
-        self.items = self._create_retry_wrapper(ItemsApi)
-        self.offer_lists = self._create_retry_wrapper(OfferListsApi)
-        self.impressions = self._create_retry_wrapper(ImpressionsApi)
-        self.email_opt_in = self._create_retry_wrapper(EmailOptInApi)
-        self.templates = self._create_retry_wrapper(TemplatesApi)
-        self.audiences = self._create_retry_wrapper(AudiencesApi)
-        self.bi_store_lists = self._create_retry_wrapper(BIStoreListsApi)
-        self.ctm = self._create_retry_wrapper(CtmApi)
-        self.eligible_item_sets = self._create_retry_wrapper(EligibleItemSetsApi)
-        self.member_privacy = self._create_retry_wrapper(MemberPrivacyApi)
-        self.offer_pos_offer_codes = self._create_retry_wrapper(OfferPOSOfferCodesApi)
-        self.pos_offer_codes = self._create_retry_wrapper(POSOfferCodesApi)
-        self.store_lists = self._create_retry_wrapper(StoreListsApi)
+        self.auth: AuthenticationApi = self._create_retry_wrapper(AuthenticationApi)
+        self.campaigns: CampaignsApi = self._create_retry_wrapper(CampaignsApi)
+        self.stores: StoresApi = self._create_retry_wrapper(StoresApi)
+        self.offers: OffersApi = self._create_retry_wrapper(OffersApi)
+        self.offer_states: OfferStatesApi = self._create_retry_wrapper(OfferStatesApi)
+        self.members: MembersApi = self._create_retry_wrapper(MembersApi)
+        self.items: ItemsApi = self._create_retry_wrapper(ItemsApi)
+        self.offer_lists: OfferListsApi = self._create_retry_wrapper(OfferListsApi)
+        self.impressions: ImpressionsApi = self._create_retry_wrapper(ImpressionsApi)
+        self.email_opt_in: EmailOptInApi = self._create_retry_wrapper(EmailOptInApi)
+        self.templates: TemplatesApi = self._create_retry_wrapper(TemplatesApi)
+        self.audiences: AudiencesApi = self._create_retry_wrapper(AudiencesApi)
+        self.bi_store_lists: BIStoreListsApi = self._create_retry_wrapper(
+            BIStoreListsApi
+        )
+        self.ctm: CtmApi = self._create_retry_wrapper(CtmApi)
+        self.eligible_item_sets: EligibleItemSetsApi = self._create_retry_wrapper(
+            EligibleItemSetsApi
+        )
+        self.member_privacy: MemberPrivacyApi = self._create_retry_wrapper(
+            MemberPrivacyApi
+        )
+        self.offer_pos_offer_codes: OfferPOSOfferCodesApi = self._create_retry_wrapper(
+            OfferPOSOfferCodesApi
+        )
+        self.pos_offer_codes: POSOfferCodesApi = self._create_retry_wrapper(
+            POSOfferCodesApi
+        )
+        self.store_lists: StoreListsApi = self._create_retry_wrapper(StoreListsApi)
 
     def _create_retry_wrapper(self, api_class):
         """Create a wrapper class that automatically applies retry logic to all methods."""
@@ -167,6 +177,7 @@ class Sparkfly:
 
             def __getattribute__(self, name):
                 """Override to wrap async methods with retry logic."""
+                # Get the attribute normally first
                 attr = super().__getattribute__(name)
 
                 # Only wrap async methods that are callable and not private
@@ -175,11 +186,15 @@ class Sparkfly:
                     and callable(attr)
                     and not name.startswith("_")
                 ):
-
+                    # Create a wrapped version that preserves the method binding
                     async def retry_wrapper(*args, **kwargs):
                         return await self._sparkfly_client._call_with_retry(
                             attr, *args, **kwargs
                         )
+
+                    # Preserve the method name for better debugging and IDE discovery
+                    retry_wrapper.__name__ = attr.__name__
+                    retry_wrapper.__qualname__ = attr.__qualname__
 
                     return retry_wrapper
 
