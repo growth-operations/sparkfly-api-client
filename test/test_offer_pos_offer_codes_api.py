@@ -15,47 +15,47 @@
 
 import unittest
 
-from openapi_client.api.offer_pos_offer_codes_api import OfferPOSOfferCodesApi
+from sparkfly_api_client.api.offer_pos_offer_codes_api import OfferPOSOfferCodesApi
 
 
-class TestOfferPOSOfferCodesApi(unittest.TestCase):
+class TestOfferPOSOfferCodesApi(unittest.IsolatedAsyncioTestCase):
     """OfferPOSOfferCodesApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = OfferPOSOfferCodesApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_delete_offers_offer_id_pos_offer_codes_id(self) -> None:
+    async def test_delete_offers_offer_id_pos_offer_codes_id(self) -> None:
         """Test case for delete_offers_offer_id_pos_offer_codes_id
 
         Remove an Offer POS Offer Code
         """
         pass
 
-    def test_get_offers_offer_id_pos_offer_codes(self) -> None:
+    async def test_get_offers_offer_id_pos_offer_codes(self) -> None:
         """Test case for get_offers_offer_id_pos_offer_codes
 
         List all Offer POS Offer Codes
         """
         pass
 
-    def test_get_offers_offer_id_pos_offer_codes_id(self) -> None:
+    async def test_get_offers_offer_id_pos_offer_codes_id(self) -> None:
         """Test case for get_offers_offer_id_pos_offer_codes_id
 
         Get an Offer POS Offer Code
         """
         pass
 
-    def test_post_offers_offer_id_pos_offer_codes(self) -> None:
+    async def test_post_offers_offer_id_pos_offer_codes(self) -> None:
         """Test case for post_offers_offer_id_pos_offer_codes
 
         Create an Offer POS Offer Code
         """
         pass
 
-    def test_put_offers_offer_id_pos_offer_codes_id(self) -> None:
+    async def test_put_offers_offer_id_pos_offer_codes_id(self) -> None:
         """Test case for put_offers_offer_id_pos_offer_codes_id
 
         Update an Offer POS Offer Code

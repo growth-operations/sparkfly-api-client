@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.store_list_all_of_store_list import StoreListAllOfStoreList
+from sparkfly_api_client.models.store_list_all_of_store_list import StoreListAllOfStoreList
 
 class TestStoreListAllOfStoreList(unittest.TestCase):
     """StoreListAllOfStoreList unit test stubs"""

@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
 **code** | **str** |  | [optional] 
-**merchant_id** | **object** |  | [optional] 
-**manufacturer_id** | **object** |  | [optional] 
+**merchant_id** | **str** |  | [optional] 
+**manufacturer_id** | **str** |  | [optional] 
 **item_type** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from openapi_client.models.item_all_of_item import ItemAllOfItem
+from sparkfly_api_client.models.item_all_of_item import ItemAllOfItem
 
 # TODO update the JSON string below
 json = "{}"

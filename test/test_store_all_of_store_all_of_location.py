@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.store_all_of_store_all_of_location import StoreAllOfStoreAllOfLocation
+from sparkfly_api_client.models.store_all_of_store_all_of_location import StoreAllOfStoreAllOfLocation
 
 class TestStoreAllOfStoreAllOfLocation(unittest.TestCase):
     """StoreAllOfStoreAllOfLocation unit test stubs"""

@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_all_of_offer_all_of_formatting_eligible_store_map import OfferAllOfOfferAllOfFormattingEligibleStoreMap
+from sparkfly_api_client.models.offer_all_of_offer_all_of_formatting_eligible_store_map import OfferAllOfOfferAllOfFormattingEligibleStoreMap
 
 class TestOfferAllOfOfferAllOfFormattingEligibleStoreMap(unittest.TestCase):
     """OfferAllOfOfferAllOfFormattingEligibleStoreMap unit test stubs"""

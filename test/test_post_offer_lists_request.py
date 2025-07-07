@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.post_offer_lists_request import PostOfferListsRequest
+from sparkfly_api_client.models.post_offer_lists_request import PostOfferListsRequest
 
 class TestPostOfferListsRequest(unittest.TestCase):
     """PostOfferListsRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestPostOfferListsRequest(unittest.TestCase):
         model = PostOfferListsRequest()
         if include_optional:
             return PostOfferListsRequest(
-                offer_list = openapi_client.models.post_offer_lists_request_offer_list.post_offer_lists_request_offer_list(
+                offer_list = sparkfly_api_client.models.post_offer_lists_request_offer_list.post_offer_lists_request_offer_list(
                     name = '', 
                     offer_ids = [
                         56

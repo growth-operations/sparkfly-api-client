@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_state import OfferState
+from sparkfly_api_client.models.offer_state import OfferState
 
 class TestOfferState(unittest.TestCase):
     """OfferState unit test stubs"""
@@ -36,8 +36,8 @@ class TestOfferState(unittest.TestCase):
         model = OfferState()
         if include_optional:
             return OfferState(
-                errors = openapi_client.models.response_body_errors.ResponseBodyErrors(),
-                offer_state = openapi_client.models.offer_state_all_of_offer_state.offer_state_allOf_offer_state(
+                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
+                offer_state = sparkfly_api_client.models.offer_state_all_of_offer_state.offer_state_allOf_offer_state(
                     offer_state_id = 56, 
                     offer_id = 56, 
                     member_id = 56, 
@@ -47,8 +47,8 @@ class TestOfferState(unittest.TestCase):
                     activates_at = '', 
                     expires_at = '', 
                     external_ref_id = '', 
-                    custom_data = null, 
-                    credential_custom_data = null, 
+                    custom_data = '', 
+                    credential_custom_data = '', 
                     offer_activities = [
                         None
                         ], 

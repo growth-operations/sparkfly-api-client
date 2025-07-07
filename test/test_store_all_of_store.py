@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.store_all_of_store import StoreAllOfStore
+from sparkfly_api_client.models.store_all_of_store import StoreAllOfStore
 
 class TestStoreAllOfStore(unittest.TestCase):
     """StoreAllOfStore unit test stubs"""
@@ -43,16 +43,16 @@ class TestStoreAllOfStore(unittest.TestCase):
                 is_active = True,
                 description = '',
                 phone = '',
-                contacts = openapi_client.models.store_request_store_contacts.store_request_store_contacts(
-                    primary = openapi_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                contacts = sparkfly_api_client.models.store_request_store_contacts.store_request_store_contacts(
+                    primary = sparkfly_api_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
                         name = '', 
                         phone = '', 
                         email = '', ), 
-                    secondary = openapi_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                    secondary = sparkfly_api_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
                         name = '', 
                         phone = '', 
                         email = '', ), ),
-                location = openapi_client.models.store_all_of_store_all_of_location.store_allOf_store_allOf_location(
+                location = sparkfly_api_client.models.store_all_of_store_all_of_location.store_allOf_store_allOf_location(
                     address = '', 
                     address2 = '', 
                     city = '', 

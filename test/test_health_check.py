@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.health_check import HealthCheck
+from sparkfly_api_client.models.health_check import HealthCheck
 
 class TestHealthCheck(unittest.TestCase):
     """HealthCheck unit test stubs"""

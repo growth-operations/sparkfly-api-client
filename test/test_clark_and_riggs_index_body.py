@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.clark_and_riggs_index_body import ClarkAndRiggsIndexBody
+from sparkfly_api_client.models.clark_and_riggs_index_body import ClarkAndRiggsIndexBody
 
 class TestClarkAndRiggsIndexBody(unittest.TestCase):
     """ClarkAndRiggsIndexBody unit test stubs"""
@@ -41,13 +41,13 @@ class TestClarkAndRiggsIndexBody(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 clark_and_riggs_products = [
-                    openapi_client.models.clark_and_riggs_product_response_body.clark_and_riggs_product_response_body(
-                        clark_and_riggs_product = openapi_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product.clark_and_riggs_product_response_body_clark_and_riggs_product(
+                    sparkfly_api_client.models.clark_and_riggs_product_response_body.clark_and_riggs_product_response_body(
+                        clark_and_riggs_product = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product.clark_and_riggs_product_response_body_clark_and_riggs_product(
                             id = 56, 
-                            offer = openapi_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
+                            offer = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
                                 id = 56, 
                                 name = '', ), 
-                            eligible_channel = openapi_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
+                            eligible_channel = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
                                 id = 56, 
                                 name = '', ), 
                             product_id = '', 

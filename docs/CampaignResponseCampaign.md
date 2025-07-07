@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **channel_name** | **str** |  | [optional] 
 **pos_offer_code** | **str** |  | [optional] 
 **online_offer_code** | **str** |  | [optional] 
-**activation_date** | **object** |  | [optional] 
+**activation_date** | **str** |  | [optional] 
 **expiration_date** | **str** |  | [optional] 
 **start_display_at** | **str** |  | [optional] 
 **funding_source** | **str** |  | [optional] 
@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.campaign_response_campaign import CampaignResponseCampaign
+from sparkfly_api_client.models.campaign_response_campaign import CampaignResponseCampaign
 
 # TODO update the JSON string below
 json = "{}"

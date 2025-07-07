@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.store_index_body import StoreIndexBody
+from sparkfly_api_client.models.store_index_body import StoreIndexBody
 
 class TestStoreIndexBody(unittest.TestCase):
     """StoreIndexBody unit test stubs"""

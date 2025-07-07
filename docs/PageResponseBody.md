@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.page_response_body import PageResponseBody
+from sparkfly_api_client.models.page_response_body import PageResponseBody
 
 # TODO update the JSON string below
 json = "{}"

@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_state_all_of_offer_state import OfferStateAllOfOfferState
+from sparkfly_api_client.models.offer_state_all_of_offer_state import OfferStateAllOfOfferState
 
 class TestOfferStateAllOfOfferState(unittest.TestCase):
     """OfferStateAllOfOfferState unit test stubs"""
@@ -45,8 +45,8 @@ class TestOfferStateAllOfOfferState(unittest.TestCase):
                 activates_at = '',
                 expires_at = '',
                 external_ref_id = '',
-                custom_data = None,
-                credential_custom_data = None,
+                custom_data = '',
+                credential_custom_data = '',
                 offer_activities = [
                     None
                     ],

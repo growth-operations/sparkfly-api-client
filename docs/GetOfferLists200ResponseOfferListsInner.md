@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.get_offer_lists200_response_offer_lists_inner import GetOfferLists200ResponseOfferListsInner
+from sparkfly_api_client.models.get_offer_lists200_response_offer_lists_inner import GetOfferLists200ResponseOfferListsInner
 
 # TODO update the JSON string below
 json = "{}"

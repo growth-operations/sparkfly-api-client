@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.template import Template
+from sparkfly_api_client.models.template import Template
 
 # TODO update the JSON string below
 json = "{}"

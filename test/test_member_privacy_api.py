@@ -15,26 +15,26 @@
 
 import unittest
 
-from openapi_client.api.member_privacy_api import MemberPrivacyApi
+from sparkfly_api_client.api.member_privacy_api import MemberPrivacyApi
 
 
-class TestMemberPrivacyApi(unittest.TestCase):
+class TestMemberPrivacyApi(unittest.IsolatedAsyncioTestCase):
     """MemberPrivacyApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = MemberPrivacyApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_get_privacy_member_export(self) -> None:
+    async def test_get_privacy_member_export(self) -> None:
         """Test case for get_privacy_member_export
 
         Exports Data Associated with a Member
         """
         pass
 
-    def test_post_privacy_member_delete_request(self) -> None:
+    async def test_post_privacy_member_delete_request(self) -> None:
         """Test case for post_privacy_member_delete_request
 
         Creates a Deletion Request for a Member

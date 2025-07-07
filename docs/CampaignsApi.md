@@ -1,4 +1,4 @@
-# openapi_client.CampaignsApi
+# sparkfly_api_client.CampaignsApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -24,14 +24,14 @@ Retrieves a campaign.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.campaign_response import CampaignResponse
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.campaign_response import CampaignResponse
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -47,14 +47,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CampaignsApi(api_client)
+    api_instance = sparkfly_api_client.CampaignsApi(api_client)
     campaign_id = 'campaign_id_example' # str | search for records with a matching campaign ID
 
     try:
         # Retrieve a Campaign by Campaign ID
-        api_response = api_instance.get_campaign(campaign_id)
+        api_response = await api_instance.get_campaign(campaign_id)
         print("The response of CampaignsApi->get_campaign:\n")
         pprint(api_response)
     except Exception as e:
@@ -105,14 +105,14 @@ Retrieve a campaign.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.campaign_response import CampaignResponse
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.campaign_response import CampaignResponse
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -128,15 +128,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CampaignsApi(api_client)
+    api_instance = sparkfly_api_client.CampaignsApi(api_client)
     external_id = 'external_id_example' # str | search for records with a matching external ID (optional)
     offer_id = 'offer_id_example' # str | search for records with a matching offer id (optional)
 
     try:
         # Retrieve a Campaign by External ID and Offer ID
-        api_response = api_instance.get_campaign_external_id(external_id=external_id, offer_id=offer_id)
+        api_response = await api_instance.get_campaign_external_id(external_id=external_id, offer_id=offer_id)
         print("The response of CampaignsApi->get_campaign_external_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -188,14 +188,14 @@ Retrieve campaign tags.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.campaign_tags_response import CampaignTagsResponse
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.campaign_tags_response import CampaignTagsResponse
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -211,13 +211,13 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CampaignsApi(api_client)
+    api_instance = sparkfly_api_client.CampaignsApi(api_client)
 
     try:
         # Retrieve Campaign Tags
-        api_response = api_instance.get_campaign_tags()
+        api_response = await api_instance.get_campaign_tags()
         print("The response of CampaignsApi->get_campaign_tags:\n")
         pprint(api_response)
     except Exception as e:
@@ -276,15 +276,15 @@ In all cases, the Campaign End Date or Offer End Date - which ever occurs first 
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.campaign_request import CampaignRequest
-from openapi_client.models.campaign_response import CampaignResponse
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.campaign_request import CampaignRequest
+from sparkfly_api_client.models.campaign_response import CampaignResponse
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -300,14 +300,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CampaignsApi(api_client)
-    campaign_request = openapi_client.CampaignRequest() # CampaignRequest |  (optional)
+    api_instance = sparkfly_api_client.CampaignsApi(api_client)
+    campaign_request = sparkfly_api_client.CampaignRequest() # CampaignRequest |  (optional)
 
     try:
         # Create a Campaign
-        api_response = api_instance.post_campaign(campaign_request=campaign_request)
+        api_response = await api_instance.post_campaign(campaign_request=campaign_request)
         print("The response of CampaignsApi->post_campaign:\n")
         pprint(api_response)
     except Exception as e:
@@ -359,15 +359,15 @@ Updates a campaign.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.campaign_request import CampaignRequest
-from openapi_client.models.campaign_response import CampaignResponse
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.campaign_request import CampaignRequest
+from sparkfly_api_client.models.campaign_response import CampaignResponse
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -383,15 +383,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CampaignsApi(api_client)
+    api_instance = sparkfly_api_client.CampaignsApi(api_client)
     campaign_id = 'campaign_id_example' # str | search for records with a matching campaign ID
-    campaign_request = openapi_client.CampaignRequest() # CampaignRequest |  (optional)
+    campaign_request = sparkfly_api_client.CampaignRequest() # CampaignRequest |  (optional)
 
     try:
         # Update a Campaign by Campaign ID
-        api_response = api_instance.put_campaign(campaign_id, campaign_request=campaign_request)
+        api_response = await api_instance.put_campaign(campaign_id, campaign_request=campaign_request)
         print("The response of CampaignsApi->put_campaign:\n")
         pprint(api_response)
     except Exception as e:
@@ -444,14 +444,14 @@ Set the status of a currently pending or suspended campaign to active.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.campaign_response import CampaignResponse
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.campaign_response import CampaignResponse
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -467,15 +467,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CampaignsApi(api_client)
+    api_instance = sparkfly_api_client.CampaignsApi(api_client)
     campaign_id = 56 # int | primary identifier of the campaign
     action = 'action_example' # str | desired status of the campaign
 
     try:
         # Set a Campaign's Status
-        api_response = api_instance.put_campaigns_campaign_id_actions_approve(campaign_id, action)
+        api_response = await api_instance.put_campaigns_campaign_id_actions_approve(campaign_id, action)
         print("The response of CampaignsApi->put_campaigns_campaign_id_actions_approve:\n")
         pprint(api_response)
     except Exception as e:

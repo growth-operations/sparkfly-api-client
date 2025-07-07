@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.member_privacy_member import MemberPrivacyMember
+from sparkfly_api_client.models.member_privacy_member import MemberPrivacyMember
 
 class TestMemberPrivacyMember(unittest.TestCase):
     """MemberPrivacyMember unit test stubs"""

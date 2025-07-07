@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.store_list import StoreList
+from sparkfly_api_client.models.store_list import StoreList
 
 class TestStoreList(unittest.TestCase):
     """StoreList unit test stubs"""
@@ -36,7 +36,7 @@ class TestStoreList(unittest.TestCase):
         model = StoreList()
         if include_optional:
             return StoreList(
-                errors = openapi_client.models.response_body_errors.ResponseBodyErrors(),
+                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
                 store_list = None
             )
         else:

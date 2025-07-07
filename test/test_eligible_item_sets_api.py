@@ -15,47 +15,47 @@
 
 import unittest
 
-from openapi_client.api.eligible_item_sets_api import EligibleItemSetsApi
+from sparkfly_api_client.api.eligible_item_sets_api import EligibleItemSetsApi
 
 
-class TestEligibleItemSetsApi(unittest.TestCase):
+class TestEligibleItemSetsApi(unittest.IsolatedAsyncioTestCase):
     """EligibleItemSetsApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = EligibleItemSetsApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_delete_offers_offer_id_eligible_item_sets_id(self) -> None:
+    async def test_delete_offers_offer_id_eligible_item_sets_id(self) -> None:
         """Test case for delete_offers_offer_id_eligible_item_sets_id
 
         Remove an Eligible Item Set
         """
         pass
 
-    def test_get_offers_offer_id_eligible_item_sets(self) -> None:
+    async def test_get_offers_offer_id_eligible_item_sets(self) -> None:
         """Test case for get_offers_offer_id_eligible_item_sets
 
         List all Eligible Item Sets
         """
         pass
 
-    def test_get_offers_offer_id_eligible_item_sets_id(self) -> None:
+    async def test_get_offers_offer_id_eligible_item_sets_id(self) -> None:
         """Test case for get_offers_offer_id_eligible_item_sets_id
 
         Get an Eligible Item Set
         """
         pass
 
-    def test_post_offers_offer_id_eligible_item_sets(self) -> None:
+    async def test_post_offers_offer_id_eligible_item_sets(self) -> None:
         """Test case for post_offers_offer_id_eligible_item_sets
 
         Create an Eligible Item Set
         """
         pass
 
-    def test_put_offers_offer_id_eligible_item_sets_id(self) -> None:
+    async def test_put_offers_offer_id_eligible_item_sets_id(self) -> None:
         """Test case for put_offers_offer_id_eligible_item_sets_id
 
         Update an Eligible Item Set

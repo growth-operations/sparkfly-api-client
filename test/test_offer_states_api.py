@@ -15,89 +15,89 @@
 
 import unittest
 
-from openapi_client.api.offer_states_api import OfferStatesApi
+from sparkfly_api_client.api.offer_states_api import OfferStatesApi
 
 
-class TestOfferStatesApi(unittest.TestCase):
+class TestOfferStatesApi(unittest.IsolatedAsyncioTestCase):
     """OfferStatesApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = OfferStatesApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_get_members_member_id_offer_states(self) -> None:
+    async def test_get_members_member_id_offer_states(self) -> None:
         """Test case for get_members_member_id_offer_states
 
         Get all Offer States
         """
         pass
 
-    def test_get_members_member_id_offer_states_offer_state_id(self) -> None:
+    async def test_get_members_member_id_offer_states_offer_state_id(self) -> None:
         """Test case for get_members_member_id_offer_states_offer_state_id
 
         Get Offer State by Offer State ID
         """
         pass
 
-    def test_get_members_member_id_offers_offer_id(self) -> None:
+    async def test_get_members_member_id_offers_offer_id(self) -> None:
         """Test case for get_members_member_id_offers_offer_id
 
         Get Offer State by Offer ID
         """
         pass
 
-    def test_get_members_offer_states(self) -> None:
+    async def test_get_members_offer_states(self) -> None:
         """Test case for get_members_offer_states
 
         Get Offer State from Query Parameters
         """
         pass
 
-    def test_post_members_id_offer_states_issue(self) -> None:
+    async def test_post_members_id_offer_states_issue(self) -> None:
         """Test case for post_members_id_offer_states_issue
 
         Issue an Offer to a member (high throughput)
         """
         pass
 
-    def test_post_members_member_id_offer_states(self) -> None:
+    async def test_post_members_member_id_offer_states(self) -> None:
         """Test case for post_members_member_id_offer_states
 
         Create Offer State
         """
         pass
 
-    def test_post_members_member_id_offer_states_offerstate_id(self) -> None:
+    async def test_post_members_member_id_offer_states_offerstate_id(self) -> None:
         """Test case for post_members_member_id_offer_states_offerstate_id
 
         Update Offer State - Post
         """
         pass
 
-    def test_post_members_member_id_offer_states_offerstate_id_void(self) -> None:
+    async def test_post_members_member_id_offer_states_offerstate_id_void(self) -> None:
         """Test case for post_members_member_id_offer_states_offerstate_id_void
 
         Void Offer State
         """
         pass
 
-    def test_post_members_member_id_offer_states_offerstate_id_voidmember_identifier_member_identifier(self) -> None:
+    async def test_post_members_member_id_offer_states_offerstate_id_voidmember_identifier_member_identifier(self) -> None:
         """Test case for post_members_member_id_offer_states_offerstate_id_voidmember_identifier_member_identifier
 
         Void Offer State by Member Identifier
         """
         pass
 
-    def test_post_members_offer_states(self) -> None:
+    async def test_post_members_offer_states(self) -> None:
         """Test case for post_members_offer_states
 
         Create Offer State from Query Parameters
         """
         pass
 
-    def test_put_members_member_id_offer_states_offer_state_id(self) -> None:
+    async def test_put_members_member_id_offer_states_offer_state_id(self) -> None:
         """Test case for put_members_member_id_offer_states_offer_state_id
 
         Update Offer State

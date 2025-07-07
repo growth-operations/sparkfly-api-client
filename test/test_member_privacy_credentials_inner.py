@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner
+from sparkfly_api_client.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner
 
 class TestMemberPrivacyCredentialsInner(unittest.TestCase):
     """MemberPrivacyCredentialsInner unit test stubs"""
@@ -37,7 +37,7 @@ class TestMemberPrivacyCredentialsInner(unittest.TestCase):
         if include_optional:
             return MemberPrivacyCredentialsInner(
                 identifier = '',
-                offer_ids = None
+                offer_ids = ''
             )
         else:
             return MemberPrivacyCredentialsInner(

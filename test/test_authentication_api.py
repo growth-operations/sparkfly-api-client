@@ -15,19 +15,19 @@
 
 import unittest
 
-from openapi_client.api.authentication_api import AuthenticationApi
+from sparkfly_api_client.api.authentication_api import AuthenticationApi
 
 
-class TestAuthenticationApi(unittest.TestCase):
+class TestAuthenticationApi(unittest.IsolatedAsyncioTestCase):
     """AuthenticationApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = AuthenticationApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_post_auth(self) -> None:
+    async def test_post_auth(self) -> None:
         """Test case for post_auth
 
         Request an Authentication Token

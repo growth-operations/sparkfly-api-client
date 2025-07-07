@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.store_list_index_body import StoreListIndexBody
+from sparkfly_api_client.models.store_list_index_body import StoreListIndexBody
 
 # TODO update the JSON string below
 json = "{}"

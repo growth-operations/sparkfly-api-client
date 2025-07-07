@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_request import OfferRequest
+from sparkfly_api_client.models.offer_request import OfferRequest
 
 class TestOfferRequest(unittest.TestCase):
     """OfferRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferRequest(unittest.TestCase):
         model = OfferRequest()
         if include_optional:
             return OfferRequest(
-                offer = openapi_client.models.offer_request_offer.offer_request_offer(
+                offer = sparkfly_api_client.models.offer_request_offer.offer_request_offer(
                     name = '', 
                     offer_type = 56, 
                     redemption_grace_period = 56, )

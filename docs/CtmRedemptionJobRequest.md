@@ -38,7 +38,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.ctm_redemption_job_request import CtmRedemptionJobRequest
+from sparkfly_api_client.models.ctm_redemption_job_request import CtmRedemptionJobRequest
 
 # TODO update the JSON string below
 json = "{}"

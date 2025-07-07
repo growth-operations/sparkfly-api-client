@@ -1,4 +1,4 @@
-# openapi_client.ItemsApi
+# sparkfly_api_client.ItemsApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -31,13 +31,13 @@ Deletes an item set.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -53,15 +53,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Delete an Item Set
-        api_instance.delete_item_sets_item_set_id(item_set_id, content_type=content_type)
+        await api_instance.delete_item_sets_item_set_id(item_set_id, content_type=content_type)
     except Exception as e:
         print("Exception when calling ItemsApi->delete_item_sets_item_set_id: %s\n" % e)
 ```
@@ -112,13 +112,13 @@ Removes an item from an item set.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -134,16 +134,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     id = 'id_example' # str | The primary key of the item
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Remove Item from Set
-        api_instance.delete_item_sets_item_set_id_items_id(item_set_id, id, content_type=content_type)
+        await api_instance.delete_item_sets_item_set_id_items_id(item_set_id, id, content_type=content_type)
     except Exception as e:
         print("Exception when calling ItemsApi->delete_item_sets_item_set_id_items_id: %s\n" % e)
 ```
@@ -196,13 +196,13 @@ Deletes an item.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -218,15 +218,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     id = 'id_example' # str | Primary key for the item
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Delete Item
-        api_instance.delete_items_id(id, content_type=content_type)
+        await api_instance.delete_items_id(id, content_type=content_type)
     except Exception as e:
         print("Exception when calling ItemsApi->delete_items_id: %s\n" % e)
 ```
@@ -277,14 +277,14 @@ Get all item sets.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.item_set_index_body import ItemSetIndexBody
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.item_set_index_body import ItemSetIndexBody
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -300,9 +300,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
     per_page = '5000' # str | maximum number of records to return in the search (optional) (default to '5000')
@@ -312,7 +312,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Item Set Index
-        api_response = api_instance.get_item_sets(content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+        api_response = await api_instance.get_item_sets(content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
         print("The response of ItemsApi->get_item_sets:\n")
         pprint(api_response)
     except Exception as e:
@@ -368,14 +368,14 @@ Gets an item set.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.item_set import ItemSet
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.item_set import ItemSet
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -391,15 +391,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get an Item Set
-        api_response = api_instance.get_item_sets_item_set_id(item_set_id, content_type=content_type)
+        api_response = await api_instance.get_item_sets_item_set_id(item_set_id, content_type=content_type)
         print("The response of ItemsApi->get_item_sets_item_set_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -451,14 +451,14 @@ Gets a list of items from the item set.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.item_index_body import ItemIndexBody
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.item_index_body import ItemIndexBody
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -474,9 +474,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     content_type = 'content_type_example' # str | application/json (optional)
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
@@ -487,7 +487,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Item Set Item Index
-        api_response = api_instance.get_item_sets_item_set_id_items(item_set_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+        api_response = await api_instance.get_item_sets_item_set_id_items(item_set_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
         print("The response of ItemsApi->get_item_sets_item_set_id_items:\n")
         pprint(api_response)
     except Exception as e:
@@ -545,14 +545,14 @@ Get all items.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.item_index_body import ItemIndexBody
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.item_index_body import ItemIndexBody
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -568,9 +568,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
     per_page = '5000' # str | maximum number of records to return in the search (optional) (default to '5000')
@@ -580,7 +580,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Item Index
-        api_response = api_instance.get_items(content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+        api_response = await api_instance.get_items(content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
         print("The response of ItemsApi->get_items:\n")
         pprint(api_response)
     except Exception as e:
@@ -636,14 +636,14 @@ Gets an item.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.item import Item
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.item import Item
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -659,15 +659,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     id = 'id_example' # str | Primary key for the item
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get Item
-        api_response = api_instance.get_items_id(id, content_type=content_type)
+        api_response = await api_instance.get_items_id(id, content_type=content_type)
         print("The response of ItemsApi->get_items_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -720,15 +720,15 @@ Creates an item set.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.item_set import ItemSet
-from openapi_client.models.item_set_request import ItemSetRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.item_set import ItemSet
+from sparkfly_api_client.models.item_set_request import ItemSetRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -744,15 +744,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
-    item_set_request = openapi_client.ItemSetRequest() # ItemSetRequest |  (optional)
+    item_set_request = sparkfly_api_client.ItemSetRequest() # ItemSetRequest |  (optional)
 
     try:
         # Item Set Create
-        api_response = api_instance.post_item_sets(content_type=content_type, item_set_request=item_set_request)
+        api_response = await api_instance.post_item_sets(content_type=content_type, item_set_request=item_set_request)
         print("The response of ItemsApi->post_item_sets:\n")
         pprint(api_response)
     except Exception as e:
@@ -805,13 +805,13 @@ Adds an item to the item set.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -827,16 +827,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     id = 'id_example' # str | The primary key of the item
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Add Item to Set
-        api_instance.post_item_sets_item_set_id_items_id(item_set_id, id, content_type=content_type)
+        await api_instance.post_item_sets_item_set_id_items_id(item_set_id, id, content_type=content_type)
     except Exception as e:
         print("Exception when calling ItemsApi->post_item_sets_item_set_id_items_id: %s\n" % e)
 ```
@@ -889,15 +889,15 @@ Creates an item.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.item import Item
-from openapi_client.models.item_request import ItemRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.item import Item
+from sparkfly_api_client.models.item_request import ItemRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -913,15 +913,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
-    item_request = openapi_client.ItemRequest() # ItemRequest |  (optional)
+    item_request = sparkfly_api_client.ItemRequest() # ItemRequest |  (optional)
 
     try:
         # Create Item
-        api_response = api_instance.post_items(content_type=content_type, item_request=item_request)
+        api_response = await api_instance.post_items(content_type=content_type, item_request=item_request)
         print("The response of ItemsApi->post_items:\n")
         pprint(api_response)
     except Exception as e:
@@ -974,15 +974,15 @@ Updates an item set.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.item_set import ItemSet
-from openapi_client.models.item_set_request import ItemSetRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.item_set import ItemSet
+from sparkfly_api_client.models.item_set_request import ItemSetRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -998,16 +998,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     item_set_id = 'item_set_id_example' # str | The primary key of the item set
     content_type = 'content_type_example' # str | application/json (optional)
-    item_set_request = openapi_client.ItemSetRequest() # ItemSetRequest |  (optional)
+    item_set_request = sparkfly_api_client.ItemSetRequest() # ItemSetRequest |  (optional)
 
     try:
         # Update an Item Set
-        api_response = api_instance.put_item_sets_item_set_id(item_set_id, content_type=content_type, item_set_request=item_set_request)
+        api_response = await api_instance.put_item_sets_item_set_id(item_set_id, content_type=content_type, item_set_request=item_set_request)
         print("The response of ItemsApi->put_item_sets_item_set_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -1062,15 +1062,15 @@ Updates an item.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.item import Item
-from openapi_client.models.item_request import ItemRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.item import Item
+from sparkfly_api_client.models.item_request import ItemRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -1086,16 +1086,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ItemsApi(api_client)
+    api_instance = sparkfly_api_client.ItemsApi(api_client)
     id = 'id_example' # str | Primary key for the item
     content_type = 'content_type_example' # str | application/json (optional)
-    item_request = openapi_client.ItemRequest() # ItemRequest |  (optional)
+    item_request = sparkfly_api_client.ItemRequest() # ItemRequest |  (optional)
 
     try:
         # Update Item
-        api_response = api_instance.put_items_id(id, content_type=content_type, item_request=item_request)
+        api_response = await api_instance.put_items_id(id, content_type=content_type, item_request=item_request)
         print("The response of ItemsApi->put_items_id:\n")
         pprint(api_response)
     except Exception as e:

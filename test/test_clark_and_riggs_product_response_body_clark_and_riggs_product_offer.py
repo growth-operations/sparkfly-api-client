@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer import ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer
+from sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer import ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer
 
 class TestClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer(unittest.TestCase):
     """ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer unit test stubs"""

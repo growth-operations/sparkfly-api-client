@@ -1,4 +1,4 @@
-# openapi_client.OfferListsApi
+# sparkfly_api_client.OfferListsApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -23,13 +23,13 @@ Remove an offer list.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -45,14 +45,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferListsApi(api_client)
+    api_instance = sparkfly_api_client.OfferListsApi(api_client)
     offer_list_id = 'offer_list_id_example' # str | primary id of the offer list
 
     try:
         # Remove an Offer List
-        api_instance.delete_offer_lists_offer_list_id(offer_list_id)
+        await api_instance.delete_offer_lists_offer_list_id(offer_list_id)
     except Exception as e:
         print("Exception when calling OfferListsApi->delete_offer_lists_offer_list_id: %s\n" % e)
 ```
@@ -101,14 +101,14 @@ Fetch a list of offer lists. The list may be filtered according to the request's
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.get_offer_lists200_response import GetOfferLists200Response
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.get_offer_lists200_response import GetOfferLists200Response
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -124,9 +124,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferListsApi(api_client)
+    api_instance = sparkfly_api_client.OfferListsApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
     sort_by = 'sort_by_example' # str | sort records by a field name (optional)
     search_text = 'search_text_example' # str | Attempts to match by name or id (optional)
@@ -136,7 +136,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # List all Offer Lists
-        api_response = api_instance.get_offer_lists(content_type=content_type, sort_by=sort_by, search_text=search_text, page=page, per_page=per_page, order=order)
+        api_response = await api_instance.get_offer_lists(content_type=content_type, sort_by=sort_by, search_text=search_text, page=page, per_page=per_page, order=order)
         print("The response of OfferListsApi->get_offer_lists:\n")
         pprint(api_response)
     except Exception as e:
@@ -192,14 +192,14 @@ Search for an offer list by ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object import InlineObject
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object import InlineObject
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -215,14 +215,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferListsApi(api_client)
+    api_instance = sparkfly_api_client.OfferListsApi(api_client)
     offer_list_id = 'offer_list_id_example' # str | primary id of the offer list
 
     try:
         # Retrieve an Offer List
-        api_response = api_instance.get_offer_lists_offer_list_id(offer_list_id)
+        api_response = await api_instance.get_offer_lists_offer_list_id(offer_list_id)
         print("The response of OfferListsApi->get_offer_lists_offer_list_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -273,15 +273,15 @@ Create a new offer list containing the specified offer IDs.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object import InlineObject
-from openapi_client.models.post_offer_lists_request import PostOfferListsRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object import InlineObject
+from sparkfly_api_client.models.post_offer_lists_request import PostOfferListsRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -297,15 +297,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferListsApi(api_client)
+    api_instance = sparkfly_api_client.OfferListsApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
     post_offer_lists_request = {offer_list={name=my offer list name, offer_ids=[1111, 2222, 3333, 4444]}} # PostOfferListsRequest |  (optional)
 
     try:
         # Create an Offer List
-        api_response = api_instance.post_offer_lists(content_type=content_type, post_offer_lists_request=post_offer_lists_request)
+        api_response = await api_instance.post_offer_lists(content_type=content_type, post_offer_lists_request=post_offer_lists_request)
         print("The response of OfferListsApi->post_offer_lists:\n")
         pprint(api_response)
     except Exception as e:
@@ -358,15 +358,15 @@ Update an offer list's contents.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object import InlineObject
-from openapi_client.models.post_offer_lists_request import PostOfferListsRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object import InlineObject
+from sparkfly_api_client.models.post_offer_lists_request import PostOfferListsRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -382,16 +382,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferListsApi(api_client)
+    api_instance = sparkfly_api_client.OfferListsApi(api_client)
     offer_list_id = 'offer_list_id_example' # str | primary id of the offer list
     content_type = 'content_type_example' # str | application/json (optional)
     post_offer_lists_request = {offer_list={name=my offer list name, offer_ids=[1111, 2222, 3333, 4444]}} # PostOfferListsRequest |  (optional)
 
     try:
         # Update an Offer List
-        api_response = api_instance.put_offer_lists_offer_list_id(offer_list_id, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
+        api_response = await api_instance.put_offer_lists_offer_list_id(offer_list_id, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
         print("The response of OfferListsApi->put_offer_lists_offer_list_id:\n")
         pprint(api_response)
     except Exception as e:

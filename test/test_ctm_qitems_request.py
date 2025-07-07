@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.ctm_qitems_request import CtmQitemsRequest
+from sparkfly_api_client.models.ctm_qitems_request import CtmQitemsRequest
 
 class TestCtmQitemsRequest(unittest.TestCase):
     """CtmQitemsRequest unit test stubs"""

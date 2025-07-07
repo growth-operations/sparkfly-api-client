@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.sub_audience import SubAudience
+from sparkfly_api_client.models.sub_audience import SubAudience
 
 class TestSubAudience(unittest.TestCase):
     """SubAudience unit test stubs"""

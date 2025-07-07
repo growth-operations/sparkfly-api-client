@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.ctm_transaction_show_response_transaction import CtmTransactionShowResponseTransaction
+from sparkfly_api_client.models.ctm_transaction_show_response_transaction import CtmTransactionShowResponseTransaction
 
 class TestCtmTransactionShowResponseTransaction(unittest.TestCase):
     """CtmTransactionShowResponseTransaction unit test stubs"""
@@ -37,7 +37,7 @@ class TestCtmTransactionShowResponseTransaction(unittest.TestCase):
         if include_optional:
             return CtmTransactionShowResponseTransaction(
                 errors = [
-                    openapi_client.models.ctm_transaction_show_response_transaction_errors_inner.ctm_transaction_show_response_transaction_errors_inner(
+                    sparkfly_api_client.models.ctm_transaction_show_response_transaction_errors_inner.ctm_transaction_show_response_transaction_errors_inner(
                         message = '', 
                         pos_offer_code = '', 
                         pos_offer_code_type = '', 
@@ -46,28 +46,28 @@ class TestCtmTransactionShowResponseTransaction(unittest.TestCase):
                         priority = null, )
                     ],
                 display_messages = [
-                    openapi_client.models.ctm_transaction_show_response_transaction_display_messages_inner.ctm_transaction_show_response_transaction_display_messages_inner(
+                    sparkfly_api_client.models.ctm_transaction_show_response_transaction_display_messages_inner.ctm_transaction_show_response_transaction_display_messages_inner(
                         message = '', 
                         priority = 56, )
                     ],
                 reciept_messages = [
-                    openapi_client.models.ctm_transaction_show_response_transaction_reciept_messages_inner.ctm_transaction_show_response_transaction_reciept_messages_inner(
+                    sparkfly_api_client.models.ctm_transaction_show_response_transaction_reciept_messages_inner.ctm_transaction_show_response_transaction_reciept_messages_inner(
                         message = '', 
                         barcode_format = '', 
                         priority = 56, 
                         reciept_type = 56, )
                     ],
                 credentials = [
-                    openapi_client.models.ctm_transaction_show_response_transaction_credentials_inner.ctm_transaction_show_response_transaction_credentials_inner(
+                    sparkfly_api_client.models.ctm_transaction_show_response_transaction_credentials_inner.ctm_transaction_show_response_transaction_credentials_inner(
                         valid = True, 
-                        tx_credential = openapi_client.models.ctm_transaction_show_response_transaction_credentials_inner_tx_credential.ctm_transaction_show_response_transaction_credentials_inner_TxCredential(
+                        tx_credential = sparkfly_api_client.models.ctm_transaction_show_response_transaction_credentials_inner_tx_credential.ctm_transaction_show_response_transaction_credentials_inner_TxCredential(
                             rpe_identifier = '', 
                             display = '', 
                             external_identifier = '', 
                             external_identifier_type = '', ), )
                     ],
                 add_offers = [
-                    openapi_client.models.ctm_transaction_show_response_transaction_add_offers_inner.ctm_transaction_show_response_transaction_add_offers_inner(
+                    sparkfly_api_client.models.ctm_transaction_show_response_transaction_add_offers_inner.ctm_transaction_show_response_transaction_add_offers_inner(
                         credential_identifier = '', 
                         rpe_auth_code = '', 
                         pos_offer_code = '', 
@@ -76,7 +76,7 @@ class TestCtmTransactionShowResponseTransaction(unittest.TestCase):
                         ammount = '', 
                         name = '', 
                         qualifying_items = [
-                            openapi_client.models.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner(
+                            sparkfly_api_client.models.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner(
                                 line_number = '', 
                                 entry_id = '', 
                                 item_code = '', 
@@ -87,7 +87,7 @@ class TestCtmTransactionShowResponseTransaction(unittest.TestCase):
                         auth = '', )
                     ],
                 remove_offers = [
-                    openapi_client.models.ctm_transaction_show_response_transaction_add_offers_inner.ctm_transaction_show_response_transaction_add_offers_inner(
+                    sparkfly_api_client.models.ctm_transaction_show_response_transaction_add_offers_inner.ctm_transaction_show_response_transaction_add_offers_inner(
                         credential_identifier = '', 
                         rpe_auth_code = '', 
                         pos_offer_code = '', 
@@ -96,7 +96,7 @@ class TestCtmTransactionShowResponseTransaction(unittest.TestCase):
                         ammount = '', 
                         name = '', 
                         qualifying_items = [
-                            openapi_client.models.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner(
+                            sparkfly_api_client.models.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner(
                                 line_number = '', 
                                 entry_id = '', 
                                 item_code = '', 
@@ -107,7 +107,7 @@ class TestCtmTransactionShowResponseTransaction(unittest.TestCase):
                         auth = '', )
                     ],
                 availible_offers = [
-                    openapi_client.models.ctm_transaction_show_response_transaction_availible_offers_inner.ctm_transaction_show_response_transaction_availible_offers_inner(
+                    sparkfly_api_client.models.ctm_transaction_show_response_transaction_availible_offers_inner.ctm_transaction_show_response_transaction_availible_offers_inner(
                         offer_id = '', 
                         name = '', 
                         valid_now = True, 

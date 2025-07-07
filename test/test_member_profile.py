@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.member_profile import MemberProfile
+from sparkfly_api_client.models.member_profile import MemberProfile
 
 class TestMemberProfile(unittest.TestCase):
     """MemberProfile unit test stubs"""

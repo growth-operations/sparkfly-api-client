@@ -1,4 +1,4 @@
-# openapi_client.StoreListsApi
+# sparkfly_api_client.StoreListsApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -23,13 +23,13 @@ Remove a store list.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -45,16 +45,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.StoreListsApi(api_client)
+    api_instance = sparkfly_api_client.StoreListsApi(api_client)
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     store_list_id = 'store_list_id_example' # str | the store list to search for
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Remove a Store List
-        api_instance.delete_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type)
+        await api_instance.delete_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type)
     except Exception as e:
         print("Exception when calling StoreListsApi->delete_merchants_merchant_id_store_lists_store_list_id: %s\n" % e)
 ```
@@ -105,14 +105,14 @@ Search for store lists by merchant ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.store_list_index_body import StoreListIndexBody
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.store_list_index_body import StoreListIndexBody
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -128,9 +128,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.StoreListsApi(api_client)
+    api_instance = sparkfly_api_client.StoreListsApi(api_client)
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     content_type = 'content_type_example' # str | application/json (optional)
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
@@ -141,7 +141,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # List all Store Lists
-        api_response = api_instance.get_merchants_merchant_id_store_lists(merchant_id, content_type=content_type, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+        api_response = await api_instance.get_merchants_merchant_id_store_lists(merchant_id, content_type=content_type, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
         print("The response of StoreListsApi->get_merchants_merchant_id_store_lists:\n")
         pprint(api_response)
     except Exception as e:
@@ -198,14 +198,14 @@ Look up a store list by ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.store_list import StoreList
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.store_list import StoreList
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -221,9 +221,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.StoreListsApi(api_client)
+    api_instance = sparkfly_api_client.StoreListsApi(api_client)
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     store_list_id = 'store_list_id_example' # str | the store list to search for
     content_type = 'content_type_example' # str | application/json (optional)
@@ -235,7 +235,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve a Store List
-        api_response = api_instance.get_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
+        api_response = await api_instance.get_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type, page=page, per_page=per_page, search_text=search_text, sort_by=sort_by, order=order)
         print("The response of StoreListsApi->get_merchants_merchant_id_store_lists_store_list_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -293,15 +293,15 @@ Add a new store list for a merchant.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.store_list import StoreList
-from openapi_client.models.store_list_request import StoreListRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.store_list import StoreList
+from sparkfly_api_client.models.store_list_request import StoreListRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -317,16 +317,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.StoreListsApi(api_client)
+    api_instance = sparkfly_api_client.StoreListsApi(api_client)
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     content_type = 'content_type_example' # str | application/json (optional)
-    store_list_request = openapi_client.StoreListRequest() # StoreListRequest |  (optional)
+    store_list_request = sparkfly_api_client.StoreListRequest() # StoreListRequest |  (optional)
 
     try:
         # Create a Store List
-        api_response = api_instance.post_merchants_merchant_id_store_lists(merchant_id, content_type=content_type, store_list_request=store_list_request)
+        api_response = await api_instance.post_merchants_merchant_id_store_lists(merchant_id, content_type=content_type, store_list_request=store_list_request)
         print("The response of StoreListsApi->post_merchants_merchant_id_store_lists:\n")
         pprint(api_response)
     except Exception as e:
@@ -380,15 +380,15 @@ Update an existing store list.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.store_list import StoreList
-from openapi_client.models.store_list_request import StoreListRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.store_list import StoreList
+from sparkfly_api_client.models.store_list_request import StoreListRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -404,17 +404,17 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.StoreListsApi(api_client)
+    api_instance = sparkfly_api_client.StoreListsApi(api_client)
     merchant_id = 'merchant_id_example' # str | merchant ID owning the store lists
     store_list_id = 'store_list_id_example' # str | the store list to search for
     content_type = 'content_type_example' # str | application/json (optional)
-    store_list_request = openapi_client.StoreListRequest() # StoreListRequest |  (optional)
+    store_list_request = sparkfly_api_client.StoreListRequest() # StoreListRequest |  (optional)
 
     try:
         # Update a Store List
-        api_response = api_instance.put_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type, store_list_request=store_list_request)
+        api_response = await api_instance.put_merchants_merchant_id_store_lists_store_list_id(merchant_id, store_list_id, content_type=content_type, store_list_request=store_list_request)
         print("The response of StoreListsApi->put_merchants_merchant_id_store_lists_store_list_id:\n")
         pprint(api_response)
     except Exception as e:

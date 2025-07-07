@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.pos_offer_code_all_of_pos_offer_code import PosOfferCodeAllOfPosOfferCode
+from sparkfly_api_client.models.pos_offer_code_all_of_pos_offer_code import PosOfferCodeAllOfPosOfferCode
 
 class TestPosOfferCodeAllOfPosOfferCode(unittest.TestCase):
     """PosOfferCodeAllOfPosOfferCode unit test stubs"""
@@ -39,10 +39,10 @@ class TestPosOfferCodeAllOfPosOfferCode(unittest.TestCase):
                 account_id = 56,
                 code = '',
                 description = '',
-                pos_offer_code_type_id = None,
-                pos_offer_code_pos_id = None,
-                pos_offer_code_type_name = None,
-                pos_offer_code_pos_name = None
+                pos_offer_code_type_id = '',
+                pos_offer_code_pos_id = '',
+                pos_offer_code_type_name = '',
+                pos_offer_code_pos_name = ''
             )
         else:
             return PosOfferCodeAllOfPosOfferCode(

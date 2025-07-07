@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.member import Member
+from sparkfly_api_client.models.member import Member
 
 class TestMember(unittest.TestCase):
     """Member unit test stubs"""
@@ -36,7 +36,7 @@ class TestMember(unittest.TestCase):
         model = Member()
         if include_optional:
             return Member(
-                errors = openapi_client.models.response_body_errors.ResponseBodyErrors(),
+                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
                 member = None
             )
         else:

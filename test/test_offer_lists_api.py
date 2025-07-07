@@ -15,47 +15,47 @@
 
 import unittest
 
-from openapi_client.api.offer_lists_api import OfferListsApi
+from sparkfly_api_client.api.offer_lists_api import OfferListsApi
 
 
-class TestOfferListsApi(unittest.TestCase):
+class TestOfferListsApi(unittest.IsolatedAsyncioTestCase):
     """OfferListsApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = OfferListsApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_delete_offer_lists_offer_list_id(self) -> None:
+    async def test_delete_offer_lists_offer_list_id(self) -> None:
         """Test case for delete_offer_lists_offer_list_id
 
         Remove an Offer List
         """
         pass
 
-    def test_get_offer_lists(self) -> None:
+    async def test_get_offer_lists(self) -> None:
         """Test case for get_offer_lists
 
         List all Offer Lists
         """
         pass
 
-    def test_get_offer_lists_offer_list_id(self) -> None:
+    async def test_get_offer_lists_offer_list_id(self) -> None:
         """Test case for get_offer_lists_offer_list_id
 
         Retrieve an Offer List
         """
         pass
 
-    def test_post_offer_lists(self) -> None:
+    async def test_post_offer_lists(self) -> None:
         """Test case for post_offer_lists
 
         Create an Offer List
         """
         pass
 
-    def test_put_offer_lists_offer_list_id(self) -> None:
+    async def test_put_offer_lists_offer_list_id(self) -> None:
         """Test case for put_offer_lists_offer_list_id
 
         Update an Offer List

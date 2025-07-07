@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.credential_batch_request import CredentialBatchRequest
+from sparkfly_api_client.models.credential_batch_request import CredentialBatchRequest
 
 # TODO update the JSON string below
 json = "{}"

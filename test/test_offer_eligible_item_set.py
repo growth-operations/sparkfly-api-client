@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_eligible_item_set import OfferEligibleItemSet
+from sparkfly_api_client.models.offer_eligible_item_set import OfferEligibleItemSet
 
 class TestOfferEligibleItemSet(unittest.TestCase):
     """OfferEligibleItemSet unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferEligibleItemSet(unittest.TestCase):
         model = OfferEligibleItemSet()
         if include_optional:
             return OfferEligibleItemSet(
-                errors = openapi_client.models.response_body_errors.ResponseBodyErrors(),
+                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
                 eligible_item_set = None
             )
         else:

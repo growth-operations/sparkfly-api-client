@@ -21,11 +21,13 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "sparkfly_api_client"
-VERSION = "1.1.3"
+VERSION = "1.1.4"
 PYTHON_REQUIRES = ">= 3.9"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
     "python-dateutil >= 2.8.2",
+    "aiohttp >= 3.8.4",
+    "aiohttp-retry >= 2.8.3",
     "pydantic >= 2",
     "typing-extensions >= 4.7.1",
 ]
@@ -36,7 +38,7 @@ setup(
     description="Core Operations",
     author="Sparkfly Support Team",
     author_email="support@sparkfly.com",
-    url="",
+    url="https://github.com/growth-operations/sparkfly-api-client",
     keywords=["OpenAPI", "OpenAPI-Generator", "Core Operations"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),

@@ -1,4 +1,4 @@
-# openapi_client.CtmApi
+# sparkfly_api_client.CtmApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -29,13 +29,13 @@ ctm custom messages
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -51,14 +51,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # CTM Custom Messages
-        api_response = api_instance.get_ctm_custom_messages(content_type=content_type)
+        api_response = await api_instance.get_ctm_custom_messages(content_type=content_type)
         print("The response of CtmApi->get_ctm_custom_messages:\n")
         pprint(api_response)
     except Exception as e:
@@ -108,13 +108,13 @@ ctm stores
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -130,14 +130,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # CTM Stores
-        api_response = api_instance.get_ctm_store(content_type=content_type)
+        api_response = await api_instance.get_ctm_store(content_type=content_type)
         print("The response of CtmApi->get_ctm_store:\n")
         pprint(api_response)
     except Exception as e:
@@ -187,15 +187,15 @@ ctm show response
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.ctm_redemption_job_request import CtmRedemptionJobRequest
-from openapi_client.models.ctm_transaction_show_response import CtmTransactionShowResponse
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.ctm_redemption_job_request import CtmRedemptionJobRequest
+from sparkfly_api_client.models.ctm_transaction_show_response import CtmTransactionShowResponse
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -211,9 +211,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     tran_id = 'tran_id_example' # str | Required transaction identifier
     term_id = 'term_id_example' # str | Required term identifier
     site_id = 'site_id_example' # str | search for records with a matching site id
@@ -223,11 +223,11 @@ with openapi_client.ApiClient(configuration) as api_client:
     token = 'token_example' # str | search for records with a matching token (optional)
     pos_version = 'pos_version_example' # str | search for records with a pos version (optional)
     pos_vendor = 'pos_vendor_example' # str | search for records with a pos vendor (optional)
-    ctm_redemption_job_request = openapi_client.CtmRedemptionJobRequest() # CtmRedemptionJobRequest |  (optional)
+    ctm_redemption_job_request = sparkfly_api_client.CtmRedemptionJobRequest() # CtmRedemptionJobRequest |  (optional)
 
     try:
         # CTM Show Response
-        api_response = api_instance.get_show_ctm(tran_id, term_id, site_id, credential, content_type=content_type, x_sparkfly_metadata=x_sparkfly_metadata, token=token, pos_version=pos_version, pos_vendor=pos_vendor, ctm_redemption_job_request=ctm_redemption_job_request)
+        api_response = await api_instance.get_show_ctm(tran_id, term_id, site_id, credential, content_type=content_type, x_sparkfly_metadata=x_sparkfly_metadata, token=token, pos_version=pos_version, pos_vendor=pos_vendor, ctm_redemption_job_request=ctm_redemption_job_request)
         print("The response of CtmApi->get_show_ctm:\n")
         pprint(api_response)
     except Exception as e:
@@ -287,13 +287,13 @@ ctm allocate
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -309,9 +309,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     tran_id = 'tran_id_example' # str | Required transaction identifier
     term_id = 'term_id_example' # str | Required term identifier
     site_id = 'site_id_example' # str | search for records with a matching site id
@@ -322,7 +322,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # CTM Allocate
-        api_instance.post_allocate_ctm(tran_id, term_id, site_id, credential, content_type=content_type, token=token, offer_id=offer_id)
+        await api_instance.post_allocate_ctm(tran_id, term_id, site_id, credential, content_type=content_type, token=token, offer_id=offer_id)
     except Exception as e:
         print("Exception when calling CtmApi->post_allocate_ctm: %s\n" % e)
 ```
@@ -377,13 +377,13 @@ ctm dealocate
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -399,9 +399,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     tran_id = 'tran_id_example' # str | Required transaction identifier
     term_id = 'term_id_example' # str | Required term identifier
     site_id = 'site_id_example' # str | search for records with a matching site id
@@ -413,7 +413,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # CTM Dealocate
-        api_instance.post_deallocate_ctm(tran_id, term_id, site_id, content_type=content_type, token=token, offer_id=offer_id, credential_identifier=credential_identifier, pos_vendor=pos_vendor)
+        await api_instance.post_deallocate_ctm(tran_id, term_id, site_id, content_type=content_type, token=token, offer_id=offer_id, credential_identifier=credential_identifier, pos_vendor=pos_vendor)
     except Exception as e:
         print("Exception when calling CtmApi->post_deallocate_ctm: %s\n" % e)
 ```
@@ -469,14 +469,14 @@ ctm qitems
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.ctm_qitems_request import CtmQitemsRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.ctm_qitems_request import CtmQitemsRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -492,20 +492,20 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     tran_id = 'tran_id_example' # str | Required transaction identifier
     term_id = 'term_id_example' # str | Required term identifier
     site_id = 'site_id_example' # str | search for records with a matching site id
     credential = 'credential_example' # str | search for records with a matching credential
     content_type = 'content_type_example' # str | application/json (optional)
     token = 'token_example' # str | search for records with a matching token (optional)
-    ctm_qitems_request = openapi_client.CtmQitemsRequest() # CtmQitemsRequest |  (optional)
+    ctm_qitems_request = sparkfly_api_client.CtmQitemsRequest() # CtmQitemsRequest |  (optional)
 
     try:
         # CTM Qitems
-        api_instance.post_qitems_ctm(tran_id, term_id, site_id, credential, content_type=content_type, token=token, ctm_qitems_request=ctm_qitems_request)
+        await api_instance.post_qitems_ctm(tran_id, term_id, site_id, credential, content_type=content_type, token=token, ctm_qitems_request=ctm_qitems_request)
     except Exception as e:
         print("Exception when calling CtmApi->post_qitems_ctm: %s\n" % e)
 ```
@@ -560,14 +560,14 @@ ctm update response
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.ctm_transaction_job_request import CtmTransactionJobRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.ctm_transaction_job_request import CtmTransactionJobRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -583,20 +583,20 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     tran_id = 'tran_id_example' # str | Required transaction identifier
     term_id = 'term_id_example' # str | Required term identifier
     site_id = 'site_id_example' # str | search for records with a matching site id
     credential = 'credential_example' # str | search for records with a matching credential
     content_type = 'content_type_example' # str | application/json (optional)
     token = 'token_example' # str | search for records with a matching token (optional)
-    ctm_transaction_job_request = openapi_client.CtmTransactionJobRequest() # CtmTransactionJobRequest |  (optional)
+    ctm_transaction_job_request = sparkfly_api_client.CtmTransactionJobRequest() # CtmTransactionJobRequest |  (optional)
 
     try:
         # CTM Update Response
-        api_instance.post_update_ctm(tran_id, term_id, site_id, credential, content_type=content_type, token=token, ctm_transaction_job_request=ctm_transaction_job_request)
+        await api_instance.post_update_ctm(tran_id, term_id, site_id, credential, content_type=content_type, token=token, ctm_transaction_job_request=ctm_transaction_job_request)
     except Exception as e:
         print("Exception when calling CtmApi->post_update_ctm: %s\n" % e)
 ```
@@ -651,14 +651,14 @@ ctm update response
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.ctm_transaction_job_request import CtmTransactionJobRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.ctm_transaction_job_request import CtmTransactionJobRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -674,19 +674,19 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     tran_id = 'tran_id_example' # str | Required transaction identifier
     term_id = 'term_id_example' # str | Required term identifier
     site_id = 'site_id_example' # str | search for records with a matching site id
     content_type = 'content_type_example' # str | application/json (optional)
     token = 'token_example' # str | search for records with a matching token (optional)
-    ctm_transaction_job_request = openapi_client.CtmTransactionJobRequest() # CtmTransactionJobRequest |  (optional)
+    ctm_transaction_job_request = sparkfly_api_client.CtmTransactionJobRequest() # CtmTransactionJobRequest |  (optional)
 
     try:
         # CTM Update Response
-        api_instance.post_update_ctm_siteid(tran_id, term_id, site_id, content_type=content_type, token=token, ctm_transaction_job_request=ctm_transaction_job_request)
+        await api_instance.post_update_ctm_siteid(tran_id, term_id, site_id, content_type=content_type, token=token, ctm_transaction_job_request=ctm_transaction_job_request)
     except Exception as e:
         print("Exception when calling CtmApi->post_update_ctm_siteid: %s\n" % e)
 ```
@@ -740,15 +740,15 @@ ctm show response
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.ctm_redemption_job_request import CtmRedemptionJobRequest
-from openapi_client.models.ctm_transaction_show_response import CtmTransactionShowResponse
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.ctm_redemption_job_request import CtmRedemptionJobRequest
+from sparkfly_api_client.models.ctm_transaction_show_response import CtmTransactionShowResponse
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -764,9 +764,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     tran_id = 'tran_id_example' # str | Required transaction identifier
     term_id = 'term_id_example' # str | Required term identifier
     site_id = 'site_id_example' # str | search for records with a matching site id
@@ -776,11 +776,11 @@ with openapi_client.ApiClient(configuration) as api_client:
     token = 'token_example' # str | search for records with a matching token (optional)
     pos_version = 'pos_version_example' # str | search for records with a pos version (optional)
     pos_vendor = 'pos_vendor_example' # str | search for records with a pos vendor (optional)
-    ctm_redemption_job_request = openapi_client.CtmRedemptionJobRequest() # CtmRedemptionJobRequest |  (optional)
+    ctm_redemption_job_request = sparkfly_api_client.CtmRedemptionJobRequest() # CtmRedemptionJobRequest |  (optional)
 
     try:
         # CTM Show Response
-        api_response = api_instance.put_show_ctm(tran_id, term_id, site_id, credential, content_type=content_type, x_sparkfly_metadata=x_sparkfly_metadata, token=token, pos_version=pos_version, pos_vendor=pos_vendor, ctm_redemption_job_request=ctm_redemption_job_request)
+        api_response = await api_instance.put_show_ctm(tran_id, term_id, site_id, credential, content_type=content_type, x_sparkfly_metadata=x_sparkfly_metadata, token=token, pos_version=pos_version, pos_vendor=pos_vendor, ctm_redemption_job_request=ctm_redemption_job_request)
         print("The response of CtmApi->put_show_ctm:\n")
         pprint(api_response)
     except Exception as e:
@@ -840,14 +840,14 @@ ctm transaction update
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.ctm_transaction_job_request import CtmTransactionJobRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.ctm_transaction_job_request import CtmTransactionJobRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -863,19 +863,19 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     tran_id = 'tran_id_example' # str | Required transaction identifier
     term_id = 'term_id_example' # str | Required term identifier
     site_id = 'site_id_example' # str | search for records with a matching site id
     content_type = 'content_type_example' # str | application/json (optional)
     token = 'token_example' # str | search for records with a matching token (optional)
-    ctm_transaction_job_request = openapi_client.CtmTransactionJobRequest() # CtmTransactionJobRequest |  (optional)
+    ctm_transaction_job_request = sparkfly_api_client.CtmTransactionJobRequest() # CtmTransactionJobRequest |  (optional)
 
     try:
         # CTM Transaction Update
-        api_instance.put_transaction_update_ctm(tran_id, term_id, site_id, content_type=content_type, token=token, ctm_transaction_job_request=ctm_transaction_job_request)
+        await api_instance.put_transaction_update_ctm(tran_id, term_id, site_id, content_type=content_type, token=token, ctm_transaction_job_request=ctm_transaction_job_request)
     except Exception as e:
         print("Exception when calling CtmApi->put_transaction_update_ctm: %s\n" % e)
 ```
@@ -929,14 +929,14 @@ ctm update response
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.ctm_transaction_job_request import CtmTransactionJobRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.ctm_transaction_job_request import CtmTransactionJobRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -952,20 +952,20 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.CtmApi(api_client)
+    api_instance = sparkfly_api_client.CtmApi(api_client)
     tran_id = 'tran_id_example' # str | Required transaction identifier
     term_id = 'term_id_example' # str | Required term identifier
     site_id = 'site_id_example' # str | search for records with a matching site id
     credential = 'credential_example' # str | search for records with a matching credential
     content_type = 'content_type_example' # str | application/json (optional)
     token = 'token_example' # str | search for records with a matching token (optional)
-    ctm_transaction_job_request = openapi_client.CtmTransactionJobRequest() # CtmTransactionJobRequest |  (optional)
+    ctm_transaction_job_request = sparkfly_api_client.CtmTransactionJobRequest() # CtmTransactionJobRequest |  (optional)
 
     try:
         # CTM Update Response
-        api_instance.put_update_ctm(tran_id, term_id, site_id, credential, content_type=content_type, token=token, ctm_transaction_job_request=ctm_transaction_job_request)
+        await api_instance.put_update_ctm(tran_id, term_id, site_id, credential, content_type=content_type, token=token, ctm_transaction_job_request=ctm_transaction_job_request)
     except Exception as e:
         print("Exception when calling CtmApi->put_update_ctm: %s\n" % e)
 ```

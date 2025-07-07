@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer import Offer
+from sparkfly_api_client.models.offer import Offer
 
 class TestOffer(unittest.TestCase):
     """Offer unit test stubs"""
@@ -36,7 +36,7 @@ class TestOffer(unittest.TestCase):
         model = Offer()
         if include_optional:
             return Offer(
-                errors = openapi_client.models.response_body_errors.ResponseBodyErrors(),
+                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
                 offer = None
             )
         else:

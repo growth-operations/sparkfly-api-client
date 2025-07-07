@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner import CtmRedemptionJobRequestRedeemedOffersInnerQualifyingItemsInner
+from sparkfly_api_client.models.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner import CtmRedemptionJobRequestRedeemedOffersInnerQualifyingItemsInner
 
 # TODO update the JSON string below
 json = "{}"

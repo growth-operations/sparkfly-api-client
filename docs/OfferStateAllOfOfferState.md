@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **activates_at** | **str** |  | [optional] 
 **expires_at** | **str** |  | [optional] 
 **external_ref_id** | **str** |  | [optional] 
-**custom_data** | **object** |  | [optional] 
-**credential_custom_data** | **object** |  | [optional] 
+**custom_data** | **str** |  | [optional] 
+**credential_custom_data** | **str** |  | [optional] 
 **offer_activities** | **List[object]** |  | [optional] 
 **offer_name** | **str** |  | [optional] 
 **offer_short_name** | **str** |  | [optional] 
@@ -42,7 +42,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.offer_state_all_of_offer_state import OfferStateAllOfOfferState
+from sparkfly_api_client.models.offer_state_all_of_offer_state import OfferStateAllOfOfferState
 
 # TODO update the JSON string below
 json = "{}"

@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.credential_batch_response_body_credential_batch_all_of_campaign import CredentialBatchResponseBodyCredentialBatchAllOfCampaign
+from sparkfly_api_client.models.credential_batch_response_body_credential_batch_all_of_campaign import CredentialBatchResponseBodyCredentialBatchAllOfCampaign
 
 class TestCredentialBatchResponseBodyCredentialBatchAllOfCampaign(unittest.TestCase):
     """CredentialBatchResponseBodyCredentialBatchAllOfCampaign unit test stubs"""

@@ -8,15 +8,15 @@ Name | Type | Description | Notes
 **account_id** | **int** |  | [optional] 
 **code** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**pos_offer_code_type_id** | **object** |  | [optional] 
-**pos_offer_code_pos_id** | **object** |  | [optional] 
-**pos_offer_code_type_name** | **object** |  | [optional] 
-**pos_offer_code_pos_name** | **object** |  | [optional] 
+**pos_offer_code_type_id** | **str** |  | [optional] 
+**pos_offer_code_pos_id** | **str** |  | [optional] 
+**pos_offer_code_type_name** | **str** |  | [optional] 
+**pos_offer_code_pos_name** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from openapi_client.models.pos_offer_code_all_of_pos_offer_code import PosOfferCodeAllOfPosOfferCode
+from sparkfly_api_client.models.pos_offer_code_all_of_pos_offer_code import PosOfferCodeAllOfPosOfferCode
 
 # TODO update the JSON string below
 json = "{}"

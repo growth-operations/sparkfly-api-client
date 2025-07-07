@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.template import Template
+from sparkfly_api_client.models.template import Template
 
 class TestTemplate(unittest.TestCase):
     """Template unit test stubs"""
@@ -37,7 +37,7 @@ class TestTemplate(unittest.TestCase):
         if include_optional:
             return Template(
                 templates = [
-                    openapi_client.models.template_templates_inner.template_templates_inner(
+                    sparkfly_api_client.models.template_templates_inner.template_templates_inner(
                         template = null, )
                     ]
             )

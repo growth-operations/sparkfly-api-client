@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.impression_request_impression import ImpressionRequestImpression
+from sparkfly_api_client.models.impression_request_impression import ImpressionRequestImpression
 
 # TODO update the JSON string below
 json = "{}"

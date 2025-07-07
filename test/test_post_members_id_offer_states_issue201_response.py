@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.post_members_id_offer_states_issue201_response import PostMembersIdOfferStatesIssue201Response
+from sparkfly_api_client.models.post_members_id_offer_states_issue201_response import PostMembersIdOfferStatesIssue201Response
 
 class TestPostMembersIdOfferStatesIssue201Response(unittest.TestCase):
     """PostMembersIdOfferStatesIssue201Response unit test stubs"""
@@ -36,7 +36,7 @@ class TestPostMembersIdOfferStatesIssue201Response(unittest.TestCase):
         model = PostMembersIdOfferStatesIssue201Response()
         if include_optional:
             return PostMembersIdOfferStatesIssue201Response(
-                offer_state = openapi_client.models.post_members_id_offer_states_issue_201_response_offer_state.post_members_id_offer_states_issue_201_response_offer_state(
+                offer_state = sparkfly_api_client.models.post_members_id_offer_states_issue_201_response_offer_state.post_members_id_offer_states_issue_201_response_offer_state(
                     id = 56, 
                     member_id = 56, 
                     offer_id = 56, 
@@ -47,7 +47,7 @@ class TestPostMembersIdOfferStatesIssue201Response(unittest.TestCase):
             )
         else:
             return PostMembersIdOfferStatesIssue201Response(
-                offer_state = openapi_client.models.post_members_id_offer_states_issue_201_response_offer_state.post_members_id_offer_states_issue_201_response_offer_state(
+                offer_state = sparkfly_api_client.models.post_members_id_offer_states_issue_201_response_offer_state.post_members_id_offer_states_issue_201_response_offer_state(
                     id = 56, 
                     member_id = 56, 
                     offer_id = 56, 

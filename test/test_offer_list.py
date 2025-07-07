@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_list import OfferList
+from sparkfly_api_client.models.offer_list import OfferList
 
 class TestOfferList(unittest.TestCase):
     """OfferList unit test stubs"""

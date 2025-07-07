@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.email_opt_in_error import EmailOptInError
+from sparkfly_api_client.models.email_opt_in_error import EmailOptInError
 
 class TestEmailOptInError(unittest.TestCase):
     """EmailOptInError unit test stubs"""

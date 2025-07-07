@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
+from sparkfly_api_client.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
 
 class TestPostAudiencesIdSubAudiencesRequest(unittest.TestCase):
     """PostAudiencesIdSubAudiencesRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestPostAudiencesIdSubAudiencesRequest(unittest.TestCase):
         model = PostAudiencesIdSubAudiencesRequest()
         if include_optional:
             return PostAudiencesIdSubAudiencesRequest(
-                subaudience = openapi_client.models.audience.Audience(
+                subaudience = sparkfly_api_client.models.audience.Audience(
                     id = 56, 
                     name = '', )
             )

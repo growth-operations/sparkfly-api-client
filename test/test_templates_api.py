@@ -15,19 +15,19 @@
 
 import unittest
 
-from openapi_client.api.templates_api import TemplatesApi
+from sparkfly_api_client.api.templates_api import TemplatesApi
 
 
-class TestTemplatesApi(unittest.TestCase):
+class TestTemplatesApi(unittest.IsolatedAsyncioTestCase):
     """TemplatesApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = TemplatesApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_get_templates(self) -> None:
+    async def test_get_templates(self) -> None:
         """Test case for get_templates
 
         Get all Templates

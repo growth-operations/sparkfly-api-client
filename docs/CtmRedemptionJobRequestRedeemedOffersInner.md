@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.ctm_redemption_job_request_redeemed_offers_inner import CtmRedemptionJobRequestRedeemedOffersInner
+from sparkfly_api_client.models.ctm_redemption_job_request_redeemed_offers_inner import CtmRedemptionJobRequestRedeemedOffersInner
 
 # TODO update the JSON string below
 json = "{}"

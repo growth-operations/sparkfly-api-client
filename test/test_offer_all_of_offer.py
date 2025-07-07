@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_all_of_offer import OfferAllOfOffer
+from sparkfly_api_client.models.offer_all_of_offer import OfferAllOfOffer
 
 class TestOfferAllOfOffer(unittest.TestCase):
     """OfferAllOfOffer unit test stubs"""
@@ -37,11 +37,11 @@ class TestOfferAllOfOffer(unittest.TestCase):
         if include_optional:
             return OfferAllOfOffer(
                 status = '',
-                merchant_id = None,
-                manufacturer_id = None,
+                merchant_id = '',
+                manufacturer_id = '',
                 name = '',
                 description = '',
-                description_template_id = None,
+                description_template_id = '',
                 offer_type = 56,
                 category = '',
                 offer_code = '',
@@ -52,12 +52,12 @@ class TestOfferAllOfOffer(unittest.TestCase):
                 reward_item_description = '',
                 reward_item_value = 56,
                 terms_and_conditions = '',
-                terms_and_conditions_template_id = None,
-                quest_only = None,
+                terms_and_conditions_template_id = '',
+                quest_only = True,
                 merchant_name = '',
                 external_reward = '',
                 is_reward = True,
-                locked = None,
+                locked = True,
                 activates_at = '',
                 expires_at = '',
                 stop_offering_at = '',
@@ -65,7 +65,7 @@ class TestOfferAllOfOffer(unittest.TestCase):
                 updated_at = '',
                 max_amount = 56,
                 min_spend_amount = 56,
-                trigger_amount = None,
+                trigger_amount = 56,
                 max_redemptions = 56,
                 max_redemptions_per_member = 56,
                 max_redemptions_per_member_per_day = 56,
@@ -73,11 +73,11 @@ class TestOfferAllOfOffer(unittest.TestCase):
                 initial_value_mode = '',
                 offer_value_text = '',
                 offer_value_text_es = '',
-                formatting = openapi_client.models.offer_all_of_offer_all_of_formatting.offer_allOf_offer_allOf_formatting(
+                formatting = sparkfly_api_client.models.offer_all_of_offer_all_of_formatting.offer_allOf_offer_allOf_formatting(
                     bg_image = '', 
                     custom_offer_group = '', 
                     description = '', 
-                    eligible_store_map = openapi_client.models.offer_all_of_offer_all_of_formatting_eligible_store_map.offer_allOf_offer_allOf_formatting_eligible_store_map(
+                    eligible_store_map = sparkfly_api_client.models.offer_all_of_offer_all_of_formatting_eligible_store_map.offer_allOf_offer_allOf_formatting_eligible_store_map(
                         hello = '', ), 
                     mobile_thumb_url = '', 
                     mobile_url = '', 
@@ -87,7 +87,7 @@ class TestOfferAllOfOffer(unittest.TestCase):
                     short_name = '', 
                     web_thumb_url = '', 
                     web_url = '', ),
-                eligibility = openapi_client.models.offer_all_of_offer_all_of_eligibility.offer_allOf_offer_allOf_eligibility(
+                eligibility = sparkfly_api_client.models.offer_all_of_offer_all_of_eligibility.offer_allOf_offer_allOf_eligibility(
                     merchant_ids = [
                         56
                         ], 

@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | **str** |  | [optional] 
-**merchant_id** | **object** |  | [optional] 
-**manufacturer_id** | **object** |  | [optional] 
+**merchant_id** | **str** |  | [optional] 
+**manufacturer_id** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**description_template_id** | **object** |  | [optional] 
+**description_template_id** | **str** |  | [optional] 
 **offer_type** | **int** |  | [optional] 
 **category** | **str** |  | [optional] 
 **offer_code** | **str** |  | [optional] 
@@ -21,12 +21,12 @@ Name | Type | Description | Notes
 **reward_item_description** | **str** |  | [optional] 
 **reward_item_value** | **int** |  | [optional] 
 **terms_and_conditions** | **str** |  | [optional] 
-**terms_and_conditions_template_id** | **object** |  | [optional] 
-**quest_only** | **object** |  | [optional] 
+**terms_and_conditions_template_id** | **str** |  | [optional] 
+**quest_only** | **bool** |  | [optional] 
 **merchant_name** | **str** |  | [optional] 
 **external_reward** | **str** |  | [optional] 
 **is_reward** | **bool** |  | [optional] 
-**locked** | **object** |  | [optional] 
+**locked** | **bool** |  | [optional] 
 **activates_at** | **str** |  | [optional] 
 **expires_at** | **str** |  | [optional] 
 **stop_offering_at** | **str** |  | [optional] 
@@ -34,7 +34,7 @@ Name | Type | Description | Notes
 **updated_at** | **str** |  | [optional] 
 **max_amount** | **int** |  | [optional] 
 **min_spend_amount** | **int** |  | [optional] 
-**trigger_amount** | **object** |  | [optional] 
+**trigger_amount** | **int** |  | [optional] 
 **max_redemptions** | **int** |  | [optional] 
 **max_redemptions_per_member** | **int** |  | [optional] 
 **max_redemptions_per_member_per_day** | **int** |  | [optional] 
@@ -50,7 +50,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.offer_all_of_offer import OfferAllOfOffer
+from sparkfly_api_client.models.offer_all_of_offer import OfferAllOfOffer
 
 # TODO update the JSON string below
 json = "{}"

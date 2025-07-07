@@ -1,4 +1,4 @@
-# openapi_client.ImpressionsApi
+# sparkfly_api_client.ImpressionsApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -21,13 +21,13 @@ Deletes an impression.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -43,15 +43,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ImpressionsApi(api_client)
+    api_instance = sparkfly_api_client.ImpressionsApi(api_client)
     id = 'id_example' # str | primary id for impressions
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Delete an Impression
-        api_instance.delete_impressions_id(id, content_type=content_type)
+        await api_instance.delete_impressions_id(id, content_type=content_type)
     except Exception as e:
         print("Exception when calling ImpressionsApi->delete_impressions_id: %s\n" % e)
 ```
@@ -102,14 +102,14 @@ List impressions.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.impression_index_body import ImpressionIndexBody
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.impression_index_body import ImpressionIndexBody
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -125,14 +125,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ImpressionsApi(api_client)
+    api_instance = sparkfly_api_client.ImpressionsApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # List Impressions
-        api_response = api_instance.get_impressions(content_type=content_type)
+        api_response = await api_instance.get_impressions(content_type=content_type)
         print("The response of ImpressionsApi->get_impressions:\n")
         pprint(api_response)
     except Exception as e:
@@ -184,15 +184,15 @@ Creates an impression.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.impression import Impression
-from openapi_client.models.impression_request import ImpressionRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.impression import Impression
+from sparkfly_api_client.models.impression_request import ImpressionRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -208,15 +208,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ImpressionsApi(api_client)
+    api_instance = sparkfly_api_client.ImpressionsApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
-    impression_request = openapi_client.ImpressionRequest() # ImpressionRequest |  (optional)
+    impression_request = sparkfly_api_client.ImpressionRequest() # ImpressionRequest |  (optional)
 
     try:
         # Create an Impression
-        api_response = api_instance.post_impressions(content_type=content_type, impression_request=impression_request)
+        api_response = await api_instance.post_impressions(content_type=content_type, impression_request=impression_request)
         print("The response of ImpressionsApi->post_impressions:\n")
         pprint(api_response)
     except Exception as e:

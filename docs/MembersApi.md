@@ -1,4 +1,4 @@
-# openapi_client.MembersApi
+# sparkfly_api_client.MembersApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -25,13 +25,13 @@ Attempts to delete a member.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -47,14 +47,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MembersApi(api_client)
+    api_instance = sparkfly_api_client.MembersApi(api_client)
     member_id = 56 # int | unique ID
 
     try:
         # Remove a Member
-        api_instance.delete_members_member_id(member_id)
+        await api_instance.delete_members_member_id(member_id)
     except Exception as e:
         print("Exception when calling MembersApi->delete_members_member_id: %s\n" % e)
 ```
@@ -104,14 +104,14 @@ Find a particular member by its' Sparkfly ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.member import Member
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.member import Member
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -127,14 +127,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MembersApi(api_client)
+    api_instance = sparkfly_api_client.MembersApi(api_client)
     member_id = 56 # int | unique ID
 
     try:
         # Find a Member
-        api_response = api_instance.get_members_member_id(member_id)
+        api_response = await api_instance.get_members_member_id(member_id)
         print("The response of MembersApi->get_members_member_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -186,14 +186,14 @@ Get a member's profile data. If the caller's Sparkfly account is configured to s
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object5 import InlineObject5
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object5 import InlineObject5
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -209,14 +209,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MembersApi(api_client)
+    api_instance = sparkfly_api_client.MembersApi(api_client)
     id = 56 # int | The member ID that represents the member.
 
     try:
         # Retrieve a Member Profile
-        api_response = api_instance.get_members_profile(id)
+        api_response = await api_instance.get_members_profile(id)
         print("The response of MembersApi->get_members_profile:\n")
         pprint(api_response)
     except Exception as e:
@@ -268,14 +268,14 @@ Performs a search of an already existing member using the identifier.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.member import Member
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.member import Member
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -291,14 +291,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MembersApi(api_client)
+    api_instance = sparkfly_api_client.MembersApi(api_client)
     identifier = 'identifier_example' # str | unique member identifier
 
     try:
         # Search for a Member
-        api_response = api_instance.get_members_search(identifier)
+        api_response = await api_instance.get_members_search(identifier)
         print("The response of MembersApi->get_members_search:\n")
         pprint(api_response)
     except Exception as e:
@@ -349,15 +349,15 @@ Create a new member.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.member import Member
-from openapi_client.models.member_request import MemberRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.member import Member
+from sparkfly_api_client.models.member_request import MemberRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -373,15 +373,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MembersApi(api_client)
+    api_instance = sparkfly_api_client.MembersApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
-    member_request = openapi_client.MemberRequest() # MemberRequest |  (optional)
+    member_request = sparkfly_api_client.MemberRequest() # MemberRequest |  (optional)
 
     try:
         # Create a Member
-        api_response = api_instance.post_members(content_type=content_type, member_request=member_request)
+        api_response = await api_instance.post_members(content_type=content_type, member_request=member_request)
         print("The response of MembersApi->post_members:\n")
         pprint(api_response)
     except Exception as e:
@@ -434,14 +434,14 @@ Creates or updates a member's profile. If Sparkfly account is configured to stor
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.post_members_profile_request import PostMembersProfileRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.post_members_profile_request import PostMembersProfileRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -457,16 +457,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MembersApi(api_client)
+    api_instance = sparkfly_api_client.MembersApi(api_client)
     id = 56 # int | The member ID that represents the member.
     content_type = 'content_type_example' # str | application/json (optional)
-    post_members_profile_request = openapi_client.PostMembersProfileRequest() # PostMembersProfileRequest |  (optional)
+    post_members_profile_request = sparkfly_api_client.PostMembersProfileRequest() # PostMembersProfileRequest |  (optional)
 
     try:
         # Create/Update a Member Profile
-        api_instance.post_members_profile(id, content_type=content_type, post_members_profile_request=post_members_profile_request)
+        await api_instance.post_members_profile(id, content_type=content_type, post_members_profile_request=post_members_profile_request)
     except Exception as e:
         print("Exception when calling MembersApi->post_members_profile: %s\n" % e)
 ```
@@ -520,14 +520,14 @@ Update a member's data.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.member import Member
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.member import Member
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -543,15 +543,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MembersApi(api_client)
+    api_instance = sparkfly_api_client.MembersApi(api_client)
     member_id = 56 # int | unique ID
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Update a Member
-        api_response = api_instance.put_members_member_id(member_id, content_type=content_type)
+        api_response = await api_instance.put_members_member_id(member_id, content_type=content_type)
         print("The response of MembersApi->put_members_member_id:\n")
         pprint(api_response)
     except Exception as e:

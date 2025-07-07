@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.ctm_transaction_show_response_transaction_reciept_messages_inner import CtmTransactionShowResponseTransactionRecieptMessagesInner
+from sparkfly_api_client.models.ctm_transaction_show_response_transaction_reciept_messages_inner import CtmTransactionShowResponseTransactionRecieptMessagesInner
 
 class TestCtmTransactionShowResponseTransactionRecieptMessagesInner(unittest.TestCase):
     """CtmTransactionShowResponseTransactionRecieptMessagesInner unit test stubs"""

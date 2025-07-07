@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.template_templates_inner import TemplateTemplatesInner
+from sparkfly_api_client.models.template_templates_inner import TemplateTemplatesInner
 
 class TestTemplateTemplatesInner(unittest.TestCase):
     """TemplateTemplatesInner unit test stubs"""

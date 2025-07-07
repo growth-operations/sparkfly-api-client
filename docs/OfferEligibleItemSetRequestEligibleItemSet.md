@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.offer_eligible_item_set_request_eligible_item_set import OfferEligibleItemSetRequestEligibleItemSet
+from sparkfly_api_client.models.offer_eligible_item_set_request_eligible_item_set import OfferEligibleItemSetRequestEligibleItemSet
 
 # TODO update the JSON string below
 json = "{}"

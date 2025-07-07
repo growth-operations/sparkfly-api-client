@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_request_offer import OfferRequestOffer
+from sparkfly_api_client.models.offer_request_offer import OfferRequestOffer
 
 class TestOfferRequestOffer(unittest.TestCase):
     """OfferRequestOffer unit test stubs"""

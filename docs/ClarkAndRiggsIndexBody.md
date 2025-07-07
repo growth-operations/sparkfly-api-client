@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.clark_and_riggs_index_body import ClarkAndRiggsIndexBody
+from sparkfly_api_client.models.clark_and_riggs_index_body import ClarkAndRiggsIndexBody
 
 # TODO update the JSON string below
 json = "{}"

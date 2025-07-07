@@ -2810,23 +2810,20 @@ paths:
                   description: The offer_state to issue to the member.
                   properties:
                     external_ref_id:
-                      type:
-                        - string
-                        - "null"
+                      type: string
+                      nullable: true
                       description: An external reference identifier that will be attached to the offer_state. Meaning and value are not specified and may be useful for external systems that wish to attach data to an offer_state.
                     campaign_id:
                       type: string
                       description: The Sparkfly campaign XID to use when issuing the offer_state. Must be an active (non-suspended) campaign under an active offer.
                     activates_at:
-                      type:
-                        - string
-                        - "null"
+                      type: string
+                      nullable: true
                       description: When the issued offer should become redeemable at the POS.
                       format: date-time
                     expires_at:
-                      type:
-                        - string
-                        - "null"
+                      type: string
+                      nullable: true
                       description: When the issued offer should stop being redeemable at the POS.
                       format: date-time
                     member_identifier:
@@ -4438,7 +4435,8 @@ components:
             offer_name:
               type: string
             offer_value_required:
-              type: "null"
+              type: boolean
+              nullable: true
             locked:
               type: boolean
             is_reward:
@@ -4677,7 +4675,8 @@ components:
                 online_offer_code:
                   type: string
                 activation_date:
-                  type: "null"
+                  type: string
+                  nullable: true
                 expiration_date:
                   type: string
                 start_display_at:
@@ -5044,7 +5043,8 @@ components:
               identifier:
                 type: string
               offer_ids:
-                type: "null"
+                type: string
+                nullable: true
         offer_activities:
           type: array
           items:
@@ -5118,11 +5118,14 @@ components:
                     updated_at:
                       type: string
                     channel_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     channel_name:
-                      type: "null"
+                      type: string
+                      nullable: true
                     creative_name:
-                      type: "null"
+                      type: string
+                      nullable: true
                     errors:
                       $ref: "#/components/schemas/errors"
       x-examples:
@@ -5171,13 +5174,17 @@ components:
                     description:
                       type: string
                     pos_offer_code_type_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     pos_offer_code_pos_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     pos_offer_code_type_name:
-                      type: "null"
+                      type: string
+                      nullable: true
                     pos_offer_code_pos_name:
-                      type: "null"
+                      type: string
+                      nullable: true
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -5232,15 +5239,18 @@ components:
                     status:
                       type: string
                     merchant_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     manufacturer_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     name:
                       type: string
                     description:
                       type: string
                     description_template_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     offer_type:
                       type: integer
                     category:
@@ -5262,9 +5272,11 @@ components:
                     terms_and_conditions:
                       type: string
                     terms_and_conditions_template_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     quest_only:
-                      type: "null"
+                      type: boolean
+                      nullable: true
                     merchant_name:
                       type: string
                     external_reward:
@@ -5272,7 +5284,8 @@ components:
                     is_reward:
                       type: boolean
                     locked:
-                      type: "null"
+                      type: boolean
+                      nullable: true
                     activates_at:
                       type: string
                     expires_at:
@@ -5288,7 +5301,8 @@ components:
                     min_spend_amount:
                       type: integer
                     trigger_amount:
-                      type: "null"
+                      type: integer
+                      nullable: true
                     max_redemptions:
                       type: integer
                     max_redemptions_per_member:
@@ -5612,9 +5626,11 @@ components:
                     code:
                       type: string
                     merchant_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     manufacturer_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     item_type:
                       type: string
                       enum:
@@ -5656,11 +5672,14 @@ components:
                     name:
                       type: string
                     merchant_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     manufacturer_id:
-                      type: "null"
+                      type: string
+                      nullable: true
                     manufacturer_name:
-                      type: "null"
+                      type: string
+                      nullable: true
                     item_ids:
                       type: array
                       items:
@@ -5762,9 +5781,11 @@ components:
                 external_ref_id:
                   type: string
                 custom_data:
-                  type: "null"
+                  type: string
+                  nullable: true
                 credential_custom_data:
-                  type: "null"
+                  type: string
+                  nullable: true
                 offer_activities:
                   type: array
                   items:

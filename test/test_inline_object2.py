@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.inline_object2 import InlineObject2
+from sparkfly_api_client.models.inline_object2 import InlineObject2
 
 class TestInlineObject2(unittest.TestCase):
     """InlineObject2 unit test stubs"""
@@ -41,11 +41,11 @@ class TestInlineObject2(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 audiences = [
-                    openapi_client.models.inline_object_1.inline_object_1(
-                        audience = openapi_client.models.audience.Audience(
+                    sparkfly_api_client.models.inline_object_1.inline_object_1(
+                        audience = sparkfly_api_client.models.audience.Audience(
                             id = 56, 
                             name = '', ), 
-                        errors = openapi_client.models.response_body_errors.ResponseBodyErrors(), )
+                        errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(), )
                     ]
             )
         else:

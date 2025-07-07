@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.campaign_response import CampaignResponse
+from sparkfly_api_client.models.campaign_response import CampaignResponse
 
 class TestCampaignResponse(unittest.TestCase):
     """CampaignResponse unit test stubs"""
@@ -37,8 +37,8 @@ class TestCampaignResponse(unittest.TestCase):
         if include_optional:
             return CampaignResponse(
                 campaign = None,
-                errors = openapi_client.models.errors.errors(
-                    errors = openapi_client.models.response_body_errors.ResponseBodyErrors(), )
+                errors = sparkfly_api_client.models.errors.errors(
+                    errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(), )
             )
         else:
             return CampaignResponse(

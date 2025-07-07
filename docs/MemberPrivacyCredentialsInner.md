@@ -6,12 +6,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **identifier** | **str** |  | [optional] 
-**offer_ids** | **object** |  | [optional] 
+**offer_ids** | **str** |  | [optional] 
 
 ## Example
 
 ```python
-from openapi_client.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner
+from sparkfly_api_client.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner
 
 # TODO update the JSON string below
 json = "{}"

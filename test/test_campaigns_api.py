@@ -15,54 +15,54 @@
 
 import unittest
 
-from openapi_client.api.campaigns_api import CampaignsApi
+from sparkfly_api_client.api.campaigns_api import CampaignsApi
 
 
-class TestCampaignsApi(unittest.TestCase):
+class TestCampaignsApi(unittest.IsolatedAsyncioTestCase):
     """CampaignsApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = CampaignsApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_get_campaign(self) -> None:
+    async def test_get_campaign(self) -> None:
         """Test case for get_campaign
 
         Retrieve a Campaign by Campaign ID
         """
         pass
 
-    def test_get_campaign_external_id(self) -> None:
+    async def test_get_campaign_external_id(self) -> None:
         """Test case for get_campaign_external_id
 
         Retrieve a Campaign by External ID and Offer ID
         """
         pass
 
-    def test_get_campaign_tags(self) -> None:
+    async def test_get_campaign_tags(self) -> None:
         """Test case for get_campaign_tags
 
         Retrieve Campaign Tags
         """
         pass
 
-    def test_post_campaign(self) -> None:
+    async def test_post_campaign(self) -> None:
         """Test case for post_campaign
 
         Create a Campaign
         """
         pass
 
-    def test_put_campaign(self) -> None:
+    async def test_put_campaign(self) -> None:
         """Test case for put_campaign
 
         Update a Campaign by Campaign ID
         """
         pass
 
-    def test_put_campaigns_campaign_id_actions_approve(self) -> None:
+    async def test_put_campaigns_campaign_id_actions_approve(self) -> None:
         """Test case for put_campaigns_campaign_id_actions_approve
 
         Set a Campaign's Status

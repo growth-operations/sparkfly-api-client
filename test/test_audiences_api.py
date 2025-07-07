@@ -15,82 +15,82 @@
 
 import unittest
 
-from openapi_client.api.audiences_api import AudiencesApi
+from sparkfly_api_client.api.audiences_api import AudiencesApi
 
 
-class TestAudiencesApi(unittest.TestCase):
+class TestAudiencesApi(unittest.IsolatedAsyncioTestCase):
     """AudiencesApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = AudiencesApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_delete_audiences_id(self) -> None:
+    async def test_delete_audiences_id(self) -> None:
         """Test case for delete_audiences_id
 
         Remove an Audience
         """
         pass
 
-    def test_delete_audiences_id_sub_audiences_sub_audience_id(self) -> None:
+    async def test_delete_audiences_id_sub_audiences_sub_audience_id(self) -> None:
         """Test case for delete_audiences_id_sub_audiences_sub_audience_id
 
         Remove a Sub-Audience
         """
         pass
 
-    def test_get_audiences(self) -> None:
+    async def test_get_audiences(self) -> None:
         """Test case for get_audiences
 
         List all Audiences
         """
         pass
 
-    def test_get_audiences_id(self) -> None:
+    async def test_get_audiences_id(self) -> None:
         """Test case for get_audiences_id
 
         Retrieve an Audience
         """
         pass
 
-    def test_get_audiences_id_sub_audiences(self) -> None:
+    async def test_get_audiences_id_sub_audiences(self) -> None:
         """Test case for get_audiences_id_sub_audiences
 
         List all Sub-Audiences
         """
         pass
 
-    def test_get_audiences_id_sub_audiences_sub_audience_id(self) -> None:
+    async def test_get_audiences_id_sub_audiences_sub_audience_id(self) -> None:
         """Test case for get_audiences_id_sub_audiences_sub_audience_id
 
         Retrieve a Sub-Audience
         """
         pass
 
-    def test_post_audiences(self) -> None:
+    async def test_post_audiences(self) -> None:
         """Test case for post_audiences
 
         Create an Audience
         """
         pass
 
-    def test_post_audiences_id_sub_audiences(self) -> None:
+    async def test_post_audiences_id_sub_audiences(self) -> None:
         """Test case for post_audiences_id_sub_audiences
 
         Create a Sub-Audience
         """
         pass
 
-    def test_put_audiences_id(self) -> None:
+    async def test_put_audiences_id(self) -> None:
         """Test case for put_audiences_id
 
         Update an Audience
         """
         pass
 
-    def test_put_audiences_id_sub_audiences_sub_audience_id(self) -> None:
+    async def test_put_audiences_id_sub_audiences_sub_audience_id(self) -> None:
         """Test case for put_audiences_id_sub_audiences_sub_audience_id
 
         Update a Sub-Audience

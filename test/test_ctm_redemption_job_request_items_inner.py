@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.ctm_redemption_job_request_items_inner import CtmRedemptionJobRequestItemsInner
+from sparkfly_api_client.models.ctm_redemption_job_request_items_inner import CtmRedemptionJobRequestItemsInner
 
 class TestCtmRedemptionJobRequestItemsInner(unittest.TestCase):
     """CtmRedemptionJobRequestItemsInner unit test stubs"""

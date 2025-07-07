@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.impression import Impression
+from sparkfly_api_client.models.impression import Impression
 
 class TestImpression(unittest.TestCase):
     """Impression unit test stubs"""

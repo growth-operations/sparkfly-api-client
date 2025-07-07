@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.get_offer_lists200_response import GetOfferLists200Response
+from sparkfly_api_client.models.get_offer_lists200_response import GetOfferLists200Response
 
 class TestGetOfferLists200Response(unittest.TestCase):
     """GetOfferLists200Response unit test stubs"""
@@ -41,14 +41,14 @@ class TestGetOfferLists200Response(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 offer_lists = [
-                    openapi_client.models.get_offer_lists_200_response_offer_lists_inner.get_offer_lists_200_response_offer_lists_inner(
-                        offer_list = openapi_client.models.offer_list.Offer List(
+                    sparkfly_api_client.models.get_offer_lists_200_response_offer_lists_inner.get_offer_lists_200_response_offer_lists_inner(
+                        offer_list = sparkfly_api_client.models.offer_list.Offer List(
                             id = 56, 
                             name = '', 
                             offer_ids = [
                                 56
                                 ], ), 
-                        errors = openapi_client.models.response_body_errors.ResponseBodyErrors(), )
+                        errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(), )
                     ]
             )
         else:

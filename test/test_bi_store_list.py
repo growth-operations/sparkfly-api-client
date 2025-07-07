@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.bi_store_list import BiStoreList
+from sparkfly_api_client.models.bi_store_list import BiStoreList
 
 class TestBiStoreList(unittest.TestCase):
     """BiStoreList unit test stubs"""

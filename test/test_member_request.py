@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.member_request import MemberRequest
+from sparkfly_api_client.models.member_request import MemberRequest
 
 class TestMemberRequest(unittest.TestCase):
     """MemberRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestMemberRequest(unittest.TestCase):
         model = MemberRequest()
         if include_optional:
             return MemberRequest(
-                member = openapi_client.models.member_request_member.member_request_member(
+                member = sparkfly_api_client.models.member_request_member.member_request_member(
                     identifier = '', 
                     notification_mode = '', )
             )

@@ -1,4 +1,4 @@
-# openapi_client.MemberPrivacyApi
+# sparkfly_api_client.MemberPrivacyApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -20,14 +20,14 @@ Looks up and exports data for the member associated with the provided member_ide
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.member_privacy import MemberPrivacy
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.member_privacy import MemberPrivacy
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -43,16 +43,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MemberPrivacyApi(api_client)
+    api_instance = sparkfly_api_client.MemberPrivacyApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
     member_identifier = 'member_identifier_example' # str | the member identifier attached to a member (optional)
     credential_identifier = 'credential_identifier_example' # str | The identifier of the credential (optional)
 
     try:
         # Exports Data Associated with a Member
-        api_response = api_instance.get_privacy_member_export(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+        api_response = await api_instance.get_privacy_member_export(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
         print("The response of MemberPrivacyApi->get_privacy_member_export:\n")
         pprint(api_response)
     except Exception as e:
@@ -107,13 +107,13 @@ Looks up and creates a deletion request for the member associated with the provi
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -129,16 +129,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MemberPrivacyApi(api_client)
+    api_instance = sparkfly_api_client.MemberPrivacyApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
     member_identifier = 'member_identifier_example' # str | the member identifier attached to a member (optional)
     credential_identifier = 'credential_identifier_example' # str | The identifier of the credential (optional)
 
     try:
         # Creates a Deletion Request for a Member
-        api_instance.post_privacy_member_delete_request(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+        await api_instance.post_privacy_member_delete_request(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
     except Exception as e:
         print("Exception when calling MemberPrivacyApi->post_privacy_member_delete_request: %s\n" % e)
 ```

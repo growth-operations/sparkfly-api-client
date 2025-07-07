@@ -15,19 +15,19 @@
 
 import unittest
 
-from openapi_client.api.email_opt_in_api import EmailOptInApi
+from sparkfly_api_client.api.email_opt_in_api import EmailOptInApi
 
 
-class TestEmailOptInApi(unittest.TestCase):
+class TestEmailOptInApi(unittest.IsolatedAsyncioTestCase):
     """EmailOptInApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = EmailOptInApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_post_optins(self) -> None:
+    async def test_post_optins(self) -> None:
         """Test case for post_optins
 
         Email Opt In

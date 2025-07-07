@@ -15,47 +15,47 @@
 
 import unittest
 
-from openapi_client.api.store_lists_api import StoreListsApi
+from sparkfly_api_client.api.store_lists_api import StoreListsApi
 
 
-class TestStoreListsApi(unittest.TestCase):
+class TestStoreListsApi(unittest.IsolatedAsyncioTestCase):
     """StoreListsApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = StoreListsApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_delete_merchants_merchant_id_store_lists_store_list_id(self) -> None:
+    async def test_delete_merchants_merchant_id_store_lists_store_list_id(self) -> None:
         """Test case for delete_merchants_merchant_id_store_lists_store_list_id
 
         Remove a Store List
         """
         pass
 
-    def test_get_merchants_merchant_id_store_lists(self) -> None:
+    async def test_get_merchants_merchant_id_store_lists(self) -> None:
         """Test case for get_merchants_merchant_id_store_lists
 
         List all Store Lists
         """
         pass
 
-    def test_get_merchants_merchant_id_store_lists_store_list_id(self) -> None:
+    async def test_get_merchants_merchant_id_store_lists_store_list_id(self) -> None:
         """Test case for get_merchants_merchant_id_store_lists_store_list_id
 
         Retrieve a Store List
         """
         pass
 
-    def test_post_merchants_merchant_id_store_lists(self) -> None:
+    async def test_post_merchants_merchant_id_store_lists(self) -> None:
         """Test case for post_merchants_merchant_id_store_lists
 
         Create a Store List
         """
         pass
 
-    def test_put_merchants_merchant_id_store_lists_store_list_id(self) -> None:
+    async def test_put_merchants_merchant_id_store_lists_store_list_id(self) -> None:
         """Test case for put_merchants_merchant_id_store_lists_store_list_id
 
         Update a Store List

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.ctm_transaction_show_response_availible_offers_inner import CtmTransactionShowResponseAvailibleOffersInner
+from sparkfly_api_client.models.ctm_transaction_show_response_availible_offers_inner import CtmTransactionShowResponseAvailibleOffersInner
 
 # TODO update the JSON string below
 json = "{}"

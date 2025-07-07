@@ -1,4 +1,4 @@
-# openapi_client.EligibleItemSetsApi
+# sparkfly_api_client.EligibleItemSetsApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -23,13 +23,13 @@ Removes an eligible item set from an offer.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -45,16 +45,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EligibleItemSetsApi(api_client)
+    api_instance = sparkfly_api_client.EligibleItemSetsApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     id = 'id_example' # str | Primary ID of the eligible item set
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Remove an Eligible Item Set
-        api_instance.delete_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type)
+        await api_instance.delete_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type)
     except Exception as e:
         print("Exception when calling EligibleItemSetsApi->delete_offers_offer_id_eligible_item_sets_id: %s\n" % e)
 ```
@@ -105,14 +105,14 @@ List all eligible item sets for an offer ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_eligible_items_set_index import OfferEligibleItemsSetIndex
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_eligible_items_set_index import OfferEligibleItemsSetIndex
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -128,15 +128,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EligibleItemSetsApi(api_client)
+    api_instance = sparkfly_api_client.EligibleItemSetsApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # List all Eligible Item Sets
-        api_response = api_instance.get_offers_offer_id_eligible_item_sets(offer_id, content_type=content_type)
+        api_response = await api_instance.get_offers_offer_id_eligible_item_sets(offer_id, content_type=content_type)
         print("The response of EligibleItemSetsApi->get_offers_offer_id_eligible_item_sets:\n")
         pprint(api_response)
     except Exception as e:
@@ -188,14 +188,14 @@ Get an eligible item set by offer ID and ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_eligible_item_set import OfferEligibleItemSet
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_eligible_item_set import OfferEligibleItemSet
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -211,16 +211,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EligibleItemSetsApi(api_client)
+    api_instance = sparkfly_api_client.EligibleItemSetsApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     id = 'id_example' # str | Primary ID of the eligible item set
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get an Eligible Item Set
-        api_response = api_instance.get_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type)
+        api_response = await api_instance.get_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type)
         print("The response of EligibleItemSetsApi->get_offers_offer_id_eligible_item_sets_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -273,15 +273,15 @@ Creates an eligible item set on an offer.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_eligible_item_set import OfferEligibleItemSet
-from openapi_client.models.offer_eligible_item_set_request import OfferEligibleItemSetRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_eligible_item_set import OfferEligibleItemSet
+from sparkfly_api_client.models.offer_eligible_item_set_request import OfferEligibleItemSetRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -297,16 +297,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EligibleItemSetsApi(api_client)
+    api_instance = sparkfly_api_client.EligibleItemSetsApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     content_type = 'content_type_example' # str | application/json (optional)
-    offer_eligible_item_set_request = openapi_client.OfferEligibleItemSetRequest() # OfferEligibleItemSetRequest |  (optional)
+    offer_eligible_item_set_request = sparkfly_api_client.OfferEligibleItemSetRequest() # OfferEligibleItemSetRequest |  (optional)
 
     try:
         # Create an Eligible Item Set
-        api_response = api_instance.post_offers_offer_id_eligible_item_sets(offer_id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
+        api_response = await api_instance.post_offers_offer_id_eligible_item_sets(offer_id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
         print("The response of EligibleItemSetsApi->post_offers_offer_id_eligible_item_sets:\n")
         pprint(api_response)
     except Exception as e:
@@ -360,15 +360,15 @@ Updates an eligible item set on an offer.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_eligible_item_set import OfferEligibleItemSet
-from openapi_client.models.offer_eligible_item_set_request import OfferEligibleItemSetRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_eligible_item_set import OfferEligibleItemSet
+from sparkfly_api_client.models.offer_eligible_item_set_request import OfferEligibleItemSetRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -384,17 +384,17 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EligibleItemSetsApi(api_client)
+    api_instance = sparkfly_api_client.EligibleItemSetsApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     id = 'id_example' # str | Primary ID of the eligible item set
     content_type = 'content_type_example' # str | application/json (optional)
-    offer_eligible_item_set_request = openapi_client.OfferEligibleItemSetRequest() # OfferEligibleItemSetRequest |  (optional)
+    offer_eligible_item_set_request = sparkfly_api_client.OfferEligibleItemSetRequest() # OfferEligibleItemSetRequest |  (optional)
 
     try:
         # Update an Eligible Item Set
-        api_response = api_instance.put_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
+        api_response = await api_instance.put_offers_offer_id_eligible_item_sets_id(offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
         print("The response of EligibleItemSetsApi->put_offers_offer_id_eligible_item_sets_id:\n")
         pprint(api_response)
     except Exception as e:

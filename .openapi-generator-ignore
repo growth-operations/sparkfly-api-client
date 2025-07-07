@@ -4,19 +4,6 @@
 # Use this file to prevent files from being overwritten by the generator.
 # The patterns follow closely to .gitignore or .dockerignore.
 
-# Custom files we want to keep
-README.md
-setup.py
-pyproject.toml
-requirements.txt
-test-requirements.txt
-.gitignore
-.travis.yml
-.gitlab-ci.yml
-git_push.sh
-tox.ini
-setup.cfg
-
 # As an example, the C# client generator defines ApiClient.cs.
 # You can make changes and tell OpenAPI Generator to ignore just this file by uncommenting the following line:
 #ApiClient.cs

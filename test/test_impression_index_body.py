@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.impression_index_body import ImpressionIndexBody
+from sparkfly_api_client.models.impression_index_body import ImpressionIndexBody
 
 class TestImpressionIndexBody(unittest.TestCase):
     """ImpressionIndexBody unit test stubs"""
@@ -41,7 +41,7 @@ class TestImpressionIndexBody(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 impressions = [
-                    openapi_client.models.impression.impression()
+                    sparkfly_api_client.models.impression.impression()
                     ]
             )
         else:

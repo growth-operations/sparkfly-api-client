@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.campaign_response_campaign import CampaignResponseCampaign
+from sparkfly_api_client.models.campaign_response_campaign import CampaignResponseCampaign
 
 class TestCampaignResponseCampaign(unittest.TestCase):
     """CampaignResponseCampaign unit test stubs"""
@@ -46,7 +46,7 @@ class TestCampaignResponseCampaign(unittest.TestCase):
                 channel_name = '',
                 pos_offer_code = '',
                 online_offer_code = '',
-                activation_date = None,
+                activation_date = '',
                 expiration_date = '',
                 start_display_at = '',
                 funding_source = '',

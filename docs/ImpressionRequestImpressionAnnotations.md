@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.impression_request_impression_annotations import ImpressionRequestImpressionAnnotations
+from sparkfly_api_client.models.impression_request_impression_annotations import ImpressionRequestImpressionAnnotations
 
 # TODO update the JSON string below
 json = "{}"

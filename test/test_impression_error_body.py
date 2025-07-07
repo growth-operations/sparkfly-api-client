@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.impression_error_body import ImpressionErrorBody
+from sparkfly_api_client.models.impression_error_body import ImpressionErrorBody
 
 class TestImpressionErrorBody(unittest.TestCase):
     """ImpressionErrorBody unit test stubs"""

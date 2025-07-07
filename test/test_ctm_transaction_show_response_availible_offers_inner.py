@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.ctm_transaction_show_response_availible_offers_inner import CtmTransactionShowResponseAvailibleOffersInner
+from sparkfly_api_client.models.ctm_transaction_show_response_availible_offers_inner import CtmTransactionShowResponseAvailibleOffersInner
 
 class TestCtmTransactionShowResponseAvailibleOffersInner(unittest.TestCase):
     """CtmTransactionShowResponseAvailibleOffersInner unit test stubs"""

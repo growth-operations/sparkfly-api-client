@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.clark_and_riggs_product_response_body import ClarkAndRiggsProductResponseBody
+from sparkfly_api_client.models.clark_and_riggs_product_response_body import ClarkAndRiggsProductResponseBody
 
 class TestClarkAndRiggsProductResponseBody(unittest.TestCase):
     """ClarkAndRiggsProductResponseBody unit test stubs"""
@@ -36,12 +36,12 @@ class TestClarkAndRiggsProductResponseBody(unittest.TestCase):
         model = ClarkAndRiggsProductResponseBody()
         if include_optional:
             return ClarkAndRiggsProductResponseBody(
-                clark_and_riggs_product = openapi_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product.clark_and_riggs_product_response_body_clark_and_riggs_product(
+                clark_and_riggs_product = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product.clark_and_riggs_product_response_body_clark_and_riggs_product(
                     id = 56, 
-                    offer = openapi_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
+                    offer = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
                         id = 56, 
                         name = '', ), 
-                    eligible_channel = openapi_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
+                    eligible_channel = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
                         id = 56, 
                         name = '', ), 
                     product_id = '', 

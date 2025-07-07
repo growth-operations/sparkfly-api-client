@@ -1,4 +1,4 @@
-# openapi_client.OfferPOSOfferCodesApi
+# sparkfly_api_client.OfferPOSOfferCodesApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -23,13 +23,13 @@ Removes an offer POS offer Code by from it's ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -45,16 +45,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferPOSOfferCodesApi(api_client)
+    api_instance = sparkfly_api_client.OfferPOSOfferCodesApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     id = 'id_example' # str | Primary ID of the offer code offer
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Remove an Offer POS Offer Code
-        api_instance.delete_offers_offer_id_pos_offer_codes_id(offer_id, id, content_type=content_type)
+        await api_instance.delete_offers_offer_id_pos_offer_codes_id(offer_id, id, content_type=content_type)
     except Exception as e:
         print("Exception when calling OfferPOSOfferCodesApi->delete_offers_offer_id_pos_offer_codes_id: %s\n" % e)
 ```
@@ -105,14 +105,14 @@ List offer POS offer codes for an offer ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_pos_offer_code_index import OfferPosOfferCodeIndex
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_pos_offer_code_index import OfferPosOfferCodeIndex
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -128,15 +128,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferPOSOfferCodesApi(api_client)
+    api_instance = sparkfly_api_client.OfferPOSOfferCodesApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # List all Offer POS Offer Codes
-        api_response = api_instance.get_offers_offer_id_pos_offer_codes(offer_id, content_type=content_type)
+        api_response = await api_instance.get_offers_offer_id_pos_offer_codes(offer_id, content_type=content_type)
         print("The response of OfferPOSOfferCodesApi->get_offers_offer_id_pos_offer_codes:\n")
         pprint(api_response)
     except Exception as e:
@@ -188,14 +188,14 @@ Gets an offer POS offer code from it's ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_pos_offer_code import OfferPosOfferCode
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_pos_offer_code import OfferPosOfferCode
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -211,16 +211,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferPOSOfferCodesApi(api_client)
+    api_instance = sparkfly_api_client.OfferPOSOfferCodesApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     id = 'id_example' # str | Primary ID of the offer code offer
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get an Offer POS Offer Code
-        api_response = api_instance.get_offers_offer_id_pos_offer_codes_id(offer_id, id, content_type=content_type)
+        api_response = await api_instance.get_offers_offer_id_pos_offer_codes_id(offer_id, id, content_type=content_type)
         print("The response of OfferPOSOfferCodesApi->get_offers_offer_id_pos_offer_codes_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -273,15 +273,15 @@ Creates an offer POS offer code.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_pos_offer_code import OfferPosOfferCode
-from openapi_client.models.offer_pos_offer_code_request import OfferPosOfferCodeRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_pos_offer_code import OfferPosOfferCode
+from sparkfly_api_client.models.offer_pos_offer_code_request import OfferPosOfferCodeRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -297,16 +297,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferPOSOfferCodesApi(api_client)
+    api_instance = sparkfly_api_client.OfferPOSOfferCodesApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     content_type = 'content_type_example' # str | application/json (optional)
-    offer_pos_offer_code_request = openapi_client.OfferPosOfferCodeRequest() # OfferPosOfferCodeRequest |  (optional)
+    offer_pos_offer_code_request = sparkfly_api_client.OfferPosOfferCodeRequest() # OfferPosOfferCodeRequest |  (optional)
 
     try:
         # Create an Offer POS Offer Code
-        api_response = api_instance.post_offers_offer_id_pos_offer_codes(offer_id, content_type=content_type, offer_pos_offer_code_request=offer_pos_offer_code_request)
+        api_response = await api_instance.post_offers_offer_id_pos_offer_codes(offer_id, content_type=content_type, offer_pos_offer_code_request=offer_pos_offer_code_request)
         print("The response of OfferPOSOfferCodesApi->post_offers_offer_id_pos_offer_codes:\n")
         pprint(api_response)
     except Exception as e:
@@ -360,15 +360,15 @@ Updates an offer POS offer code by it's ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_pos_offer_code import OfferPosOfferCode
-from openapi_client.models.offer_pos_offer_code_request import OfferPosOfferCodeRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_pos_offer_code import OfferPosOfferCode
+from sparkfly_api_client.models.offer_pos_offer_code_request import OfferPosOfferCodeRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -384,17 +384,17 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferPOSOfferCodesApi(api_client)
+    api_instance = sparkfly_api_client.OfferPOSOfferCodesApi(api_client)
     offer_id = 'offer_id_example' # str | Primary ID of the offer
     id = 'id_example' # str | Primary ID of the offer code offer
     content_type = 'content_type_example' # str | application/json (optional)
-    offer_pos_offer_code_request = openapi_client.OfferPosOfferCodeRequest() # OfferPosOfferCodeRequest |  (optional)
+    offer_pos_offer_code_request = sparkfly_api_client.OfferPosOfferCodeRequest() # OfferPosOfferCodeRequest |  (optional)
 
     try:
         # Update an Offer POS Offer Code
-        api_response = api_instance.put_offers_offer_id_pos_offer_codes_id(offer_id, id, content_type=content_type, offer_pos_offer_code_request=offer_pos_offer_code_request)
+        api_response = await api_instance.put_offers_offer_id_pos_offer_codes_id(offer_id, id, content_type=content_type, offer_pos_offer_code_request=offer_pos_offer_code_request)
         print("The response of OfferPOSOfferCodesApi->put_offers_offer_id_pos_offer_codes_id:\n")
         pprint(api_response)
     except Exception as e:

@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.store_request import StoreRequest
+from sparkfly_api_client.models.store_request import StoreRequest
 
 class TestStoreRequest(unittest.TestCase):
     """StoreRequest unit test stubs"""
@@ -36,23 +36,23 @@ class TestStoreRequest(unittest.TestCase):
         model = StoreRequest()
         if include_optional:
             return StoreRequest(
-                store = openapi_client.models.store_request_store.store_request_store(
+                store = sparkfly_api_client.models.store_request_store.store_request_store(
                     name = '', 
                     site_id = '', 
                     number = '', 
                     description = '', 
                     is_active = True, 
                     phone = '', 
-                    contacts = openapi_client.models.store_request_store_contacts.store_request_store_contacts(
-                        primary = openapi_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                    contacts = sparkfly_api_client.models.store_request_store_contacts.store_request_store_contacts(
+                        primary = sparkfly_api_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
                             name = '', 
                             phone = '', 
                             email = '', ), 
-                        secondary = openapi_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                        secondary = sparkfly_api_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
                             name = '', 
                             phone = '', 
                             email = '', ), ), 
-                    location = openapi_client.models.store_request_store_location.store_request_store_location(
+                    location = sparkfly_api_client.models.store_request_store_location.store_request_store_location(
                         address = '', 
                         address2 = '', 
                         city = '', 

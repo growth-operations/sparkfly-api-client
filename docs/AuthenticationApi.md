@@ -1,4 +1,4 @@
-# openapi_client.AuthenticationApi
+# sparkfly_api_client.AuthenticationApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -20,13 +20,13 @@ Request an authentication token that is required for most Sparkfly core API requ
 * Api Key Authentication (XAuthIdentity):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -48,15 +48,15 @@ configuration.api_key['XAuthIdentity'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthIdentity'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AuthenticationApi(api_client)
+    api_instance = sparkfly_api_client.AuthenticationApi(api_client)
     x_auth_scope = 'x_auth_scope_example' # str | API scope availability for an auth token (optional)
     x_forwarded_for = 'x_forwarded_for_example' # str | Available IP address for an auth token (optional)
 
     try:
         # Request an Authentication Token
-        api_instance.post_auth(x_auth_scope=x_auth_scope, x_forwarded_for=x_forwarded_for)
+        await api_instance.post_auth(x_auth_scope=x_auth_scope, x_forwarded_for=x_forwarded_for)
     except Exception as e:
         print("Exception when calling AuthenticationApi->post_auth: %s\n" % e)
 ```

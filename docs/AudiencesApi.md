@@ -1,4 +1,4 @@
-# openapi_client.AudiencesApi
+# sparkfly_api_client.AudiencesApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -28,13 +28,13 @@ Removes an existing audience.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -50,14 +50,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     audience_id = 'audience_id_example' # str | audience to find or modify
 
     try:
         # Remove an Audience
-        api_instance.delete_audiences_id(audience_id)
+        await api_instance.delete_audiences_id(audience_id)
     except Exception as e:
         print("Exception when calling AudiencesApi->delete_audiences_id: %s\n" % e)
 ```
@@ -106,13 +106,13 @@ Removes an existing sub-audience.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -128,15 +128,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     sub_audience_id = 'sub_audience_id_example' # str | sub-audience to find or modify
     audience_id = 'audience_id_example' # str | parent audience
 
     try:
         # Remove a Sub-Audience
-        api_instance.delete_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
+        await api_instance.delete_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
     except Exception as e:
         print("Exception when calling AudiencesApi->delete_audiences_id_sub_audiences_sub_audience_id: %s\n" % e)
 ```
@@ -187,14 +187,14 @@ Retrieve all audiences associated with your account.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object2 import InlineObject2
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object2 import InlineObject2
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -210,9 +210,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
     per_page = '5000' # str | maximum number of records to return in the search (optional) (default to '5000')
     order = asc # str | sort the records in either ascending (asc) or descending (desc) order (optional) (default to asc)
@@ -221,7 +221,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # List all Audiences
-        api_response = api_instance.get_audiences(page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+        api_response = await api_instance.get_audiences(page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
         print("The response of AudiencesApi->get_audiences:\n")
         pprint(api_response)
     except Exception as e:
@@ -275,14 +275,14 @@ Find an audience by its primary identifier.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object1 import InlineObject1
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object1 import InlineObject1
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -298,14 +298,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     audience_id = 'audience_id_example' # str | audience to find or modify
 
     try:
         # Retrieve an Audience
-        api_response = api_instance.get_audiences_id(audience_id)
+        api_response = await api_instance.get_audiences_id(audience_id)
         print("The response of AudiencesApi->get_audiences_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -357,14 +357,14 @@ Search within all sub-audiences.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object4 import InlineObject4
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object4 import InlineObject4
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -380,9 +380,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     audience_id = 'audience_id_example' # str | parent audience
     page = '1' # str | page offset to display a range of records from (optional) (default to '1')
     per_page = '5000' # str | maximum number of records to return in the search (optional) (default to '5000')
@@ -392,7 +392,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # List all Sub-Audiences
-        api_response = api_instance.get_audiences_id_sub_audiences(audience_id, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+        api_response = await api_instance.get_audiences_id_sub_audiences(audience_id, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
         print("The response of AudiencesApi->get_audiences_id_sub_audiences:\n")
         pprint(api_response)
     except Exception as e:
@@ -447,14 +447,14 @@ Get a sub-audience by it's primary identifier.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object3 import InlineObject3
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object3 import InlineObject3
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -470,15 +470,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     sub_audience_id = 'sub_audience_id_example' # str | sub-audience to find or modify
     audience_id = 'audience_id_example' # str | parent audience
 
     try:
         # Retrieve a Sub-Audience
-        api_response = api_instance.get_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
+        api_response = await api_instance.get_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
         print("The response of AudiencesApi->get_audiences_id_sub_audiences_sub_audience_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -530,15 +530,15 @@ Creates a new audience.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object1 import InlineObject1
-from openapi_client.models.post_audiences_request import PostAudiencesRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object1 import InlineObject1
+from sparkfly_api_client.models.post_audiences_request import PostAudiencesRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -554,15 +554,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
-    post_audiences_request = openapi_client.PostAudiencesRequest() # PostAudiencesRequest |  (optional)
+    post_audiences_request = sparkfly_api_client.PostAudiencesRequest() # PostAudiencesRequest |  (optional)
 
     try:
         # Create an Audience
-        api_response = api_instance.post_audiences(content_type=content_type, post_audiences_request=post_audiences_request)
+        api_response = await api_instance.post_audiences(content_type=content_type, post_audiences_request=post_audiences_request)
         print("The response of AudiencesApi->post_audiences:\n")
         pprint(api_response)
     except Exception as e:
@@ -614,15 +614,15 @@ Creates a sub-audience within this audience.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object3 import InlineObject3
-from openapi_client.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object3 import InlineObject3
+from sparkfly_api_client.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -638,16 +638,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     audience_id = 'audience_id_example' # str | parent audience
     content_type = 'content_type_example' # str | application/json (optional)
-    post_audiences_id_sub_audiences_request = openapi_client.PostAudiencesIdSubAudiencesRequest() # PostAudiencesIdSubAudiencesRequest |  (optional)
+    post_audiences_id_sub_audiences_request = sparkfly_api_client.PostAudiencesIdSubAudiencesRequest() # PostAudiencesIdSubAudiencesRequest |  (optional)
 
     try:
         # Create a Sub-Audience
-        api_response = api_instance.post_audiences_id_sub_audiences(audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
+        api_response = await api_instance.post_audiences_id_sub_audiences(audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
         print("The response of AudiencesApi->post_audiences_id_sub_audiences:\n")
         pprint(api_response)
     except Exception as e:
@@ -701,15 +701,15 @@ Updates an existing audience.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object1 import InlineObject1
-from openapi_client.models.post_audiences_request import PostAudiencesRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object1 import InlineObject1
+from sparkfly_api_client.models.post_audiences_request import PostAudiencesRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -725,16 +725,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     audience_id = 'audience_id_example' # str | audience to find or modify
     content_type = 'content_type_example' # str | application/json (optional)
-    post_audiences_request = openapi_client.PostAudiencesRequest() # PostAudiencesRequest |  (optional)
+    post_audiences_request = sparkfly_api_client.PostAudiencesRequest() # PostAudiencesRequest |  (optional)
 
     try:
         # Update an Audience
-        api_response = api_instance.put_audiences_id(audience_id, content_type=content_type, post_audiences_request=post_audiences_request)
+        api_response = await api_instance.put_audiences_id(audience_id, content_type=content_type, post_audiences_request=post_audiences_request)
         print("The response of AudiencesApi->put_audiences_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -787,15 +787,15 @@ Updates an existing sub-audience.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.inline_object3 import InlineObject3
-from openapi_client.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.inline_object3 import InlineObject3
+from sparkfly_api_client.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -811,17 +811,17 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AudiencesApi(api_client)
+    api_instance = sparkfly_api_client.AudiencesApi(api_client)
     sub_audience_id = 'sub_audience_id_example' # str | sub-audience to find or modify
     audience_id = 'audience_id_example' # str | parent audience
     content_type = 'content_type_example' # str | application/json (optional)
-    post_audiences_id_sub_audiences_request = openapi_client.PostAudiencesIdSubAudiencesRequest() # PostAudiencesIdSubAudiencesRequest |  (optional)
+    post_audiences_id_sub_audiences_request = sparkfly_api_client.PostAudiencesIdSubAudiencesRequest() # PostAudiencesIdSubAudiencesRequest |  (optional)
 
     try:
         # Update a Sub-Audience
-        api_response = api_instance.put_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
+        api_response = await api_instance.put_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
         print("The response of AudiencesApi->put_audiences_id_sub_audiences_sub_audience_id:\n")
         pprint(api_response)
     except Exception as e:

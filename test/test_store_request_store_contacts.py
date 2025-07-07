@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.store_request_store_contacts import StoreRequestStoreContacts
+from sparkfly_api_client.models.store_request_store_contacts import StoreRequestStoreContacts
 
 class TestStoreRequestStoreContacts(unittest.TestCase):
     """StoreRequestStoreContacts unit test stubs"""
@@ -36,11 +36,11 @@ class TestStoreRequestStoreContacts(unittest.TestCase):
         model = StoreRequestStoreContacts()
         if include_optional:
             return StoreRequestStoreContacts(
-                primary = openapi_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                primary = sparkfly_api_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
                     name = '', 
                     phone = '', 
                     email = '', ),
-                secondary = openapi_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                secondary = sparkfly_api_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
                     name = '', 
                     phone = '', 
                     email = '', )

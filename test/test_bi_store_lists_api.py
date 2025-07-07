@@ -15,19 +15,19 @@
 
 import unittest
 
-from openapi_client.api.bi_store_lists_api import BIStoreListsApi
+from sparkfly_api_client.api.bi_store_lists_api import BIStoreListsApi
 
 
-class TestBIStoreListsApi(unittest.TestCase):
+class TestBIStoreListsApi(unittest.IsolatedAsyncioTestCase):
     """BIStoreListsApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = BIStoreListsApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_get_merchants_bi_store_lists(self) -> None:
+    async def test_get_merchants_bi_store_lists(self) -> None:
         """Test case for get_merchants_bi_store_lists
 
         List all BI Store Lists

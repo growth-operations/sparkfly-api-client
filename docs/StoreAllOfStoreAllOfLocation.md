@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.store_all_of_store_all_of_location import StoreAllOfStoreAllOfLocation
+from sparkfly_api_client.models.store_all_of_store_all_of_location import StoreAllOfStoreAllOfLocation
 
 # TODO update the JSON string below
 json = "{}"

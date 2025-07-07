@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.campaign_request import CampaignRequest
+from sparkfly_api_client.models.campaign_request import CampaignRequest
 
 class TestCampaignRequest(unittest.TestCase):
     """CampaignRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestCampaignRequest(unittest.TestCase):
         model = CampaignRequest()
         if include_optional:
             return CampaignRequest(
-                campaign = openapi_client.models.campaign_request_campaign.campaign_request_campaign(
+                campaign = sparkfly_api_client.models.campaign_request_campaign.campaign_request_campaign(
                     external_id = '', 
                     pos_offer_code = '', 
                     code_ref = '', 

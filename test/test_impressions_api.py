@@ -15,33 +15,33 @@
 
 import unittest
 
-from openapi_client.api.impressions_api import ImpressionsApi
+from sparkfly_api_client.api.impressions_api import ImpressionsApi
 
 
-class TestImpressionsApi(unittest.TestCase):
+class TestImpressionsApi(unittest.IsolatedAsyncioTestCase):
     """ImpressionsApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = ImpressionsApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_delete_impressions_id(self) -> None:
+    async def test_delete_impressions_id(self) -> None:
         """Test case for delete_impressions_id
 
         Delete an Impression
         """
         pass
 
-    def test_get_impressions(self) -> None:
+    async def test_get_impressions(self) -> None:
         """Test case for get_impressions
 
         List Impressions
         """
         pass
 
-    def test_post_impressions(self) -> None:
+    async def test_post_impressions(self) -> None:
         """Test case for post_impressions
 
         Create an Impression

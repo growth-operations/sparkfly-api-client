@@ -15,89 +15,89 @@
 
 import unittest
 
-from openapi_client.api.ctm_api import CtmApi
+from sparkfly_api_client.api.ctm_api import CtmApi
 
 
-class TestCtmApi(unittest.TestCase):
+class TestCtmApi(unittest.IsolatedAsyncioTestCase):
     """CtmApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = CtmApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_get_ctm_custom_messages(self) -> None:
+    async def test_get_ctm_custom_messages(self) -> None:
         """Test case for get_ctm_custom_messages
 
         CTM Custom Messages
         """
         pass
 
-    def test_get_ctm_store(self) -> None:
+    async def test_get_ctm_store(self) -> None:
         """Test case for get_ctm_store
 
         CTM Stores
         """
         pass
 
-    def test_get_show_ctm(self) -> None:
+    async def test_get_show_ctm(self) -> None:
         """Test case for get_show_ctm
 
         CTM Show Response
         """
         pass
 
-    def test_post_allocate_ctm(self) -> None:
+    async def test_post_allocate_ctm(self) -> None:
         """Test case for post_allocate_ctm
 
         CTM Allocate
         """
         pass
 
-    def test_post_deallocate_ctm(self) -> None:
+    async def test_post_deallocate_ctm(self) -> None:
         """Test case for post_deallocate_ctm
 
         CTM Dealocate
         """
         pass
 
-    def test_post_qitems_ctm(self) -> None:
+    async def test_post_qitems_ctm(self) -> None:
         """Test case for post_qitems_ctm
 
         CTM Qitems
         """
         pass
 
-    def test_post_update_ctm(self) -> None:
+    async def test_post_update_ctm(self) -> None:
         """Test case for post_update_ctm
 
         CTM Update Response
         """
         pass
 
-    def test_post_update_ctm_siteid(self) -> None:
+    async def test_post_update_ctm_siteid(self) -> None:
         """Test case for post_update_ctm_siteid
 
         CTM Update Response
         """
         pass
 
-    def test_put_show_ctm(self) -> None:
+    async def test_put_show_ctm(self) -> None:
         """Test case for put_show_ctm
 
         CTM Show Response
         """
         pass
 
-    def test_put_transaction_update_ctm(self) -> None:
+    async def test_put_transaction_update_ctm(self) -> None:
         """Test case for put_transaction_update_ctm
 
         CTM Transaction Update
         """
         pass
 
-    def test_put_update_ctm(self) -> None:
+    async def test_put_update_ctm(self) -> None:
         """Test case for put_update_ctm
 
         CTM Update Response

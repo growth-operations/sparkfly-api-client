@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.clark_and_riggs_product_create_body import ClarkAndRiggsProductCreateBody
+from sparkfly_api_client.models.clark_and_riggs_product_create_body import ClarkAndRiggsProductCreateBody
 
 # TODO update the JSON string below
 json = "{}"

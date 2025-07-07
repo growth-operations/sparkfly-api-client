@@ -1,4 +1,4 @@
-# openapi_client.EmailOptInApi
+# sparkfly_api_client.EmailOptInApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -19,14 +19,14 @@ Email opt in with an address, xid, and code.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.email_opt_in import EmailOptIn
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.email_opt_in import EmailOptIn
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -42,9 +42,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.EmailOptInApi(api_client)
+    api_instance = sparkfly_api_client.EmailOptInApi(api_client)
     address = 'address_example' # str | email address for email opt in
     xid = 'xid_example' # str | xid for email opt in
     content_type = 'content_type_example' # str | application/json (optional)
@@ -52,7 +52,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Email Opt In
-        api_response = api_instance.post_optins(address, xid, content_type=content_type, code=code)
+        api_response = await api_instance.post_optins(address, xid, content_type=content_type, code=code)
         print("The response of EmailOptInApi->post_optins:\n")
         pprint(api_response)
     except Exception as e:

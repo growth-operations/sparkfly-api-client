@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.post_members_id_offer_states_issue_request import PostMembersIdOfferStatesIssueRequest
+from sparkfly_api_client.models.post_members_id_offer_states_issue_request import PostMembersIdOfferStatesIssueRequest
 
 class TestPostMembersIdOfferStatesIssueRequest(unittest.TestCase):
     """PostMembersIdOfferStatesIssueRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestPostMembersIdOfferStatesIssueRequest(unittest.TestCase):
         model = PostMembersIdOfferStatesIssueRequest()
         if include_optional:
             return PostMembersIdOfferStatesIssueRequest(
-                offer_state = openapi_client.models.post_members_id_offer_states_issue_request_offer_state.post_members_id_offer_states_issue_request_offer_state(
+                offer_state = sparkfly_api_client.models.post_members_id_offer_states_issue_request_offer_state.post_members_id_offer_states_issue_request_offer_state(
                     external_ref_id = '', 
                     campaign_id = '', 
                     activates_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 

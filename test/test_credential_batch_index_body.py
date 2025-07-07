@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.credential_batch_index_body import CredentialBatchIndexBody
+from sparkfly_api_client.models.credential_batch_index_body import CredentialBatchIndexBody
 
 class TestCredentialBatchIndexBody(unittest.TestCase):
     """CredentialBatchIndexBody unit test stubs"""
@@ -41,7 +41,7 @@ class TestCredentialBatchIndexBody(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 credential_batches = [
-                    openapi_client.models.credential_batch_response_body.credential_batch_response_body(
+                    sparkfly_api_client.models.credential_batch_response_body.credential_batch_response_body(
                         credential_batch = null, )
                     ]
             )

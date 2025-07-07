@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_state_update_offer_state import OfferStateUpdateOfferState
+from sparkfly_api_client.models.offer_state_update_offer_state import OfferStateUpdateOfferState
 
 class TestOfferStateUpdateOfferState(unittest.TestCase):
     """OfferStateUpdateOfferState unit test stubs"""
@@ -42,7 +42,7 @@ class TestOfferStateUpdateOfferState(unittest.TestCase):
                 status = '',
                 value = 56,
                 offer_name = '',
-                offer_value_required = None,
+                offer_value_required = True,
                 locked = True,
                 is_reward = True
             )

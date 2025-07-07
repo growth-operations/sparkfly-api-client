@@ -15,26 +15,26 @@
 
 import unittest
 
-from openapi_client.api.pos_offer_codes_api import POSOfferCodesApi
+from sparkfly_api_client.api.pos_offer_codes_api import POSOfferCodesApi
 
 
-class TestPOSOfferCodesApi(unittest.TestCase):
+class TestPOSOfferCodesApi(unittest.IsolatedAsyncioTestCase):
     """POSOfferCodesApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = POSOfferCodesApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_get_pos_offer_codes(self) -> None:
+    async def test_get_pos_offer_codes(self) -> None:
         """Test case for get_pos_offer_codes
 
         List all POS Offer Codes
         """
         pass
 
-    def test_get_pos_offer_codes_id(self) -> None:
+    async def test_get_pos_offer_codes_id(self) -> None:
         """Test case for get_pos_offer_codes_id
 
         Get a POS Offer Code

@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.inline_object1 import InlineObject1
+from sparkfly_api_client.models.inline_object1 import InlineObject1
 
 class TestInlineObject1(unittest.TestCase):
     """InlineObject1 unit test stubs"""
@@ -36,10 +36,10 @@ class TestInlineObject1(unittest.TestCase):
         model = InlineObject1()
         if include_optional:
             return InlineObject1(
-                audience = openapi_client.models.audience.Audience(
+                audience = sparkfly_api_client.models.audience.Audience(
                     id = 56, 
                     name = '', ),
-                errors = openapi_client.models.response_body_errors.ResponseBodyErrors()
+                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors()
             )
         else:
             return InlineObject1(

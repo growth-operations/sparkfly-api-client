@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.offer_all_of_offer_all_of_formatting_eligible_store_map import OfferAllOfOfferAllOfFormattingEligibleStoreMap
+from sparkfly_api_client.models.offer_all_of_offer_all_of_formatting_eligible_store_map import OfferAllOfOfferAllOfFormattingEligibleStoreMap
 
 # TODO update the JSON string below
 json = "{}"

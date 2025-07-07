@@ -6,16 +6,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
-**merchant_id** | **object** |  | [optional] 
-**manufacturer_id** | **object** |  | [optional] 
-**manufacturer_name** | **object** |  | [optional] 
+**merchant_id** | **str** |  | [optional] 
+**manufacturer_id** | **str** |  | [optional] 
+**manufacturer_name** | **str** |  | [optional] 
 **item_ids** | **List[object]** |  | [optional] 
 **set_type** | **int** |  | [optional] 
 
 ## Example
 
 ```python
-from openapi_client.models.item_set_all_of_item_set import ItemSetAllOfItemSet
+from sparkfly_api_client.models.item_set_all_of_item_set import ItemSetAllOfItemSet
 
 # TODO update the JSON string below
 json = "{}"

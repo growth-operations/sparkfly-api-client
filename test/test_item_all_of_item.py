@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.item_all_of_item import ItemAllOfItem
+from sparkfly_api_client.models.item_all_of_item import ItemAllOfItem
 
 class TestItemAllOfItem(unittest.TestCase):
     """ItemAllOfItem unit test stubs"""
@@ -38,8 +38,8 @@ class TestItemAllOfItem(unittest.TestCase):
             return ItemAllOfItem(
                 name = '',
                 code = '',
-                merchant_id = None,
-                manufacturer_id = None,
+                merchant_id = '',
+                manufacturer_id = '',
                 item_type = 'item'
             )
         else:

@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_all_of_offer_all_of_eligibility import OfferAllOfOfferAllOfEligibility
+from sparkfly_api_client.models.offer_all_of_offer_all_of_eligibility import OfferAllOfOfferAllOfEligibility
 
 class TestOfferAllOfOfferAllOfEligibility(unittest.TestCase):
     """OfferAllOfOfferAllOfEligibility unit test stubs"""

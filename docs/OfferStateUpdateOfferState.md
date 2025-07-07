@@ -11,14 +11,14 @@ Name | Type | Description | Notes
 **status** | **str** |  | [optional] 
 **value** | **int** |  | [optional] 
 **offer_name** | **str** |  | [optional] 
-**offer_value_required** | **object** |  | [optional] 
+**offer_value_required** | **bool** |  | [optional] 
 **locked** | **bool** |  | [optional] 
 **is_reward** | **bool** |  | [optional] 
 
 ## Example
 
 ```python
-from openapi_client.models.offer_state_update_offer_state import OfferStateUpdateOfferState
+from sparkfly_api_client.models.offer_state_update_offer_state import OfferStateUpdateOfferState
 
 # TODO update the JSON string below
 json = "{}"

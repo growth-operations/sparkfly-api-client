@@ -1,4 +1,4 @@
-# openapi_client.OfferStatesApi
+# sparkfly_api_client.OfferStatesApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -29,14 +29,14 @@ Gets all offer states.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_state_index_body import OfferStateIndexBody
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_state_index_body import OfferStateIndexBody
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -52,15 +52,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     member_id = 'member_id_example' # str | The member's primary key
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get all Offer States
-        api_response = api_instance.get_members_member_id_offer_states(member_id, content_type=content_type)
+        api_response = await api_instance.get_members_member_id_offer_states(member_id, content_type=content_type)
         print("The response of OfferStatesApi->get_members_member_id_offer_states:\n")
         pprint(api_response)
     except Exception as e:
@@ -113,14 +113,14 @@ Gets the offer state by the offer state ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_state_index_body import OfferStateIndexBody
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_state_index_body import OfferStateIndexBody
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -136,16 +136,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
     member_id = 'member_id_example' # str | The member's primary key
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get Offer State by Offer State ID
-        api_response = api_instance.get_members_member_id_offer_states_offer_state_id(offerstate_id, member_id, content_type=content_type)
+        api_response = await api_instance.get_members_member_id_offer_states_offer_state_id(offerstate_id, member_id, content_type=content_type)
         print("The response of OfferStatesApi->get_members_member_id_offer_states_offer_state_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -199,14 +199,14 @@ Gets the offer state by the offer ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_state import OfferState
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_state import OfferState
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -222,16 +222,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     member_id = 'member_id_example' # str | The member's primary key
     offer_id = 'offer_id_example' # str | The offer's primary key
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # Get Offer State by Offer ID
-        api_response = api_instance.get_members_member_id_offers_offer_id(member_id, offer_id, content_type=content_type)
+        api_response = await api_instance.get_members_member_id_offers_offer_id(member_id, offer_id, content_type=content_type)
         print("The response of OfferStatesApi->get_members_member_id_offers_offer_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -285,14 +285,14 @@ Gets an offer state from a token, credential_identifier, and/or an external_ref_
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_state import OfferState
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_state import OfferState
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -308,9 +308,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
     token = 'token_example' # str | An offer state's osid (optional)
     credential_identifier = 'credential_identifier_example' # str | The identifier of the credential (optional)
@@ -318,7 +318,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Get Offer State from Query Parameters
-        api_response = api_instance.get_members_offer_states(content_type=content_type, token=token, credential_identifier=credential_identifier, external_ref_id=external_ref_id)
+        api_response = await api_instance.get_members_offer_states(content_type=content_type, token=token, credential_identifier=credential_identifier, external_ref_id=external_ref_id)
         print("The response of OfferStatesApi->get_members_offer_states:\n")
         pprint(api_response)
     except Exception as e:
@@ -376,15 +376,15 @@ This endpoint provides a limited feature set aimed at high throughput offer issu
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.post_members_id_offer_states_issue201_response import PostMembersIdOfferStatesIssue201Response
-from openapi_client.models.post_members_id_offer_states_issue_request import PostMembersIdOfferStatesIssueRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.post_members_id_offer_states_issue201_response import PostMembersIdOfferStatesIssue201Response
+from sparkfly_api_client.models.post_members_id_offer_states_issue_request import PostMembersIdOfferStatesIssueRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -400,14 +400,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
-    post_members_id_offer_states_issue_request = openapi_client.PostMembersIdOfferStatesIssueRequest() # PostMembersIdOfferStatesIssueRequest |  (optional)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
+    post_members_id_offer_states_issue_request = sparkfly_api_client.PostMembersIdOfferStatesIssueRequest() # PostMembersIdOfferStatesIssueRequest |  (optional)
 
     try:
         # Issue an Offer to a member (high throughput)
-        api_response = api_instance.post_members_id_offer_states_issue(post_members_id_offer_states_issue_request=post_members_id_offer_states_issue_request)
+        api_response = await api_instance.post_members_id_offer_states_issue(post_members_id_offer_states_issue_request=post_members_id_offer_states_issue_request)
         print("The response of OfferStatesApi->post_members_id_offer_states_issue:\n")
         pprint(api_response)
     except Exception as e:
@@ -456,14 +456,14 @@ Creates an offer state from member, offer, and channel IDs.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_state import OfferState
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_state import OfferState
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -479,9 +479,9 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     member_id = 'member_id_example' # str | The member's primary key
     content_type = 'content_type_example' # str | application/json (optional)
     channel_id = 'channel_id_example' # str | The channel's primary key (optional)
@@ -489,7 +489,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Create Offer State
-        api_response = api_instance.post_members_member_id_offer_states(member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id)
+        api_response = await api_instance.post_members_member_id_offer_states(member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id)
         print("The response of OfferStatesApi->post_members_member_id_offer_states:\n")
         pprint(api_response)
     except Exception as e:
@@ -544,15 +544,15 @@ Updates the offer state by offer state ID through a post.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_state import OfferState
-from openapi_client.models.offer_state_update import OfferStateUpdate
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_state import OfferState
+from sparkfly_api_client.models.offer_state_update import OfferStateUpdate
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -568,16 +568,16 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
     member_id = 'member_id_example' # str | The member's primary key
-    offer_state_update = openapi_client.OfferStateUpdate() # OfferStateUpdate |  (optional)
+    offer_state_update = sparkfly_api_client.OfferStateUpdate() # OfferStateUpdate |  (optional)
 
     try:
         # Update Offer State - Post
-        api_response = api_instance.post_members_member_id_offer_states_offerstate_id(offerstate_id, member_id, offer_state_update=offer_state_update)
+        api_response = await api_instance.post_members_member_id_offer_states_offerstate_id(offerstate_id, member_id, offer_state_update=offer_state_update)
         print("The response of OfferStatesApi->post_members_member_id_offer_states_offerstate_id:\n")
         pprint(api_response)
     except Exception as e:
@@ -631,13 +631,13 @@ Voids an offer state from an offer state ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -653,15 +653,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     member_id = 'member_id_example' # str | The member's primary key
     offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
 
     try:
         # Void Offer State
-        api_instance.post_members_member_id_offer_states_offerstate_id_void(member_id, offerstate_id)
+        await api_instance.post_members_member_id_offer_states_offerstate_id_void(member_id, offerstate_id)
     except Exception as e:
         print("Exception when calling OfferStatesApi->post_members_member_id_offer_states_offerstate_id_void: %s\n" % e)
 ```
@@ -713,13 +713,13 @@ Voids an offer state by the member identifier.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -735,15 +735,15 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
     member_identifier = 'member_identifier_example' # str | the member identifier attached to a member (optional)
 
     try:
         # Void Offer State by Member Identifier
-        api_instance.post_members_member_id_offer_states_offerstate_id_voidmember_identifier_member_identifier(offerstate_id, member_identifier=member_identifier)
+        await api_instance.post_members_member_id_offer_states_offerstate_id_voidmember_identifier_member_identifier(offerstate_id, member_identifier=member_identifier)
     except Exception as e:
         print("Exception when calling OfferStatesApi->post_members_member_id_offer_states_offerstate_id_voidmember_identifier_member_identifier: %s\n" % e)
 ```
@@ -795,15 +795,15 @@ Creates an offer state using the osid, offer_id or channel_id.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_state import OfferState
-from openapi_client.models.offer_state_request import OfferStateRequest
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_state import OfferState
+from sparkfly_api_client.models.offer_state_request import OfferStateRequest
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -819,18 +819,18 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
     token = 'token_example' # str | An offer state's osid (optional)
     offer_id = 'offer_id_example' # str | search for records with a matching offer id (optional)
     channel_id = 'channel_id_example' # str | The channel's primary key (optional)
-    offer_state_request = openapi_client.OfferStateRequest() # OfferStateRequest |  (optional)
+    offer_state_request = sparkfly_api_client.OfferStateRequest() # OfferStateRequest |  (optional)
 
     try:
         # Create Offer State from Query Parameters
-        api_response = api_instance.post_members_offer_states(content_type=content_type, token=token, offer_id=offer_id, channel_id=channel_id, offer_state_request=offer_state_request)
+        api_response = await api_instance.post_members_offer_states(content_type=content_type, token=token, offer_id=offer_id, channel_id=channel_id, offer_state_request=offer_state_request)
         print("The response of OfferStatesApi->post_members_offer_states:\n")
         pprint(api_response)
     except Exception as e:
@@ -886,15 +886,15 @@ Updates an offer state by offer state ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.offer_state import OfferState
-from openapi_client.models.offer_state_update import OfferStateUpdate
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.offer_state import OfferState
+from sparkfly_api_client.models.offer_state_update import OfferStateUpdate
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -910,17 +910,17 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.OfferStatesApi(api_client)
+    api_instance = sparkfly_api_client.OfferStatesApi(api_client)
     offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
     member_id = 'member_id_example' # str | The member's primary key
     content_type = 'content_type_example' # str | application/json (optional)
-    offer_state_update = openapi_client.OfferStateUpdate() # OfferStateUpdate |  (optional)
+    offer_state_update = sparkfly_api_client.OfferStateUpdate() # OfferStateUpdate |  (optional)
 
     try:
         # Update Offer State
-        api_response = api_instance.put_members_member_id_offer_states_offer_state_id(offerstate_id, member_id, content_type=content_type, offer_state_update=offer_state_update)
+        api_response = await api_instance.put_members_member_id_offer_states_offer_state_id(offerstate_id, member_id, content_type=content_type, offer_state_update=offer_state_update)
         print("The response of OfferStatesApi->put_members_member_id_offer_states_offer_state_id:\n")
         pprint(api_response)
     except Exception as e:

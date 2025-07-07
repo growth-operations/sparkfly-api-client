@@ -1,4 +1,4 @@
-# openapi_client.BIStoreListsApi
+# sparkfly_api_client.BIStoreListsApi
 
 All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
@@ -19,14 +19,14 @@ List all BI Store Lists by Account ID.
 * Api Key Authentication (XAuthToken):
 
 ```python
-import openapi_client
-from openapi_client.models.bi_store_list import BiStoreList
-from openapi_client.rest import ApiException
+import sparkfly_api_client
+from sparkfly_api_client.models.bi_store_list import BiStoreList
+from sparkfly_api_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = sparkfly_api_client.Configuration(
     host = "https://api-staging.sparkfly.com/v1.0"
 )
 
@@ -42,14 +42,14 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 # configuration.api_key_prefix['XAuthToken'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+async with sparkfly_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BIStoreListsApi(api_client)
+    api_instance = sparkfly_api_client.BIStoreListsApi(api_client)
     content_type = 'content_type_example' # str | application/json (optional)
 
     try:
         # List all BI Store Lists
-        api_response = api_instance.get_merchants_bi_store_lists(content_type=content_type)
+        api_response = await api_instance.get_merchants_bi_store_lists(content_type=content_type)
         print("The response of BIStoreListsApi->get_merchants_bi_store_lists:\n")
         pprint(api_response)
     except Exception as e:

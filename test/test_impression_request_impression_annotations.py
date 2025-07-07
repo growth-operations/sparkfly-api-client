@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.impression_request_impression_annotations import ImpressionRequestImpressionAnnotations
+from sparkfly_api_client.models.impression_request_impression_annotations import ImpressionRequestImpressionAnnotations
 
 class TestImpressionRequestImpressionAnnotations(unittest.TestCase):
     """ImpressionRequestImpressionAnnotations unit test stubs"""

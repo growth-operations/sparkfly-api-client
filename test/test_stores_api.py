@@ -15,54 +15,54 @@
 
 import unittest
 
-from openapi_client.api.stores_api import StoresApi
+from sparkfly_api_client.api.stores_api import StoresApi
 
 
-class TestStoresApi(unittest.TestCase):
+class TestStoresApi(unittest.IsolatedAsyncioTestCase):
     """StoresApi unit test stubs"""
 
-    def setUp(self) -> None:
+    async def asyncSetUp(self) -> None:
         self.api = StoresApi()
 
-    def tearDown(self) -> None:
-        pass
+    async def asyncTearDown(self) -> None:
+        await self.api.api_client.close()
 
-    def test_delete_merchants_merchant_id_stores_store_id(self) -> None:
+    async def test_delete_merchants_merchant_id_stores_store_id(self) -> None:
         """Test case for delete_merchants_merchant_id_stores_store_id
 
         Remove a Store
         """
         pass
 
-    def test_get_merchants_merchant_id_stores(self) -> None:
+    async def test_get_merchants_merchant_id_stores(self) -> None:
         """Test case for get_merchants_merchant_id_stores
 
         List all Stores
         """
         pass
 
-    def test_get_merchants_merchant_id_stores_index(self) -> None:
+    async def test_get_merchants_merchant_id_stores_index(self) -> None:
         """Test case for get_merchants_merchant_id_stores_index
 
         List all Stores with Active Offers
         """
         pass
 
-    def test_get_merchants_merchant_id_stores_store_id(self) -> None:
+    async def test_get_merchants_merchant_id_stores_store_id(self) -> None:
         """Test case for get_merchants_merchant_id_stores_store_id
 
         Retrieve a Store
         """
         pass
 
-    def test_post_merchants_merchant_id_stores(self) -> None:
+    async def test_post_merchants_merchant_id_stores(self) -> None:
         """Test case for post_merchants_merchant_id_stores
 
         Create a Store
         """
         pass
 
-    def test_put_merchants_merchant_id_stores_store_id(self) -> None:
+    async def test_put_merchants_merchant_id_stores_store_id(self) -> None:
         """Test case for put_merchants_merchant_id_stores_store_id
 
         Update a Store

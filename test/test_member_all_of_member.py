@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.member_all_of_member import MemberAllOfMember
+from sparkfly_api_client.models.member_all_of_member import MemberAllOfMember
 
 class TestMemberAllOfMember(unittest.TestCase):
     """MemberAllOfMember unit test stubs"""

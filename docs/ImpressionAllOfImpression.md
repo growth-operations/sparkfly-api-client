@@ -10,15 +10,15 @@ Name | Type | Description | Notes
 **annotations** | [**ImpressionRequestImpressionAnnotations**](ImpressionRequestImpressionAnnotations.md) |  | [optional] 
 **created_at** | **str** |  | [optional] 
 **updated_at** | **str** |  | [optional] 
-**channel_id** | **object** |  | [optional] 
-**channel_name** | **object** |  | [optional] 
-**creative_name** | **object** |  | [optional] 
+**channel_id** | **str** |  | [optional] 
+**channel_name** | **str** |  | [optional] 
+**creative_name** | **str** |  | [optional] 
 **errors** | [**Errors**](Errors.md) |  | [optional] 
 
 ## Example
 
 ```python
-from openapi_client.models.impression_all_of_impression import ImpressionAllOfImpression
+from sparkfly_api_client.models.impression_all_of_impression import ImpressionAllOfImpression
 
 # TODO update the JSON string below
 json = "{}"

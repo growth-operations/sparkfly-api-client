@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.impression_error_body import ImpressionErrorBody
+from sparkfly_api_client.models.impression_error_body import ImpressionErrorBody
 
 # TODO update the JSON string below
 json = "{}"

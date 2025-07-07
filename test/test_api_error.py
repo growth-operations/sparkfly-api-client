@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.api_error import APIError
+from sparkfly_api_client.models.api_error import APIError
 
 class TestAPIError(unittest.TestCase):
     """APIError unit test stubs"""

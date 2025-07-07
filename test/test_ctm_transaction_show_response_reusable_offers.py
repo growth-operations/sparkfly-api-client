@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.ctm_transaction_show_response_reusable_offers import CtmTransactionShowResponseReusableOffers
+from sparkfly_api_client.models.ctm_transaction_show_response_reusable_offers import CtmTransactionShowResponseReusableOffers
 
 class TestCtmTransactionShowResponseReusableOffers(unittest.TestCase):
     """CtmTransactionShowResponseReusableOffers unit test stubs"""

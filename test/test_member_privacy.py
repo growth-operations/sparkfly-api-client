@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.member_privacy import MemberPrivacy
+from sparkfly_api_client.models.member_privacy import MemberPrivacy
 
 class TestMemberPrivacy(unittest.TestCase):
     """MemberPrivacy unit test stubs"""
@@ -36,13 +36,13 @@ class TestMemberPrivacy(unittest.TestCase):
         model = MemberPrivacy()
         if include_optional:
             return MemberPrivacy(
-                member = openapi_client.models.member_privacy_member.member_privacy_member(
+                member = sparkfly_api_client.models.member_privacy_member.member_privacy_member(
                     created_at = '', 
                     identifier = '', ),
                 credentials = [
-                    openapi_client.models.member_privacy_credentials_inner.member_privacy_credentials_inner(
+                    sparkfly_api_client.models.member_privacy_credentials_inner.member_privacy_credentials_inner(
                         identifier = '', 
-                        offer_ids = null, )
+                        offer_ids = '', )
                     ],
                 offer_activities = [
                     None

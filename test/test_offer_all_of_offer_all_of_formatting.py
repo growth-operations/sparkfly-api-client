@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.offer_all_of_offer_all_of_formatting import OfferAllOfOfferAllOfFormatting
+from sparkfly_api_client.models.offer_all_of_offer_all_of_formatting import OfferAllOfOfferAllOfFormatting
 
 class TestOfferAllOfOfferAllOfFormatting(unittest.TestCase):
     """OfferAllOfOfferAllOfFormatting unit test stubs"""
@@ -39,7 +39,7 @@ class TestOfferAllOfOfferAllOfFormatting(unittest.TestCase):
                 bg_image = '',
                 custom_offer_group = '',
                 description = '',
-                eligible_store_map = openapi_client.models.offer_all_of_offer_all_of_formatting_eligible_store_map.offer_allOf_offer_allOf_formatting_eligible_store_map(
+                eligible_store_map = sparkfly_api_client.models.offer_all_of_offer_all_of_formatting_eligible_store_map.offer_allOf_offer_allOf_formatting_eligible_store_map(
                     hello = '', ),
                 mobile_thumb_url = '',
                 mobile_url = '',

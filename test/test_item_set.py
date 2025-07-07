@@ -15,7 +15,7 @@
 
 import unittest
 
-from openapi_client.models.item_set import ItemSet
+from sparkfly_api_client.models.item_set import ItemSet
 
 class TestItemSet(unittest.TestCase):
     """ItemSet unit test stubs"""
@@ -36,7 +36,7 @@ class TestItemSet(unittest.TestCase):
         model = ItemSet()
         if include_optional:
             return ItemSet(
-                errors = openapi_client.models.response_body_errors.ResponseBodyErrors(),
+                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
                 item_set = None
             )
         else:
