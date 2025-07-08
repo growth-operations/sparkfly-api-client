@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**201** | Example response |  -  |
+**200** | Example response |  -  |
 **401** | Unauthorized |  -  |
 **403** | Example response |  -  |
 **500** | Example response |  -  |

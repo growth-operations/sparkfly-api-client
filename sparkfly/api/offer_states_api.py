@@ -1610,7 +1610,7 @@ class OfferStatesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "OfferState",
+            '200': "OfferState",
             '401': None,
             '403': "OfferStateError",
             '500': "OfferStateError",
@@ -1696,7 +1696,7 @@ class OfferStatesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "OfferState",
+            '200': "OfferState",
             '401': None,
             '403': "OfferStateError",
             '500': "OfferStateError",
@@ -1782,7 +1782,7 @@ class OfferStatesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "OfferState",
+            '200': "OfferState",
             '401': None,
             '403': "OfferStateError",
             '500': "OfferStateError",
