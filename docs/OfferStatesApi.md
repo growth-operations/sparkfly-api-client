@@ -445,7 +445,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_members_member_id_offer_states**
-> OfferState post_members_member_id_offer_states(member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id)
+> OfferState post_members_member_id_offer_states(member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id, offer_state_request=offer_state_request)
 
 Create Offer State
 
@@ -458,6 +458,7 @@ Creates an offer state from member, offer, and channel IDs.
 ```python
 import sparkfly
 from sparkfly.models.offer_state import OfferState
+from sparkfly.models.offer_state_request import OfferStateRequest
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -486,10 +487,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
     content_type = 'content_type_example' # str | application/json (optional)
     channel_id = 'channel_id_example' # str | The channel's primary key (optional)
     offer_id = 'offer_id_example' # str | search for records with a matching offer id (optional)
+    offer_state_request = sparkfly.OfferStateRequest() # OfferStateRequest |  (optional)
 
     try:
         # Create Offer State
-        api_response = await api_instance.post_members_member_id_offer_states(member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id)
+        api_response = await api_instance.post_members_member_id_offer_states(member_id, content_type=content_type, channel_id=channel_id, offer_id=offer_id, offer_state_request=offer_state_request)
         print("The response of OfferStatesApi->post_members_member_id_offer_states:\n")
         pprint(api_response)
     except Exception as e:
@@ -507,6 +509,7 @@ Name | Type | Description  | Notes
  **content_type** | **str**| application/json | [optional] 
  **channel_id** | **str**| The channel&#39;s primary key | [optional] 
  **offer_id** | **str**| search for records with a matching offer id | [optional] 
+ **offer_state_request** | [**OfferStateRequest**](OfferStateRequest.md)|  | [optional] 
 
 ### Return type
 
@@ -518,7 +521,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

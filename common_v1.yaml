@@ -1672,18 +1672,36 @@ paths:
     get:
       tags:
         - Campaigns
-      summary: Retrieve a Campaign by External ID and Offer ID
-      description: Retrieve a campaign.
-      operationId: get-campaign-external-id
+      summary: List all Campaigns
+      description: Retrieve all campaigns associated with your account.
+      operationId: get-campaigns
       parameters:
-        - $ref: "#/components/parameters/ExternalID"
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+        - $ref: "#/components/parameters/Order"
+        - name: sort_by
+          in: query
+          description: sort records by a field name
+          schema:
+            type: string
+            enum:
+              - id
+              - name
+              - created_at
+        - name: search_text
+          in: query
+          description: search for records containing the text
+          schema:
+            type: string
+        - $ref: "#/components/parameters/Status"
         - $ref: "#/components/parameters/OfferID"
+        - $ref: "#/components/parameters/ExternalID"
       responses:
         "200":
-          $ref: "#/components/responses/Campaign"
-        "400":
-          $ref: "#/components/responses/APIError"
-        "404":
+          $ref: "#/components/responses/CampaignIndex"
+        "401":
+          description: Unauthorized
+        "500":
           $ref: "#/components/responses/APIError"
       servers:
         - url: "https://api-staging.sparkfly.com/v1.0"
@@ -2170,6 +2188,8 @@ paths:
         - $ref: "#/components/parameters/ChannelID"
         - $ref: "#/components/parameters/OfferID"
         - $ref: "#/components/parameters/MemberIDPath"
+      requestBody:
+        $ref: "#/components/requestBodies/OfferState"
       responses:
         "201":
           $ref: "#/components/responses/OfferState"
@@ -3434,6 +3454,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/campaign_response"
+    CampaignIndex:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/campaign_index_body"
     CampaignTags:
       description: Example response
       content:
@@ -6154,3 +6180,13 @@ components:
           total_entries: 1
           total_pages: 1
           clark_and_riggs_products: []
+    campaign_index_body:
+      title: campaign_index_body
+      allOf:
+        - $ref: "#/components/schemas/PageResponseBody"
+        - type: object
+          properties:
+            campaigns:
+              type: array
+              items:
+                $ref: "#/components/schemas/campaign_response"

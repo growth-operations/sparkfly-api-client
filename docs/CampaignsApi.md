@@ -5,8 +5,8 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**get_campaign**](CampaignsApi.md#get_campaign) | **GET** /campaigns/{campaign_id} | Retrieve a Campaign by Campaign ID
-[**get_campaign_external_id**](CampaignsApi.md#get_campaign_external_id) | **GET** /campaigns | Retrieve a Campaign by External ID and Offer ID
 [**get_campaign_tags**](CampaignsApi.md#get_campaign_tags) | **GET** /campaigns/tags | Retrieve Campaign Tags
+[**get_campaigns**](CampaignsApi.md#get_campaigns) | **GET** /campaigns | List all Campaigns
 [**post_campaign**](CampaignsApi.md#post_campaign) | **POST** /campaigns | Create a Campaign
 [**put_campaign**](CampaignsApi.md#put_campaign) | **PUT** /campaigns/{campaign_id} | Update a Campaign by Campaign ID
 [**put_campaigns_campaign_id_actions_approve**](CampaignsApi.md#put_campaigns_campaign_id_actions_approve) | **PUT** /campaigns/{campaign_id}/actions/{action} | Set a Campaign&#39;s Status
@@ -69,89 +69,6 @@ async with sparkfly.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **campaign_id** | **str**| search for records with a matching campaign ID | 
-
-### Return type
-
-[**CampaignResponse**](CampaignResponse.md)
-
-### Authorization
-
-[XAuthToken](../README.md#XAuthToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Example response |  -  |
-**400** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
-**404** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_campaign_external_id**
-> CampaignResponse get_campaign_external_id(external_id=external_id, offer_id=offer_id)
-
-Retrieve a Campaign by External ID and Offer ID
-
-Retrieve a campaign.
-
-### Example
-
-* Api Key Authentication (XAuthToken):
-
-```python
-import sparkfly
-from sparkfly.models.campaign_response import CampaignResponse
-from sparkfly.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = sparkfly.Configuration(
-    host = "https://api-staging.sparkfly.com/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: XAuthToken
-configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-async with sparkfly.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sparkfly.CampaignsApi(api_client)
-    external_id = 'external_id_example' # str | search for records with a matching external ID (optional)
-    offer_id = 'offer_id_example' # str | search for records with a matching offer id (optional)
-
-    try:
-        # Retrieve a Campaign by External ID and Offer ID
-        api_response = await api_instance.get_campaign_external_id(external_id=external_id, offer_id=offer_id)
-        print("The response of CampaignsApi->get_campaign_external_id:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling CampaignsApi->get_campaign_external_id: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **external_id** | **str**| search for records with a matching external ID | [optional] 
- **offer_id** | **str**| search for records with a matching offer id | [optional] 
 
 ### Return type
 
@@ -249,6 +166,101 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Example response |  -  |
 **404** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
+**500** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_campaigns**
+> CampaignIndexBody get_campaigns(page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text, status=status, offer_id=offer_id, external_id=external_id)
+
+List all Campaigns
+
+Retrieve all campaigns associated with your account.
+
+### Example
+
+* Api Key Authentication (XAuthToken):
+
+```python
+import sparkfly
+from sparkfly.models.campaign_index_body import CampaignIndexBody
+from sparkfly.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sparkfly.Configuration(
+    host = "https://api-staging.sparkfly.com/v1.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with sparkfly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = sparkfly.CampaignsApi(api_client)
+    page = '1' # str | page offset to display a range of records from (optional) (default to '1')
+    per_page = '5000' # str | maximum number of records to return in the search (optional) (default to '5000')
+    order = asc # str | sort the records in either ascending (asc) or descending (desc) order (optional) (default to asc)
+    sort_by = 'sort_by_example' # str | sort records by a field name (optional)
+    search_text = 'search_text_example' # str | search for records containing the text (optional)
+    status = 'status_example' # str | search for records matching the desired status (optional)
+    offer_id = 'offer_id_example' # str | search for records with a matching offer id (optional)
+    external_id = 'external_id_example' # str | search for records with a matching external ID (optional)
+
+    try:
+        # List all Campaigns
+        api_response = await api_instance.get_campaigns(page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text, status=status, offer_id=offer_id, external_id=external_id)
+        print("The response of CampaignsApi->get_campaigns:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling CampaignsApi->get_campaigns: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **str**| page offset to display a range of records from | [optional] [default to &#39;1&#39;]
+ **per_page** | **str**| maximum number of records to return in the search | [optional] [default to &#39;5000&#39;]
+ **order** | **str**| sort the records in either ascending (asc) or descending (desc) order | [optional] [default to asc]
+ **sort_by** | **str**| sort records by a field name | [optional] 
+ **search_text** | **str**| search for records containing the text | [optional] 
+ **status** | **str**| search for records matching the desired status | [optional] 
+ **offer_id** | **str**| search for records with a matching offer id | [optional] 
+ **external_id** | **str**| search for records with a matching external ID | [optional] 
+
+### Return type
+
+[**CampaignIndexBody**](CampaignIndexBody.md)
+
+### Authorization
+
+[XAuthToken](../README.md#XAuthToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Example response |  -  |
+**401** | Unauthorized |  -  |
 **500** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

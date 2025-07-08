@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.1.8"
+__version__ = "1.1.9"
 
 # Define package exports
 __all__ = [
@@ -51,6 +51,7 @@ __all__ = [
     "Audience",
     "BiStoreList",
     "BiStoreListStoreListsInner",
+    "CampaignIndexBody",
     "CampaignRequest",
     "CampaignRequestCampaign",
     "CampaignResponse",
@@ -220,6 +221,7 @@ from sparkfly.models.api_error import APIError as APIError
 from sparkfly.models.audience import Audience as Audience
 from sparkfly.models.bi_store_list import BiStoreList as BiStoreList
 from sparkfly.models.bi_store_list_store_lists_inner import BiStoreListStoreListsInner as BiStoreListStoreListsInner
+from sparkfly.models.campaign_index_body import CampaignIndexBody as CampaignIndexBody
 from sparkfly.models.campaign_request import CampaignRequest as CampaignRequest
 from sparkfly.models.campaign_request_campaign import CampaignRequestCampaign as CampaignRequestCampaign
 from sparkfly.models.campaign_response import CampaignResponse as CampaignResponse

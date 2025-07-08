@@ -19,6 +19,7 @@ from sparkfly.models.api_error import APIError
 from sparkfly.models.audience import Audience
 from sparkfly.models.bi_store_list import BiStoreList
 from sparkfly.models.bi_store_list_store_lists_inner import BiStoreListStoreListsInner
+from sparkfly.models.campaign_index_body import CampaignIndexBody
 from sparkfly.models.campaign_request import CampaignRequest
 from sparkfly.models.campaign_request_campaign import CampaignRequestCampaign
 from sparkfly.models.campaign_response import CampaignResponse

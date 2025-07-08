@@ -10,6 +10,7 @@ docs/AuthenticationApi.md
 docs/BIStoreListsApi.md
 docs/BiStoreList.md
 docs/BiStoreListStoreListsInner.md
+docs/CampaignIndexBody.md
 docs/CampaignRequest.md
 docs/CampaignRequestCampaign.md
 docs/CampaignResponse.md
@@ -191,6 +192,7 @@ sparkfly/models/api_error.py
 sparkfly/models/audience.py
 sparkfly/models/bi_store_list.py
 sparkfly/models/bi_store_list_store_lists_inner.py
+sparkfly/models/campaign_index_body.py
 sparkfly/models/campaign_request.py
 sparkfly/models/campaign_request_campaign.py
 sparkfly/models/campaign_response.py
