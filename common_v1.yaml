@@ -4009,10 +4009,140 @@ components:
         offer:
           type: object
           properties:
+            id:
+              type: integer
+            status:
+              type: string
+            merchant_id:
+              type: string
+              nullable: true
+            manufacturer_id:
+              type: string
+              nullable: true
             name:
               type: string
+            description:
+              type: string
+            description_template_id:
+              type: string
+              nullable: true
             offer_type:
               type: integer
+            category:
+              type: string
+            offer_code:
+              type: string
+            pos_offer_code:
+              type: string
+            criteria:
+              type: object
+            points_earning_value:
+              type: integer
+            points_required_value:
+              type: integer
+            reward_item_description:
+              type: string
+            reward_item_value:
+              type: integer
+            terms_and_conditions:
+              type: string
+            terms_and_conditions_template_id:
+              type: string
+              nullable: true
+            quest_only:
+              type: boolean
+              nullable: true
+            merchant_name:
+              type: string
+            external_reward:
+              type: string
+            is_reward:
+              type: boolean
+            locked:
+              type: boolean
+              nullable: true
+            activates_at:
+              type: string
+            expires_at:
+              type: string
+            stop_offering_at:
+              type: string
+            created_at:
+              type: string
+            updated_at:
+              type: string
+            max_amount:
+              type: integer
+            min_spend_amount:
+              type: integer
+            trigger_amount:
+              type: integer
+              nullable: true
+            max_redemptions:
+              type: integer
+            max_redemptions_per_member:
+              type: integer
+            max_redemptions_per_member_per_day:
+              type: integer
+            account_id:
+              type: integer
+            initial_value_mode:
+              type: string
+            offer_value_text:
+              type: string
+            offer_value_text_es:
+              type: string
+            formatting:
+              type: object
+              properties:
+                bg_image:
+                  type: string
+                custom_offer_group:
+                  type: string
+                description:
+                  type: string
+                eligible_store_map:
+                  type: object
+                  properties:
+                    hello:
+                      type: string
+                mobile_thumb_url:
+                  type: string
+                mobile_url:
+                  type: string
+                no_printable:
+                  type: boolean
+                offer_store_highlight_text_template:
+                  type: string
+                offer_storelist_highlight_text_template:
+                  type: string
+                short_name:
+                  type: string
+                web_thumb_url:
+                  type: string
+                web_url:
+                  type: string
+            eligibility:
+              type: object
+              properties:
+                merchant_ids:
+                  type: array
+                  items:
+                    type: integer
+                store_list_ids:
+                  type: array
+                  items:
+                    type: object
+                member_list_ids:
+                  type: array
+                  items:
+                    type: object
+                channel_ids:
+                  type: array
+                  items:
+                    type: object
+            redeem_until_depleted:
+              type: boolean
             redemption_grace_period:
               type: integer
               format: int32
@@ -4022,8 +4152,66 @@ components:
       x-examples:
         Example 1:
           offer:
-            name: string
-            offer_type: 0
+            id: 13
+            status: pending
+            merchant_id: null
+            manufacturer_id: null
+            name: offernametest
+            description: created offer description
+            description_template_id: null
+            offer_type: 21
+            category: created category
+            offer_code: created offer code
+            pos_offer_code: created pos offer code
+            criteria: {}
+            points_earning_value: 369
+            points_required_value: 48
+            reward_item_description: created reward item description
+            reward_item_value: 25
+            terms_and_conditions: created terms and conditions
+            terms_and_conditions_template_id: null
+            quest_only: null
+            merchant_name: created merchant name
+            external_reward: created external reward
+            is_reward: true
+            locked: null
+            activates_at: "2025-11-01T00:00:00Z"
+            expires_at: "2045-11-01T00:00:00Z"
+            stop_offering_at: "2041-11-01T00:00:00Z"
+            created_at: "2023-06-27T20:33:01Z"
+            updated_at: "2023-06-27T20:33:01Z"
+            max_amount: 35
+            min_spend_amount: 25
+            trigger_amount: null
+            max_redemptions: 8
+            max_redemptions_per_member: 6
+            max_redemptions_per_member_per_day: 2
+            account_id: 3
+            initial_value_mode: static
+            offer_value_text: 25% off
+            offer_value_text_es: 25% de descuento
+            formatting:
+              bg_image: bg_image
+              custom_offer_group: custom_offer_group
+              description: description
+              eligible_store_map:
+                hello: world
+              mobile_thumb_url: mobile_thumb_url
+              mobile_url: mobile_url
+              no_printable: true
+              offer_store_highlight_text_template: offer_store_highlight_text_template
+              offer_storelist_highlight_text_template: offer_storelist_highlight_text_template
+              short_name: short_name
+              web_thumb_url: web_thumb_url
+              web_url: web_url
+            eligibility:
+              merchant_ids:
+                - 1
+              store_list_ids: []
+              member_list_ids: []
+              channel_ids: []
+            redeem_until_depleted: false
+          errors: {}
     ctm_redemption_job_request:
       type: object
       title: ctm_redemption_job_request
@@ -4479,68 +4667,68 @@ components:
         - type: object
           properties:
             store:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
+              type: object
+              properties:
+                id:
+                  type: integer
+                merchant_id:
+                  type: integer
+                name:
+                  type: string
+                site_id:
+                  type: string
+                number:
+                  type: string
+                is_active:
+                  type: boolean
+                description:
+                  type: string
+                phone:
+                  type: string
+                contacts:
+                  type: object
                   properties:
-                    merchant_id:
+                    primary:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        phone:
+                          type: string
+                        email:
+                          type: string
+                    secondary:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        phone:
+                          type: string
+                        email:
+                          type: string
+                location:
+                  type: object
+                  properties:
+                    address:
+                      type: string
+                    address2:
+                      type: string
+                    city:
+                      type: string
+                    state:
+                      type: string
+                    zip:
+                      type: string
+                    country:
+                      type: string
+                    lat:
                       type: integer
-                    name:
-                      type: string
-                    site_id:
-                      type: string
-                    number:
-                      type: string
-                    is_active:
-                      type: boolean
-                    description:
-                      type: string
-                    phone:
-                      type: string
-                    contacts:
-                      type: object
-                      properties:
-                        primary:
-                          type: object
-                          properties:
-                            name:
-                              type: string
-                            phone:
-                              type: string
-                            email:
-                              type: string
-                        secondary:
-                          type: object
-                          properties:
-                            name:
-                              type: string
-                            phone:
-                              type: string
-                            email:
-                              type: string
-                    location:
-                      type: object
-                      properties:
-                        address:
-                          type: string
-                        address2:
-                          type: string
-                        city:
-                          type: string
-                        state:
-                          type: string
-                        zip:
-                          type: string
-                        country:
-                          type: string
-                        lat:
-                          type: integer
-                        lng:
-                          type: integer
-                    icon_url:
-                      type: string
-                    online_ordering_id:
-                      type: string
+                    lng:
+                      type: integer
+                icon_url:
+                  type: string
+                online_ordering_id:
+                  type: string
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -4590,18 +4778,18 @@ components:
         - type: object
           properties:
             store_list:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
-                  properties:
-                    merchant_id:
-                      type: integer
-                    name:
-                      type: string
-                    store_ids:
-                      type: array
-                      items:
-                        type: integer
+              type: object
+              properties:
+                id:
+                  type: integer
+                merchant_id:
+                  type: integer
+                name:
+                  type: string
+                store_ids:
+                  type: array
+                  items:
+                    type: integer
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -4650,95 +4838,95 @@ components:
       type: object
       properties:
         campaign:
-          allOf:
-            - $ref: "#/components/schemas/id"
-            - type: object
-              properties:
-                xid:
-                  type: string
-                name:
-                  type: string
-                code_ref:
-                  type: string
-                code_count:
-                  type: string
-                external_id:
-                  type: string
-                offer_id:
-                  type: integer
-                channel_id:
-                  type: integer
-                channel_name:
-                  type: string
-                pos_offer_code:
-                  type: string
-                online_offer_code:
-                  type: string
-                activation_date:
-                  type: string
-                  nullable: true
-                expiration_date:
-                  type: string
-                start_display_at:
-                  type: string
-                funding_source:
-                  type: string
-                eligible_channel_tags:
-                  type: array
-                  items:
-                    type: object
-                eligible_store_ids:
-                  type: array
-                  items:
-                    type: object
-                eligible_store_numbers:
-                  type: array
-                  items:
-                    type: object
-                eligible_storelist_ids:
-                  type: array
-                  items:
-                    type: object
-                eligible_storelist_numbers:
-                  type: array
-                  items:
-                    type: object
-                landing_page_image_template_id:
-                  type: string
-                description_template_id:
-                  type: string
-                description:
-                  type: string
-                terms_and_conditions_template_id:
-                  type: string
-                terms_and_conditions:
-                  type: string
-                security:
-                  type: string
-                landing_page_urls:
-                  type: object
-                allow_return_later:
-                  type: boolean
-                redemption_identifier_type:
-                  type: integer
-                member_required:
-                  type: boolean
-                max_redemptions_per_member:
-                  type: string
-                dynamic_expiration:
-                  type: string
-                sub_audience_id:
-                  type: integer
-                audience_id:
-                  type: integer
-                status:
-                  type: string
-                redemption_grace_period:
-                  type: integer
-                  format: int32
-                  exclusiveMinimum: 0
-                  multipleOf: 60
-                  default: null
+          type: object
+          properties:
+            id:
+              type: integer
+            xid:
+              type: string
+            name:
+              type: string
+            code_ref:
+              type: string
+            code_count:
+              type: string
+            external_id:
+              type: string
+            offer_id:
+              type: integer
+            channel_id:
+              type: integer
+            channel_name:
+              type: string
+            pos_offer_code:
+              type: string
+            online_offer_code:
+              type: string
+            activation_date:
+              type: string
+              nullable: true
+            expiration_date:
+              type: string
+            start_display_at:
+              type: string
+            funding_source:
+              type: string
+            eligible_channel_tags:
+              type: array
+              items:
+                type: object
+            eligible_store_ids:
+              type: array
+              items:
+                type: object
+            eligible_store_numbers:
+              type: array
+              items:
+                type: object
+            eligible_storelist_ids:
+              type: array
+              items:
+                type: object
+            eligible_storelist_numbers:
+              type: array
+              items:
+                type: object
+            landing_page_image_template_id:
+              type: string
+            description_template_id:
+              type: string
+            description:
+              type: string
+            terms_and_conditions_template_id:
+              type: string
+            terms_and_conditions:
+              type: string
+            security:
+              type: string
+            landing_page_urls:
+              type: object
+            allow_return_later:
+              type: boolean
+            redemption_identifier_type:
+              type: integer
+            member_required:
+              type: boolean
+            max_redemptions_per_member:
+              type: string
+            dynamic_expiration:
+              type: string
+            sub_audience_id:
+              type: integer
+            audience_id:
+              type: integer
+            status:
+              type: string
+            redemption_grace_period:
+              type: integer
+              format: int32
+              exclusiveMinimum: 0
+              multipleOf: 60
+              default: null
         errors:
           $ref: "#/components/schemas/errors"
       x-examples:
@@ -4806,18 +4994,18 @@ components:
         - type: object
           properties:
             member:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
-                  properties:
-                    identifier:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    notification_mode:
-                      type: string
+              type: object
+              properties:
+                id:
+                  type: integer
+                identifier:
+                  type: string
+                created_at:
+                  type: string
+                updated_at:
+                  type: string
+                notification_mode:
+                  type: string
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -5092,42 +5280,42 @@ components:
         - type: object
           properties:
             impression:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
+              type: object
+              properties:
+                id:
+                  type: integer
+                cookie_id:
+                  type: string
+                offer_xid:
+                  type: string
+                annotations:
+                  type: object
                   properties:
-                    cookie_id:
+                    str1:
+                      type: integer
+                    str2:
+                      type: integer
+                    str3:
                       type: string
-                    offer_xid:
+                    str4:
+                      type: boolean
+                    str5:
                       type: string
-                    annotations:
-                      type: object
-                      properties:
-                        str1:
-                          type: integer
-                        str2:
-                          type: integer
-                        str3:
-                          type: string
-                        str4:
-                          type: boolean
-                        str5:
-                          type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    channel_id:
-                      type: string
-                      nullable: true
-                    channel_name:
-                      type: string
-                      nullable: true
-                    creative_name:
-                      type: string
-                      nullable: true
-                    errors:
-                      $ref: "#/components/schemas/errors"
+                created_at:
+                  type: string
+                updated_at:
+                  type: string
+                channel_id:
+                  type: string
+                  nullable: true
+                channel_name:
+                  type: string
+                  nullable: true
+                creative_name:
+                  type: string
+                  nullable: true
+                errors:
+                  $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
           impression:
@@ -5163,28 +5351,28 @@ components:
         - type: object
           properties:
             pos_offer_code:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
-                  properties:
-                    account_id:
-                      type: integer
-                    code:
-                      type: string
-                    description:
-                      type: string
-                    pos_offer_code_type_id:
-                      type: string
-                      nullable: true
-                    pos_offer_code_pos_id:
-                      type: string
-                      nullable: true
-                    pos_offer_code_type_name:
-                      type: string
-                      nullable: true
-                    pos_offer_code_pos_name:
-                      type: string
-                      nullable: true
+              type: object
+              properties:
+                id:
+                  type: integer
+                account_id:
+                  type: integer
+                code:
+                  type: string
+                description:
+                  type: string
+                pos_offer_code_type_id:
+                  type: string
+                  nullable: true
+                pos_offer_code_pos_id:
+                  type: string
+                  nullable: true
+                pos_offer_code_type_name:
+                  type: string
+                  nullable: true
+                pos_offer_code_pos_name:
+                  type: string
+                  nullable: true
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -5215,12 +5403,12 @@ components:
         store_lists:
           type: array
           items:
-            allOf:
-              - $ref: "#/components/schemas/id"
-              - type: object
-                properties:
-                  name:
-                    type: string
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
       x-examples:
         Example 1:
           store_lists:
@@ -5232,148 +5420,148 @@ components:
         - type: object
           properties:
             offer:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
+              type: object
+              properties:
+                id:
+                  type: integer
+                status:
+                  type: string
+                merchant_id:
+                  type: string
+                  nullable: true
+                manufacturer_id:
+                  type: string
+                  nullable: true
+                name:
+                  type: string
+                description:
+                  type: string
+                description_template_id:
+                  type: string
+                  nullable: true
+                offer_type:
+                  type: integer
+                category:
+                  type: string
+                offer_code:
+                  type: string
+                pos_offer_code:
+                  type: string
+                criteria:
+                  type: object
+                points_earning_value:
+                  type: integer
+                points_required_value:
+                  type: integer
+                reward_item_description:
+                  type: string
+                reward_item_value:
+                  type: integer
+                terms_and_conditions:
+                  type: string
+                terms_and_conditions_template_id:
+                  type: string
+                  nullable: true
+                quest_only:
+                  type: boolean
+                  nullable: true
+                merchant_name:
+                  type: string
+                external_reward:
+                  type: string
+                is_reward:
+                  type: boolean
+                locked:
+                  type: boolean
+                  nullable: true
+                activates_at:
+                  type: string
+                expires_at:
+                  type: string
+                stop_offering_at:
+                  type: string
+                created_at:
+                  type: string
+                updated_at:
+                  type: string
+                max_amount:
+                  type: integer
+                min_spend_amount:
+                  type: integer
+                trigger_amount:
+                  type: integer
+                  nullable: true
+                max_redemptions:
+                  type: integer
+                max_redemptions_per_member:
+                  type: integer
+                max_redemptions_per_member_per_day:
+                  type: integer
+                account_id:
+                  type: integer
+                initial_value_mode:
+                  type: string
+                offer_value_text:
+                  type: string
+                offer_value_text_es:
+                  type: string
+                formatting:
+                  type: object
                   properties:
-                    status:
+                    bg_image:
                       type: string
-                    merchant_id:
-                      type: string
-                      nullable: true
-                    manufacturer_id:
-                      type: string
-                      nullable: true
-                    name:
+                    custom_offer_group:
                       type: string
                     description:
                       type: string
-                    description_template_id:
-                      type: string
-                      nullable: true
-                    offer_type:
-                      type: integer
-                    category:
-                      type: string
-                    offer_code:
-                      type: string
-                    pos_offer_code:
-                      type: string
-                    criteria:
-                      type: object
-                    points_earning_value:
-                      type: integer
-                    points_required_value:
-                      type: integer
-                    reward_item_description:
-                      type: string
-                    reward_item_value:
-                      type: integer
-                    terms_and_conditions:
-                      type: string
-                    terms_and_conditions_template_id:
-                      type: string
-                      nullable: true
-                    quest_only:
-                      type: boolean
-                      nullable: true
-                    merchant_name:
-                      type: string
-                    external_reward:
-                      type: string
-                    is_reward:
-                      type: boolean
-                    locked:
-                      type: boolean
-                      nullable: true
-                    activates_at:
-                      type: string
-                    expires_at:
-                      type: string
-                    stop_offering_at:
-                      type: string
-                    created_at:
-                      type: string
-                    updated_at:
-                      type: string
-                    max_amount:
-                      type: integer
-                    min_spend_amount:
-                      type: integer
-                    trigger_amount:
-                      type: integer
-                      nullable: true
-                    max_redemptions:
-                      type: integer
-                    max_redemptions_per_member:
-                      type: integer
-                    max_redemptions_per_member_per_day:
-                      type: integer
-                    account_id:
-                      type: integer
-                    initial_value_mode:
-                      type: string
-                    offer_value_text:
-                      type: string
-                    offer_value_text_es:
-                      type: string
-                    formatting:
+                    eligible_store_map:
                       type: object
                       properties:
-                        bg_image:
+                        hello:
                           type: string
-                        custom_offer_group:
-                          type: string
-                        description:
-                          type: string
-                        eligible_store_map:
-                          type: object
-                          properties:
-                            hello:
-                              type: string
-                        mobile_thumb_url:
-                          type: string
-                        mobile_url:
-                          type: string
-                        no_printable:
-                          type: boolean
-                        offer_store_highlight_text_template:
-                          type: string
-                        offer_storelist_highlight_text_template:
-                          type: string
-                        short_name:
-                          type: string
-                        web_thumb_url:
-                          type: string
-                        web_url:
-                          type: string
-                    eligibility:
-                      type: object
-                      properties:
-                        merchant_ids:
-                          type: array
-                          items:
-                            type: integer
-                        store_list_ids:
-                          type: array
-                          items:
-                            type: object
-                        member_list_ids:
-                          type: array
-                          items:
-                            type: object
-                        channel_ids:
-                          type: array
-                          items:
-                            type: object
-                    redeem_until_depleted:
+                    mobile_thumb_url:
+                      type: string
+                    mobile_url:
+                      type: string
+                    no_printable:
                       type: boolean
-                    redemption_grace_period:
-                      type: integer
-                      format: int32
-                      exclusiveMinimum: 0
-                      multipleOf: 60
-                      default: null
+                    offer_store_highlight_text_template:
+                      type: string
+                    offer_storelist_highlight_text_template:
+                      type: string
+                    short_name:
+                      type: string
+                    web_thumb_url:
+                      type: string
+                    web_url:
+                      type: string
+                eligibility:
+                  type: object
+                  properties:
+                    merchant_ids:
+                      type: array
+                      items:
+                        type: integer
+                    store_list_ids:
+                      type: array
+                      items:
+                        type: object
+                    member_list_ids:
+                      type: array
+                      items:
+                        type: object
+                    channel_ids:
+                      type: array
+                      items:
+                        type: object
+                redeem_until_depleted:
+                  type: boolean
+                redemption_grace_period:
+                  type: integer
+                  format: int32
+                  exclusiveMinimum: 0
+                  multipleOf: 60
+                  default: null
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -5454,20 +5642,20 @@ components:
         - type: object
           properties:
             eligible_item_set:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
-                  properties:
-                    offer_id:
-                      type: integer
-                    item_set_id:
-                      type: integer
-                    list_type:
-                      type: integer
-                    type_name:
-                      type: string
-                    req_qty:
-                      type: integer
+              type: object
+              properties:
+                id:
+                  type: integer
+                offer_id:
+                  type: integer
+                item_set_id:
+                  type: integer
+                list_type:
+                  type: integer
+                type_name:
+                  type: string
+                req_qty:
+                  type: integer
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -5495,14 +5683,14 @@ components:
         - type: object
           properties:
             offer_pos_offer_code:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
-                  properties:
-                    offer_id:
-                      type: integer
-                    pos_offer_code_id:
-                      type: integer
+              type: object
+              properties:
+                id:
+                  type: integer
+                offer_id:
+                  type: integer
+                pos_offer_code_id:
+                  type: integer
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -5545,9 +5733,10 @@ components:
     template_2:
       title: template
       allOf:
-        - $ref: "#/components/schemas/id"
         - type: object
           properties:
+            id:
+              type: integer
             template_type:
               type: string
             name:
@@ -5561,32 +5750,32 @@ components:
       type: object
       properties:
         credential_batch:
-          allOf:
-            - $ref: "#/components/schemas/id"
-            - type: object
+          type: object
+          properties:
+            id:
+              type: integer
+            offer:
+              type: object
               properties:
-                offer:
-                  type: object
-                  properties:
-                    offer_id:
-                      type: integer
-                    offer_name:
-                      type: string
-                campaign:
-                  type: object
-                  properties:
-                    campaign_id:
-                      type: integer
-                    campaign_name:
-                      type: string
-                name:
-                  type: string
-                quantity:
+                offer_id:
                   type: integer
-                fulfillment_method:
+                offer_name:
                   type: string
-                status:
+            campaign:
+              type: object
+              properties:
+                campaign_id:
+                  type: integer
+                campaign_name:
                   type: string
+            name:
+              type: string
+            quantity:
+              type: integer
+            fulfillment_method:
+              type: string
+            status:
+              type: string
       x-examples:
         Example 1:
           credential_batch:
@@ -5617,27 +5806,27 @@ components:
         - type: object
           properties:
             item:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
-                  properties:
-                    name:
-                      type: string
-                    code:
-                      type: string
-                    merchant_id:
-                      type: string
-                      nullable: true
-                    manufacturer_id:
-                      type: string
-                      nullable: true
-                    item_type:
-                      type: string
-                      enum:
-                        - item
-                        - catagory
-                        - option
-                        - aloha_promo
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                code:
+                  type: string
+                merchant_id:
+                  type: string
+                  nullable: true
+                manufacturer_id:
+                  type: string
+                  nullable: true
+                item_type:
+                  type: string
+                  enum:
+                    - item
+                    - catagory
+                    - option
+                    - aloha_promo
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -5665,27 +5854,27 @@ components:
         - type: object
           properties:
             item_set:
-              allOf:
-                - $ref: "#/components/schemas/id"
-                - type: object
-                  properties:
-                    name:
-                      type: string
-                    merchant_id:
-                      type: string
-                      nullable: true
-                    manufacturer_id:
-                      type: string
-                      nullable: true
-                    manufacturer_name:
-                      type: string
-                      nullable: true
-                    item_ids:
-                      type: array
-                      items:
-                        type: object
-                    set_type:
-                      type: integer
+              type: object
+              properties:
+                id:
+                  type: integer
+                name:
+                  type: string
+                merchant_id:
+                  type: string
+                  nullable: true
+                manufacturer_id:
+                  type: string
+                  nullable: true
+                manufacturer_name:
+                  type: string
+                  nullable: true
+                item_ids:
+                  type: array
+                  items:
+                    type: object
+                set_type:
+                  type: integer
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:

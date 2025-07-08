@@ -27,13 +27,14 @@ class ItemSetAllOfItemSet(BaseModel):
     """
     ItemSetAllOfItemSet
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     name: Optional[StrictStr] = None
     merchant_id: Optional[StrictStr] = None
     manufacturer_id: Optional[StrictStr] = None
     manufacturer_name: Optional[StrictStr] = None
     item_ids: Optional[List[Dict[str, Any]]] = None
     set_type: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["name", "merchant_id", "manufacturer_id", "manufacturer_name", "item_ids", "set_type"]
+    __properties: ClassVar[List[str]] = ["id", "name", "merchant_id", "manufacturer_id", "manufacturer_name", "item_ids", "set_type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +87,7 @@ class ItemSetAllOfItemSet(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "name": obj.get("name"),
             "merchant_id": obj.get("merchant_id"),
             "manufacturer_id": obj.get("manufacturer_id"),

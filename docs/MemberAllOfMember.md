@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **identifier** | **str** |  | [optional] 
 **created_at** | **str** |  | [optional] 
 **updated_at** | **str** |  | [optional] 

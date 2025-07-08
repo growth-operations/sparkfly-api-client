@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **xid** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **code_ref** | **str** |  | [optional] 

@@ -21,7 +21,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from sparkfly.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer import ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer
+from sparkfly.models.bi_store_list_store_lists_inner import BiStoreListStoreListsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,8 +30,8 @@ class ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct(BaseModel):
     ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct
     """ # noqa: E501
     id: Optional[StrictInt] = None
-    offer: Optional[ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer] = None
-    eligible_channel: Optional[ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer] = None
+    offer: Optional[BiStoreListStoreListsInner] = None
+    eligible_channel: Optional[BiStoreListStoreListsInner] = None
     product_id: Optional[StrictStr] = None
     book_size: Optional[StrictInt] = None
     created_at: Optional[datetime] = None
@@ -100,8 +100,8 @@ class ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "offer": ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer.from_dict(obj["offer"]) if obj.get("offer") is not None else None,
-            "eligible_channel": ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer.from_dict(obj["eligible_channel"]) if obj.get("eligible_channel") is not None else None,
+            "offer": BiStoreListStoreListsInner.from_dict(obj["offer"]) if obj.get("offer") is not None else None,
+            "eligible_channel": BiStoreListStoreListsInner.from_dict(obj["eligible_channel"]) if obj.get("eligible_channel") is not None else None,
             "product_id": obj.get("product_id"),
             "book_size": obj.get("book_size"),
             "created_at": obj.get("created_at"),

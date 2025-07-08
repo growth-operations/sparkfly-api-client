@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.1.7"
+__version__ = "1.1.8"
 
 # Define package exports
 __all__ = [
@@ -60,13 +60,12 @@ __all__ = [
     "ClarkAndRiggsProductCreateBody",
     "ClarkAndRiggsProductResponseBody",
     "ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct",
-    "ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer",
     "CredentialBatchIndexBody",
     "CredentialBatchRequest",
     "CredentialBatchResponseBody",
     "CredentialBatchResponseBodyCredentialBatch",
-    "CredentialBatchResponseBodyCredentialBatchAllOfCampaign",
-    "CredentialBatchResponseBodyCredentialBatchAllOfOffer",
+    "CredentialBatchResponseBodyCredentialBatchCampaign",
+    "CredentialBatchResponseBodyCredentialBatchOffer",
     "CtmQitemsRequest",
     "CtmRedemptionJobRequest",
     "CtmRedemptionJobRequestItemsInner",
@@ -125,9 +124,6 @@ __all__ = [
     "MemberRequestMember",
     "Offer",
     "OfferAllOfOffer",
-    "OfferAllOfOfferAllOfEligibility",
-    "OfferAllOfOfferAllOfFormatting",
-    "OfferAllOfOfferAllOfFormattingEligibleStoreMap",
     "OfferEligibleItemSet",
     "OfferEligibleItemSetAllOfEligibleItemSet",
     "OfferEligibleItemSetRequest",
@@ -142,6 +138,9 @@ __all__ = [
     "OfferPosOfferCodeRequestOfferPosOfferCode",
     "OfferRequest",
     "OfferRequestOffer",
+    "OfferRequestOfferEligibility",
+    "OfferRequestOfferFormatting",
+    "OfferRequestOfferFormattingEligibleStoreMap",
     "OfferState",
     "OfferStateAllOfOfferState",
     "OfferStateError",
@@ -166,7 +165,7 @@ __all__ = [
     "PostOfferListsRequestOfferList",
     "Store",
     "StoreAllOfStore",
-    "StoreAllOfStoreAllOfLocation",
+    "StoreAllOfStoreLocation",
     "StoreIndexBody",
     "StoreList",
     "StoreListAllOfStoreList",
@@ -230,13 +229,12 @@ from sparkfly.models.clark_and_riggs_index_body import ClarkAndRiggsIndexBody as
 from sparkfly.models.clark_and_riggs_product_create_body import ClarkAndRiggsProductCreateBody as ClarkAndRiggsProductCreateBody
 from sparkfly.models.clark_and_riggs_product_response_body import ClarkAndRiggsProductResponseBody as ClarkAndRiggsProductResponseBody
 from sparkfly.models.clark_and_riggs_product_response_body_clark_and_riggs_product import ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct as ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct
-from sparkfly.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer import ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer as ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer
 from sparkfly.models.credential_batch_index_body import CredentialBatchIndexBody as CredentialBatchIndexBody
 from sparkfly.models.credential_batch_request import CredentialBatchRequest as CredentialBatchRequest
 from sparkfly.models.credential_batch_response_body import CredentialBatchResponseBody as CredentialBatchResponseBody
 from sparkfly.models.credential_batch_response_body_credential_batch import CredentialBatchResponseBodyCredentialBatch as CredentialBatchResponseBodyCredentialBatch
-from sparkfly.models.credential_batch_response_body_credential_batch_all_of_campaign import CredentialBatchResponseBodyCredentialBatchAllOfCampaign as CredentialBatchResponseBodyCredentialBatchAllOfCampaign
-from sparkfly.models.credential_batch_response_body_credential_batch_all_of_offer import CredentialBatchResponseBodyCredentialBatchAllOfOffer as CredentialBatchResponseBodyCredentialBatchAllOfOffer
+from sparkfly.models.credential_batch_response_body_credential_batch_campaign import CredentialBatchResponseBodyCredentialBatchCampaign as CredentialBatchResponseBodyCredentialBatchCampaign
+from sparkfly.models.credential_batch_response_body_credential_batch_offer import CredentialBatchResponseBodyCredentialBatchOffer as CredentialBatchResponseBodyCredentialBatchOffer
 from sparkfly.models.ctm_qitems_request import CtmQitemsRequest as CtmQitemsRequest
 from sparkfly.models.ctm_redemption_job_request import CtmRedemptionJobRequest as CtmRedemptionJobRequest
 from sparkfly.models.ctm_redemption_job_request_items_inner import CtmRedemptionJobRequestItemsInner as CtmRedemptionJobRequestItemsInner
@@ -295,9 +293,6 @@ from sparkfly.models.member_request import MemberRequest as MemberRequest
 from sparkfly.models.member_request_member import MemberRequestMember as MemberRequestMember
 from sparkfly.models.offer import Offer as Offer
 from sparkfly.models.offer_all_of_offer import OfferAllOfOffer as OfferAllOfOffer
-from sparkfly.models.offer_all_of_offer_all_of_eligibility import OfferAllOfOfferAllOfEligibility as OfferAllOfOfferAllOfEligibility
-from sparkfly.models.offer_all_of_offer_all_of_formatting import OfferAllOfOfferAllOfFormatting as OfferAllOfOfferAllOfFormatting
-from sparkfly.models.offer_all_of_offer_all_of_formatting_eligible_store_map import OfferAllOfOfferAllOfFormattingEligibleStoreMap as OfferAllOfOfferAllOfFormattingEligibleStoreMap
 from sparkfly.models.offer_eligible_item_set import OfferEligibleItemSet as OfferEligibleItemSet
 from sparkfly.models.offer_eligible_item_set_all_of_eligible_item_set import OfferEligibleItemSetAllOfEligibleItemSet as OfferEligibleItemSetAllOfEligibleItemSet
 from sparkfly.models.offer_eligible_item_set_request import OfferEligibleItemSetRequest as OfferEligibleItemSetRequest
@@ -312,6 +307,9 @@ from sparkfly.models.offer_pos_offer_code_request import OfferPosOfferCodeReques
 from sparkfly.models.offer_pos_offer_code_request_offer_pos_offer_code import OfferPosOfferCodeRequestOfferPosOfferCode as OfferPosOfferCodeRequestOfferPosOfferCode
 from sparkfly.models.offer_request import OfferRequest as OfferRequest
 from sparkfly.models.offer_request_offer import OfferRequestOffer as OfferRequestOffer
+from sparkfly.models.offer_request_offer_eligibility import OfferRequestOfferEligibility as OfferRequestOfferEligibility
+from sparkfly.models.offer_request_offer_formatting import OfferRequestOfferFormatting as OfferRequestOfferFormatting
+from sparkfly.models.offer_request_offer_formatting_eligible_store_map import OfferRequestOfferFormattingEligibleStoreMap as OfferRequestOfferFormattingEligibleStoreMap
 from sparkfly.models.offer_state import OfferState as OfferState
 from sparkfly.models.offer_state_all_of_offer_state import OfferStateAllOfOfferState as OfferStateAllOfOfferState
 from sparkfly.models.offer_state_error import OfferStateError as OfferStateError
@@ -336,7 +334,7 @@ from sparkfly.models.post_offer_lists_request import PostOfferListsRequest as Po
 from sparkfly.models.post_offer_lists_request_offer_list import PostOfferListsRequestOfferList as PostOfferListsRequestOfferList
 from sparkfly.models.store import Store as Store
 from sparkfly.models.store_all_of_store import StoreAllOfStore as StoreAllOfStore
-from sparkfly.models.store_all_of_store_all_of_location import StoreAllOfStoreAllOfLocation as StoreAllOfStoreAllOfLocation
+from sparkfly.models.store_all_of_store_location import StoreAllOfStoreLocation as StoreAllOfStoreLocation
 from sparkfly.models.store_index_body import StoreIndexBody as StoreIndexBody
 from sparkfly.models.store_list import StoreList as StoreList
 from sparkfly.models.store_list_all_of_store_list import StoreListAllOfStoreList as StoreListAllOfStoreList

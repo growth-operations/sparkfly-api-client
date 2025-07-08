@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,11 +28,12 @@ class Template2(BaseModel):
     Template2
     """ # noqa: E501
     errors: Optional[Dict[str, Any]] = None
+    id: Optional[StrictInt] = None
     template_type: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     value: Optional[StrictStr] = None
     options: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["errors", "template_type", "name", "value", "options"]
+    __properties: ClassVar[List[str]] = ["errors", "id", "template_type", "name", "value", "options"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,6 +87,7 @@ class Template2(BaseModel):
 
         _obj = cls.model_validate({
             "errors": obj.get("errors"),
+            "id": obj.get("id"),
             "template_type": obj.get("template_type"),
             "name": obj.get("name"),
             "value": obj.get("value"),

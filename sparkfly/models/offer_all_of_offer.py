@@ -21,8 +21,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from sparkfly.models.offer_all_of_offer_all_of_eligibility import OfferAllOfOfferAllOfEligibility
-from sparkfly.models.offer_all_of_offer_all_of_formatting import OfferAllOfOfferAllOfFormatting
+from sparkfly.models.offer_request_offer_eligibility import OfferRequestOfferEligibility
+from sparkfly.models.offer_request_offer_formatting import OfferRequestOfferFormatting
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,6 +30,7 @@ class OfferAllOfOffer(BaseModel):
     """
     OfferAllOfOffer
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     status: Optional[StrictStr] = None
     merchant_id: Optional[StrictStr] = None
     manufacturer_id: Optional[StrictStr] = None
@@ -67,11 +68,11 @@ class OfferAllOfOffer(BaseModel):
     initial_value_mode: Optional[StrictStr] = None
     offer_value_text: Optional[StrictStr] = None
     offer_value_text_es: Optional[StrictStr] = None
-    formatting: Optional[OfferAllOfOfferAllOfFormatting] = None
-    eligibility: Optional[OfferAllOfOfferAllOfEligibility] = None
+    formatting: Optional[OfferRequestOfferFormatting] = None
+    eligibility: Optional[OfferRequestOfferEligibility] = None
     redeem_until_depleted: Optional[StrictBool] = None
     redemption_grace_period: Optional[Annotated[int, Field(multiple_of=60, strict=True)]] = None
-    __properties: ClassVar[List[str]] = ["status", "merchant_id", "manufacturer_id", "name", "description", "description_template_id", "offer_type", "category", "offer_code", "pos_offer_code", "criteria", "points_earning_value", "points_required_value", "reward_item_description", "reward_item_value", "terms_and_conditions", "terms_and_conditions_template_id", "quest_only", "merchant_name", "external_reward", "is_reward", "locked", "activates_at", "expires_at", "stop_offering_at", "created_at", "updated_at", "max_amount", "min_spend_amount", "trigger_amount", "max_redemptions", "max_redemptions_per_member", "max_redemptions_per_member_per_day", "account_id", "initial_value_mode", "offer_value_text", "offer_value_text_es", "formatting", "eligibility", "redeem_until_depleted", "redemption_grace_period"]
+    __properties: ClassVar[List[str]] = ["id", "status", "merchant_id", "manufacturer_id", "name", "description", "description_template_id", "offer_type", "category", "offer_code", "pos_offer_code", "criteria", "points_earning_value", "points_required_value", "reward_item_description", "reward_item_value", "terms_and_conditions", "terms_and_conditions_template_id", "quest_only", "merchant_name", "external_reward", "is_reward", "locked", "activates_at", "expires_at", "stop_offering_at", "created_at", "updated_at", "max_amount", "min_spend_amount", "trigger_amount", "max_redemptions", "max_redemptions_per_member", "max_redemptions_per_member_per_day", "account_id", "initial_value_mode", "offer_value_text", "offer_value_text_es", "formatting", "eligibility", "redeem_until_depleted", "redemption_grace_period"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -130,6 +131,7 @@ class OfferAllOfOffer(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "status": obj.get("status"),
             "merchant_id": obj.get("merchant_id"),
             "manufacturer_id": obj.get("manufacturer_id"),
@@ -167,8 +169,8 @@ class OfferAllOfOffer(BaseModel):
             "initial_value_mode": obj.get("initial_value_mode"),
             "offer_value_text": obj.get("offer_value_text"),
             "offer_value_text_es": obj.get("offer_value_text_es"),
-            "formatting": OfferAllOfOfferAllOfFormatting.from_dict(obj["formatting"]) if obj.get("formatting") is not None else None,
-            "eligibility": OfferAllOfOfferAllOfEligibility.from_dict(obj["eligibility"]) if obj.get("eligibility") is not None else None,
+            "formatting": OfferRequestOfferFormatting.from_dict(obj["formatting"]) if obj.get("formatting") is not None else None,
+            "eligibility": OfferRequestOfferEligibility.from_dict(obj["eligibility"]) if obj.get("eligibility") is not None else None,
             "redeem_until_depleted": obj.get("redeem_until_depleted"),
             "redemption_grace_period": obj.get("redemption_grace_period")
         })

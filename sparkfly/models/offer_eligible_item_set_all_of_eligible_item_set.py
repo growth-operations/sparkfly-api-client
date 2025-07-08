@@ -27,12 +27,13 @@ class OfferEligibleItemSetAllOfEligibleItemSet(BaseModel):
     """
     OfferEligibleItemSetAllOfEligibleItemSet
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     offer_id: Optional[StrictInt] = None
     item_set_id: Optional[StrictInt] = None
     list_type: Optional[StrictInt] = None
     type_name: Optional[StrictStr] = None
     req_qty: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["offer_id", "item_set_id", "list_type", "type_name", "req_qty"]
+    __properties: ClassVar[List[str]] = ["id", "offer_id", "item_set_id", "list_type", "type_name", "req_qty"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,6 +86,7 @@ class OfferEligibleItemSetAllOfEligibleItemSet(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "offer_id": obj.get("offer_id"),
             "item_set_id": obj.get("item_set_id"),
             "list_type": obj.get("list_type"),

@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from sparkfly.models.errors import Errors
 from sparkfly.models.impression_request_impression_annotations import ImpressionRequestImpressionAnnotations
@@ -29,6 +29,7 @@ class ImpressionAllOfImpression(BaseModel):
     """
     ImpressionAllOfImpression
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     cookie_id: Optional[StrictStr] = None
     offer_xid: Optional[StrictStr] = None
     annotations: Optional[ImpressionRequestImpressionAnnotations] = None
@@ -38,7 +39,7 @@ class ImpressionAllOfImpression(BaseModel):
     channel_name: Optional[StrictStr] = None
     creative_name: Optional[StrictStr] = None
     errors: Optional[Errors] = None
-    __properties: ClassVar[List[str]] = ["cookie_id", "offer_xid", "annotations", "created_at", "updated_at", "channel_id", "channel_name", "creative_name", "errors"]
+    __properties: ClassVar[List[str]] = ["id", "cookie_id", "offer_xid", "annotations", "created_at", "updated_at", "channel_id", "channel_name", "creative_name", "errors"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +98,7 @@ class ImpressionAllOfImpression(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "cookie_id": obj.get("cookie_id"),
             "offer_xid": obj.get("offer_xid"),
             "annotations": ImpressionRequestImpressionAnnotations.from_dict(obj["annotations"]) if obj.get("annotations") is not None else None,

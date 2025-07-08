@@ -27,10 +27,11 @@ class StoreListAllOfStoreList(BaseModel):
     """
     StoreListAllOfStoreList
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     merchant_id: Optional[StrictInt] = None
     name: Optional[StrictStr] = None
     store_ids: Optional[List[StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["merchant_id", "name", "store_ids"]
+    __properties: ClassVar[List[str]] = ["id", "merchant_id", "name", "store_ids"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +84,7 @@ class StoreListAllOfStoreList(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "merchant_id": obj.get("merchant_id"),
             "name": obj.get("name"),
             "store_ids": obj.get("store_ids")

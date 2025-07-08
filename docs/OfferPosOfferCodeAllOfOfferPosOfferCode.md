@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **offer_id** | **int** |  | [optional] 
 **pos_offer_code_id** | **int** |  | [optional] 
 

@@ -18,18 +18,29 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from sparkfly.models.offer_request_offer_formatting_eligible_store_map import OfferRequestOfferFormattingEligibleStoreMap
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BiStoreListStoreListsInner(BaseModel):
+class OfferRequestOfferFormatting(BaseModel):
     """
-    BiStoreListStoreListsInner
+    OfferRequestOfferFormatting
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name"]
+    bg_image: Optional[StrictStr] = None
+    custom_offer_group: Optional[StrictStr] = None
+    description: Optional[StrictStr] = None
+    eligible_store_map: Optional[OfferRequestOfferFormattingEligibleStoreMap] = None
+    mobile_thumb_url: Optional[StrictStr] = None
+    mobile_url: Optional[StrictStr] = None
+    no_printable: Optional[StrictBool] = None
+    offer_store_highlight_text_template: Optional[StrictStr] = None
+    offer_storelist_highlight_text_template: Optional[StrictStr] = None
+    short_name: Optional[StrictStr] = None
+    web_thumb_url: Optional[StrictStr] = None
+    web_url: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["bg_image", "custom_offer_group", "description", "eligible_store_map", "mobile_thumb_url", "mobile_url", "no_printable", "offer_store_highlight_text_template", "offer_storelist_highlight_text_template", "short_name", "web_thumb_url", "web_url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +60,7 @@ class BiStoreListStoreListsInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BiStoreListStoreListsInner from a JSON string"""
+        """Create an instance of OfferRequestOfferFormatting from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -70,11 +81,14 @@ class BiStoreListStoreListsInner(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of eligible_store_map
+        if self.eligible_store_map:
+            _dict['eligible_store_map'] = self.eligible_store_map.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BiStoreListStoreListsInner from a dict"""
+        """Create an instance of OfferRequestOfferFormatting from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +96,18 @@ class BiStoreListStoreListsInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name")
+            "bg_image": obj.get("bg_image"),
+            "custom_offer_group": obj.get("custom_offer_group"),
+            "description": obj.get("description"),
+            "eligible_store_map": OfferRequestOfferFormattingEligibleStoreMap.from_dict(obj["eligible_store_map"]) if obj.get("eligible_store_map") is not None else None,
+            "mobile_thumb_url": obj.get("mobile_thumb_url"),
+            "mobile_url": obj.get("mobile_url"),
+            "no_printable": obj.get("no_printable"),
+            "offer_store_highlight_text_template": obj.get("offer_store_highlight_text_template"),
+            "offer_storelist_highlight_text_template": obj.get("offer_storelist_highlight_text_template"),
+            "short_name": obj.get("short_name"),
+            "web_thumb_url": obj.get("web_thumb_url"),
+            "web_url": obj.get("web_url")
         })
         return _obj
 

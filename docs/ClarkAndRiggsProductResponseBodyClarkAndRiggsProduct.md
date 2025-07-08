@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | [optional] 
-**offer** | [**ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer**](ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer.md) |  | [optional] 
-**eligible_channel** | [**ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer**](ClarkAndRiggsProductResponseBodyClarkAndRiggsProductOffer.md) |  | [optional] 
+**offer** | [**BiStoreListStoreListsInner**](BiStoreListStoreListsInner.md) |  | [optional] 
+**eligible_channel** | [**BiStoreListStoreListsInner**](BiStoreListStoreListsInner.md) |  | [optional] 
 **product_id** | **str** |  | [optional] 
 **book_size** | **int** |  | [optional] 
 **created_at** | **datetime** |  | [optional] [readonly] 

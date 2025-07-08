@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,12 +27,13 @@ class ItemAllOfItem(BaseModel):
     """
     ItemAllOfItem
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     name: Optional[StrictStr] = None
     code: Optional[StrictStr] = None
     merchant_id: Optional[StrictStr] = None
     manufacturer_id: Optional[StrictStr] = None
     item_type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "code", "merchant_id", "manufacturer_id", "item_type"]
+    __properties: ClassVar[List[str]] = ["id", "name", "code", "merchant_id", "manufacturer_id", "item_type"]
 
     @field_validator('item_type')
     def item_type_validate_enum(cls, value):
@@ -95,6 +96,7 @@ class ItemAllOfItem(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "name": obj.get("name"),
             "code": obj.get("code"),
             "merchant_id": obj.get("merchant_id"),

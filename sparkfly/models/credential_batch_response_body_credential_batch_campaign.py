@@ -23,13 +23,13 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BiStoreListStoreListsInner(BaseModel):
+class CredentialBatchResponseBodyCredentialBatchCampaign(BaseModel):
     """
-    BiStoreListStoreListsInner
+    CredentialBatchResponseBodyCredentialBatchCampaign
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name"]
+    campaign_id: Optional[StrictInt] = None
+    campaign_name: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["campaign_id", "campaign_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +49,7 @@ class BiStoreListStoreListsInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BiStoreListStoreListsInner from a JSON string"""
+        """Create an instance of CredentialBatchResponseBodyCredentialBatchCampaign from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +74,7 @@ class BiStoreListStoreListsInner(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BiStoreListStoreListsInner from a dict"""
+        """Create an instance of CredentialBatchResponseBodyCredentialBatchCampaign from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +82,8 @@ class BiStoreListStoreListsInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name")
+            "campaign_id": obj.get("campaign_id"),
+            "campaign_name": obj.get("campaign_name")
         })
         return _obj
 

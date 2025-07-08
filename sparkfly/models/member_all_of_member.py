@@ -18,7 +18,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,11 +27,12 @@ class MemberAllOfMember(BaseModel):
     """
     MemberAllOfMember
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     identifier: Optional[StrictStr] = None
     created_at: Optional[StrictStr] = None
     updated_at: Optional[StrictStr] = None
     notification_mode: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["identifier", "created_at", "updated_at", "notification_mode"]
+    __properties: ClassVar[List[str]] = ["id", "identifier", "created_at", "updated_at", "notification_mode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,6 +85,7 @@ class MemberAllOfMember(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "identifier": obj.get("identifier"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),

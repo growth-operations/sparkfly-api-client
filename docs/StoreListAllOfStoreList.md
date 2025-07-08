@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **merchant_id** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
 **store_ids** | **List[int]** |  | [optional] 

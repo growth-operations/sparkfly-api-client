@@ -20,8 +20,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from sparkfly.models.credential_batch_response_body_credential_batch_all_of_campaign import CredentialBatchResponseBodyCredentialBatchAllOfCampaign
-from sparkfly.models.credential_batch_response_body_credential_batch_all_of_offer import CredentialBatchResponseBodyCredentialBatchAllOfOffer
+from sparkfly.models.credential_batch_response_body_credential_batch_campaign import CredentialBatchResponseBodyCredentialBatchCampaign
+from sparkfly.models.credential_batch_response_body_credential_batch_offer import CredentialBatchResponseBodyCredentialBatchOffer
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,13 +29,14 @@ class CredentialBatchResponseBodyCredentialBatch(BaseModel):
     """
     CredentialBatchResponseBodyCredentialBatch
     """ # noqa: E501
-    offer: Optional[CredentialBatchResponseBodyCredentialBatchAllOfOffer] = None
-    campaign: Optional[CredentialBatchResponseBodyCredentialBatchAllOfCampaign] = None
+    id: Optional[StrictInt] = None
+    offer: Optional[CredentialBatchResponseBodyCredentialBatchOffer] = None
+    campaign: Optional[CredentialBatchResponseBodyCredentialBatchCampaign] = None
     name: Optional[StrictStr] = None
     quantity: Optional[StrictInt] = None
     fulfillment_method: Optional[StrictStr] = None
     status: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["offer", "campaign", "name", "quantity", "fulfillment_method", "status"]
+    __properties: ClassVar[List[str]] = ["id", "offer", "campaign", "name", "quantity", "fulfillment_method", "status"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -94,8 +95,9 @@ class CredentialBatchResponseBodyCredentialBatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "offer": CredentialBatchResponseBodyCredentialBatchAllOfOffer.from_dict(obj["offer"]) if obj.get("offer") is not None else None,
-            "campaign": CredentialBatchResponseBodyCredentialBatchAllOfCampaign.from_dict(obj["campaign"]) if obj.get("campaign") is not None else None,
+            "id": obj.get("id"),
+            "offer": CredentialBatchResponseBodyCredentialBatchOffer.from_dict(obj["offer"]) if obj.get("offer") is not None else None,
+            "campaign": CredentialBatchResponseBodyCredentialBatchCampaign.from_dict(obj["campaign"]) if obj.get("campaign") is not None else None,
             "name": obj.get("name"),
             "quantity": obj.get("quantity"),
             "fulfillment_method": obj.get("fulfillment_method"),

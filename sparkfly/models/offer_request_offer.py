@@ -18,9 +18,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from sparkfly.models.offer_request_offer_eligibility import OfferRequestOfferEligibility
+from sparkfly.models.offer_request_offer_formatting import OfferRequestOfferFormatting
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,10 +30,49 @@ class OfferRequestOffer(BaseModel):
     """
     OfferRequestOffer
     """ # noqa: E501
+    id: Optional[StrictInt] = None
+    status: Optional[StrictStr] = None
+    merchant_id: Optional[StrictStr] = None
+    manufacturer_id: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
+    description: Optional[StrictStr] = None
+    description_template_id: Optional[StrictStr] = None
     offer_type: Optional[StrictInt] = None
+    category: Optional[StrictStr] = None
+    offer_code: Optional[StrictStr] = None
+    pos_offer_code: Optional[StrictStr] = None
+    criteria: Optional[Dict[str, Any]] = None
+    points_earning_value: Optional[StrictInt] = None
+    points_required_value: Optional[StrictInt] = None
+    reward_item_description: Optional[StrictStr] = None
+    reward_item_value: Optional[StrictInt] = None
+    terms_and_conditions: Optional[StrictStr] = None
+    terms_and_conditions_template_id: Optional[StrictStr] = None
+    quest_only: Optional[StrictBool] = None
+    merchant_name: Optional[StrictStr] = None
+    external_reward: Optional[StrictStr] = None
+    is_reward: Optional[StrictBool] = None
+    locked: Optional[StrictBool] = None
+    activates_at: Optional[StrictStr] = None
+    expires_at: Optional[StrictStr] = None
+    stop_offering_at: Optional[StrictStr] = None
+    created_at: Optional[StrictStr] = None
+    updated_at: Optional[StrictStr] = None
+    max_amount: Optional[StrictInt] = None
+    min_spend_amount: Optional[StrictInt] = None
+    trigger_amount: Optional[StrictInt] = None
+    max_redemptions: Optional[StrictInt] = None
+    max_redemptions_per_member: Optional[StrictInt] = None
+    max_redemptions_per_member_per_day: Optional[StrictInt] = None
+    account_id: Optional[StrictInt] = None
+    initial_value_mode: Optional[StrictStr] = None
+    offer_value_text: Optional[StrictStr] = None
+    offer_value_text_es: Optional[StrictStr] = None
+    formatting: Optional[OfferRequestOfferFormatting] = None
+    eligibility: Optional[OfferRequestOfferEligibility] = None
+    redeem_until_depleted: Optional[StrictBool] = None
     redemption_grace_period: Optional[Annotated[int, Field(multiple_of=60, strict=True)]] = None
-    __properties: ClassVar[List[str]] = ["name", "offer_type", "redemption_grace_period"]
+    __properties: ClassVar[List[str]] = ["id", "status", "merchant_id", "manufacturer_id", "name", "description", "description_template_id", "offer_type", "category", "offer_code", "pos_offer_code", "criteria", "points_earning_value", "points_required_value", "reward_item_description", "reward_item_value", "terms_and_conditions", "terms_and_conditions_template_id", "quest_only", "merchant_name", "external_reward", "is_reward", "locked", "activates_at", "expires_at", "stop_offering_at", "created_at", "updated_at", "max_amount", "min_spend_amount", "trigger_amount", "max_redemptions", "max_redemptions_per_member", "max_redemptions_per_member_per_day", "account_id", "initial_value_mode", "offer_value_text", "offer_value_text_es", "formatting", "eligibility", "redeem_until_depleted", "redemption_grace_period"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -72,6 +113,12 @@ class OfferRequestOffer(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of formatting
+        if self.formatting:
+            _dict['formatting'] = self.formatting.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of eligibility
+        if self.eligibility:
+            _dict['eligibility'] = self.eligibility.to_dict()
         return _dict
 
     @classmethod
@@ -84,8 +131,47 @@ class OfferRequestOffer(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
+            "status": obj.get("status"),
+            "merchant_id": obj.get("merchant_id"),
+            "manufacturer_id": obj.get("manufacturer_id"),
             "name": obj.get("name"),
+            "description": obj.get("description"),
+            "description_template_id": obj.get("description_template_id"),
             "offer_type": obj.get("offer_type"),
+            "category": obj.get("category"),
+            "offer_code": obj.get("offer_code"),
+            "pos_offer_code": obj.get("pos_offer_code"),
+            "criteria": obj.get("criteria"),
+            "points_earning_value": obj.get("points_earning_value"),
+            "points_required_value": obj.get("points_required_value"),
+            "reward_item_description": obj.get("reward_item_description"),
+            "reward_item_value": obj.get("reward_item_value"),
+            "terms_and_conditions": obj.get("terms_and_conditions"),
+            "terms_and_conditions_template_id": obj.get("terms_and_conditions_template_id"),
+            "quest_only": obj.get("quest_only"),
+            "merchant_name": obj.get("merchant_name"),
+            "external_reward": obj.get("external_reward"),
+            "is_reward": obj.get("is_reward"),
+            "locked": obj.get("locked"),
+            "activates_at": obj.get("activates_at"),
+            "expires_at": obj.get("expires_at"),
+            "stop_offering_at": obj.get("stop_offering_at"),
+            "created_at": obj.get("created_at"),
+            "updated_at": obj.get("updated_at"),
+            "max_amount": obj.get("max_amount"),
+            "min_spend_amount": obj.get("min_spend_amount"),
+            "trigger_amount": obj.get("trigger_amount"),
+            "max_redemptions": obj.get("max_redemptions"),
+            "max_redemptions_per_member": obj.get("max_redemptions_per_member"),
+            "max_redemptions_per_member_per_day": obj.get("max_redemptions_per_member_per_day"),
+            "account_id": obj.get("account_id"),
+            "initial_value_mode": obj.get("initial_value_mode"),
+            "offer_value_text": obj.get("offer_value_text"),
+            "offer_value_text_es": obj.get("offer_value_text_es"),
+            "formatting": OfferRequestOfferFormatting.from_dict(obj["formatting"]) if obj.get("formatting") is not None else None,
+            "eligibility": OfferRequestOfferEligibility.from_dict(obj["eligibility"]) if obj.get("eligibility") is not None else None,
+            "redeem_until_depleted": obj.get("redeem_until_depleted"),
             "redemption_grace_period": obj.get("redemption_grace_period")
         })
         return _obj

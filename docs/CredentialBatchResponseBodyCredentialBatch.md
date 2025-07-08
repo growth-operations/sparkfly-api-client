@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**offer** | [**CredentialBatchResponseBodyCredentialBatchAllOfOffer**](CredentialBatchResponseBodyCredentialBatchAllOfOffer.md) |  | [optional] 
-**campaign** | [**CredentialBatchResponseBodyCredentialBatchAllOfCampaign**](CredentialBatchResponseBodyCredentialBatchAllOfCampaign.md) |  | [optional] 
+**id** | **int** |  | [optional] 
+**offer** | [**CredentialBatchResponseBodyCredentialBatchOffer**](CredentialBatchResponseBodyCredentialBatchOffer.md) |  | [optional] 
+**campaign** | [**CredentialBatchResponseBodyCredentialBatchCampaign**](CredentialBatchResponseBodyCredentialBatchCampaign.md) |  | [optional] 
 **name** | **str** |  | [optional] 
 **quantity** | **int** |  | [optional] 
 **fulfillment_method** | **str** |  | [optional] 

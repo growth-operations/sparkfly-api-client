@@ -23,13 +23,19 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BiStoreListStoreListsInner(BaseModel):
+class StoreAllOfStoreLocation(BaseModel):
     """
-    BiStoreListStoreListsInner
+    StoreAllOfStoreLocation
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["id", "name"]
+    address: Optional[StrictStr] = None
+    address2: Optional[StrictStr] = None
+    city: Optional[StrictStr] = None
+    state: Optional[StrictStr] = None
+    zip: Optional[StrictStr] = None
+    country: Optional[StrictStr] = None
+    lat: Optional[StrictInt] = None
+    lng: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["address", "address2", "city", "state", "zip", "country", "lat", "lng"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +55,7 @@ class BiStoreListStoreListsInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BiStoreListStoreListsInner from a JSON string"""
+        """Create an instance of StoreAllOfStoreLocation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,7 +80,7 @@ class BiStoreListStoreListsInner(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BiStoreListStoreListsInner from a dict"""
+        """Create an instance of StoreAllOfStoreLocation from a dict"""
         if obj is None:
             return None
 
@@ -82,8 +88,14 @@ class BiStoreListStoreListsInner(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "name": obj.get("name")
+            "address": obj.get("address"),
+            "address2": obj.get("address2"),
+            "city": obj.get("city"),
+            "state": obj.get("state"),
+            "zip": obj.get("zip"),
+            "country": obj.get("country"),
+            "lat": obj.get("lat"),
+            "lng": obj.get("lng")
         })
         return _obj
 

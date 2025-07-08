@@ -27,6 +27,7 @@ class PosOfferCodeAllOfPosOfferCode(BaseModel):
     """
     PosOfferCodeAllOfPosOfferCode
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     account_id: Optional[StrictInt] = None
     code: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
@@ -34,7 +35,7 @@ class PosOfferCodeAllOfPosOfferCode(BaseModel):
     pos_offer_code_pos_id: Optional[StrictStr] = None
     pos_offer_code_type_name: Optional[StrictStr] = None
     pos_offer_code_pos_name: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["account_id", "code", "description", "pos_offer_code_type_id", "pos_offer_code_pos_id", "pos_offer_code_type_name", "pos_offer_code_pos_name"]
+    __properties: ClassVar[List[str]] = ["id", "account_id", "code", "description", "pos_offer_code_type_id", "pos_offer_code_pos_id", "pos_offer_code_type_name", "pos_offer_code_pos_name"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +88,7 @@ class PosOfferCodeAllOfPosOfferCode(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "account_id": obj.get("account_id"),
             "code": obj.get("code"),
             "description": obj.get("description"),

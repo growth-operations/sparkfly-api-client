@@ -28,6 +28,7 @@ class CampaignResponseCampaign(BaseModel):
     """
     CampaignResponseCampaign
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     xid: Optional[StrictStr] = None
     name: Optional[StrictStr] = None
     code_ref: Optional[StrictStr] = None
@@ -63,7 +64,7 @@ class CampaignResponseCampaign(BaseModel):
     audience_id: Optional[StrictInt] = None
     status: Optional[StrictStr] = None
     redemption_grace_period: Optional[Annotated[int, Field(multiple_of=60, strict=True)]] = None
-    __properties: ClassVar[List[str]] = ["xid", "name", "code_ref", "code_count", "external_id", "offer_id", "channel_id", "channel_name", "pos_offer_code", "online_offer_code", "activation_date", "expiration_date", "start_display_at", "funding_source", "eligible_channel_tags", "eligible_store_ids", "eligible_store_numbers", "eligible_storelist_ids", "eligible_storelist_numbers", "landing_page_image_template_id", "description_template_id", "description", "terms_and_conditions_template_id", "terms_and_conditions", "security", "landing_page_urls", "allow_return_later", "redemption_identifier_type", "member_required", "max_redemptions_per_member", "dynamic_expiration", "sub_audience_id", "audience_id", "status", "redemption_grace_period"]
+    __properties: ClassVar[List[str]] = ["id", "xid", "name", "code_ref", "code_count", "external_id", "offer_id", "channel_id", "channel_name", "pos_offer_code", "online_offer_code", "activation_date", "expiration_date", "start_display_at", "funding_source", "eligible_channel_tags", "eligible_store_ids", "eligible_store_numbers", "eligible_storelist_ids", "eligible_storelist_numbers", "landing_page_image_template_id", "description_template_id", "description", "terms_and_conditions_template_id", "terms_and_conditions", "security", "landing_page_urls", "allow_return_later", "redemption_identifier_type", "member_required", "max_redemptions_per_member", "dynamic_expiration", "sub_audience_id", "audience_id", "status", "redemption_grace_period"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -116,6 +117,7 @@ class CampaignResponseCampaign(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "xid": obj.get("xid"),
             "name": obj.get("name"),
             "code_ref": obj.get("code_ref"),

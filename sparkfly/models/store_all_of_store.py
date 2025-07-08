@@ -20,7 +20,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from sparkfly.models.store_all_of_store_all_of_location import StoreAllOfStoreAllOfLocation
+from sparkfly.models.store_all_of_store_location import StoreAllOfStoreLocation
 from sparkfly.models.store_request_store_contacts import StoreRequestStoreContacts
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,6 +29,7 @@ class StoreAllOfStore(BaseModel):
     """
     StoreAllOfStore
     """ # noqa: E501
+    id: Optional[StrictInt] = None
     merchant_id: Optional[StrictInt] = None
     name: Optional[StrictStr] = None
     site_id: Optional[StrictStr] = None
@@ -37,10 +38,10 @@ class StoreAllOfStore(BaseModel):
     description: Optional[StrictStr] = None
     phone: Optional[StrictStr] = None
     contacts: Optional[StoreRequestStoreContacts] = None
-    location: Optional[StoreAllOfStoreAllOfLocation] = None
+    location: Optional[StoreAllOfStoreLocation] = None
     icon_url: Optional[StrictStr] = None
     online_ordering_id: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["merchant_id", "name", "site_id", "number", "is_active", "description", "phone", "contacts", "location", "icon_url", "online_ordering_id"]
+    __properties: ClassVar[List[str]] = ["id", "merchant_id", "name", "site_id", "number", "is_active", "description", "phone", "contacts", "location", "icon_url", "online_ordering_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -99,6 +100,7 @@ class StoreAllOfStore(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "id": obj.get("id"),
             "merchant_id": obj.get("merchant_id"),
             "name": obj.get("name"),
             "site_id": obj.get("site_id"),
@@ -107,7 +109,7 @@ class StoreAllOfStore(BaseModel):
             "description": obj.get("description"),
             "phone": obj.get("phone"),
             "contacts": StoreRequestStoreContacts.from_dict(obj["contacts"]) if obj.get("contacts") is not None else None,
-            "location": StoreAllOfStoreAllOfLocation.from_dict(obj["location"]) if obj.get("location") is not None else None,
+            "location": StoreAllOfStoreLocation.from_dict(obj["location"]) if obj.get("location") is not None else None,
             "icon_url": obj.get("icon_url"),
             "online_ordering_id": obj.get("online_ordering_id")
         })
