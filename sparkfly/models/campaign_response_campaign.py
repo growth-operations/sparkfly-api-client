@@ -44,10 +44,10 @@ class CampaignResponseCampaign(BaseModel):
     start_display_at: Optional[StrictStr] = None
     funding_source: Optional[StrictStr] = None
     eligible_channel_tags: Optional[List[Dict[str, Any]]] = None
-    eligible_store_ids: Optional[List[Dict[str, Any]]] = None
-    eligible_store_numbers: Optional[List[Dict[str, Any]]] = None
-    eligible_storelist_ids: Optional[List[Dict[str, Any]]] = None
-    eligible_storelist_numbers: Optional[List[Dict[str, Any]]] = None
+    eligible_store_ids: Optional[List[StrictInt]] = None
+    eligible_store_numbers: Optional[List[StrictStr]] = None
+    eligible_storelist_ids: Optional[List[StrictInt]] = None
+    eligible_storelist_numbers: Optional[List[StrictStr]] = None
     landing_page_image_template_id: Optional[StrictStr] = None
     description_template_id: Optional[StrictStr] = None
     description: Optional[StrictStr] = None

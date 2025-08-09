@@ -4904,19 +4904,19 @@ components:
             eligible_store_ids:
               type: array
               items:
-                type: object
+                type: integer
             eligible_store_numbers:
               type: array
               items:
-                type: object
+                type: string
             eligible_storelist_ids:
               type: array
               items:
-                type: object
+                type: integer
             eligible_storelist_numbers:
               type: array
               items:
-                type: object
+                type: string
             landing_page_image_template_id:
               type: string
             description_template_id:
