@@ -52,6 +52,7 @@ docs/EmailOptIn.md
 docs/EmailOptInApi.md
 docs/EmailOptInError.md
 docs/Errors.md
+docs/GetMembers200Response.md
 docs/GetOfferLists200Response.md
 docs/GetOfferLists200ResponseOfferListsInner.md
 docs/HealthCheck.md
@@ -230,6 +231,7 @@ sparkfly/models/ctm_transaction_show_response_transaction_reciept_messages_inner
 sparkfly/models/email_opt_in.py
 sparkfly/models/email_opt_in_error.py
 sparkfly/models/errors.py
+sparkfly/models/get_members200_response.py
 sparkfly/models/get_offer_lists200_response.py
 sparkfly/models/get_offer_lists200_response_offer_lists_inner.py
 sparkfly/models/health_check.py
@@ -327,4 +329,5 @@ sparkfly/py.typed
 sparkfly/rest.py
 test-requirements.txt
 test/__init__.py
+test/test_get_members200_response.py
 tox.ini

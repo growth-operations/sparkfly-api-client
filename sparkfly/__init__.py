@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.1.11"
+__version__ = "1.1.12"
 
 # Define package exports
 __all__ = [
@@ -89,6 +89,7 @@ __all__ = [
     "EmailOptIn",
     "EmailOptInError",
     "Errors",
+    "GetMembers200Response",
     "GetOfferLists200Response",
     "GetOfferLists200ResponseOfferListsInner",
     "HealthCheck",
@@ -259,6 +260,7 @@ from sparkfly.models.ctm_transaction_show_response_transaction_reciept_messages_
 from sparkfly.models.email_opt_in import EmailOptIn as EmailOptIn
 from sparkfly.models.email_opt_in_error import EmailOptInError as EmailOptInError
 from sparkfly.models.errors import Errors as Errors
+from sparkfly.models.get_members200_response import GetMembers200Response as GetMembers200Response
 from sparkfly.models.get_offer_lists200_response import GetOfferLists200Response as GetOfferLists200Response
 from sparkfly.models.get_offer_lists200_response_offer_lists_inner import GetOfferLists200ResponseOfferListsInner as GetOfferLists200ResponseOfferListsInner
 from sparkfly.models.health_check import HealthCheck as HealthCheck

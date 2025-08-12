@@ -57,6 +57,7 @@ from sparkfly.models.ctm_transaction_show_response_transaction_reciept_messages_
 from sparkfly.models.email_opt_in import EmailOptIn
 from sparkfly.models.email_opt_in_error import EmailOptInError
 from sparkfly.models.errors import Errors
+from sparkfly.models.get_members200_response import GetMembers200Response
 from sparkfly.models.get_offer_lists200_response import GetOfferLists200Response
 from sparkfly.models.get_offer_lists200_response_offer_lists_inner import GetOfferLists200ResponseOfferListsInner
 from sparkfly.models.health_check import HealthCheck
