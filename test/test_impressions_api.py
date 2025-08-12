@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.impressions_api import ImpressionsApi
+from sparkfly.api.impressions_api import ImpressionsApi
 
 
 class TestImpressionsApi(unittest.IsolatedAsyncioTestCase):

@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.member_privacy_api import MemberPrivacyApi
+from sparkfly.api.member_privacy_api import MemberPrivacyApi
 
 
 class TestMemberPrivacyApi(unittest.IsolatedAsyncioTestCase):

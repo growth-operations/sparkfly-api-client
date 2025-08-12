@@ -176,7 +176,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences**
-> InlineObject2 get_audiences(page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+> AudienceIndexBody get_audiences(page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
 
 List all Audiences
 
@@ -188,7 +188,7 @@ Retrieve all audiences associated with your account.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object2 import InlineObject2
+from sparkfly.models.audience_index_body import AudienceIndexBody
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject2**](InlineObject2.md)
+[**AudienceIndexBody**](AudienceIndexBody.md)
 
 ### Authorization
 
@@ -264,7 +264,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences_id**
-> InlineObject1 get_audiences_id(audience_id)
+> AudienceData get_audiences_id(audience_id)
 
 Retrieve an Audience
 
@@ -276,7 +276,7 @@ Find an audience by its primary identifier.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object1 import InlineObject1
+from sparkfly.models.audience_data import AudienceData
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject1**](InlineObject1.md)
+[**AudienceData**](AudienceData.md)
 
 ### Authorization
 
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences_id_sub_audiences**
-> InlineObject4 get_audiences_id_sub_audiences(audience_id, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
+> SubAudienceIndexBody get_audiences_id_sub_audiences(audience_id, page=page, per_page=per_page, order=order, sort_by=sort_by, search_text=search_text)
 
 List all Sub-Audiences
 
@@ -358,7 +358,7 @@ Search within all sub-audiences.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object4 import InlineObject4
+from sparkfly.models.sub_audience_index_body import SubAudienceIndexBody
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject4**](InlineObject4.md)
+[**SubAudienceIndexBody**](SubAudienceIndexBody.md)
 
 ### Authorization
 
@@ -436,7 +436,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_audiences_id_sub_audiences_sub_audience_id**
-> InlineObject3 get_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
+> SubAudienceData get_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id)
 
 Retrieve a Sub-Audience
 
@@ -448,7 +448,7 @@ Get a sub-audience by it's primary identifier.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object3 import InlineObject3
+from sparkfly.models.sub_audience_data import SubAudienceData
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject3**](InlineObject3.md)
+[**SubAudienceData**](SubAudienceData.md)
 
 ### Authorization
 
@@ -519,7 +519,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_audiences**
-> InlineObject1 post_audiences(content_type=content_type, post_audiences_request=post_audiences_request)
+> AudienceData post_audiences(content_type=content_type, post_audiences_request=post_audiences_request)
 
 Create an Audience
 
@@ -531,7 +531,7 @@ Creates a new audience.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object1 import InlineObject1
+from sparkfly.models.audience_data import AudienceData
 from sparkfly.models.post_audiences_request import PostAudiencesRequest
 from sparkfly.rest import ApiException
 from pprint import pprint
@@ -581,7 +581,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject1**](InlineObject1.md)
+[**AudienceData**](AudienceData.md)
 
 ### Authorization
 
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_audiences_id_sub_audiences**
-> InlineObject3 post_audiences_id_sub_audiences(audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
+> SubAudienceData post_audiences_id_sub_audiences(audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
 
 Create a Sub-Audience
 
@@ -615,8 +615,8 @@ Creates a sub-audience within this audience.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object3 import InlineObject3
 from sparkfly.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
+from sparkfly.models.sub_audience_data import SubAudienceData
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -667,7 +667,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject3**](InlineObject3.md)
+[**SubAudienceData**](SubAudienceData.md)
 
 ### Authorization
 
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_audiences_id**
-> InlineObject1 put_audiences_id(audience_id, content_type=content_type, post_audiences_request=post_audiences_request)
+> AudienceData put_audiences_id(audience_id, content_type=content_type, post_audiences_request=post_audiences_request)
 
 Update an Audience
 
@@ -702,7 +702,7 @@ Updates an existing audience.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object1 import InlineObject1
+from sparkfly.models.audience_data import AudienceData
 from sparkfly.models.post_audiences_request import PostAudiencesRequest
 from sparkfly.rest import ApiException
 from pprint import pprint
@@ -754,7 +754,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject1**](InlineObject1.md)
+[**AudienceData**](AudienceData.md)
 
 ### Authorization
 
@@ -776,7 +776,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_audiences_id_sub_audiences_sub_audience_id**
-> InlineObject3 put_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
+> SubAudienceData put_audiences_id_sub_audiences_sub_audience_id(sub_audience_id, audience_id, content_type=content_type, post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request)
 
 Update a Sub-Audience
 
@@ -788,8 +788,8 @@ Updates an existing sub-audience.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object3 import InlineObject3
 from sparkfly.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
+from sparkfly.models.sub_audience_data import SubAudienceData
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -842,7 +842,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject3**](InlineObject3.md)
+[**SubAudienceData**](SubAudienceData.md)
 
 ### Authorization
 

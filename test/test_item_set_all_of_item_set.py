@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.item_set_all_of_item_set import ItemSetAllOfItemSet
+from sparkfly.models.item_set_all_of_item_set import ItemSetAllOfItemSet
 
 class TestItemSetAllOfItemSet(unittest.TestCase):
     """ItemSetAllOfItemSet unit test stubs"""
@@ -36,6 +36,7 @@ class TestItemSetAllOfItemSet(unittest.TestCase):
         model = ItemSetAllOfItemSet()
         if include_optional:
             return ItemSetAllOfItemSet(
+                id = 56,
                 name = '',
                 merchant_id = '',
                 manufacturer_id = '',

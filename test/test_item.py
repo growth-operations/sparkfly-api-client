@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.item import Item
+from sparkfly.models.item import Item
 
 class TestItem(unittest.TestCase):
     """Item unit test stubs"""
@@ -36,8 +36,14 @@ class TestItem(unittest.TestCase):
         model = Item()
         if include_optional:
             return Item(
-                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
-                item = None
+                errors = sparkfly.models.response_body_errors.response_body_errors(),
+                item = sparkfly.models.item_all_of_item.item_allOf_item(
+                    id = 56, 
+                    name = '', 
+                    code = '', 
+                    merchant_id = '', 
+                    manufacturer_id = '', 
+                    item_type = 'item', )
             )
         else:
             return Item(

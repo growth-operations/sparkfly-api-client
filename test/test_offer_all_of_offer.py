@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.offer_all_of_offer import OfferAllOfOffer
+from sparkfly.models.offer_all_of_offer import OfferAllOfOffer
 
 class TestOfferAllOfOffer(unittest.TestCase):
     """OfferAllOfOffer unit test stubs"""
@@ -36,6 +36,7 @@ class TestOfferAllOfOffer(unittest.TestCase):
         model = OfferAllOfOffer()
         if include_optional:
             return OfferAllOfOffer(
+                id = 56,
                 status = '',
                 merchant_id = '',
                 manufacturer_id = '',
@@ -46,7 +47,7 @@ class TestOfferAllOfOffer(unittest.TestCase):
                 category = '',
                 offer_code = '',
                 pos_offer_code = '',
-                criteria = None,
+                criteria = sparkfly.models.offer_all_of_offer_criteria.offer_allOf_offer_criteria(),
                 points_earning_value = 56,
                 points_required_value = 56,
                 reward_item_description = '',
@@ -73,11 +74,11 @@ class TestOfferAllOfOffer(unittest.TestCase):
                 initial_value_mode = '',
                 offer_value_text = '',
                 offer_value_text_es = '',
-                formatting = sparkfly_api_client.models.offer_all_of_offer_all_of_formatting.offer_allOf_offer_allOf_formatting(
+                formatting = sparkfly.models.offer_request_offer_formatting.offer_request_offer_formatting(
                     bg_image = '', 
                     custom_offer_group = '', 
                     description = '', 
-                    eligible_store_map = sparkfly_api_client.models.offer_all_of_offer_all_of_formatting_eligible_store_map.offer_allOf_offer_allOf_formatting_eligible_store_map(
+                    eligible_store_map = sparkfly.models.offer_request_offer_formatting_eligible_store_map.offer_request_offer_formatting_eligible_store_map(
                         hello = '', ), 
                     mobile_thumb_url = '', 
                     mobile_url = '', 
@@ -87,7 +88,7 @@ class TestOfferAllOfOffer(unittest.TestCase):
                     short_name = '', 
                     web_thumb_url = '', 
                     web_url = '', ),
-                eligibility = sparkfly_api_client.models.offer_all_of_offer_all_of_eligibility.offer_allOf_offer_allOf_eligibility(
+                eligibility = sparkfly.models.offer_request_offer_eligibility.offer_request_offer_eligibility(
                     merchant_ids = [
                         56
                         ], 

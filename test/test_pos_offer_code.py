@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.pos_offer_code import PosOfferCode
+from sparkfly.models.pos_offer_code import PosOfferCode
 
 class TestPosOfferCode(unittest.TestCase):
     """PosOfferCode unit test stubs"""
@@ -36,8 +36,16 @@ class TestPosOfferCode(unittest.TestCase):
         model = PosOfferCode()
         if include_optional:
             return PosOfferCode(
-                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
-                pos_offer_code = None
+                errors = sparkfly.models.response_body_errors.response_body_errors(),
+                pos_offer_code = sparkfly.models.pos_offer_code_all_of_pos_offer_code.pos_offer_code_allOf_pos_offer_code(
+                    id = 56, 
+                    account_id = 56, 
+                    code = '', 
+                    description = '', 
+                    pos_offer_code_type_id = '', 
+                    pos_offer_code_pos_id = '', 
+                    pos_offer_code_type_name = '', 
+                    pos_offer_code_pos_name = '', )
             )
         else:
             return PosOfferCode(

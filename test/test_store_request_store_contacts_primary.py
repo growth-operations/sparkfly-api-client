@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.store_request_store_contacts_primary import StoreRequestStoreContactsPrimary
+from sparkfly.models.store_request_store_contacts_primary import StoreRequestStoreContactsPrimary
 
 class TestStoreRequestStoreContactsPrimary(unittest.TestCase):
     """StoreRequestStoreContactsPrimary unit test stubs"""

@@ -94,7 +94,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members**
-> GetMembers200Response get_members(page=page, per_page=per_page)
+> MemberIndexBody get_members(page=page, per_page=per_page)
 
 List Members
 
@@ -106,7 +106,7 @@ Retrieve a paginated list of all members.
 
 ```python
 import sparkfly
-from sparkfly.models.get_members200_response import GetMembers200Response
+from sparkfly.models.member_index_body import MemberIndexBody
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetMembers200Response**](GetMembers200Response.md)
+[**MemberIndexBody**](MemberIndexBody.md)
 
 ### Authorization
 
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_members_profile**
-> InlineObject5 get_members_profile(id)
+> MemberProfileData get_members_profile(id)
 
 Retrieve a Member Profile
 
@@ -271,7 +271,7 @@ Get a member's profile data. If the caller's Sparkfly account is configured to s
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object5 import InlineObject5
+from sparkfly.models.member_profile_data import MemberProfileData
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -318,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject5**](InlineObject5.md)
+[**MemberProfileData**](MemberProfileData.md)
 
 ### Authorization
 

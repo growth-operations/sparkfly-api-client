@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.pos_offer_codes_api import POSOfferCodesApi
+from sparkfly.api.pos_offer_codes_api import POSOfferCodesApi
 
 
 class TestPOSOfferCodesApi(unittest.IsolatedAsyncioTestCase):

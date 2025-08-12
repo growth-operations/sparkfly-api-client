@@ -105,8 +105,8 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -182,8 +182,8 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -259,8 +259,8 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -421,8 +421,8 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StoreListIndexBody",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -514,8 +514,8 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StoreListIndexBody",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -607,8 +607,8 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StoreListIndexBody",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -795,8 +795,8 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StoreList",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -892,8 +892,8 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StoreList",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -989,8 +989,8 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StoreList",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1160,9 +1160,9 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "StoreList",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1238,9 +1238,9 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "StoreList",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1316,9 +1316,9 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "StoreList",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1480,9 +1480,9 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StoreList",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1562,9 +1562,9 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StoreList",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1644,9 +1644,9 @@ class StoreListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "StoreList",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,

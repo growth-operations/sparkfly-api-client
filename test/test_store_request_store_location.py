@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.store_request_store_location import StoreRequestStoreLocation
+from sparkfly.models.store_request_store_location import StoreRequestStoreLocation
 
 class TestStoreRequestStoreLocation(unittest.TestCase):
     """StoreRequestStoreLocation unit test stubs"""

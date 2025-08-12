@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.item_set_request_item_set import ItemSetRequestItemSet
+from sparkfly.models.item_set_request_item_set import ItemSetRequestItemSet
 
 class TestItemSetRequestItemSet(unittest.TestCase):
     """ItemSetRequestItemSet unit test stubs"""

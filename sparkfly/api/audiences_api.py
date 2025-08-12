@@ -20,12 +20,12 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from sparkfly.models.inline_object1 import InlineObject1
-from sparkfly.models.inline_object2 import InlineObject2
-from sparkfly.models.inline_object3 import InlineObject3
-from sparkfly.models.inline_object4 import InlineObject4
+from sparkfly.models.audience_data import AudienceData
+from sparkfly.models.audience_index_body import AudienceIndexBody
 from sparkfly.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
 from sparkfly.models.post_audiences_request import PostAudiencesRequest
+from sparkfly.models.sub_audience_data import SubAudienceData
+from sparkfly.models.sub_audience_index_body import SubAudienceIndexBody
 
 from sparkfly.api_client import ApiClient, RequestSerialized
 from sparkfly.api_response import ApiResponse
@@ -367,9 +367,9 @@ class AudiencesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -441,9 +441,9 @@ class AudiencesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -515,9 +515,9 @@ class AudiencesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -616,7 +616,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject2:
+    ) -> AudienceIndexBody:
         """List all Audiences
 
         Retrieve all audiences associated with your account.
@@ -666,8 +666,8 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject2",
-            '500': "APIError",
+            '200': "AudienceIndexBody",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -700,7 +700,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject2]:
+    ) -> ApiResponse[AudienceIndexBody]:
         """List all Audiences
 
         Retrieve all audiences associated with your account.
@@ -750,8 +750,8 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject2",
-            '500': "APIError",
+            '200': "AudienceIndexBody",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -834,8 +834,8 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject2",
-            '500': "APIError",
+            '200': "AudienceIndexBody",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -949,7 +949,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject1:
+    ) -> AudienceData:
         """Retrieve an Audience
 
         Find an audience by its primary identifier.
@@ -987,10 +987,10 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject1",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "InlineObject3",
+            '200': "AudienceData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "SubAudienceData",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1019,7 +1019,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject1]:
+    ) -> ApiResponse[AudienceData]:
         """Retrieve an Audience
 
         Find an audience by its primary identifier.
@@ -1057,10 +1057,10 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject1",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "InlineObject3",
+            '200': "AudienceData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "SubAudienceData",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1127,10 +1127,10 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject1",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "InlineObject3",
+            '200': "AudienceData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "SubAudienceData",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1227,7 +1227,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject4:
+    ) -> SubAudienceIndexBody:
         """List all Sub-Audiences
 
         Search within all sub-audiences.
@@ -1280,8 +1280,8 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject4",
-            '500': "APIError",
+            '200': "SubAudienceIndexBody",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1315,7 +1315,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject4]:
+    ) -> ApiResponse[SubAudienceIndexBody]:
         """List all Sub-Audiences
 
         Search within all sub-audiences.
@@ -1368,8 +1368,8 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject4",
-            '500': "APIError",
+            '200': "SubAudienceIndexBody",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1456,8 +1456,8 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject4",
-            '500': "APIError",
+            '200': "SubAudienceIndexBody",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1575,7 +1575,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject3:
+    ) -> SubAudienceData:
         """Retrieve a Sub-Audience
 
         Get a sub-audience by it's primary identifier.
@@ -1616,9 +1616,9 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject3",
-            '404': "APIError",
-            '500': "APIError",
+            '200': "SubAudienceData",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1648,7 +1648,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject3]:
+    ) -> ApiResponse[SubAudienceData]:
         """Retrieve a Sub-Audience
 
         Get a sub-audience by it's primary identifier.
@@ -1689,9 +1689,9 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject3",
-            '404': "APIError",
-            '500': "APIError",
+            '200': "SubAudienceData",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1762,9 +1762,9 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject3",
-            '404': "APIError",
-            '500': "APIError",
+            '200': "SubAudienceData",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1860,7 +1860,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject1:
+    ) -> AudienceData:
         """Create an Audience
 
         Creates a new audience.
@@ -1901,7 +1901,7 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "InlineObject1",
+            '201': "AudienceData",
             '400': None,
             '422': None,
         }
@@ -1933,7 +1933,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject1]:
+    ) -> ApiResponse[AudienceData]:
         """Create an Audience
 
         Creates a new audience.
@@ -1974,7 +1974,7 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "InlineObject1",
+            '201': "AudienceData",
             '400': None,
             '422': None,
         }
@@ -2047,7 +2047,7 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "InlineObject1",
+            '201': "AudienceData",
             '400': None,
             '422': None,
         }
@@ -2159,7 +2159,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject3:
+    ) -> SubAudienceData:
         """Create a Sub-Audience
 
         Creates a sub-audience within this audience.
@@ -2203,10 +2203,10 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "InlineObject3",
-            '400': "APIError",
-            '422': "APIError",
-            '500': "APIError",
+            '201': "SubAudienceData",
+            '400': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2237,7 +2237,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject3]:
+    ) -> ApiResponse[SubAudienceData]:
         """Create a Sub-Audience
 
         Creates a sub-audience within this audience.
@@ -2281,10 +2281,10 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "InlineObject3",
-            '400': "APIError",
-            '422': "APIError",
-            '500': "APIError",
+            '201': "SubAudienceData",
+            '400': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2359,10 +2359,10 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "InlineObject3",
-            '400': "APIError",
-            '422': "APIError",
-            '500': "APIError",
+            '201': "SubAudienceData",
+            '400': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2475,7 +2475,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject1:
+    ) -> AudienceData:
         """Update an Audience
 
         Updates an existing audience.
@@ -2519,7 +2519,7 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject1",
+            '200': "AudienceData",
             '404': None,
             '422': None,
         }
@@ -2552,7 +2552,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject1]:
+    ) -> ApiResponse[AudienceData]:
         """Update an Audience
 
         Updates an existing audience.
@@ -2596,7 +2596,7 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject1",
+            '200': "AudienceData",
             '404': None,
             '422': None,
         }
@@ -2673,7 +2673,7 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject1",
+            '200': "AudienceData",
             '404': None,
             '422': None,
         }
@@ -2789,7 +2789,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject3:
+    ) -> SubAudienceData:
         """Update a Sub-Audience
 
         Updates an existing sub-audience.
@@ -2836,11 +2836,11 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject3",
-            '400': "APIError",
-            '404': "APIError",
-            '422': "APIError",
-            '500': "InlineObject3",
+            '200': "SubAudienceData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '422': "ApiError",
+            '500': "SubAudienceData",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2872,7 +2872,7 @@ class AudiencesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject3]:
+    ) -> ApiResponse[SubAudienceData]:
         """Update a Sub-Audience
 
         Updates an existing sub-audience.
@@ -2919,11 +2919,11 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject3",
-            '400': "APIError",
-            '404': "APIError",
-            '422': "APIError",
-            '500': "InlineObject3",
+            '200': "SubAudienceData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '422': "ApiError",
+            '500': "SubAudienceData",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -3002,11 +3002,11 @@ class AudiencesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject3",
-            '400': "APIError",
-            '404': "APIError",
-            '422': "APIError",
-            '500': "InlineObject3",
+            '200': "SubAudienceData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '422': "ApiError",
+            '500': "SubAudienceData",
         }
         response_data = await self.api_client.call_api(
             *_param,

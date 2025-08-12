@@ -62,16 +62,16 @@ class TestCampaignIndexBody(unittest.TestCase):
                                 None
                                 ], 
                             eligible_store_ids = [
-                                None
+                                56
                                 ], 
                             eligible_store_numbers = [
-                                None
+                                ''
                                 ], 
                             eligible_storelist_ids = [
-                                None
+                                56
                                 ], 
                             eligible_storelist_numbers = [
-                                None
+                                ''
                                 ], 
                             landing_page_image_template_id = '', 
                             description_template_id = '', 

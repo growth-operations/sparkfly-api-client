@@ -102,7 +102,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -175,7 +175,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -248,7 +248,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -419,7 +419,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferIndexBody",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -524,7 +524,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferIndexBody",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -629,7 +629,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferIndexBody",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -817,7 +817,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Offer",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -894,7 +894,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Offer",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -971,7 +971,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Offer",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1128,7 +1128,7 @@ class OffersApi:
             '400': "Offer",
             '401': None,
             '422': "Offer",
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1203,7 +1203,7 @@ class OffersApi:
             '400': "Offer",
             '401': None,
             '422': "Offer",
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1278,7 +1278,7 @@ class OffersApi:
             '400': "Offer",
             '401': None,
             '422': "Offer",
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1434,7 +1434,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Offer",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1511,7 +1511,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Offer",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1588,7 +1588,7 @@ class OffersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Offer",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,

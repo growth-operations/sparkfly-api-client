@@ -15,8 +15,11 @@
 
 
 # import models into model package
-from sparkfly.models.api_error import APIError
+from sparkfly.models.api_error import ApiError
 from sparkfly.models.audience import Audience
+from sparkfly.models.audience_data import AudienceData
+from sparkfly.models.audience_index_body import AudienceIndexBody
+from sparkfly.models.audience_index_data import AudienceIndexData
 from sparkfly.models.bi_store_list import BiStoreList
 from sparkfly.models.bi_store_list_store_lists_inner import BiStoreListStoreListsInner
 from sparkfly.models.campaign_index_body import CampaignIndexBody
@@ -57,9 +60,6 @@ from sparkfly.models.ctm_transaction_show_response_transaction_reciept_messages_
 from sparkfly.models.email_opt_in import EmailOptIn
 from sparkfly.models.email_opt_in_error import EmailOptInError
 from sparkfly.models.errors import Errors
-from sparkfly.models.get_members200_response import GetMembers200Response
-from sparkfly.models.get_offer_lists200_response import GetOfferLists200Response
-from sparkfly.models.get_offer_lists200_response_offer_lists_inner import GetOfferLists200ResponseOfferListsInner
 from sparkfly.models.health_check import HealthCheck
 from sparkfly.models.impression import Impression
 from sparkfly.models.impression_all_of_impression import ImpressionAllOfImpression
@@ -68,12 +68,6 @@ from sparkfly.models.impression_index_body import ImpressionIndexBody
 from sparkfly.models.impression_request import ImpressionRequest
 from sparkfly.models.impression_request_impression import ImpressionRequestImpression
 from sparkfly.models.impression_request_impression_annotations import ImpressionRequestImpressionAnnotations
-from sparkfly.models.inline_object import InlineObject
-from sparkfly.models.inline_object1 import InlineObject1
-from sparkfly.models.inline_object2 import InlineObject2
-from sparkfly.models.inline_object3 import InlineObject3
-from sparkfly.models.inline_object4 import InlineObject4
-from sparkfly.models.inline_object5 import InlineObject5
 from sparkfly.models.item import Item
 from sparkfly.models.item_all_of_item import ItemAllOfItem
 from sparkfly.models.item_index_body import ItemIndexBody
@@ -86,10 +80,12 @@ from sparkfly.models.item_set_request import ItemSetRequest
 from sparkfly.models.item_set_request_item_set import ItemSetRequestItemSet
 from sparkfly.models.member import Member
 from sparkfly.models.member_all_of_member import MemberAllOfMember
+from sparkfly.models.member_index_body import MemberIndexBody
 from sparkfly.models.member_privacy import MemberPrivacy
 from sparkfly.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner
 from sparkfly.models.member_privacy_member import MemberPrivacyMember
 from sparkfly.models.member_profile import MemberProfile
+from sparkfly.models.member_profile_data import MemberProfileData
 from sparkfly.models.member_request import MemberRequest
 from sparkfly.models.member_request_member import MemberRequestMember
 from sparkfly.models.offer import Offer
@@ -101,6 +97,8 @@ from sparkfly.models.offer_eligible_item_set_request_eligible_item_set import Of
 from sparkfly.models.offer_eligible_items_set_index import OfferEligibleItemsSetIndex
 from sparkfly.models.offer_index_body import OfferIndexBody
 from sparkfly.models.offer_list import OfferList
+from sparkfly.models.offer_list_data import OfferListData
+from sparkfly.models.offer_lists_index_body import OfferListsIndexBody
 from sparkfly.models.offer_pos_offer_code import OfferPosOfferCode
 from sparkfly.models.offer_pos_offer_code_all_of_offer_pos_offer_code import OfferPosOfferCodeAllOfOfferPosOfferCode
 from sparkfly.models.offer_pos_offer_code_index import OfferPosOfferCodeIndex
@@ -148,6 +146,9 @@ from sparkfly.models.store_request_store_contacts import StoreRequestStoreContac
 from sparkfly.models.store_request_store_contacts_primary import StoreRequestStoreContactsPrimary
 from sparkfly.models.store_request_store_location import StoreRequestStoreLocation
 from sparkfly.models.sub_audience import SubAudience
+from sparkfly.models.sub_audience_data import SubAudienceData
+from sparkfly.models.sub_audience_index_body import SubAudienceIndexBody
+from sparkfly.models.sub_audience_index_data import SubAudienceIndexData
 from sparkfly.models.template import Template
 from sparkfly.models.template2 import Template2
 from sparkfly.models.template_templates_inner import TemplateTemplatesInner

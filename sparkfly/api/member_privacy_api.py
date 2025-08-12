@@ -103,10 +103,10 @@ class MemberPrivacyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "MemberPrivacy",
-            '400': "APIError",
+            '400': "ApiError",
             '401': None,
-            '422': "APIError",
-            '500': "APIError",
+            '422': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -182,10 +182,10 @@ class MemberPrivacyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "MemberPrivacy",
-            '400': "APIError",
+            '400': "ApiError",
             '401': None,
-            '422': "APIError",
-            '500': "APIError",
+            '422': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -261,10 +261,10 @@ class MemberPrivacyApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "MemberPrivacy",
-            '400': "APIError",
+            '400': "ApiError",
             '401': None,
-            '422': "APIError",
-            '500': "APIError",
+            '422': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,

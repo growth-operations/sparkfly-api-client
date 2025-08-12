@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.store_request_store import StoreRequestStore
+from sparkfly.models.store_request_store import StoreRequestStore
 
 class TestStoreRequestStore(unittest.TestCase):
     """StoreRequestStore unit test stubs"""
@@ -42,16 +42,16 @@ class TestStoreRequestStore(unittest.TestCase):
                 description = '',
                 is_active = True,
                 phone = '',
-                contacts = sparkfly_api_client.models.store_request_store_contacts.store_request_store_contacts(
-                    primary = sparkfly_api_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                contacts = sparkfly.models.store_request_store_contacts.store_request_store_contacts(
+                    primary = sparkfly.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
                         name = '', 
                         phone = '', 
                         email = '', ), 
-                    secondary = sparkfly_api_client.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                    secondary = sparkfly.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
                         name = '', 
                         phone = '', 
                         email = '', ), ),
-                location = sparkfly_api_client.models.store_request_store_location.store_request_store_location(
+                location = sparkfly.models.store_request_store_location.store_request_store_location(
                     address = '', 
                     address2 = '', 
                     city = '', 

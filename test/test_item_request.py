@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.item_request import ItemRequest
+from sparkfly.models.item_request import ItemRequest
 
 class TestItemRequest(unittest.TestCase):
     """ItemRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestItemRequest(unittest.TestCase):
         model = ItemRequest()
         if include_optional:
             return ItemRequest(
-                item = sparkfly_api_client.models.item_request_item.item_request_item(
+                item = sparkfly.models.item_request_item.item_request_item(
                     name = '', 
                     code = '', 
                     item_type = 'item', )

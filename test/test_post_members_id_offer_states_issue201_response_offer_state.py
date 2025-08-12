@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.post_members_id_offer_states_issue201_response_offer_state import PostMembersIdOfferStatesIssue201ResponseOfferState
+from sparkfly.models.post_members_id_offer_states_issue201_response_offer_state import PostMembersIdOfferStatesIssue201ResponseOfferState
 
 class TestPostMembersIdOfferStatesIssue201ResponseOfferState(unittest.TestCase):
     """PostMembersIdOfferStatesIssue201ResponseOfferState unit test stubs"""

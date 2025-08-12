@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.bi_store_lists_api import BIStoreListsApi
+from sparkfly.api.bi_store_lists_api import BIStoreListsApi
 
 
 class TestBIStoreListsApi(unittest.IsolatedAsyncioTestCase):

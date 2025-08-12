@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.ctm_transaction_show_response_transaction_credentials_inner import CtmTransactionShowResponseTransactionCredentialsInner
+from sparkfly.models.ctm_transaction_show_response_transaction_credentials_inner import CtmTransactionShowResponseTransactionCredentialsInner
 
 class TestCtmTransactionShowResponseTransactionCredentialsInner(unittest.TestCase):
     """CtmTransactionShowResponseTransactionCredentialsInner unit test stubs"""
@@ -37,7 +37,7 @@ class TestCtmTransactionShowResponseTransactionCredentialsInner(unittest.TestCas
         if include_optional:
             return CtmTransactionShowResponseTransactionCredentialsInner(
                 valid = True,
-                tx_credential = sparkfly_api_client.models.ctm_transaction_show_response_transaction_credentials_inner_tx_credential.ctm_transaction_show_response_transaction_credentials_inner_TxCredential(
+                tx_credential = sparkfly.models.ctm_transaction_show_response_transaction_credentials_inner_tx_credential.ctm_transaction_show_response_transaction_credentials_inner_TxCredential(
                     rpe_identifier = '', 
                     display = '', 
                     external_identifier = '', 

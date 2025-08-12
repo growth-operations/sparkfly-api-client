@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.store_list_all_of_store_list import StoreListAllOfStoreList
+from sparkfly.models.store_list_all_of_store_list import StoreListAllOfStoreList
 
 class TestStoreListAllOfStoreList(unittest.TestCase):
     """StoreListAllOfStoreList unit test stubs"""
@@ -36,6 +36,7 @@ class TestStoreListAllOfStoreList(unittest.TestCase):
         model = StoreListAllOfStoreList()
         if include_optional:
             return StoreListAllOfStoreList(
+                id = 56,
                 merchant_id = 56,
                 name = '',
                 store_ids = [

@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.ctm_redemption_job_request_selected_offers_inner import CtmRedemptionJobRequestSelectedOffersInner
+from sparkfly.models.ctm_redemption_job_request_selected_offers_inner import CtmRedemptionJobRequestSelectedOffersInner
 
 class TestCtmRedemptionJobRequestSelectedOffersInner(unittest.TestCase):
     """CtmRedemptionJobRequestSelectedOffersInner unit test stubs"""

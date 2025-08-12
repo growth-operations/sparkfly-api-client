@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.ctm_redemption_job_request import CtmRedemptionJobRequest
+from sparkfly.models.ctm_redemption_job_request import CtmRedemptionJobRequest
 
 class TestCtmRedemptionJobRequest(unittest.TestCase):
     """CtmRedemptionJobRequest unit test stubs"""
@@ -40,7 +40,7 @@ class TestCtmRedemptionJobRequest(unittest.TestCase):
                     56
                     ],
                 redeemed_offers = [
-                    sparkfly_api_client.models.ctm_redemption_job_request_redeemed_offers_inner.ctm_redemption_job_request_redeemed_offers_inner(
+                    sparkfly.models.ctm_redemption_job_request_redeemed_offers_inner.ctm_redemption_job_request_redeemed_offers_inner(
                         offer_id = 56, 
                         value = 56, 
                         override_ammount = 56, 
@@ -49,14 +49,14 @@ class TestCtmRedemptionJobRequest(unittest.TestCase):
                         pos_offer_code_type = '', 
                         linked_item_entry_id = '', 
                         qualifying_items = [
-                            sparkfly_api_client.models.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner(
+                            sparkfly.models.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner(
                                 line_number = '', 
                                 entry_id = '', 
                                 qualification_type = '', )
                             ], )
                     ],
                 items = [
-                    sparkfly_api_client.models.ctm_redemption_job_request_items_inner.ctm_redemption_job_request_items_inner(
+                    sparkfly.models.ctm_redemption_job_request_items_inner.ctm_redemption_job_request_items_inner(
                         ln = '', 
                         lln = '', 
                         entry_id = '', 
@@ -99,7 +99,7 @@ class TestCtmRedemptionJobRequest(unittest.TestCase):
                 pos_vendor = '',
                 pos_version = '',
                 selected_offers = [
-                    sparkfly_api_client.models.ctm_redemption_job_request_selected_offers_inner.ctm_redemption_job_request_selected_offers_inner(
+                    sparkfly.models.ctm_redemption_job_request_selected_offers_inner.ctm_redemption_job_request_selected_offers_inner(
                         offer_id = '', )
                     ],
                 revenue_center = '',

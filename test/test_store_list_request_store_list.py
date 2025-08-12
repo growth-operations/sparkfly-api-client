@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.store_list_request_store_list import StoreListRequestStoreList
+from sparkfly.models.store_list_request_store_list import StoreListRequestStoreList
 
 class TestStoreListRequestStoreList(unittest.TestCase):
     """StoreListRequestStoreList unit test stubs"""

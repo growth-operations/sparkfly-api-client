@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.post_auth401_response import PostAuth401Response
+from sparkfly.models.post_auth401_response import PostAuth401Response
 
 class TestPostAuth401Response(unittest.TestCase):
     """PostAuth401Response unit test stubs"""

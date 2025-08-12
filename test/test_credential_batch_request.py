@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.credential_batch_request import CredentialBatchRequest
+from sparkfly.models.credential_batch_request import CredentialBatchRequest
 
 class TestCredentialBatchRequest(unittest.TestCase):
     """CredentialBatchRequest unit test stubs"""

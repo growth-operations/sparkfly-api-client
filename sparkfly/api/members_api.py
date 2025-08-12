@@ -20,9 +20,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Optional
 from typing_extensions import Annotated
-from sparkfly.models.get_members200_response import GetMembers200Response
-from sparkfly.models.inline_object5 import InlineObject5
 from sparkfly.models.member import Member
+from sparkfly.models.member_index_body import MemberIndexBody
+from sparkfly.models.member_profile_data import MemberProfileData
 from sparkfly.models.member_request import MemberRequest
 from sparkfly.models.post_members_profile_request import PostMembersProfileRequest
 
@@ -99,9 +99,9 @@ class MembersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "APIError",
+            '400': "ApiError",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -169,9 +169,9 @@ class MembersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "APIError",
+            '400': "ApiError",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -239,9 +239,9 @@ class MembersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "APIError",
+            '400': "ApiError",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -334,7 +334,7 @@ class MembersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetMembers200Response:
+    ) -> MemberIndexBody:
         """List Members
 
         Retrieve a paginated list of all members.
@@ -375,7 +375,7 @@ class MembersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMembers200Response",
+            '200': "MemberIndexBody",
             '401': None,
             '500': None,
         }
@@ -407,7 +407,7 @@ class MembersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetMembers200Response]:
+    ) -> ApiResponse[MemberIndexBody]:
         """List Members
 
         Retrieve a paginated list of all members.
@@ -448,7 +448,7 @@ class MembersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMembers200Response",
+            '200': "MemberIndexBody",
             '401': None,
             '500': None,
         }
@@ -521,7 +521,7 @@ class MembersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetMembers200Response",
+            '200': "MemberIndexBody",
             '401': None,
             '500': None,
         }
@@ -895,7 +895,7 @@ class MembersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject5:
+    ) -> MemberProfileData:
         """Retrieve a Member Profile
 
         Get a member's profile data. If the caller's Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned.
@@ -933,10 +933,10 @@ class MembersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject5",
-            '400': "APIError",
-            '403': "APIError",
-            '404': "APIError",
+            '200': "MemberProfileData",
+            '400': "ApiError",
+            '403': "ApiError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -965,7 +965,7 @@ class MembersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject5]:
+    ) -> ApiResponse[MemberProfileData]:
         """Retrieve a Member Profile
 
         Get a member's profile data. If the caller's Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned.
@@ -1003,10 +1003,10 @@ class MembersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject5",
-            '400': "APIError",
-            '403': "APIError",
-            '404': "APIError",
+            '200': "MemberProfileData",
+            '400': "ApiError",
+            '403': "ApiError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1073,10 +1073,10 @@ class MembersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject5",
-            '400': "APIError",
-            '403': "APIError",
-            '404': "APIError",
+            '200': "MemberProfileData",
+            '400': "ApiError",
+            '403': "ApiError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1208,7 +1208,7 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Member",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1277,7 +1277,7 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Member",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1346,7 +1346,7 @@ class MembersApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Member",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1788,11 +1788,11 @@ class MembersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "APIError",
-            '403': "APIError",
-            '404': "APIError",
-            '422': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '403': "ApiError",
+            '404': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1868,11 +1868,11 @@ class MembersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "APIError",
-            '403': "APIError",
-            '404': "APIError",
-            '422': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '403': "ApiError",
+            '404': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1948,11 +1948,11 @@ class MembersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '400': "APIError",
-            '403': "APIError",
-            '404': "APIError",
-            '422': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '403': "ApiError",
+            '404': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,

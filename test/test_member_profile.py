@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.member_profile import MemberProfile
+from sparkfly.models.member_profile import MemberProfile
 
 class TestMemberProfile(unittest.TestCase):
     """MemberProfile unit test stubs"""
@@ -42,7 +42,7 @@ class TestMemberProfile(unittest.TestCase):
                 email = '',
                 birth_month = 1,
                 birth_day = 56,
-                custom_data = None
+                custom_data = sparkfly.models.custom_data.custom_data()
             )
         else:
             return MemberProfile(

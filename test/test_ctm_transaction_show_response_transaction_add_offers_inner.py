@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.ctm_transaction_show_response_transaction_add_offers_inner import CtmTransactionShowResponseTransactionAddOffersInner
+from sparkfly.models.ctm_transaction_show_response_transaction_add_offers_inner import CtmTransactionShowResponseTransactionAddOffersInner
 
 class TestCtmTransactionShowResponseTransactionAddOffersInner(unittest.TestCase):
     """CtmTransactionShowResponseTransactionAddOffersInner unit test stubs"""
@@ -44,7 +44,7 @@ class TestCtmTransactionShowResponseTransactionAddOffersInner(unittest.TestCase)
                 ammount = '',
                 name = '',
                 qualifying_items = [
-                    sparkfly_api_client.models.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner(
+                    sparkfly.models.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner.ctm_transaction_show_response_transaction_add_offers_inner_qualifying_items_inner(
                         line_number = '', 
                         entry_id = '', 
                         item_code = '', 

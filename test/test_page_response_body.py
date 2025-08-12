@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.page_response_body import PageResponseBody
+from sparkfly.models.page_response_body import PageResponseBody
 
 class TestPageResponseBody(unittest.TestCase):
     """PageResponseBody unit test stubs"""

@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner
+from sparkfly.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner
 
 class TestMemberPrivacyCredentialsInner(unittest.TestCase):
     """MemberPrivacyCredentialsInner unit test stubs"""

@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.email_opt_in_api import EmailOptInApi
+from sparkfly.api.email_opt_in_api import EmailOptInApi
 
 
 class TestEmailOptInApi(unittest.IsolatedAsyncioTestCase):

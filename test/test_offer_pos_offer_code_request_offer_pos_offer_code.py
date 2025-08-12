@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.offer_pos_offer_code_request_offer_pos_offer_code import OfferPosOfferCodeRequestOfferPosOfferCode
+from sparkfly.models.offer_pos_offer_code_request_offer_pos_offer_code import OfferPosOfferCodeRequestOfferPosOfferCode
 
 class TestOfferPosOfferCodeRequestOfferPosOfferCode(unittest.TestCase):
     """OfferPosOfferCodeRequestOfferPosOfferCode unit test stubs"""

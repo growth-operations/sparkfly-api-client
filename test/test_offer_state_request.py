@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.offer_state_request import OfferStateRequest
+from sparkfly.models.offer_state_request import OfferStateRequest
 
 class TestOfferStateRequest(unittest.TestCase):
     """OfferStateRequest unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferStateRequest(unittest.TestCase):
         model = OfferStateRequest()
         if include_optional:
             return OfferStateRequest(
-                offer_state = sparkfly_api_client.models.offer_state_request_offer_state.offer_state_request_offer_state(
+                offer_state = sparkfly.models.offer_state_request_offer_state.offer_state_request_offer_state(
                     activates_at = '', 
                     expires_at = '', 
                     external_ref_id = '', 

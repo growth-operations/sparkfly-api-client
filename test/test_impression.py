@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.impression import Impression
+from sparkfly.models.impression import Impression
 
 class TestImpression(unittest.TestCase):
     """Impression unit test stubs"""
@@ -36,7 +36,22 @@ class TestImpression(unittest.TestCase):
         model = Impression()
         if include_optional:
             return Impression(
-                impression = None
+                impression = sparkfly.models.impression_all_of_impression.impression_allOf_impression(
+                    id = 56, 
+                    cookie_id = '', 
+                    offer_xid = '', 
+                    annotations = sparkfly.models.impression_request_impression_annotations.impression_request_impression_annotations(
+                        str1 = 56, 
+                        str2 = 56, 
+                        str3 = '', 
+                        str4 = True, 
+                        str5 = '', ), 
+                    created_at = '', 
+                    updated_at = '', 
+                    channel_id = '', 
+                    channel_name = '', 
+                    creative_name = '', 
+                    errors = sparkfly.models.errors.errors(), )
             )
         else:
             return Impression(

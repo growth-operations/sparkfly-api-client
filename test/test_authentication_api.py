@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.authentication_api import AuthenticationApi
+from sparkfly.api.authentication_api import AuthenticationApi
 
 
 class TestAuthenticationApi(unittest.IsolatedAsyncioTestCase):

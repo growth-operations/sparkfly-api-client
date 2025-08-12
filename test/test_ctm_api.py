@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.ctm_api import CtmApi
+from sparkfly.api.ctm_api import CtmApi
 
 
 class TestCtmApi(unittest.IsolatedAsyncioTestCase):

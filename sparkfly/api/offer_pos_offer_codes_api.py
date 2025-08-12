@@ -106,7 +106,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -183,7 +183,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -260,7 +260,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -402,7 +402,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferPosOfferCodeIndex",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -475,7 +475,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferPosOfferCodeIndex",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -548,7 +548,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferPosOfferCodeIndex",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -691,7 +691,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferPosOfferCode",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -768,7 +768,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferPosOfferCode",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -845,7 +845,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferPosOfferCode",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -990,9 +990,9 @@ class OfferPOSOfferCodesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "OfferPosOfferCode",
-            '400': "APIError",
+            '400': "ApiError",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1068,9 +1068,9 @@ class OfferPOSOfferCodesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "OfferPosOfferCode",
-            '400': "APIError",
+            '400': "ApiError",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1146,9 +1146,9 @@ class OfferPOSOfferCodesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "OfferPosOfferCode",
-            '400': "APIError",
+            '400': "ApiError",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1311,7 +1311,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferPosOfferCode",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1392,7 +1392,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferPosOfferCode",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1473,7 +1473,7 @@ class OfferPOSOfferCodesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "OfferPosOfferCode",
             '401': None,
-            '404': "APIError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,

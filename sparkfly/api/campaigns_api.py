@@ -98,8 +98,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '400': "APIError",
-            '404': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -167,8 +167,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '400': "APIError",
-            '404': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -236,8 +236,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '400': "APIError",
-            '404': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -364,8 +364,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignTagsResponse",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -429,8 +429,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignTagsResponse",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -494,8 +494,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignTagsResponse",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -652,7 +652,7 @@ class CampaignsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignIndexBody",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -749,7 +749,7 @@ class CampaignsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignIndexBody",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -846,7 +846,7 @@ class CampaignsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignIndexBody",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1014,9 +1014,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1084,9 +1084,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1154,9 +1154,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1304,9 +1304,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1378,9 +1378,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1452,9 +1452,9 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1605,8 +1605,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1678,8 +1678,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1751,8 +1751,8 @@ class CampaignsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CampaignResponse",
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,

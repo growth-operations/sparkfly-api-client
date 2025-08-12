@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.campaign_response import CampaignResponse
+from sparkfly.models.campaign_response import CampaignResponse
 
 class TestCampaignResponse(unittest.TestCase):
     """CampaignResponse unit test stubs"""
@@ -36,9 +36,55 @@ class TestCampaignResponse(unittest.TestCase):
         model = CampaignResponse()
         if include_optional:
             return CampaignResponse(
-                campaign = None,
-                errors = sparkfly_api_client.models.errors.errors(
-                    errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(), )
+                campaign = sparkfly.models.campaign_response_campaign.campaign_response_campaign(
+                    id = 56, 
+                    xid = '', 
+                    name = '', 
+                    code_ref = '', 
+                    code_count = '', 
+                    external_id = '', 
+                    offer_id = 56, 
+                    channel_id = 56, 
+                    channel_name = '', 
+                    pos_offer_code = '', 
+                    online_offer_code = '', 
+                    activation_date = '', 
+                    expiration_date = '', 
+                    start_display_at = '', 
+                    funding_source = '', 
+                    eligible_channel_tags = [
+                        None
+                        ], 
+                    eligible_store_ids = [
+                        56
+                        ], 
+                    eligible_store_numbers = [
+                        ''
+                        ], 
+                    eligible_storelist_ids = [
+                        56
+                        ], 
+                    eligible_storelist_numbers = [
+                        ''
+                        ], 
+                    landing_page_image_template_id = '', 
+                    description_template_id = '', 
+                    description = '', 
+                    terms_and_conditions_template_id = '', 
+                    terms_and_conditions = '', 
+                    security = '', 
+                    landing_page_urls = sparkfly.models.landing_page_urls.landing_page_urls(), 
+                    allow_return_later = True, 
+                    redemption_identifier_type = 56, 
+                    member_required = True, 
+                    max_redemptions_per_member = '', 
+                    dynamic_expiration = '', 
+                    sub_audience_id = 56, 
+                    audience_id = 56, 
+                    status = '', 
+                    redemption_grace_period = 56, ),
+                errors = sparkfly.models.errors.errors(
+                    errors = sparkfly.models.response_body_errors.response_body_errors(), )
             )
         else:
             return CampaignResponse(

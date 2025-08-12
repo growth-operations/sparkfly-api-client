@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product import ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct
+from sparkfly.models.clark_and_riggs_product_response_body_clark_and_riggs_product import ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct
 
 class TestClarkAndRiggsProductResponseBodyClarkAndRiggsProduct(unittest.TestCase):
     """ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct unit test stubs"""
@@ -37,10 +37,10 @@ class TestClarkAndRiggsProductResponseBodyClarkAndRiggsProduct(unittest.TestCase
         if include_optional:
             return ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct(
                 id = 56,
-                offer = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
+                offer = sparkfly.models.bi_store_list_store_lists_inner.bi_store_list_store_lists_inner(
                     id = 56, 
                     name = '', ),
-                eligible_channel = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
+                eligible_channel = sparkfly.models.bi_store_list_store_lists_inner.bi_store_list_store_lists_inner(
                     id = 56, 
                     name = '', ),
                 product_id = '',

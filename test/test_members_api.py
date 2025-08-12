@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.members_api import MembersApi
+from sparkfly.api.members_api import MembersApi
 
 
 class TestMembersApi(unittest.IsolatedAsyncioTestCase):
@@ -31,6 +31,13 @@ class TestMembersApi(unittest.IsolatedAsyncioTestCase):
         """Test case for delete_members_member_id
 
         Remove a Member
+        """
+        pass
+
+    async def test_get_members(self) -> None:
+        """Test case for get_members
+
+        List Members
         """
         pass
 

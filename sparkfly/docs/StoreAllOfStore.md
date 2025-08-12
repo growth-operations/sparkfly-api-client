@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **merchant_id** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
 **site_id** | **str** |  | [optional] 
@@ -13,7 +14,7 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **phone** | **str** |  | [optional] 
 **contacts** | [**StoreRequestStoreContacts**](StoreRequestStoreContacts.md) |  | [optional] 
-**location** | [**StoreAllOfStoreAllOfLocation**](StoreAllOfStoreAllOfLocation.md) |  | [optional] 
+**location** | [**StoreAllOfStoreLocation**](StoreAllOfStoreLocation.md) |  | [optional] 
 **icon_url** | **str** |  | [optional] 
 **online_ordering_id** | **str** |  | [optional] 
 

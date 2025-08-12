@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.bi_store_list import BiStoreList
+from sparkfly.models.bi_store_list import BiStoreList
 
 class TestBiStoreList(unittest.TestCase):
     """BiStoreList unit test stubs"""
@@ -37,7 +37,9 @@ class TestBiStoreList(unittest.TestCase):
         if include_optional:
             return BiStoreList(
                 store_lists = [
-                    null
+                    sparkfly.models.bi_store_list_store_lists_inner.bi_store_list_store_lists_inner(
+                        id = 56, 
+                        name = '', )
                     ]
             )
         else:

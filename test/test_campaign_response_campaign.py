@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.campaign_response_campaign import CampaignResponseCampaign
+from sparkfly.models.campaign_response_campaign import CampaignResponseCampaign
 
 class TestCampaignResponseCampaign(unittest.TestCase):
     """CampaignResponseCampaign unit test stubs"""
@@ -36,6 +36,7 @@ class TestCampaignResponseCampaign(unittest.TestCase):
         model = CampaignResponseCampaign()
         if include_optional:
             return CampaignResponseCampaign(
+                id = 56,
                 xid = '',
                 name = '',
                 code_ref = '',
@@ -54,16 +55,16 @@ class TestCampaignResponseCampaign(unittest.TestCase):
                     None
                     ],
                 eligible_store_ids = [
-                    None
+                    56
                     ],
                 eligible_store_numbers = [
-                    None
+                    ''
                     ],
                 eligible_storelist_ids = [
-                    None
+                    56
                     ],
                 eligible_storelist_numbers = [
-                    None
+                    ''
                     ],
                 landing_page_image_template_id = '',
                 description_template_id = '',
@@ -71,7 +72,7 @@ class TestCampaignResponseCampaign(unittest.TestCase):
                 terms_and_conditions_template_id = '',
                 terms_and_conditions = '',
                 security = '',
-                landing_page_urls = None,
+                landing_page_urls = sparkfly.models.landing_page_urls.landing_page_urls(),
                 allow_return_later = True,
                 redemption_identifier_type = 56,
                 member_required = True,

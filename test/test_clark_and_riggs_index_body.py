@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.clark_and_riggs_index_body import ClarkAndRiggsIndexBody
+from sparkfly.models.clark_and_riggs_index_body import ClarkAndRiggsIndexBody
 
 class TestClarkAndRiggsIndexBody(unittest.TestCase):
     """ClarkAndRiggsIndexBody unit test stubs"""
@@ -41,13 +41,13 @@ class TestClarkAndRiggsIndexBody(unittest.TestCase):
                 total_entries = 56,
                 total_pages = 56,
                 clark_and_riggs_products = [
-                    sparkfly_api_client.models.clark_and_riggs_product_response_body.clark_and_riggs_product_response_body(
-                        clark_and_riggs_product = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product.clark_and_riggs_product_response_body_clark_and_riggs_product(
+                    sparkfly.models.clark_and_riggs_product_response_body.clark_and_riggs_product_response_body(
+                        clark_and_riggs_product = sparkfly.models.clark_and_riggs_product_response_body_clark_and_riggs_product.clark_and_riggs_product_response_body_clark_and_riggs_product(
                             id = 56, 
-                            offer = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
+                            offer = sparkfly.models.bi_store_list_store_lists_inner.bi_store_list_store_lists_inner(
                                 id = 56, 
                                 name = '', ), 
-                            eligible_channel = sparkfly_api_client.models.clark_and_riggs_product_response_body_clark_and_riggs_product_offer.clark_and_riggs_product_response_body_clark_and_riggs_product_offer(
+                            eligible_channel = sparkfly.models.bi_store_list_store_lists_inner.bi_store_list_store_lists_inner(
                                 id = 56, 
                                 name = '', ), 
                             product_id = '', 

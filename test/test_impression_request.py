@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.impression_request import ImpressionRequest
+from sparkfly.models.impression_request import ImpressionRequest
 
 class TestImpressionRequest(unittest.TestCase):
     """ImpressionRequest unit test stubs"""
@@ -36,10 +36,10 @@ class TestImpressionRequest(unittest.TestCase):
         model = ImpressionRequest()
         if include_optional:
             return ImpressionRequest(
-                impression = sparkfly_api_client.models.impression_request_impression.impression_request_impression(
+                impression = sparkfly.models.impression_request_impression.impression_request_impression(
                     cookie_id = '', 
                     offer_xid = '', 
-                    annotations = sparkfly_api_client.models.impression_request_impression_annotations.impression_request_impression_annotations(
+                    annotations = sparkfly.models.impression_request_impression_annotations.impression_request_impression_annotations(
                         str1 = 56, 
                         str2 = 56, 
                         str3 = '', 

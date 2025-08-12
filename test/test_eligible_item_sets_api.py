@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.eligible_item_sets_api import EligibleItemSetsApi
+from sparkfly.api.eligible_item_sets_api import EligibleItemSetsApi
 
 
 class TestEligibleItemSetsApi(unittest.IsolatedAsyncioTestCase):

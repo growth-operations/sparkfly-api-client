@@ -5,10 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | **str** |  | [optional] 
-**created_at** | **str** |  | [optional] 
-**updated_at** | **str** |  | [optional] 
-**notification_mode** | **str** |  | [optional] 
+**id** | **int** |  | 
+**identifier** | **str** |  | 
+**created_at** | **str** |  | 
+**updated_at** | **str** |  | 
+**notification_mode** | **str** |  | 
 
 ## Example
 

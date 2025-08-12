@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.offer import Offer
+from sparkfly.models.offer import Offer
 
 class TestOffer(unittest.TestCase):
     """Offer unit test stubs"""
@@ -36,8 +36,75 @@ class TestOffer(unittest.TestCase):
         model = Offer()
         if include_optional:
             return Offer(
-                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
-                offer = None
+                errors = sparkfly.models.response_body_errors.response_body_errors(),
+                offer = sparkfly.models.offer_all_of_offer.offer_allOf_offer(
+                    id = 56, 
+                    status = '', 
+                    merchant_id = '', 
+                    manufacturer_id = '', 
+                    name = '', 
+                    description = '', 
+                    description_template_id = '', 
+                    offer_type = 56, 
+                    category = '', 
+                    offer_code = '', 
+                    pos_offer_code = '', 
+                    criteria = sparkfly.models.offer_all_of_offer_criteria.offer_allOf_offer_criteria(), 
+                    points_earning_value = 56, 
+                    points_required_value = 56, 
+                    reward_item_description = '', 
+                    reward_item_value = 56, 
+                    terms_and_conditions = '', 
+                    terms_and_conditions_template_id = '', 
+                    quest_only = True, 
+                    merchant_name = '', 
+                    external_reward = '', 
+                    is_reward = True, 
+                    locked = True, 
+                    activates_at = '', 
+                    expires_at = '', 
+                    stop_offering_at = '', 
+                    created_at = '', 
+                    updated_at = '', 
+                    max_amount = 56, 
+                    min_spend_amount = 56, 
+                    trigger_amount = 56, 
+                    max_redemptions = 56, 
+                    max_redemptions_per_member = 56, 
+                    max_redemptions_per_member_per_day = 56, 
+                    account_id = 56, 
+                    initial_value_mode = '', 
+                    offer_value_text = '', 
+                    offer_value_text_es = '', 
+                    formatting = sparkfly.models.offer_request_offer_formatting.offer_request_offer_formatting(
+                        bg_image = '', 
+                        custom_offer_group = '', 
+                        description = '', 
+                        eligible_store_map = sparkfly.models.offer_request_offer_formatting_eligible_store_map.offer_request_offer_formatting_eligible_store_map(
+                            hello = '', ), 
+                        mobile_thumb_url = '', 
+                        mobile_url = '', 
+                        no_printable = True, 
+                        offer_store_highlight_text_template = '', 
+                        offer_storelist_highlight_text_template = '', 
+                        short_name = '', 
+                        web_thumb_url = '', 
+                        web_url = '', ), 
+                    eligibility = sparkfly.models.offer_request_offer_eligibility.offer_request_offer_eligibility(
+                        merchant_ids = [
+                            56
+                            ], 
+                        store_list_ids = [
+                            None
+                            ], 
+                        member_list_ids = [
+                            None
+                            ], 
+                        channel_ids = [
+                            None
+                            ], ), 
+                    redeem_until_depleted = True, 
+                    redemption_grace_period = 56, )
             )
         else:
             return Offer(

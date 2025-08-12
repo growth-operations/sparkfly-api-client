@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,11 +27,11 @@ class MemberAllOfMember(BaseModel):
     """
     MemberAllOfMember
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    identifier: Optional[StrictStr] = None
-    created_at: Optional[StrictStr] = None
-    updated_at: Optional[StrictStr] = None
-    notification_mode: Optional[StrictStr] = None
+    id: StrictInt
+    identifier: StrictStr
+    created_at: StrictStr
+    updated_at: StrictStr
+    notification_mode: StrictStr
     __properties: ClassVar[List[str]] = ["id", "identifier", "created_at", "updated_at", "notification_mode"]
 
     model_config = ConfigDict(

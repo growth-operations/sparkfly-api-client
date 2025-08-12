@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.errors import Errors
+from sparkfly.models.errors import Errors
 
 class TestErrors(unittest.TestCase):
     """Errors unit test stubs"""
@@ -36,7 +36,7 @@ class TestErrors(unittest.TestCase):
         model = Errors()
         if include_optional:
             return Errors(
-                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors()
+                errors = sparkfly.models.response_body_errors.response_body_errors()
             )
         else:
             return Errors(

@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.member_request_member import MemberRequestMember
+from sparkfly.models.member_request_member import MemberRequestMember
 
 class TestMemberRequestMember(unittest.TestCase):
     """MemberRequestMember unit test stubs"""

@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **errors** | **object** |  | [optional] 
+**id** | **int** |  | [optional] 
 **template_type** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **value** | **str** |  | [optional] 

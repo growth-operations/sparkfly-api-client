@@ -405,14 +405,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: "#/components/schemas/PageResponseBody"
-                  - type: object
-                    properties:
-                      members:
-                        type: array
-                        items:
-                          $ref: "#/components/schemas/member"
+                $ref: "#/components/schemas/member_index_body"
         "401":
           description: Unauthorized
         "500":
@@ -793,19 +786,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
         "404":
           description: Not Found
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
       servers:
         - url: "https://api-staging.sparkfly.com/v1.0"
           description: Staging
@@ -901,13 +894,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
       servers:
         - url: "https://api-staging.sparkfly.com/v1.0"
           description: Staging
@@ -1016,44 +1009,7 @@ paths:
         - $ref: "#/components/parameters/Order"
       responses:
         "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  page:
-                    type: integer
-                  per_page:
-                    type: integer
-                  total_entries:
-                    type: integer
-                  total_pages:
-                    type: integer
-                  offer_lists:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        offer_list:
-                          $ref: "#/components/schemas/Offer-List"
-                        errors:
-                          $ref: "#/components/schemas/ResponseBodyErrors"
-                x-examples:
-                  Example 1:
-                    page: 1
-                    per_page: 5000
-                    total_entries: 1
-                    total_pages: 1
-                    store_lists:
-                      - offer_list:
-                          id: 1
-                          name: my offer list name
-                          offer_ids:
-                            - 1111
-                            - 2222
-                            - 3333
-                        errors: {}
+          $ref: "#/components/responses/OfferLists"
         "400":
           $ref: "#/components/responses/APIError"
         "500":
@@ -1110,7 +1066,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
         "404":
           description: |-
             Not Found.
@@ -1119,13 +1075,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
       servers:
         - url: "https://api-staging.sparkfly.com/v1.0"
           description: Staging
@@ -1152,13 +1108,13 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
         "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/API_Error"
+                $ref: "#/components/schemas/api_error"
       servers:
         - url: "https://api-staging.sparkfly.com/v1.0"
           description: Staging
@@ -3341,7 +3297,7 @@ components:
             type: object
             properties:
               audience:
-                $ref: "#/components/schemas/Audience"
+                $ref: "#/components/schemas/audience"
     SubAudience:
       content:
         application/json:
@@ -3349,7 +3305,7 @@ components:
             type: object
             properties:
               subaudience:
-                $ref: "#/components/schemas/Audience"
+                $ref: "#/components/schemas/audience"
     Campaign:
       content:
         application/json:
@@ -3360,9 +3316,11 @@ components:
         application/json:
           schema:
             type: object
+            required:
+              - member_profile
             properties:
               member_profile:
-                $ref: "#/components/schemas/MemberProfile"
+                $ref: "#/components/schemas/member_profile"
     Member:
       content:
         application/json:
@@ -3476,23 +3434,13 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              offer_list:
-                $ref: "#/components/schemas/Offer-List"
-              errors:
-                $ref: "#/components/schemas/ResponseBodyErrors"
-            x-examples:
-              Example 1:
-                offer_list:
-                  id: 1
-                  name: my offer list
-                  offer_ids:
-                    - 1111
-                    - 2222
-                    - 3333
-                    - 4444
-                errors: {}
+            $ref: "#/components/schemas/offer_list_data"
+    OfferLists:
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/offer_lists_index_body"
     Campaign:
       description: Example response
       content:
@@ -3516,65 +3464,31 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              audience:
-                $ref: "#/components/schemas/Audience"
-              errors:
-                $ref: "#/components/schemas/ResponseBodyErrors"
+            $ref: "#/components/schemas/audience_data"
     AudienceIndex:
       description: Example response
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: "#/components/schemas/PageResponseBody"
-              - type: object
-                properties:
-                  audiences:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        audience:
-                          $ref: "#/components/schemas/Audience"
-                        errors:
-                          $ref: "#/components/schemas/ResponseBodyErrors"
+            $ref: "#/components/schemas/audience_index_body"
     SubAudience:
       description: Example response
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              subaudience:
-                $ref: "#/components/schemas/SubAudience"
-              errors:
-                $ref: "#/components/schemas/ResponseBodyErrors"
+            $ref: "#/components/schemas/sub_audience_data"
     SubAudienceIndex:
       description: Example response
       content:
         application/json:
           schema:
-            allOf:
-              - $ref: "#/components/schemas/PageResponseBody"
-              - type: object
-                properties:
-                  subaudiences:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        subaudience:
-                          $ref: "#/components/schemas/SubAudience"
-                        errors:
-                          $ref: "#/components/schemas/ResponseBodyErrors"
+            $ref: "#/components/schemas/sub_audience_index_body"
     APIError:
       description: "An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request. "
       content:
         application/json:
           schema:
-            $ref: "#/components/schemas/API_Error"
+            $ref: "#/components/schemas/api_error"
           examples:
             Example 1:
               value:
@@ -3585,12 +3499,7 @@ components:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              member_profile:
-                $ref: "#/components/schemas/MemberProfile"
-              errors:
-                $ref: "#/components/schemas/ResponseBodyErrors"
+            $ref: "#/components/schemas/member_profile_data"
     Member:
       description: Example response
       content:
@@ -3789,15 +3698,50 @@ components:
           schema:
             $ref: "#/components/schemas/clark_and_riggs_index_body"
   schemas:
-    API_Error:
+    api_error:
       type: object
-      title: API Error
+      title: api_error
       properties:
         trace:
           type: string
         error:
           type: string
-    Offer-List:
+    offer_lists_index_body:
+      title: offer_lists_index_body
+      allOf:
+        - $ref: "#/components/schemas/page_response_body"
+        - type: object
+          properties:
+            offer_lists:
+              type: array
+              items:
+                $ref: "#/components/schemas/offer_list"
+      x-examples:
+        Example 1:
+          page: 1
+          per_page: 5000
+          total_entries: 1
+          total_pages: 1
+          offer_lists:
+            - offer_list:
+                id: 1
+                name: my offer list name
+                offer_ids:
+                  - 1111
+                  - 2222
+                  - 3333
+              errors: {}
+    offer_list_data:
+      type: object
+      title: offer_list_data
+      required:
+        - offer_list
+      properties:
+        offer_list:
+          $ref: "#/components/schemas/offer_list"
+        errors:
+          $ref: "#/components/schemas/response_body_errors"
+    offer_list:
       type: object
       title: Offer List
       description: Contains a list of offer IDs
@@ -3819,9 +3763,9 @@ components:
             - 13
             - 14
             - 15
-    ResponseBodyErrors:
+    response_body_errors:
       type: object
-      title: ResponseBodyErrors
+      title: response_body_errors
     store_request:
       type: object
       title: store_request
@@ -3929,9 +3873,34 @@ components:
               - 4
               - 5
               - 6
-    Audience:
+    audience_index_body:
+      title: audience_index_body
+      allOf:
+        - $ref: "#/components/schemas/page_response_body"
+        - $ref: "#/components/schemas/audience_index_data"
+    audience_index_data:
       type: object
-      title: Audience
+      title: audience_index_data
+      required:
+        - audiences
+      properties:
+        audiences:
+          type: array
+          items:
+            $ref: "#/components/schemas/audience_data"
+    audience_data:
+      type: object
+      title: audience_data
+      required:
+        - audience
+      properties:
+        audience:
+          $ref: "#/components/schemas/audience"
+        errors:
+          $ref: "#/components/schemas/response_body_errors"
+    audience:
+      type: object
+      title: audience
       properties:
         id:
           type: integer
@@ -3984,9 +3953,19 @@ components:
               exclusiveMinimum: 0
               multipleOf: 60
               default: null
-    MemberProfile:
+    member_profile_data:
       type: object
-      title: MemberProfile
+      title: member_profile_data
+      required:
+        - member_profile
+      properties:
+        member_profile:
+          $ref: "#/components/schemas/member_profile"
+        errors:
+          $ref: "#/components/schemas/response_body_errors"
+    member_profile:
+      type: object
+      title: member_profile
       description: |-
         Represents personal identifying information associated with a Sparkfly Member. No fields are required nor guaranteed to be stored.
         Member profile data may be outsourced to third party client's upon request.
@@ -4842,7 +4821,7 @@ components:
       title: errors
       properties:
         errors:
-          $ref: "#/components/schemas/ResponseBodyErrors"
+          $ref: "#/components/schemas/response_body_errors"
     store_list:
       title: store_list
       allOf:
@@ -4876,16 +4855,16 @@ components:
     store_index_body:
       title: store_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             stores:
               type: array
               items:
                 $ref: "#/components/schemas/store"
-    PageResponseBody:
+    page_response_body:
       type: object
-      title: PageResponseBody
+      title: page_response_body
       properties:
         page:
           type: integer
@@ -4898,7 +4877,7 @@ components:
     store_list_index_body:
       title: store_list_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             store_lists:
@@ -5050,9 +5029,32 @@ components:
               - tags
           items:
             type: string
-    SubAudience:
+    sub_audience_index_body:
+      title: sub_audience_index_body
+      allOf:
+        - $ref: "#/components/schemas/page_response_body"
+        - $ref: "#/components/schemas/sub_audience_index_data"
+    sub_audience_index_data:
       type: object
-      title: SubAudience
+      title: sub_audience_index_data
+      required:
+        - subaudiences
+      properties:
+        subaudiences:
+          type: array
+          items:
+            $ref: "#/components/schemas/sub_audience_data"
+    sub_audience_data:
+      type: object
+      title: sub_audience_data
+      properties:
+        subaudience:
+          $ref: "#/components/schemas/sub_audience"
+        errors:
+          $ref: "#/components/schemas/response_body_errors"
+    sub_audience:
+      type: object
+      title: sub_audience
       properties:
         id:
           type: integer
@@ -5063,9 +5065,17 @@ components:
       examples: []
       allOf:
         - type: object
+          required:
+            - member
           properties:
             member:
               type: object
+              required:
+                - id
+                - identifier
+                - created_at
+                - updated_at
+                - notification_mode
               properties:
                 id:
                   type: integer
@@ -5279,10 +5289,15 @@ components:
         account_default_language:
           type: string
     member_index_body:
-      x-internal: true
-      x-stoplight:
-        internallyExcluded: true
-        errorMessage: This object is set as internal and excluded.
+      title: member_index_body
+      allOf:
+        - $ref: "#/components/schemas/page_response_body"
+        - type: object
+          properties:
+            members:
+              type: array
+              items:
+                $ref: "#/components/schemas/member"
     member_privacy:
       type: object
       title: member_privacy
@@ -5460,7 +5475,7 @@ components:
     pos_offer_code_index_body:
       title: pos_offer_code_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             pos_offer_codes:
@@ -5700,7 +5715,7 @@ components:
     offer_index_body:
       title: offer_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             offers:
@@ -5741,7 +5756,7 @@ components:
     offer_eligible_items_set_index:
       title: offer_eligible_items_set_index
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             offer_eligible_item_sets:
@@ -5773,7 +5788,7 @@ components:
     offer_pos_offer_code_index:
       title: offer_pos_offer_code_index
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             offer_pose_codes:
@@ -5864,7 +5879,7 @@ components:
     credential_batch_index_body:
       title: credential_batch_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             credential_batches:
@@ -5912,7 +5927,7 @@ components:
     item_index_body:
       title: item_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             items:
@@ -5961,7 +5976,7 @@ components:
     item_set_index_body:
       title: item_set_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             item_sets:
@@ -5971,7 +5986,7 @@ components:
     impression_index_body:
       title: impression_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             impressions:
@@ -6137,7 +6152,7 @@ components:
     offer_state_index_body:
       title: offer_state_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             offer_states:
@@ -6228,7 +6243,7 @@ components:
     campaign_index_body:
       title: campaign_index_body
       allOf:
-        - $ref: "#/components/schemas/PageResponseBody"
+        - $ref: "#/components/schemas/page_response_body"
         - type: object
           properties:
             campaigns:

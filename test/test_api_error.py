@@ -15,10 +15,10 @@
 
 import unittest
 
-from sparkfly_api_client.models.api_error import APIError
+from sparkfly.models.api_error import ApiError
 
-class TestAPIError(unittest.TestCase):
-    """APIError unit test stubs"""
+class TestApiError(unittest.TestCase):
+    """ApiError unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,26 +26,26 @@ class TestAPIError(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> APIError:
-        """Test APIError
+    def make_instance(self, include_optional) -> ApiError:
+        """Test ApiError
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `APIError`
+        # uncomment below to create an instance of `ApiError`
         """
-        model = APIError()
+        model = ApiError()
         if include_optional:
-            return APIError(
+            return ApiError(
                 trace = '',
                 error = ''
             )
         else:
-            return APIError(
+            return ApiError(
         )
         """
 
-    def testAPIError(self):
-        """Test APIError"""
+    def testApiError(self):
+        """Test ApiError"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

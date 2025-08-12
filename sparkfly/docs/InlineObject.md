@@ -5,8 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**offer_list** | [**OfferList**](OfferList.md) |  | [optional] 
-**errors** | **object** |  | [optional] 
+**page** | **int** |  | [optional] 
+**per_page** | **int** |  | [optional] 
+**total_entries** | **int** |  | [optional] 
+**total_pages** | **int** |  | [optional] 
+**audiences** | [**List[AudienceData]**](AudienceData.md) |  | 
 
 ## Example
 

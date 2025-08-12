@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **cookie_id** | **str** |  | [optional] 
 **offer_xid** | **str** |  | [optional] 
 **annotations** | [**ImpressionRequestImpressionAnnotations**](ImpressionRequestImpressionAnnotations.md) |  | [optional] 

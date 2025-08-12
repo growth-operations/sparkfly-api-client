@@ -90,7 +90,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offer_lists**
-> GetOfferLists200Response get_offer_lists(content_type=content_type, sort_by=sort_by, search_text=search_text, page=page, per_page=per_page, order=order)
+> OfferListsIndexBody get_offer_lists(content_type=content_type, sort_by=sort_by, search_text=search_text, page=page, per_page=per_page, order=order)
 
 List all Offer Lists
 
@@ -102,7 +102,7 @@ Fetch a list of offer lists. The list may be filtered according to the request's
 
 ```python
 import sparkfly
-from sparkfly.models.get_offer_lists200_response import GetOfferLists200Response
+from sparkfly.models.offer_lists_index_body import OfferListsIndexBody
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetOfferLists200Response**](GetOfferLists200Response.md)
+[**OfferListsIndexBody**](OfferListsIndexBody.md)
 
 ### Authorization
 
@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offer_lists_offer_list_id**
-> InlineObject get_offer_lists_offer_list_id(offer_list_id)
+> OfferListData get_offer_lists_offer_list_id(offer_list_id)
 
 Retrieve an Offer List
 
@@ -193,7 +193,7 @@ Search for an offer list by ID.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object import InlineObject
+from sparkfly.models.offer_list_data import OfferListData
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject**](InlineObject.md)
+[**OfferListData**](OfferListData.md)
 
 ### Authorization
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **post_offer_lists**
-> InlineObject post_offer_lists(content_type=content_type, post_offer_lists_request=post_offer_lists_request)
+> OfferListData post_offer_lists(content_type=content_type, post_offer_lists_request=post_offer_lists_request)
 
 Create an Offer List
 
@@ -274,7 +274,7 @@ Create a new offer list containing the specified offer IDs.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object import InlineObject
+from sparkfly.models.offer_list_data import OfferListData
 from sparkfly.models.post_offer_lists_request import PostOfferListsRequest
 from sparkfly.rest import ApiException
 from pprint import pprint
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject**](InlineObject.md)
+[**OfferListData**](OfferListData.md)
 
 ### Authorization
 
@@ -347,7 +347,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **put_offer_lists_offer_list_id**
-> InlineObject put_offer_lists_offer_list_id(offer_list_id, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
+> OfferListData put_offer_lists_offer_list_id(offer_list_id, content_type=content_type, post_offer_lists_request=post_offer_lists_request)
 
 Update an Offer List
 
@@ -359,7 +359,7 @@ Update an offer list's contents.
 
 ```python
 import sparkfly
-from sparkfly.models.inline_object import InlineObject
+from sparkfly.models.offer_list_data import OfferListData
 from sparkfly.models.post_offer_lists_request import PostOfferListsRequest
 from sparkfly.rest import ApiException
 from pprint import pprint
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineObject**](InlineObject.md)
+[**OfferListData**](OfferListData.md)
 
 ### Authorization
 

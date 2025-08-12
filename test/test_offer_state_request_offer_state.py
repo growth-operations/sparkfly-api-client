@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.offer_state_request_offer_state import OfferStateRequestOfferState
+from sparkfly.models.offer_state_request_offer_state import OfferStateRequestOfferState
 
 class TestOfferStateRequestOfferState(unittest.TestCase):
     """OfferStateRequestOfferState unit test stubs"""

@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **status** | **str** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **manufacturer_id** | **str** |  | [optional] 
@@ -42,8 +43,8 @@ Name | Type | Description | Notes
 **initial_value_mode** | **str** |  | [optional] 
 **offer_value_text** | **str** |  | [optional] 
 **offer_value_text_es** | **str** |  | [optional] 
-**formatting** | [**OfferAllOfOfferAllOfFormatting**](OfferAllOfOfferAllOfFormatting.md) |  | [optional] 
-**eligibility** | [**OfferAllOfOfferAllOfEligibility**](OfferAllOfOfferAllOfEligibility.md) |  | [optional] 
+**formatting** | [**OfferRequestOfferFormatting**](OfferRequestOfferFormatting.md) |  | [optional] 
+**eligibility** | [**OfferRequestOfferEligibility**](OfferRequestOfferEligibility.md) |  | [optional] 
 **redeem_until_depleted** | **bool** |  | [optional] 
 **redemption_grace_period** | **int** |  | [optional] 
 

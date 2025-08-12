@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from sparkfly.models.member_profile import MemberProfile
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class PostMembersProfileRequest(BaseModel):
     """
     PostMembersProfileRequest
     """ # noqa: E501
-    member_profile: Optional[MemberProfile] = None
+    member_profile: MemberProfile
     __properties: ClassVar[List[str]] = ["member_profile"]
 
     model_config = ConfigDict(

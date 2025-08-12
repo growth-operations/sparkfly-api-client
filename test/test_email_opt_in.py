@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.email_opt_in import EmailOptIn
+from sparkfly.models.email_opt_in import EmailOptIn
 
 class TestEmailOptIn(unittest.TestCase):
     """EmailOptIn unit test stubs"""

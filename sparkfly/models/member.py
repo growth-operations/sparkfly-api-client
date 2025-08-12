@@ -29,7 +29,7 @@ class Member(BaseModel):
     Member
     """ # noqa: E501
     errors: Optional[Dict[str, Any]] = None
-    member: Optional[MemberAllOfMember] = None
+    member: MemberAllOfMember
     __properties: ClassVar[List[str]] = ["errors", "member"]
 
     model_config = ConfigDict(

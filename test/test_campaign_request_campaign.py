@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.campaign_request_campaign import CampaignRequestCampaign
+from sparkfly.models.campaign_request_campaign import CampaignRequestCampaign
 
 class TestCampaignRequestCampaign(unittest.TestCase):
     """CampaignRequestCampaign unit test stubs"""

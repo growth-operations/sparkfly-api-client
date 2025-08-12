@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.member_all_of_member import MemberAllOfMember
+from sparkfly.models.member_all_of_member import MemberAllOfMember
 
 class TestMemberAllOfMember(unittest.TestCase):
     """MemberAllOfMember unit test stubs"""
@@ -36,6 +36,7 @@ class TestMemberAllOfMember(unittest.TestCase):
         model = MemberAllOfMember()
         if include_optional:
             return MemberAllOfMember(
+                id = 56,
                 identifier = '',
                 created_at = '',
                 updated_at = '',
@@ -43,6 +44,11 @@ class TestMemberAllOfMember(unittest.TestCase):
             )
         else:
             return MemberAllOfMember(
+                id = 56,
+                identifier = '',
+                created_at = '',
+                updated_at = '',
+                notification_mode = '',
         )
         """
 

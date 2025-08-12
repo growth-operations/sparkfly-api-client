@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **account_id** | **int** |  | [optional] 
 **code** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 

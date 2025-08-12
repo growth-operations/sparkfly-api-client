@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.offer_eligible_items_set_index import OfferEligibleItemsSetIndex
+from sparkfly.models.offer_eligible_items_set_index import OfferEligibleItemsSetIndex
 
 class TestOfferEligibleItemsSetIndex(unittest.TestCase):
     """OfferEligibleItemsSetIndex unit test stubs"""

@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.campaign_tags_response import CampaignTagsResponse
+from sparkfly.models.campaign_tags_response import CampaignTagsResponse
 
 class TestCampaignTagsResponse(unittest.TestCase):
     """CampaignTagsResponse unit test stubs"""

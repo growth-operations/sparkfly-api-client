@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.ctm_redemption_job_request_redeemed_offers_inner import CtmRedemptionJobRequestRedeemedOffersInner
+from sparkfly.models.ctm_redemption_job_request_redeemed_offers_inner import CtmRedemptionJobRequestRedeemedOffersInner
 
 class TestCtmRedemptionJobRequestRedeemedOffersInner(unittest.TestCase):
     """CtmRedemptionJobRequestRedeemedOffersInner unit test stubs"""
@@ -44,7 +44,7 @@ class TestCtmRedemptionJobRequestRedeemedOffersInner(unittest.TestCase):
                 pos_offer_code_type = '',
                 linked_item_entry_id = '',
                 qualifying_items = [
-                    sparkfly_api_client.models.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner(
+                    sparkfly.models.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner.ctm_redemption_job_request_redeemed_offers_inner_qualifying_items_inner(
                         line_number = '', 
                         entry_id = '', 
                         qualification_type = '', )

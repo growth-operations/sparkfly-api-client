@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.offer_states_api import OfferStatesApi
+from sparkfly.api.offer_states_api import OfferStatesApi
 
 
 class TestOfferStatesApi(unittest.IsolatedAsyncioTestCase):

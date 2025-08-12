@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.campaigns_api import CampaignsApi
+from sparkfly.api.campaigns_api import CampaignsApi
 
 
 class TestCampaignsApi(unittest.IsolatedAsyncioTestCase):
@@ -34,17 +34,17 @@ class TestCampaignsApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_get_campaign_external_id(self) -> None:
-        """Test case for get_campaign_external_id
-
-        Retrieve a Campaign by External ID and Offer ID
-        """
-        pass
-
     async def test_get_campaign_tags(self) -> None:
         """Test case for get_campaign_tags
 
         Retrieve Campaign Tags
+        """
+        pass
+
+    async def test_get_campaigns(self) -> None:
+        """Test case for get_campaigns
+
+        List all Campaigns
         """
         pass
 

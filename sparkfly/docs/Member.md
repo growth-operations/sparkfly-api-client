@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **errors** | **object** |  | [optional] 
-**member** | [**MemberAllOfMember**](MemberAllOfMember.md) |  | [optional] 
+**member** | [**MemberAllOfMember**](MemberAllOfMember.md) |  | 
 
 ## Example
 

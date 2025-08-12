@@ -20,8 +20,8 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
-from sparkfly.models.get_offer_lists200_response import GetOfferLists200Response
-from sparkfly.models.inline_object import InlineObject
+from sparkfly.models.offer_list_data import OfferListData
+from sparkfly.models.offer_lists_index_body import OfferListsIndexBody
 from sparkfly.models.post_offer_lists_request import PostOfferListsRequest
 
 from sparkfly.api_client import ApiClient, RequestSerialized
@@ -97,8 +97,8 @@ class OfferListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -166,8 +166,8 @@ class OfferListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -235,8 +235,8 @@ class OfferListsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
-            '404': "APIError",
-            '500': "APIError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -333,7 +333,7 @@ class OfferListsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> GetOfferLists200Response:
+    ) -> OfferListsIndexBody:
         """List all Offer Lists
 
         Fetch a list of offer lists. The list may be filtered according to the request's query parameters. If no filters are applied, the complete list of available offer lists will be returned.
@@ -386,9 +386,9 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetOfferLists200Response",
-            '400': "APIError",
-            '500': "APIError",
+            '200': "OfferListsIndexBody",
+            '400': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -422,7 +422,7 @@ class OfferListsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[GetOfferLists200Response]:
+    ) -> ApiResponse[OfferListsIndexBody]:
         """List all Offer Lists
 
         Fetch a list of offer lists. The list may be filtered according to the request's query parameters. If no filters are applied, the complete list of available offer lists will be returned.
@@ -475,9 +475,9 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetOfferLists200Response",
-            '400': "APIError",
-            '500': "APIError",
+            '200': "OfferListsIndexBody",
+            '400': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -564,9 +564,9 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "GetOfferLists200Response",
-            '400': "APIError",
-            '500': "APIError",
+            '200': "OfferListsIndexBody",
+            '400': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -683,7 +683,7 @@ class OfferListsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject:
+    ) -> OfferListData:
         """Retrieve an Offer List
 
         Search for an offer list by ID.
@@ -721,9 +721,9 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject",
-            '404': "APIError",
-            '500': "InlineObject2",
+            '200': "OfferListData",
+            '404': "ApiError",
+            '500': "AudienceIndexBody",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -752,7 +752,7 @@ class OfferListsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject]:
+    ) -> ApiResponse[OfferListData]:
         """Retrieve an Offer List
 
         Search for an offer list by ID.
@@ -790,9 +790,9 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject",
-            '404': "APIError",
-            '500': "InlineObject2",
+            '200': "OfferListData",
+            '404': "ApiError",
+            '500': "AudienceIndexBody",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -859,9 +859,9 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject",
-            '404': "APIError",
-            '500': "InlineObject2",
+            '200': "OfferListData",
+            '404': "ApiError",
+            '500': "AudienceIndexBody",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -954,7 +954,7 @@ class OfferListsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject:
+    ) -> OfferListData:
         """Create an Offer List
 
         Create a new offer list containing the specified offer IDs.
@@ -995,10 +995,10 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "InlineObject",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '201': "OfferListData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1028,7 +1028,7 @@ class OfferListsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject]:
+    ) -> ApiResponse[OfferListData]:
         """Create an Offer List
 
         Create a new offer list containing the specified offer IDs.
@@ -1069,10 +1069,10 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "InlineObject",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '201': "OfferListData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1143,10 +1143,10 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "InlineObject",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '201': "OfferListData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1256,7 +1256,7 @@ class OfferListsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> InlineObject:
+    ) -> OfferListData:
         """Update an Offer List
 
         Update an offer list's contents.
@@ -1300,10 +1300,10 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '200': "OfferListData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1334,7 +1334,7 @@ class OfferListsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
-    ) -> ApiResponse[InlineObject]:
+    ) -> ApiResponse[OfferListData]:
         """Update an Offer List
 
         Update an offer list's contents.
@@ -1378,10 +1378,10 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '200': "OfferListData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1456,10 +1456,10 @@ class OfferListsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "InlineObject",
-            '400': "APIError",
-            '404': "APIError",
-            '500': "APIError",
+            '200': "OfferListData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,

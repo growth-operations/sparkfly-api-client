@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.ctm_transaction_job_request import CtmTransactionJobRequest
+from sparkfly.models.ctm_transaction_job_request import CtmTransactionJobRequest
 
 class TestCtmTransactionJobRequest(unittest.TestCase):
     """CtmTransactionJobRequest unit test stubs"""

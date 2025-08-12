@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.credential_batch_response_body import CredentialBatchResponseBody
+from sparkfly.models.credential_batch_response_body import CredentialBatchResponseBody
 
 class TestCredentialBatchResponseBody(unittest.TestCase):
     """CredentialBatchResponseBody unit test stubs"""
@@ -36,7 +36,18 @@ class TestCredentialBatchResponseBody(unittest.TestCase):
         model = CredentialBatchResponseBody()
         if include_optional:
             return CredentialBatchResponseBody(
-                credential_batch = None
+                credential_batch = sparkfly.models.credential_batch_response_body_credential_batch.credential_batch_response_body_credential_batch(
+                    id = 56, 
+                    offer = sparkfly.models.credential_batch_response_body_credential_batch_offer.credential_batch_response_body_credential_batch_offer(
+                        offer_id = 56, 
+                        offer_name = '', ), 
+                    campaign = sparkfly.models.credential_batch_response_body_credential_batch_campaign.credential_batch_response_body_credential_batch_campaign(
+                        campaign_id = 56, 
+                        campaign_name = '', ), 
+                    name = '', 
+                    quantity = 56, 
+                    fulfillment_method = '', 
+                    status = '', )
             )
         else:
             return CredentialBatchResponseBody(

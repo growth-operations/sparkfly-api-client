@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.audiences_api import AudiencesApi
+from sparkfly.api.audiences_api import AudiencesApi
 
 
 class TestAudiencesApi(unittest.IsolatedAsyncioTestCase):

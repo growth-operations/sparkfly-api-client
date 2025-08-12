@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**member_profile** | [**MemberProfile**](MemberProfile.md) |  | [optional] 
+**member_profile** | [**MemberProfile**](MemberProfile.md) |  | 
 **errors** | **object** |  | [optional] 
 
 ## Example

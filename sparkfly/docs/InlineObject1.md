@@ -5,8 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**audience** | [**Audience**](Audience.md) |  | [optional] 
-**errors** | **object** |  | [optional] 
+**page** | **int** |  | [optional] 
+**per_page** | **int** |  | [optional] 
+**total_entries** | **int** |  | [optional] 
+**total_pages** | **int** |  | [optional] 
+**subaudiences** | [**List[SubAudienceData]**](SubAudienceData.md) |  | 
 
 ## Example
 

@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.member import Member
+from sparkfly.models.member import Member
 
 class TestMember(unittest.TestCase):
     """Member unit test stubs"""
@@ -36,11 +36,22 @@ class TestMember(unittest.TestCase):
         model = Member()
         if include_optional:
             return Member(
-                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
-                member = None
+                errors = sparkfly.models.response_body_errors.response_body_errors(),
+                member = sparkfly.models.member_all_of_member.member_allOf_member(
+                    id = 56, 
+                    identifier = '', 
+                    created_at = '', 
+                    updated_at = '', 
+                    notification_mode = '', )
             )
         else:
             return Member(
+                member = sparkfly.models.member_all_of_member.member_allOf_member(
+                    id = 56, 
+                    identifier = '', 
+                    created_at = '', 
+                    updated_at = '', 
+                    notification_mode = '', ),
         )
         """
 

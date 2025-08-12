@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.post_members_profile_request import PostMembersProfileRequest
+from sparkfly.models.post_members_profile_request import PostMembersProfileRequest
 
 class TestPostMembersProfileRequest(unittest.TestCase):
     """PostMembersProfileRequest unit test stubs"""
@@ -36,17 +36,25 @@ class TestPostMembersProfileRequest(unittest.TestCase):
         model = PostMembersProfileRequest()
         if include_optional:
             return PostMembersProfileRequest(
-                member_profile = sparkfly_api_client.models.member_profile.MemberProfile(
+                member_profile = sparkfly.models.member_profile.member_profile(
                     first_name = '', 
                     last_name = '', 
                     phone = '', 
                     email = '', 
                     birth_month = 1, 
                     birth_day = 56, 
-                    custom_data = sparkfly_api_client.models.custom_data.custom_data(), )
+                    custom_data = sparkfly.models.custom_data.custom_data(), )
             )
         else:
             return PostMembersProfileRequest(
+                member_profile = sparkfly.models.member_profile.member_profile(
+                    first_name = '', 
+                    last_name = '', 
+                    phone = '', 
+                    email = '', 
+                    birth_month = 1, 
+                    birth_day = 56, 
+                    custom_data = sparkfly.models.custom_data.custom_data(), ),
         )
         """
 

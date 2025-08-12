@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.offer_state_update import OfferStateUpdate
+from sparkfly.models.offer_state_update import OfferStateUpdate
 
 class TestOfferStateUpdate(unittest.TestCase):
     """OfferStateUpdate unit test stubs"""
@@ -36,7 +36,7 @@ class TestOfferStateUpdate(unittest.TestCase):
         model = OfferStateUpdate()
         if include_optional:
             return OfferStateUpdate(
-                offer_state = sparkfly_api_client.models.offer_state_update_offer_state.offer_state_update_offer_state(
+                offer_state = sparkfly.models.offer_state_update_offer_state.offer_state_update_offer_state(
                     offer_state_id = 56, 
                     offer_id = 56, 
                     member_id = 56, 

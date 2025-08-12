@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.store import Store
+from sparkfly.models.store import Store
 
 class TestStore(unittest.TestCase):
     """Store unit test stubs"""
@@ -36,8 +36,36 @@ class TestStore(unittest.TestCase):
         model = Store()
         if include_optional:
             return Store(
-                errors = sparkfly_api_client.models.response_body_errors.ResponseBodyErrors(),
-                store = None
+                errors = sparkfly.models.response_body_errors.response_body_errors(),
+                store = sparkfly.models.store_all_of_store.store_allOf_store(
+                    id = 56, 
+                    merchant_id = 56, 
+                    name = '', 
+                    site_id = '', 
+                    number = '', 
+                    is_active = True, 
+                    description = '', 
+                    phone = '', 
+                    contacts = sparkfly.models.store_request_store_contacts.store_request_store_contacts(
+                        primary = sparkfly.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                            name = '', 
+                            phone = '', 
+                            email = '', ), 
+                        secondary = sparkfly.models.store_request_store_contacts_primary.store_request_store_contacts_primary(
+                            name = '', 
+                            phone = '', 
+                            email = '', ), ), 
+                    location = sparkfly.models.store_all_of_store_location.store_allOf_store_location(
+                        address = '', 
+                        address2 = '', 
+                        city = '', 
+                        state = '', 
+                        zip = '', 
+                        country = '', 
+                        lat = 56, 
+                        lng = 56, ), 
+                    icon_url = '', 
+                    online_ordering_id = '', )
             )
         else:
             return Store(

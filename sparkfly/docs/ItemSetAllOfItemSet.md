@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
 **merchant_id** | **str** |  | [optional] 
 **manufacturer_id** | **str** |  | [optional] 

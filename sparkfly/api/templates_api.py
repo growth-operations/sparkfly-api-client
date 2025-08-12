@@ -96,7 +96,7 @@ class TemplatesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Template",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -165,7 +165,7 @@ class TemplatesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Template",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -234,7 +234,7 @@ class TemplatesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Template",
             '401': None,
-            '500': "APIError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,

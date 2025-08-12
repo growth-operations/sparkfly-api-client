@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.models.pos_offer_code_index_body import PosOfferCodeIndexBody
+from sparkfly.models.pos_offer_code_index_body import PosOfferCodeIndexBody
 
 class TestPosOfferCodeIndexBody(unittest.TestCase):
     """PosOfferCodeIndexBody unit test stubs"""

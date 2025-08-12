@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **offer_id** | **int** |  | [optional] 
 **item_set_id** | **int** |  | [optional] 
 **list_type** | **int** |  | [optional] 

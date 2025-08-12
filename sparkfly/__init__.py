@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.1.12"
+__version__ = "1.1.14"
 
 # Define package exports
 __all__ = [
@@ -47,8 +47,11 @@ __all__ = [
     "ApiKeyError",
     "ApiAttributeError",
     "ApiException",
-    "APIError",
+    "ApiError",
     "Audience",
+    "AudienceData",
+    "AudienceIndexBody",
+    "AudienceIndexData",
     "BiStoreList",
     "BiStoreListStoreListsInner",
     "CampaignIndexBody",
@@ -89,9 +92,6 @@ __all__ = [
     "EmailOptIn",
     "EmailOptInError",
     "Errors",
-    "GetMembers200Response",
-    "GetOfferLists200Response",
-    "GetOfferLists200ResponseOfferListsInner",
     "HealthCheck",
     "Impression",
     "ImpressionAllOfImpression",
@@ -100,12 +100,6 @@ __all__ = [
     "ImpressionRequest",
     "ImpressionRequestImpression",
     "ImpressionRequestImpressionAnnotations",
-    "InlineObject",
-    "InlineObject1",
-    "InlineObject2",
-    "InlineObject3",
-    "InlineObject4",
-    "InlineObject5",
     "Item",
     "ItemAllOfItem",
     "ItemIndexBody",
@@ -118,10 +112,12 @@ __all__ = [
     "ItemSetRequestItemSet",
     "Member",
     "MemberAllOfMember",
+    "MemberIndexBody",
     "MemberPrivacy",
     "MemberPrivacyCredentialsInner",
     "MemberPrivacyMember",
     "MemberProfile",
+    "MemberProfileData",
     "MemberRequest",
     "MemberRequestMember",
     "Offer",
@@ -133,6 +129,8 @@ __all__ = [
     "OfferEligibleItemsSetIndex",
     "OfferIndexBody",
     "OfferList",
+    "OfferListData",
+    "OfferListsIndexBody",
     "OfferPosOfferCode",
     "OfferPosOfferCodeAllOfOfferPosOfferCode",
     "OfferPosOfferCodeIndex",
@@ -180,6 +178,9 @@ __all__ = [
     "StoreRequestStoreContactsPrimary",
     "StoreRequestStoreLocation",
     "SubAudience",
+    "SubAudienceData",
+    "SubAudienceIndexBody",
+    "SubAudienceIndexData",
     "Template",
     "Template2",
     "TemplateTemplatesInner",
@@ -218,8 +219,11 @@ from sparkfly.exceptions import ApiAttributeError as ApiAttributeError
 from sparkfly.exceptions import ApiException as ApiException
 
 # import models into sdk package
-from sparkfly.models.api_error import APIError as APIError
+from sparkfly.models.api_error import ApiError as ApiError
 from sparkfly.models.audience import Audience as Audience
+from sparkfly.models.audience_data import AudienceData as AudienceData
+from sparkfly.models.audience_index_body import AudienceIndexBody as AudienceIndexBody
+from sparkfly.models.audience_index_data import AudienceIndexData as AudienceIndexData
 from sparkfly.models.bi_store_list import BiStoreList as BiStoreList
 from sparkfly.models.bi_store_list_store_lists_inner import BiStoreListStoreListsInner as BiStoreListStoreListsInner
 from sparkfly.models.campaign_index_body import CampaignIndexBody as CampaignIndexBody
@@ -260,9 +264,6 @@ from sparkfly.models.ctm_transaction_show_response_transaction_reciept_messages_
 from sparkfly.models.email_opt_in import EmailOptIn as EmailOptIn
 from sparkfly.models.email_opt_in_error import EmailOptInError as EmailOptInError
 from sparkfly.models.errors import Errors as Errors
-from sparkfly.models.get_members200_response import GetMembers200Response as GetMembers200Response
-from sparkfly.models.get_offer_lists200_response import GetOfferLists200Response as GetOfferLists200Response
-from sparkfly.models.get_offer_lists200_response_offer_lists_inner import GetOfferLists200ResponseOfferListsInner as GetOfferLists200ResponseOfferListsInner
 from sparkfly.models.health_check import HealthCheck as HealthCheck
 from sparkfly.models.impression import Impression as Impression
 from sparkfly.models.impression_all_of_impression import ImpressionAllOfImpression as ImpressionAllOfImpression
@@ -271,12 +272,6 @@ from sparkfly.models.impression_index_body import ImpressionIndexBody as Impress
 from sparkfly.models.impression_request import ImpressionRequest as ImpressionRequest
 from sparkfly.models.impression_request_impression import ImpressionRequestImpression as ImpressionRequestImpression
 from sparkfly.models.impression_request_impression_annotations import ImpressionRequestImpressionAnnotations as ImpressionRequestImpressionAnnotations
-from sparkfly.models.inline_object import InlineObject as InlineObject
-from sparkfly.models.inline_object1 import InlineObject1 as InlineObject1
-from sparkfly.models.inline_object2 import InlineObject2 as InlineObject2
-from sparkfly.models.inline_object3 import InlineObject3 as InlineObject3
-from sparkfly.models.inline_object4 import InlineObject4 as InlineObject4
-from sparkfly.models.inline_object5 import InlineObject5 as InlineObject5
 from sparkfly.models.item import Item as Item
 from sparkfly.models.item_all_of_item import ItemAllOfItem as ItemAllOfItem
 from sparkfly.models.item_index_body import ItemIndexBody as ItemIndexBody
@@ -289,10 +284,12 @@ from sparkfly.models.item_set_request import ItemSetRequest as ItemSetRequest
 from sparkfly.models.item_set_request_item_set import ItemSetRequestItemSet as ItemSetRequestItemSet
 from sparkfly.models.member import Member as Member
 from sparkfly.models.member_all_of_member import MemberAllOfMember as MemberAllOfMember
+from sparkfly.models.member_index_body import MemberIndexBody as MemberIndexBody
 from sparkfly.models.member_privacy import MemberPrivacy as MemberPrivacy
 from sparkfly.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner as MemberPrivacyCredentialsInner
 from sparkfly.models.member_privacy_member import MemberPrivacyMember as MemberPrivacyMember
 from sparkfly.models.member_profile import MemberProfile as MemberProfile
+from sparkfly.models.member_profile_data import MemberProfileData as MemberProfileData
 from sparkfly.models.member_request import MemberRequest as MemberRequest
 from sparkfly.models.member_request_member import MemberRequestMember as MemberRequestMember
 from sparkfly.models.offer import Offer as Offer
@@ -304,6 +301,8 @@ from sparkfly.models.offer_eligible_item_set_request_eligible_item_set import Of
 from sparkfly.models.offer_eligible_items_set_index import OfferEligibleItemsSetIndex as OfferEligibleItemsSetIndex
 from sparkfly.models.offer_index_body import OfferIndexBody as OfferIndexBody
 from sparkfly.models.offer_list import OfferList as OfferList
+from sparkfly.models.offer_list_data import OfferListData as OfferListData
+from sparkfly.models.offer_lists_index_body import OfferListsIndexBody as OfferListsIndexBody
 from sparkfly.models.offer_pos_offer_code import OfferPosOfferCode as OfferPosOfferCode
 from sparkfly.models.offer_pos_offer_code_all_of_offer_pos_offer_code import OfferPosOfferCodeAllOfOfferPosOfferCode as OfferPosOfferCodeAllOfOfferPosOfferCode
 from sparkfly.models.offer_pos_offer_code_index import OfferPosOfferCodeIndex as OfferPosOfferCodeIndex
@@ -351,6 +350,9 @@ from sparkfly.models.store_request_store_contacts import StoreRequestStoreContac
 from sparkfly.models.store_request_store_contacts_primary import StoreRequestStoreContactsPrimary as StoreRequestStoreContactsPrimary
 from sparkfly.models.store_request_store_location import StoreRequestStoreLocation as StoreRequestStoreLocation
 from sparkfly.models.sub_audience import SubAudience as SubAudience
+from sparkfly.models.sub_audience_data import SubAudienceData as SubAudienceData
+from sparkfly.models.sub_audience_index_body import SubAudienceIndexBody as SubAudienceIndexBody
+from sparkfly.models.sub_audience_index_data import SubAudienceIndexData as SubAudienceIndexData
 from sparkfly.models.template import Template as Template
 from sparkfly.models.template2 import Template2 as Template2
 from sparkfly.models.template_templates_inner import TemplateTemplatesInner as TemplateTemplatesInner

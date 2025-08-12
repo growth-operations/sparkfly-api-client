@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | **int** |  | [optional] 
 **xid** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **code_ref** | **str** |  | [optional] 
@@ -20,10 +21,10 @@ Name | Type | Description | Notes
 **start_display_at** | **str** |  | [optional] 
 **funding_source** | **str** |  | [optional] 
 **eligible_channel_tags** | **List[object]** |  | [optional] 
-**eligible_store_ids** | **List[object]** |  | [optional] 
-**eligible_store_numbers** | **List[object]** |  | [optional] 
-**eligible_storelist_ids** | **List[object]** |  | [optional] 
-**eligible_storelist_numbers** | **List[object]** |  | [optional] 
+**eligible_store_ids** | **List[int]** |  | [optional] 
+**eligible_store_numbers** | **List[str]** |  | [optional] 
+**eligible_storelist_ids** | **List[int]** |  | [optional] 
+**eligible_storelist_numbers** | **List[str]** |  | [optional] 
 **landing_page_image_template_id** | **str** |  | [optional] 
 **description_template_id** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 

@@ -15,7 +15,7 @@
 
 import unittest
 
-from sparkfly_api_client.api.templates_api import TemplatesApi
+from sparkfly.api.templates_api import TemplatesApi
 
 
 class TestTemplatesApi(unittest.IsolatedAsyncioTestCase):
