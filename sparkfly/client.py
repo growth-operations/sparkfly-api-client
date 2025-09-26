@@ -243,8 +243,11 @@ class Sparkfly:
             Exception: If authentication fails
         """
         try:
+            # Determine the host index based on environment
+            host_index = 1 if self.environment.lower() == "production" else 0
+
             # Request authentication token
-            response = await self.auth.post_auth_with_http_info()
+            response = await self.auth.post_auth_with_http_info(_host_index=host_index)
 
             # Extract the token from the response headers
             if hasattr(response, "headers") and "X-Auth-Token" in response.headers:
