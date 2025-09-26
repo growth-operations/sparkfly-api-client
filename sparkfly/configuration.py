@@ -548,7 +548,7 @@ conf = sparkfly.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0\n"\
-               "SDK Package Version: 1.1.14".\
+               "SDK Package Version: 1.1.15".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:
@@ -560,6 +560,10 @@ conf = sparkfly.Configuration(
             {
                 'url': "https://api-staging.sparkfly.com/v1.0",
                 'description': "Staging",
+            },
+            {
+                'url': "https://api.sparkfly.com/v1.0",
+                'description': "Production",
             }
         ]
 

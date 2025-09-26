@@ -103,6 +103,8 @@ class Sparkfly:
         self.retry_config = retry_config or RetryConfig()
 
         # Determine the host URL
+        print(f"Environment: {environment}")
+        print(f"Host: {host}")
         if host:
             # Validate that the host is one of the valid base URLs
             valid_base_hosts = [
@@ -123,6 +125,7 @@ class Sparkfly:
         else:
             raise ValueError("Environment must be 'staging' or 'production'")
 
+        print(f"Host: {self.host}")
         self._token = token
         self._token_expires_at = token_expires_at
 

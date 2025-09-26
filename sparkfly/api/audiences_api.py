@@ -258,7 +258,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
@@ -537,7 +537,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
@@ -858,7 +858,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
@@ -1149,7 +1149,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
@@ -1481,7 +1481,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
@@ -1784,7 +1784,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
@@ -2069,7 +2069,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
@@ -2383,7 +2383,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
@@ -2696,7 +2696,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
@@ -3028,7 +3028,7 @@ class AudiencesApi:
     ) -> RequestSerialized:
 
         _hosts = [
-            'https://api-staging.sparkfly.com/v1.0'
+            'https://api.sparkfly.com/v1.0'
         ]
         _host = _hosts[_host_index]
 
