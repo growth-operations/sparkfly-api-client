@@ -129,13 +129,12 @@ class Sparkfly:
         # Initialize the API client
         self._config = Configuration(
             host=self.host,
+            server_index=1 if self.environment.lower() == "production" else 0,
             api_key={
                 "XAuthIdentity": identity,
                 "XAuthKey": key,
             },
         )
-        # Force all operations to use the configured host instead of operation-defined servers
-        self._config.ignore_operation_servers = True
         self._api_client = ApiClient(configuration=self._config)
 
         # Initialize API classes with retry wrappers
