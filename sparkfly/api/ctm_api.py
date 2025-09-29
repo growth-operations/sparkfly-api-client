@@ -58,7 +58,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> object:
         """CTM Custom Messages
 
@@ -126,7 +126,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[object]:
         """CTM Custom Messages
 
@@ -194,7 +194,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Custom Messages
 
@@ -252,10 +252,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -325,7 +322,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> object:
         """CTM Stores
 
@@ -393,7 +390,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[object]:
         """CTM Stores
 
@@ -461,7 +458,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Stores
 
@@ -519,10 +516,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -601,7 +595,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CtmTransactionShowResponse:
         """CTM Show Response
 
@@ -706,7 +700,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CtmTransactionShowResponse]:
         """CTM Show Response
 
@@ -811,7 +805,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Show Response
 
@@ -906,10 +900,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1022,7 +1013,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """CTM Allocate
 
@@ -1115,7 +1106,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """CTM Allocate
 
@@ -1208,7 +1199,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Allocate
 
@@ -1291,10 +1282,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1380,7 +1368,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """CTM Dealocate
 
@@ -1477,7 +1465,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """CTM Dealocate
 
@@ -1574,7 +1562,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Dealocate
 
@@ -1661,10 +1649,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1755,7 +1740,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """CTM Qitems
 
@@ -1848,7 +1833,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """CTM Qitems
 
@@ -1941,7 +1926,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Qitems
 
@@ -2024,10 +2009,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -2123,7 +2105,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """CTM Update Response
 
@@ -2216,7 +2198,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """CTM Update Response
 
@@ -2309,7 +2291,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Update Response
 
@@ -2392,10 +2374,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -2490,7 +2469,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """CTM Update Response
 
@@ -2579,7 +2558,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """CTM Update Response
 
@@ -2668,7 +2647,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Update Response
 
@@ -2747,10 +2726,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -2847,7 +2823,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CtmTransactionShowResponse:
         """CTM Show Response
 
@@ -2952,7 +2928,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CtmTransactionShowResponse]:
         """CTM Show Response
 
@@ -3057,7 +3033,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Show Response
 
@@ -3152,10 +3128,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -3267,7 +3240,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """CTM Transaction Update
 
@@ -3356,7 +3329,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """CTM Transaction Update
 
@@ -3445,7 +3418,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Transaction Update
 
@@ -3524,10 +3497,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -3621,7 +3591,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """CTM Update Response
 
@@ -3714,7 +3684,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """CTM Update Response
 
@@ -3807,7 +3777,7 @@ class CtmApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """CTM Update Response
 
@@ -3890,10 +3860,7 @@ class CtmApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }

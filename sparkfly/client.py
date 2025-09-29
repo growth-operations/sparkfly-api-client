@@ -134,6 +134,8 @@ class Sparkfly:
                 "XAuthKey": key,
             },
         )
+        # Force all operations to use the configured host instead of operation-defined servers
+        self._config.ignore_operation_servers = True
         self._api_client = ApiClient(configuration=self._config)
 
         # Initialize API classes with retry wrappers

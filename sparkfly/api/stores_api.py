@@ -59,7 +59,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Remove a Store
 
@@ -136,7 +136,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Remove a Store
 
@@ -213,7 +213,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Remove a Store
 
@@ -280,10 +280,7 @@ class StoresApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -362,7 +359,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StoreIndexBody:
         """List all Stores
 
@@ -452,7 +449,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StoreIndexBody]:
         """List all Stores
 
@@ -542,7 +539,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """List all Stores
 
@@ -622,10 +619,7 @@ class StoresApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -720,7 +714,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> StoreIndexBody:
         """List all Stores with Active Offers
 
@@ -809,7 +803,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[StoreIndexBody]:
         """List all Stores with Active Offers
 
@@ -898,7 +892,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """List all Stores with Active Offers
 
@@ -977,10 +971,7 @@ class StoresApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1072,7 +1063,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Store:
         """Retrieve a Store
 
@@ -1149,7 +1140,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Store]:
         """Retrieve a Store
 
@@ -1226,7 +1217,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Retrieve a Store
 
@@ -1293,10 +1284,7 @@ class StoresApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1372,7 +1360,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Store:
         """Create a Store
 
@@ -1450,7 +1438,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Store]:
         """Create a Store
 
@@ -1528,7 +1516,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Create a Store
 
@@ -1596,10 +1584,7 @@ class StoresApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1689,7 +1674,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Store:
         """Update a Store
 
@@ -1771,7 +1756,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Store]:
         """Update a Store
 
@@ -1853,7 +1838,7 @@ class StoresApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Update a Store
 
@@ -1925,10 +1910,7 @@ class StoresApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }

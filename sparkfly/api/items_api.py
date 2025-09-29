@@ -61,7 +61,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Delete an Item Set
 
@@ -135,7 +135,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Delete an Item Set
 
@@ -209,7 +209,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Delete an Item Set
 
@@ -273,10 +273,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -343,7 +340,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Remove Item from Set
 
@@ -422,7 +419,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Remove Item from Set
 
@@ -501,7 +498,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Remove Item from Set
 
@@ -570,10 +567,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -648,7 +642,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Delete Item
 
@@ -722,7 +716,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Delete Item
 
@@ -796,7 +790,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Delete Item
 
@@ -860,10 +854,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -940,7 +931,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ItemSetIndexBody:
         """Item Set Index
 
@@ -1029,7 +1020,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ItemSetIndexBody]:
         """Item Set Index
 
@@ -1118,7 +1109,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Item Set Index
 
@@ -1197,10 +1188,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1291,7 +1279,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ItemSet:
         """Get an Item Set
 
@@ -1364,7 +1352,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ItemSet]:
         """Get an Item Set
 
@@ -1437,7 +1425,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get an Item Set
 
@@ -1500,10 +1488,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1581,7 +1566,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ItemIndexBody:
         """Item Set Item Index
 
@@ -1675,7 +1660,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ItemIndexBody]:
         """Item Set Item Index
 
@@ -1769,7 +1754,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Item Set Item Index
 
@@ -1853,10 +1838,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1953,7 +1935,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ItemIndexBody:
         """Item Index
 
@@ -2042,7 +2024,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ItemIndexBody]:
         """Item Index
 
@@ -2131,7 +2113,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Item Index
 
@@ -2210,10 +2192,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -2304,7 +2283,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Item:
         """Get Item
 
@@ -2378,7 +2357,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Item]:
         """Get Item
 
@@ -2452,7 +2431,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get Item
 
@@ -2516,10 +2495,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -2592,7 +2568,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ItemSet:
         """Item Set Create
 
@@ -2666,7 +2642,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ItemSet]:
         """Item Set Create
 
@@ -2740,7 +2716,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Item Set Create
 
@@ -2804,10 +2780,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -2894,7 +2867,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Add Item to Set
 
@@ -2973,7 +2946,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Add Item to Set
 
@@ -3052,7 +3025,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Add Item to Set
 
@@ -3121,10 +3094,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -3199,7 +3169,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Item:
         """Create Item
 
@@ -3273,7 +3243,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Item]:
         """Create Item
 
@@ -3347,7 +3317,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Create Item
 
@@ -3411,10 +3381,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -3501,7 +3468,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ItemSet:
         """Update an Item Set
 
@@ -3580,7 +3547,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ItemSet]:
         """Update an Item Set
 
@@ -3659,7 +3626,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Update an Item Set
 
@@ -3728,10 +3695,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -3820,7 +3784,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Item:
         """Update Item
 
@@ -3898,7 +3862,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Item]:
         """Update Item
 
@@ -3976,7 +3940,7 @@ class ItemsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Update Item
 
@@ -4044,10 +4008,7 @@ class ItemsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }

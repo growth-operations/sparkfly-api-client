@@ -58,7 +58,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CampaignResponse:
         """Retrieve a Campaign by Campaign ID
 
@@ -127,7 +127,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CampaignResponse]:
         """Retrieve a Campaign by Campaign ID
 
@@ -196,7 +196,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Retrieve a Campaign by Campaign ID
 
@@ -255,10 +255,7 @@ class CampaignsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -327,7 +324,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CampaignTagsResponse:
         """Retrieve Campaign Tags
 
@@ -392,7 +389,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CampaignTagsResponse]:
         """Retrieve Campaign Tags
 
@@ -457,7 +454,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Retrieve Campaign Tags
 
@@ -512,10 +509,7 @@ class CampaignsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -590,7 +584,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CampaignIndexBody:
         """List all Campaigns
 
@@ -687,7 +681,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CampaignIndexBody]:
         """List all Campaigns
 
@@ -784,7 +778,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """List all Campaigns
 
@@ -871,10 +865,7 @@ class CampaignsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -974,7 +965,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CampaignResponse:
         """Create a Campaign
 
@@ -1044,7 +1035,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CampaignResponse]:
         """Create a Campaign
 
@@ -1114,7 +1105,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Create a Campaign
 
@@ -1174,10 +1165,7 @@ class CampaignsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1261,7 +1249,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CampaignResponse:
         """Update a Campaign by Campaign ID
 
@@ -1335,7 +1323,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CampaignResponse]:
         """Update a Campaign by Campaign ID
 
@@ -1409,7 +1397,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Update a Campaign by Campaign ID
 
@@ -1473,10 +1461,7 @@ class CampaignsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1562,7 +1547,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CampaignResponse:
         """Set a Campaign's Status
 
@@ -1635,7 +1620,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CampaignResponse]:
         """Set a Campaign's Status
 
@@ -1708,7 +1693,7 @@ class CampaignsApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Set a Campaign's Status
 
@@ -1771,10 +1756,7 @@ class CampaignsApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }

@@ -61,7 +61,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OfferStateIndexBody:
         """Get all Offer States
 
@@ -135,7 +135,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OfferStateIndexBody]:
         """Get all Offer States
 
@@ -209,7 +209,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all Offer States
 
@@ -273,10 +273,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -350,7 +347,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OfferStateIndexBody:
         """Get Offer State by Offer State ID
 
@@ -428,7 +425,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OfferStateIndexBody]:
         """Get Offer State by Offer State ID
 
@@ -506,7 +503,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get Offer State by Offer State ID
 
@@ -574,10 +571,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -653,7 +647,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OfferState:
         """Get Offer State by Offer ID
 
@@ -731,7 +725,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OfferState]:
         """Get Offer State by Offer ID
 
@@ -809,7 +803,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get Offer State by Offer ID
 
@@ -877,10 +871,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -957,7 +948,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OfferState:
         """Get Offer State from Query Parameters
 
@@ -1039,7 +1030,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OfferState]:
         """Get Offer State from Query Parameters
 
@@ -1121,7 +1112,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get Offer State from Query Parameters
 
@@ -1193,10 +1184,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1278,7 +1266,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> PostMembersIdOfferStatesIssue201Response:
         """Issue an Offer to a member (high throughput)
 
@@ -1345,7 +1333,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[PostMembersIdOfferStatesIssue201Response]:
         """Issue an Offer to a member (high throughput)
 
@@ -1412,7 +1400,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Issue an Offer to a member (high throughput)
 
@@ -1469,10 +1457,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1559,7 +1544,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OfferState:
         """Create Offer State
 
@@ -1645,7 +1630,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OfferState]:
         """Create Offer State
 
@@ -1731,7 +1716,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Create Offer State
 
@@ -1807,10 +1792,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -1907,7 +1889,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OfferState:
         """Update Offer State - Post
 
@@ -1985,7 +1967,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OfferState]:
         """Update Offer State - Post
 
@@ -2063,7 +2045,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Update Offer State - Post
 
@@ -2131,10 +2113,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -2222,7 +2201,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Void Offer State
 
@@ -2297,7 +2276,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Void Offer State
 
@@ -2372,7 +2351,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Void Offer State
 
@@ -2437,10 +2416,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -2513,7 +2489,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> None:
         """Void Offer State by Member Identifier
 
@@ -2588,7 +2564,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[None]:
         """Void Offer State by Member Identifier
 
@@ -2663,7 +2639,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Void Offer State by Member Identifier
 
@@ -2728,10 +2704,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -2809,7 +2782,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OfferState:
         """Create Offer State from Query Parameters
 
@@ -2895,7 +2868,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OfferState]:
         """Create Offer State from Query Parameters
 
@@ -2981,7 +2954,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Create Offer State from Query Parameters
 
@@ -3057,10 +3030,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }
@@ -3160,7 +3130,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> OfferState:
         """Update Offer State
 
@@ -3242,7 +3212,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[OfferState]:
         """Update Offer State
 
@@ -3324,7 +3294,7 @@ class OfferStatesApi:
         _request_auth: Optional[Dict[StrictStr, Any]] = None,
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=1)] = 0,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Update Offer State
 
@@ -3396,10 +3366,7 @@ class OfferStatesApi:
         _host_index,
     ) -> RequestSerialized:
 
-        _hosts = [
-            'https://api.sparkfly.com/v1.0'
-        ]
-        _host = _hosts[_host_index]
+        _host = None
 
         _collection_formats: Dict[str, str] = {
         }

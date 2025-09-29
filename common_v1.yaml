@@ -101,9 +101,6 @@ paths:
           description: Unauthorized
         "422":
           description: Unprocessable Entity
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/ctm/allocate/{site_id}/{credential}":
     post:
       tags:
@@ -126,9 +123,6 @@ paths:
           description: Unauthorized
         "422":
           description: Unprocessable Entity
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/ctm/deallocate/{site_id}":
     post:
       tags:
@@ -152,9 +146,6 @@ paths:
           description: Unauthorized
         "422":
           description: Unprocessable Entity
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/ctm/qitems/{site_id}/{credential}":
     post:
       tags:
@@ -178,9 +169,6 @@ paths:
           description: Unauthorized
         "422":
           description: Unprocessable Entity
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/ctm/members/{site_id}/{credential}":
     get:
       tags:
@@ -207,9 +195,6 @@ paths:
           description: Unauthorized
         "422":
           description: Unprocessable Entity
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     put:
       tags:
         - Ctm
@@ -232,9 +217,6 @@ paths:
           description: Unauthorized
         "422":
           description: Unprocessable Entity
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/v2/ctm/members/{site_id}/{credential}":
     post:
       tags:
@@ -258,9 +240,6 @@ paths:
           description: Unauthorized
         "422":
           description: Unprocessable Entity
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     put:
       tags:
         - Ctm
@@ -286,9 +265,6 @@ paths:
           description: Unauthorized
         "422":
           description: Unprocessable Entity
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/v2/ctm/members/{site_id}":
     post:
       tags:
@@ -311,9 +287,6 @@ paths:
           description: Unauthorized
         "422":
           description: Unprocessable Entity
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /v2/ctm/customposmessages:
     get:
       tags:
@@ -332,9 +305,6 @@ paths:
                 type: object
         "500":
           description: Internal Server Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /v2/ctm/stores:
     get:
       tags:
@@ -353,9 +323,6 @@ paths:
                 type: object
         "500":
           description: Internal Server Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /members:
     post:
       tags:
@@ -376,9 +343,6 @@ paths:
           description: Unauthorized
         "422":
           $ref: "#/components/responses/Member"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Members
@@ -414,9 +378,6 @@ paths:
           description: Unauthorized
         "500":
           description: Internal Server Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/members/{member_id}":
     put:
       tags:
@@ -441,9 +402,6 @@ paths:
           $ref: "#/components/responses/Member"
         "500":
           description: Internal Server Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Members
@@ -466,9 +424,6 @@ paths:
           description: Not Found
         "500":
           description: Internal Server Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Members
@@ -491,9 +446,6 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /members/search:
     get:
       tags:
@@ -515,9 +467,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/members/{id}/profile":
     post:
       tags:
@@ -548,9 +497,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
       x-internal: false
     get:
       tags:
@@ -574,9 +520,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/merchants/{merchant_id}/stores":
     post:
       tags:
@@ -603,9 +546,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Stores
@@ -633,9 +573,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/merchants/{merchant_id}/stores/{store_id}":
     get:
       tags:
@@ -664,9 +601,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     put:
       tags:
         - Stores
@@ -698,9 +632,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Stores
@@ -728,9 +659,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /merchants/stores/index:
     get:
       tags:
@@ -762,9 +690,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/merchants/{merchant_id}/store_lists":
     post:
       tags:
@@ -803,9 +728,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/api_error"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Store Lists
@@ -832,9 +754,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/merchants/{merchant_id}/store_lists/{store_list_id}":
     put:
       tags:
@@ -867,9 +786,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Store Lists
@@ -905,9 +821,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/api_error"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Store Lists
@@ -966,9 +879,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /merchants/bi_store_lists:
     get:
       tags:
@@ -983,9 +893,6 @@ paths:
           $ref: "#/components/responses/BIStoreList"
         "401":
           description: Unauthorized
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /offer_lists:
     get:
       tags:
@@ -1018,9 +925,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     post:
       tags:
         - Offer Lists
@@ -1040,9 +944,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/offer_lists/{offer_list_id}":
     put:
       tags:
@@ -1086,9 +987,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/api_error"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Offer Lists
@@ -1119,9 +1017,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/api_error"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Offer Lists
@@ -1144,9 +1039,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/AudienceIndex"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /offers:
     get:
       tags:
@@ -1180,9 +1072,6 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     post:
       tags:
         - Offers
@@ -1212,9 +1101,6 @@ paths:
           $ref: "#/components/responses/Offer"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/offers/{offer_id}":
     get:
       tags:
@@ -1239,9 +1125,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     put:
       tags:
         - Offers
@@ -1265,9 +1148,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Offers
@@ -1289,9 +1169,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/offers/{offer_id}/eligible_item_sets":
     get:
       tags:
@@ -1314,9 +1191,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     post:
       tags:
         - Eligible Item Sets
@@ -1342,9 +1216,6 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/offers/{offer_id}/eligible_item_sets/{id}":
     put:
       tags:
@@ -1375,9 +1246,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Eligible Item Sets
@@ -1405,9 +1273,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Eligible Item Sets
@@ -1435,9 +1300,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/offers/{offer_id}/pos_offer_codes":
     get:
       tags:
@@ -1460,9 +1322,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     post:
       tags:
         - Offer POS Offer Codes
@@ -1488,9 +1347,6 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/offers/{offer_id}/pos_offer_codes/{id}":
     put:
       tags:
@@ -1521,9 +1377,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Offer POS Offer Codes
@@ -1551,9 +1404,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Offer POS Offer Codes
@@ -1581,9 +1431,6 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/campaigns/{campaign_id}/actions/{action}":
     put:
       tags:
@@ -1619,9 +1466,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /campaigns/tags:
     get:
       tags:
@@ -1637,9 +1481,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /campaigns:
     post:
       tags:
@@ -1671,9 +1512,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Campaigns
@@ -1708,9 +1546,6 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/campaigns/{campaign_id}":
     get:
       tags:
@@ -1727,9 +1562,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "404":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     put:
       tags:
         - Campaigns
@@ -1749,9 +1581,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /audiences:
     get:
       tags:
@@ -1781,9 +1610,6 @@ paths:
           $ref: "#/components/responses/AudienceIndex"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
       x-internal: false
     post:
       tags:
@@ -1802,9 +1628,6 @@ paths:
           description: Your request was malformed
         "422":
           description: "Your request was parseable, but a validation error occurred."
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/audiences/{audience_id}":
     get:
       tags:
@@ -1828,9 +1651,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/SubAudience"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
       x-internal: false
     put:
       tags:
@@ -1855,9 +1675,6 @@ paths:
           description: Not Found
         "422":
           description: Validation Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Audiences
@@ -1878,9 +1695,6 @@ paths:
           description: Not Found
         "422":
           description: Could not be deleted -- may be in use.
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/audiences/{audience_id}/sub_audiences":
     get:
       tags:
@@ -1916,9 +1730,6 @@ paths:
           $ref: "#/components/responses/SubAudienceIndex"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     post:
       tags:
         - Audiences
@@ -1944,9 +1755,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/audiences/{audience_id}/sub_audiences/{sub_audience_id}":
     get:
       tags:
@@ -1974,9 +1782,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     put:
       tags:
         - Audiences
@@ -2010,9 +1815,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/SubAudience"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Audiences
@@ -2041,9 +1843,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/pos_offer_codes/{id}":
     get:
       tags:
@@ -2070,9 +1869,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /pos_offer_codes:
     get:
       tags:
@@ -2089,9 +1885,6 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /templates:
     get:
       tags:
@@ -2108,9 +1901,6 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /members/offer_states:
     get:
       tags:
@@ -2132,9 +1922,6 @@ paths:
           $ref: "#/components/responses/OfferStateError"
         "500":
           $ref: "#/components/responses/OfferStateError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     post:
       tags:
         - Offer States
@@ -2157,9 +1944,6 @@ paths:
           $ref: "#/components/responses/OfferStateError"
         "500":
           $ref: "#/components/responses/OfferStateError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/members/{member_id}/offer_states":
     get:
       tags:
@@ -2179,9 +1963,6 @@ paths:
           $ref: "#/components/responses/OfferStateError"
         "500":
           $ref: "#/components/responses/OfferStateError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     post:
       tags:
         - Offer States
@@ -2204,9 +1985,6 @@ paths:
           $ref: "#/components/responses/OfferStateError"
         "500":
           $ref: "#/components/responses/OfferStateError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/members/{member_id}/offers/{offer_id}":
     get:
       tags:
@@ -2227,9 +2005,6 @@ paths:
           $ref: "#/components/responses/OfferStateError"
         "500":
           $ref: "#/components/responses/OfferStateError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/members/{member_id}/offer_states/{offerstate_id}":
     get:
       tags:
@@ -2250,9 +2025,6 @@ paths:
           $ref: "#/components/responses/OfferStateError"
         "500":
           $ref: "#/components/responses/OfferStateError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     put:
       tags:
         - Offer States
@@ -2274,9 +2046,6 @@ paths:
           $ref: "#/components/responses/OfferStateError"
         "500":
           $ref: "#/components/responses/OfferStateError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     post:
       tags:
         - Offer States
@@ -2297,9 +2066,6 @@ paths:
           $ref: "#/components/responses/OfferStateError"
         "500":
           $ref: "#/components/responses/OfferStateError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/members/offer_states/{offerstate_id}/void":
     post:
       tags:
@@ -2321,9 +2087,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           description: Internal Server Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/members/{member_id}/offer_states/{offerstate_id}/void":
     post:
       tags:
@@ -2345,9 +2108,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /impressions:
     post:
       tags:
@@ -2366,9 +2126,6 @@ paths:
           description: Unauthorized
         "422":
           $ref: "#/components/responses/Impression"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Impressions
@@ -2386,9 +2143,6 @@ paths:
           $ref: "#/components/responses/ImpressionError"
         "500":
           $ref: "#/components/responses/ImpressionError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/impressions/{id}":
     delete:
       tags:
@@ -2413,9 +2167,6 @@ paths:
           $ref: "#/components/responses/ImpressionError"
         "500":
           $ref: "#/components/responses/ImpressionError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /optins:
     post:
       tags:
@@ -2437,9 +2188,6 @@ paths:
           $ref: "#/components/responses/EmailOptInError"
         "500":
           $ref: "#/components/responses/EmailOptInError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /privacy/member/export:
     get:
       tags:
@@ -2462,9 +2210,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /privacy/member/delete_request:
     post:
       tags:
@@ -2487,9 +2232,6 @@ paths:
           description: Unprocessable Entity (WebDAV) - Member could not be located from the member or credential identifiers
         "500":
           description: Internal Server Error - Internal issue creating a member deletion request
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /items:
     post:
       tags:
@@ -2510,9 +2252,6 @@ paths:
           $ref: "#/components/responses/Item"
         "500":
           description: Internal Server Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     get:
       tags:
         - Items
@@ -2533,9 +2272,6 @@ paths:
           description: Unauthorized
         "500":
           description: Internal Server Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/items/{id}":
     get:
       tags:
@@ -2560,9 +2296,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Items
@@ -2586,9 +2319,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     put:
       tags:
         - Items
@@ -2614,9 +2344,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /item_sets:
     get:
       tags:
@@ -2638,9 +2365,6 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     post:
       tags:
         - Items
@@ -2660,9 +2384,6 @@ paths:
           $ref: "#/components/responses/ItemSet"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/item_sets/{item_set_id}":
     get:
       tags:
@@ -2680,9 +2401,6 @@ paths:
           description: Unauthorized
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     put:
       tags:
         - Items
@@ -2705,9 +2423,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Items
@@ -2726,9 +2441,6 @@ paths:
           description: Not Found
         "500":
           description: Internal Server Error
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/item_sets/{item_set_id}/items/{id}":
     post:
       tags:
@@ -2756,9 +2468,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
     delete:
       tags:
         - Items
@@ -2785,9 +2494,6 @@ paths:
           $ref: "#/components/responses/APIError"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   "/item_sets/{item_set_id}/items":
     get:
       tags:
@@ -2812,9 +2518,6 @@ paths:
           $ref: "#/components/responses/ItemIndex"
         "500":
           $ref: "#/components/responses/APIError"
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
   /members/offer_states/issue:
     post:
       tags:
@@ -2911,9 +2614,6 @@ paths:
                       - credential_identifier
                 required:
                   - offer_state
-      servers:
-        - url: "https://api.sparkfly.com/v1.0"
-          description: Production
 tags:
   - name: Items
     description: items
