@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **per_page** | **int** |  | [optional] 
 **total_entries** | **int** |  | [optional] 
 **total_pages** | **int** |  | [optional] 
-**callbacks** | [**List[CallbackResponse]**](CallbackResponse.md) |  | [optional] 
+**callbacks** | [**List[CallbackResponse]**](CallbackResponse.md) |  | 
 
 ## Example
 

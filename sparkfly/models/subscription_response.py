@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from sparkfly.models.subscription import Subscription
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class SubscriptionResponse(BaseModel):
     """
     SubscriptionResponse
     """ # noqa: E501
-    subscription: Optional[Subscription] = None
+    subscription: Subscription
     __properties: ClassVar[List[str]] = ["subscription"]
 
     model_config = ConfigDict(

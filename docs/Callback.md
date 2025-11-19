@@ -6,13 +6,13 @@ A callback URL configuration for receiving event notifications
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique identifier for the callback | [optional] [readonly] 
-**external_id** | **str** | External identifier for the callback | [optional] 
-**enabled** | **bool** | Whether the callback is enabled | [optional] 
-**url** | **str** | The URL to send event notifications to | [optional] 
-**last_verified_at** | **datetime** | Timestamp when the callback was last verified | [optional] [readonly] 
-**signing_key** | **str** | Key used to sign webhook payloads for verification | [optional] [readonly] 
-**subscriptions** | [**List[Subscription]**](Subscription.md) | List of event subscriptions associated with this callback | [optional] 
+**id** | **int** | Unique identifier for the callback | [readonly] 
+**external_id** | **str** | External identifier for the callback | 
+**enabled** | **bool** | Whether the callback is enabled | 
+**url** | **str** | The URL to send event notifications to | 
+**last_verified_at** | **datetime** | Timestamp when the callback was last verified | [readonly] 
+**signing_key** | **str** | Key used to sign webhook payloads for verification | [readonly] 
+**subscriptions** | [**List[Subscription]**](Subscription.md) | List of event subscriptions associated with this callback | 
 
 ## Example
 

@@ -6,11 +6,11 @@ An event subscription that links a callback to a specific event type
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** | Unique identifier for the subscription | [optional] [readonly] 
+**id** | **int** | Unique identifier for the subscription | [readonly] 
 **callback_id** | **int** | ID of the callback this subscription is associated with | [optional] 
-**external_id** | **str** | External identifier for the subscription | [optional] 
-**enabled** | **bool** | Whether the subscription is enabled | [optional] 
-**event** | **str** | The event type to subscribe to | [optional] 
+**external_id** | **str** | External identifier for the subscription | 
+**enabled** | **bool** | Whether the subscription is enabled | 
+**event** | **str** | The event type to subscribe to | 
 
 ## Example
 

@@ -29,13 +29,13 @@ class Callback(BaseModel):
     """
     A callback URL configuration for receiving event notifications
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the callback")
-    external_id: Optional[StrictStr] = Field(default=None, description="External identifier for the callback")
-    enabled: Optional[StrictBool] = Field(default=None, description="Whether the callback is enabled")
-    url: Optional[StrictStr] = Field(default=None, description="The URL to send event notifications to")
-    last_verified_at: Optional[datetime] = Field(default=None, description="Timestamp when the callback was last verified")
-    signing_key: Optional[StrictStr] = Field(default=None, description="Key used to sign webhook payloads for verification")
-    subscriptions: Optional[List[Subscription]] = Field(default=None, description="List of event subscriptions associated with this callback")
+    id: StrictInt = Field(description="Unique identifier for the callback")
+    external_id: StrictStr = Field(description="External identifier for the callback")
+    enabled: StrictBool = Field(description="Whether the callback is enabled")
+    url: StrictStr = Field(description="The URL to send event notifications to")
+    last_verified_at: Optional[datetime] = Field(description="Timestamp when the callback was last verified")
+    signing_key: StrictStr = Field(description="Key used to sign webhook payloads for verification")
+    subscriptions: List[Subscription] = Field(description="List of event subscriptions associated with this callback")
     __properties: ClassVar[List[str]] = ["id", "external_id", "enabled", "url", "last_verified_at", "signing_key", "subscriptions"]
 
     model_config = ConfigDict(

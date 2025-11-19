@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from sparkfly.models.callback import Callback
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class CallbackResponse(BaseModel):
     """
     CallbackResponse
     """ # noqa: E501
-    callback: Optional[Callback] = None
+    callback: Callback
     __properties: ClassVar[List[str]] = ["callback"]
 
     model_config = ConfigDict(

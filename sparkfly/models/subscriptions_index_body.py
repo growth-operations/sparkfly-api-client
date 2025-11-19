@@ -32,7 +32,7 @@ class SubscriptionsIndexBody(BaseModel):
     per_page: Optional[StrictInt] = None
     total_entries: Optional[StrictInt] = None
     total_pages: Optional[StrictInt] = None
-    subscriptions: Optional[List[SubscriptionResponse]] = None
+    subscriptions: List[SubscriptionResponse]
     __properties: ClassVar[List[str]] = ["page", "per_page", "total_entries", "total_pages", "subscriptions"]
 
     model_config = ConfigDict(

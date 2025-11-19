@@ -27,19 +27,16 @@ class Subscription(BaseModel):
     """
     An event subscription that links a callback to a specific event type
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Unique identifier for the subscription")
+    id: StrictInt = Field(description="Unique identifier for the subscription")
     callback_id: Optional[StrictInt] = Field(default=None, description="ID of the callback this subscription is associated with")
-    external_id: Optional[StrictStr] = Field(default=None, description="External identifier for the subscription")
-    enabled: Optional[StrictBool] = Field(default=None, description="Whether the subscription is enabled")
-    event: Optional[StrictStr] = Field(default=None, description="The event type to subscribe to")
+    external_id: StrictStr = Field(description="External identifier for the subscription")
+    enabled: StrictBool = Field(description="Whether the subscription is enabled")
+    event: StrictStr = Field(description="The event type to subscribe to")
     __properties: ClassVar[List[str]] = ["id", "callback_id", "external_id", "enabled", "event"]
 
     @field_validator('event')
     def event_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['sf.member.created', 'sf.member.updated', 'sf.member_profile.created', 'sf.member_profile.updated', 'sf.offer_activity.created', 'sf.transaction.completed']):
             raise ValueError("must be one of enum values ('sf.member.created', 'sf.member.updated', 'sf.member_profile.created', 'sf.member_profile.updated', 'sf.offer_activity.created', 'sf.transaction.completed')")
         return value

@@ -32,7 +32,7 @@ class CallbacksIndexBody(BaseModel):
     per_page: Optional[StrictInt] = None
     total_entries: Optional[StrictInt] = None
     total_pages: Optional[StrictInt] = None
-    callbacks: Optional[List[CallbackResponse]] = None
+    callbacks: List[CallbackResponse]
     __properties: ClassVar[List[str]] = ["page", "per_page", "total_entries", "total_pages", "callbacks"]
 
     model_config = ConfigDict(

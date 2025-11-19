@@ -6136,6 +6136,14 @@ components:
       type: object
       title: Callback
       description: A callback URL configuration for receiving event notifications
+      required:
+        - id
+        - external_id
+        - enabled
+        - url
+        - last_verified_at
+        - signing_key
+        - subscriptions
       properties:
         id:
           type: integer
@@ -6203,6 +6211,8 @@ components:
     callback_response:
       type: object
       title: Callback Response
+      required:
+        - callback
       properties:
         callback:
           $ref: "#/components/schemas/callback"
@@ -6219,6 +6229,8 @@ components:
     callbacks_index_body:
       type: object
       title: Callbacks Index Response
+      required:
+        - callbacks
       allOf:
         - $ref: "#/components/schemas/page_response_body"
         - type: object
@@ -6247,6 +6259,11 @@ components:
       type: object
       title: Subscription
       description: An event subscription that links a callback to a specific event type
+      required:
+        - id
+        - external_id
+        - enabled
+        - event
       properties:
         id:
           type: integer
@@ -6314,6 +6331,8 @@ components:
     subscription_response:
       type: object
       title: Subscription Response
+      required:
+        - subscription
       properties:
         subscription:
           $ref: "#/components/schemas/subscription"
@@ -6328,6 +6347,8 @@ components:
     subscriptions_index_body:
       type: object
       title: Subscriptions Index Response
+      required:
+        - subscriptions
       allOf:
         - $ref: "#/components/schemas/page_response_body"
         - type: object

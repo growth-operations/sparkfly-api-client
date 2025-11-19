@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**callback** | [**Callback**](Callback.md) |  | [optional] 
+**callback** | [**Callback**](Callback.md) |  | 
 
 ## Example
 
