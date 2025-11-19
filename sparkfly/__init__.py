@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.1.18"
+__version__ = "1.1.19"
 
 # Define package exports
 __all__ = [
@@ -26,6 +26,7 @@ __all__ = [
     "CtmApi",
     "EligibleItemSetsApi",
     "EmailOptInApi",
+    "EventNotificationsApi",
     "ImpressionsApi",
     "ItemsApi",
     "MemberPrivacyApi",
@@ -54,6 +55,11 @@ __all__ = [
     "AudienceIndexData",
     "BiStoreList",
     "BiStoreListStoreListsInner",
+    "Callback",
+    "CallbackRequest",
+    "CallbackRequestCallback",
+    "CallbackResponse",
+    "CallbacksIndexBody",
     "CampaignIndexBody",
     "CampaignRequest",
     "CampaignRequestCampaign",
@@ -181,6 +187,11 @@ __all__ = [
     "SubAudienceData",
     "SubAudienceIndexBody",
     "SubAudienceIndexData",
+    "Subscription",
+    "SubscriptionRequest",
+    "SubscriptionRequestSubscription",
+    "SubscriptionResponse",
+    "SubscriptionsIndexBody",
     "Template",
     "Template2",
     "TemplateTemplatesInner",
@@ -194,6 +205,7 @@ from sparkfly.api.campaigns_api import CampaignsApi as CampaignsApi
 from sparkfly.api.ctm_api import CtmApi as CtmApi
 from sparkfly.api.eligible_item_sets_api import EligibleItemSetsApi as EligibleItemSetsApi
 from sparkfly.api.email_opt_in_api import EmailOptInApi as EmailOptInApi
+from sparkfly.api.event_notifications_api import EventNotificationsApi as EventNotificationsApi
 from sparkfly.api.impressions_api import ImpressionsApi as ImpressionsApi
 from sparkfly.api.items_api import ItemsApi as ItemsApi
 from sparkfly.api.member_privacy_api import MemberPrivacyApi as MemberPrivacyApi
@@ -226,6 +238,11 @@ from sparkfly.models.audience_index_body import AudienceIndexBody as AudienceInd
 from sparkfly.models.audience_index_data import AudienceIndexData as AudienceIndexData
 from sparkfly.models.bi_store_list import BiStoreList as BiStoreList
 from sparkfly.models.bi_store_list_store_lists_inner import BiStoreListStoreListsInner as BiStoreListStoreListsInner
+from sparkfly.models.callback import Callback as Callback
+from sparkfly.models.callback_request import CallbackRequest as CallbackRequest
+from sparkfly.models.callback_request_callback import CallbackRequestCallback as CallbackRequestCallback
+from sparkfly.models.callback_response import CallbackResponse as CallbackResponse
+from sparkfly.models.callbacks_index_body import CallbacksIndexBody as CallbacksIndexBody
 from sparkfly.models.campaign_index_body import CampaignIndexBody as CampaignIndexBody
 from sparkfly.models.campaign_request import CampaignRequest as CampaignRequest
 from sparkfly.models.campaign_request_campaign import CampaignRequestCampaign as CampaignRequestCampaign
@@ -353,6 +370,11 @@ from sparkfly.models.sub_audience import SubAudience as SubAudience
 from sparkfly.models.sub_audience_data import SubAudienceData as SubAudienceData
 from sparkfly.models.sub_audience_index_body import SubAudienceIndexBody as SubAudienceIndexBody
 from sparkfly.models.sub_audience_index_data import SubAudienceIndexData as SubAudienceIndexData
+from sparkfly.models.subscription import Subscription as Subscription
+from sparkfly.models.subscription_request import SubscriptionRequest as SubscriptionRequest
+from sparkfly.models.subscription_request_subscription import SubscriptionRequestSubscription as SubscriptionRequestSubscription
+from sparkfly.models.subscription_response import SubscriptionResponse as SubscriptionResponse
+from sparkfly.models.subscriptions_index_body import SubscriptionsIndexBody as SubscriptionsIndexBody
 from sparkfly.models.template import Template as Template
 from sparkfly.models.template2 import Template2 as Template2
 from sparkfly.models.template_templates_inner import TemplateTemplatesInner as TemplateTemplatesInner

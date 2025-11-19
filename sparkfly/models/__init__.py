@@ -22,6 +22,11 @@ from sparkfly.models.audience_index_body import AudienceIndexBody
 from sparkfly.models.audience_index_data import AudienceIndexData
 from sparkfly.models.bi_store_list import BiStoreList
 from sparkfly.models.bi_store_list_store_lists_inner import BiStoreListStoreListsInner
+from sparkfly.models.callback import Callback
+from sparkfly.models.callback_request import CallbackRequest
+from sparkfly.models.callback_request_callback import CallbackRequestCallback
+from sparkfly.models.callback_response import CallbackResponse
+from sparkfly.models.callbacks_index_body import CallbacksIndexBody
 from sparkfly.models.campaign_index_body import CampaignIndexBody
 from sparkfly.models.campaign_request import CampaignRequest
 from sparkfly.models.campaign_request_campaign import CampaignRequestCampaign
@@ -149,6 +154,11 @@ from sparkfly.models.sub_audience import SubAudience
 from sparkfly.models.sub_audience_data import SubAudienceData
 from sparkfly.models.sub_audience_index_body import SubAudienceIndexBody
 from sparkfly.models.sub_audience_index_data import SubAudienceIndexData
+from sparkfly.models.subscription import Subscription
+from sparkfly.models.subscription_request import SubscriptionRequest
+from sparkfly.models.subscription_request_subscription import SubscriptionRequestSubscription
+from sparkfly.models.subscription_response import SubscriptionResponse
+from sparkfly.models.subscriptions_index_body import SubscriptionsIndexBody
 from sparkfly.models.template import Template
 from sparkfly.models.template2 import Template2
 from sparkfly.models.template_templates_inner import TemplateTemplatesInner

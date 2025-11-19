@@ -8,6 +8,7 @@ from sparkfly.api.campaigns_api import CampaignsApi
 from sparkfly.api.ctm_api import CtmApi
 from sparkfly.api.eligible_item_sets_api import EligibleItemSetsApi
 from sparkfly.api.email_opt_in_api import EmailOptInApi
+from sparkfly.api.event_notifications_api import EventNotificationsApi
 from sparkfly.api.impressions_api import ImpressionsApi
 from sparkfly.api.items_api import ItemsApi
 from sparkfly.api.member_privacy_api import MemberPrivacyApi

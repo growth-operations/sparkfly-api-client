@@ -378,6 +378,193 @@ paths:
           description: Unauthorized
         "500":
           description: Internal Server Error
+
+  # Event Notifications - Callbacks
+  "/event_notifications/callbacks":
+    get:
+      tags:
+        - Event Notifications
+      summary: List Callbacks
+      description: Retrieve a paginated list of all callback configurations
+      operationId: get-event_notifications-callbacks
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/callbacks_index_body"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+    post:
+      tags:
+        - Event Notifications
+      summary: Create Callback
+      description: Create a new callback URL configuration for receiving event notifications
+      operationId: post-event_notifications-callbacks
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/callback_request"
+      responses:
+        "201":
+          description: Callback created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/callback_response"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+        "500":
+          description: Internal Server Error
+
+  "/event_notifications/callbacks/{callback_id}":
+    parameters:
+      - name: callback_id
+        in: path
+        required: true
+        description: The unique identifier of the callback
+        schema:
+          type: integer
+    get:
+      tags:
+        - Event Notifications
+      summary: Get Callback by ID
+      description: Retrieve a specific callback configuration by its ID
+      operationId: get-event_notifications-callbacks-callback_id
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/callback_response"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Callback not found
+        "500":
+          description: Internal Server Error
+    delete:
+      tags:
+        - Event Notifications
+      summary: Delete Callback
+      description: Delete a callback configuration and all associated subscriptions
+      operationId: delete-event_notifications-callbacks-callback_id
+      responses:
+        "200":
+          description: Callback deleted successfully
+        "401":
+          description: Unauthorized
+        "404":
+          description: Callback not found
+        "500":
+          description: Internal Server Error
+
+  # Event Notifications - Subscriptions
+  "/event_notifications/subscriptions":
+    get:
+      tags:
+        - Event Notifications
+      summary: List Subscriptions
+      description: Retrieve a paginated list of all event subscriptions
+      operationId: get-event_notifications-subscriptions
+      parameters:
+        - $ref: "#/components/parameters/Page"
+        - $ref: "#/components/parameters/PerPage"
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/subscriptions_index_body"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
+    post:
+      tags:
+        - Event Notifications
+      summary: Create Subscription
+      description: Create a new event subscription that links a callback to a specific event type
+      operationId: post-event_notifications-subscriptions
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/subscription_request"
+      responses:
+        "201":
+          description: Subscription created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/subscription_response"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+        "500":
+          description: Internal Server Error
+
+  "/event_notifications/subscriptions/{subscription_id}":
+    parameters:
+      - name: subscription_id
+        in: path
+        required: true
+        description: The unique identifier of the subscription
+        schema:
+          type: integer
+    get:
+      tags:
+        - Event Notifications
+      summary: Get Subscription by ID
+      description: Retrieve a specific event subscription by its ID
+      operationId: get-event_notifications-subscriptions-subscription_id
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/subscription_response"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Subscription not found
+        "500":
+          description: Internal Server Error
+    delete:
+      tags:
+        - Event Notifications
+      summary: Delete Subscription
+      description: Delete an event subscription
+      operationId: delete-event_notifications-subscriptions-subscription_id
+      responses:
+        "200":
+          description: Subscription deleted successfully
+        "401":
+          description: Unauthorized
+        "404":
+          description: Subscription not found
+        "500":
+          description: Internal Server Error
+
   "/members/{member_id}":
     put:
       tags:
@@ -5944,6 +6131,224 @@ components:
           total_entries: 1
           total_pages: 1
           clark_and_riggs_products: []
+    # Event Notifications - Callbacks
+    callback:
+      type: object
+      title: Callback
+      description: A callback URL configuration for receiving event notifications
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          description: Unique identifier for the callback
+        external_id:
+          type: string
+          description: External identifier for the callback
+        enabled:
+          type: boolean
+          description: Whether the callback is enabled
+        url:
+          type: string
+          format: uri
+          description: The URL to send event notifications to
+        last_verified_at:
+          type:
+            - string
+            - "null"
+          format: date-time
+          readOnly: true
+          description: Timestamp when the callback was last verified
+        signing_key:
+          type: string
+          readOnly: true
+          description: Key used to sign webhook payloads for verification
+        subscriptions:
+          type: array
+          readOnly: true
+          description: List of event subscriptions associated with this callback
+          items:
+            $ref: "#/components/schemas/subscription"
+      x-examples:
+        Example 1:
+          id: 9
+          external_id: "growth_operations_hubspot_events"
+          enabled: true
+          url: "https://hubspot-integrations-qa-803534818292.us-east1.run.app/api/v1/sparkfly/events"
+          last_verified_at: null
+          signing_key: "CBgDf32z6e4kPrOGFJS1gprVL7D2Qj0yVbEBhpc/yyLrpz/jBBaPUCTXLQpoaGj6X6+pfR1lneXJCu2/qDtQLg=="
+          subscriptions: []
+    callback_request:
+      type: object
+      title: Callback Request
+      required:
+        - callback
+      properties:
+        callback:
+          type: object
+          required:
+            - url
+            - external_id
+          properties:
+            url:
+              type: string
+              format: uri
+              description: The URL to send event notifications to
+            external_id:
+              type: string
+              description: External identifier for the callback
+            enabled:
+              type: boolean
+              description: Whether the callback is enabled
+              default: true
+    callback_response:
+      type: object
+      title: Callback Response
+      properties:
+        callback:
+          $ref: "#/components/schemas/callback"
+      x-examples:
+        Example 1:
+          callback:
+            id: 9
+            external_id: "growth_operations_hubspot_events"
+            enabled: true
+            url: "https://hubspot-integrations-qa-803534818292.us-east1.run.app/api/v1/sparkfly/events"
+            last_verified_at: null
+            signing_key: "CBgDf32z6e4kPrOGFJS1gprVL7D2Qj0yVbEBhpc/yyLrpz/jBBaPUCTXLQpoaGj6X6+pfR1lneXJCu2/qDtQLg=="
+            subscriptions: []
+    callbacks_index_body:
+      type: object
+      title: Callbacks Index Response
+      allOf:
+        - $ref: "#/components/schemas/page_response_body"
+        - type: object
+          properties:
+            callbacks:
+              type: array
+              items:
+                $ref: "#/components/schemas/callback_response"
+      x-examples:
+        Example 1:
+          page: 1
+          per_page: 5000
+          total_entries: 2
+          total_pages: 1
+          callbacks:
+            - callback:
+                id: 9
+                external_id: "growth_operations_hubspot_events"
+                enabled: true
+                url: "https://hubspot-integrations-qa-803534818292.us-east1.run.app/api/v1/sparkfly/events"
+                last_verified_at: null
+                signing_key: "CBgDf32z6e4kPrOGFJS1gprVL7D2Qj0yVbEBhpc/yyLrpz/jBBaPUCTXLQpoaGj6X6+pfR1lneXJCu2/qDtQLg=="
+                subscriptions: []
+    # Event Notifications - Subscriptions
+    subscription:
+      type: object
+      title: Subscription
+      description: An event subscription that links a callback to a specific event type
+      properties:
+        id:
+          type: integer
+          readOnly: true
+          description: Unique identifier for the subscription
+        callback_id:
+          type: integer
+          description: ID of the callback this subscription is associated with
+        external_id:
+          type: string
+          description: External identifier for the subscription
+        enabled:
+          type: boolean
+          description: Whether the subscription is enabled
+        event:
+          type: string
+          description: The event type to subscribe to
+          enum:
+            - sf.member.created
+            - sf.member.updated
+            - sf.member_profile.created
+            - sf.member_profile.updated
+            - sf.offer_activity.created
+            - sf.transaction.completed
+      x-examples:
+        Example 1:
+          id: 42
+          callback_id: 9
+          external_id: "growth_operations_member_profile_updated"
+          enabled: true
+          event: "sf.member_profile.updated"
+    subscription_request:
+      type: object
+      title: Subscription Request
+      required:
+        - subscription
+      properties:
+        subscription:
+          type: object
+          required:
+            - callback_id
+            - external_id
+            - event
+          properties:
+            callback_id:
+              type: integer
+              description: ID of the callback this subscription is associated with
+            external_id:
+              type: string
+              description: External identifier for the subscription
+            enabled:
+              type: boolean
+              description: Whether the subscription is enabled
+              default: true
+            event:
+              type: string
+              description: The event type to subscribe to
+              enum:
+                - sf.member.created
+                - sf.member.updated
+                - sf.member_profile.created
+                - sf.member_profile.updated
+                - sf.offer_activity.created
+                - sf.transaction.completed
+    subscription_response:
+      type: object
+      title: Subscription Response
+      properties:
+        subscription:
+          $ref: "#/components/schemas/subscription"
+      x-examples:
+        Example 1:
+          subscription:
+            id: 42
+            callback_id: 9
+            external_id: "growth_operations_member_profile_updated"
+            enabled: true
+            event: "sf.member_profile.updated"
+    subscriptions_index_body:
+      type: object
+      title: Subscriptions Index Response
+      allOf:
+        - $ref: "#/components/schemas/page_response_body"
+        - type: object
+          properties:
+            subscriptions:
+              type: array
+              items:
+                $ref: "#/components/schemas/subscription_response"
+      x-examples:
+        Example 1:
+          page: 1
+          per_page: 5000
+          total_entries: 11
+          total_pages: 1
+          subscriptions:
+            - subscription:
+                id: 42
+                callback_id: 9
+                external_id: "growth_operations_member_profile_updated"
+                enabled: true
+                event: "sf.member_profile.updated"
     campaign_index_body:
       title: campaign_index_body
       allOf:
