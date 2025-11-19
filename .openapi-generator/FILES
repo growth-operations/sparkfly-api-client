@@ -171,7 +171,6 @@ docs/Template2.md
 docs/TemplateTemplatesInner.md
 docs/TemplatesApi.md
 git_push.sh
-pyproject.toml
 requirements.txt
 setup.cfg
 setup.py
@@ -353,15 +352,4 @@ sparkfly/py.typed
 sparkfly/rest.py
 test-requirements.txt
 test/__init__.py
-test/test_callback.py
-test/test_callback_request.py
-test/test_callback_request_callback.py
-test/test_callback_response.py
-test/test_callbacks_index_body.py
-test/test_event_notifications_api.py
-test/test_subscription.py
-test/test_subscription_request.py
-test/test_subscription_request_subscription.py
-test/test_subscription_response.py
-test/test_subscriptions_index_body.py
 tox.ini

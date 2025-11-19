@@ -29,6 +29,7 @@ from .api import (
     OfferPOSOfferCodesApi,
     POSOfferCodesApi,
     StoreListsApi,
+    EventNotificationsApi,
 )
 
 
@@ -167,6 +168,9 @@ class Sparkfly:
             POSOfferCodesApi
         )
         self.store_lists: StoreListsApi = self._create_retry_wrapper(StoreListsApi)
+        self.event_notifications: EventNotificationsApi = self._create_retry_wrapper(
+            EventNotificationsApi
+        )
 
     def _create_retry_wrapper(self, api_class):
         """Create a wrapper class that automatically applies retry logic to all methods."""
