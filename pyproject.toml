@@ -1,6 +1,6 @@
 [project]
 name = "sparkfly"
-version = "1.2.0"
+version = "1.2.1"
 description = "Core Operations"
 authors = [
   {name = "Growth Operations Support Team",email = "info@growthoperationsco.com"},

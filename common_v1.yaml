@@ -386,7 +386,7 @@ paths:
         - Event Notifications
       summary: List Callbacks
       description: Retrieve a paginated list of all callback configurations
-      operationId: get-event_notifications-callbacks
+      operationId: list-callbacks
       parameters:
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
@@ -406,7 +406,7 @@ paths:
         - Event Notifications
       summary: Create Callback
       description: Create a new callback URL configuration for receiving event notifications
-      operationId: post-event_notifications-callbacks
+      operationId: create-callback
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -442,7 +442,7 @@ paths:
         - Event Notifications
       summary: Get Callback by ID
       description: Retrieve a specific callback configuration by its ID
-      operationId: get-event_notifications-callbacks-callback_id
+      operationId: get-callback
       responses:
         "200":
           description: Successful response
@@ -461,7 +461,7 @@ paths:
         - Event Notifications
       summary: Delete Callback
       description: Delete a callback configuration and all associated subscriptions
-      operationId: delete-event_notifications-callbacks-callback_id
+      operationId: delete-callback
       responses:
         "200":
           description: Callback deleted successfully
@@ -479,7 +479,7 @@ paths:
         - Event Notifications
       summary: List Subscriptions
       description: Retrieve a paginated list of all event subscriptions
-      operationId: get-event_notifications-subscriptions
+      operationId: list-subscriptions
       parameters:
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
@@ -499,7 +499,7 @@ paths:
         - Event Notifications
       summary: Create Subscription
       description: Create a new event subscription that links a callback to a specific event type
-      operationId: post-event_notifications-subscriptions
+      operationId: create-subscription
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -535,7 +535,7 @@ paths:
         - Event Notifications
       summary: Get Subscription by ID
       description: Retrieve a specific event subscription by its ID
-      operationId: get-event_notifications-subscriptions-subscription_id
+      operationId: get-subscription
       responses:
         "200":
           description: Successful response
@@ -554,7 +554,7 @@ paths:
         - Event Notifications
       summary: Delete Subscription
       description: Delete an event subscription
-      operationId: delete-event_notifications-subscriptions-subscription_id
+      operationId: delete-subscription
       responses:
         "200":
           description: Subscription deleted successfully
