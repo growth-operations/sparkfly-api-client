@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.2.2"
+__version__ = "1.2.3"
 
 # Define package exports
 __all__ = [
@@ -23,6 +23,7 @@ __all__ = [
     "AuthenticationApi",
     "BIStoreListsApi",
     "CampaignsApi",
+    "CredentialsApi",
     "CtmApi",
     "EligibleItemSetsApi",
     "EmailOptInApi",
@@ -49,6 +50,20 @@ __all__ = [
     "ApiAttributeError",
     "ApiException",
     "ApiError",
+    "AtomicMemberCreateBody",
+    "AtomicMemberCreateBodyMember",
+    "AtomicMemberCreateBodyMemberCredentialsInner",
+    "AtomicMemberCreateBodyMemberCredentialsInnerCredential",
+    "AtomicMemberCreateBodyMemberLoyaltyEnrollmentsInner",
+    "AtomicMemberCreateBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment",
+    "AtomicMemberCreateBodyMemberMemberProfile",
+    "AtomicMemberResponseBody",
+    "AtomicMemberResponseBodyMember",
+    "AtomicMemberResponseBodyMemberCredentialsInner",
+    "AtomicMemberResponseBodyMemberCredentialsInnerCredential",
+    "AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner",
+    "AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment",
+    "AtomicMemberResponseBodyMemberMemberProfile",
     "Audience",
     "AudienceData",
     "AudienceIndexBody",
@@ -76,6 +91,10 @@ __all__ = [
     "CredentialBatchResponseBodyCredentialBatch",
     "CredentialBatchResponseBodyCredentialBatchCampaign",
     "CredentialBatchResponseBodyCredentialBatchOffer",
+    "CredentialCreateRequest",
+    "CredentialCreateRequestCredential",
+    "CredentialCreateResponse",
+    "CredentialCreateResponseCredential",
     "CtmQitemsRequest",
     "CtmRedemptionJobRequest",
     "CtmRedemptionJobRequestItemsInner",
@@ -202,6 +221,7 @@ from sparkfly.api.audiences_api import AudiencesApi as AudiencesApi
 from sparkfly.api.authentication_api import AuthenticationApi as AuthenticationApi
 from sparkfly.api.bi_store_lists_api import BIStoreListsApi as BIStoreListsApi
 from sparkfly.api.campaigns_api import CampaignsApi as CampaignsApi
+from sparkfly.api.credentials_api import CredentialsApi as CredentialsApi
 from sparkfly.api.ctm_api import CtmApi as CtmApi
 from sparkfly.api.eligible_item_sets_api import EligibleItemSetsApi as EligibleItemSetsApi
 from sparkfly.api.email_opt_in_api import EmailOptInApi as EmailOptInApi
@@ -232,6 +252,20 @@ from sparkfly.exceptions import ApiException as ApiException
 
 # import models into sdk package
 from sparkfly.models.api_error import ApiError as ApiError
+from sparkfly.models.atomic_member_create_body import AtomicMemberCreateBody as AtomicMemberCreateBody
+from sparkfly.models.atomic_member_create_body_member import AtomicMemberCreateBodyMember as AtomicMemberCreateBodyMember
+from sparkfly.models.atomic_member_create_body_member_credentials_inner import AtomicMemberCreateBodyMemberCredentialsInner as AtomicMemberCreateBodyMemberCredentialsInner
+from sparkfly.models.atomic_member_create_body_member_credentials_inner_credential import AtomicMemberCreateBodyMemberCredentialsInnerCredential as AtomicMemberCreateBodyMemberCredentialsInnerCredential
+from sparkfly.models.atomic_member_create_body_member_loyalty_enrollments_inner import AtomicMemberCreateBodyMemberLoyaltyEnrollmentsInner as AtomicMemberCreateBodyMemberLoyaltyEnrollmentsInner
+from sparkfly.models.atomic_member_create_body_member_loyalty_enrollments_inner_loyalty_enrollment import AtomicMemberCreateBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment as AtomicMemberCreateBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment
+from sparkfly.models.atomic_member_create_body_member_member_profile import AtomicMemberCreateBodyMemberMemberProfile as AtomicMemberCreateBodyMemberMemberProfile
+from sparkfly.models.atomic_member_response_body import AtomicMemberResponseBody as AtomicMemberResponseBody
+from sparkfly.models.atomic_member_response_body_member import AtomicMemberResponseBodyMember as AtomicMemberResponseBodyMember
+from sparkfly.models.atomic_member_response_body_member_credentials_inner import AtomicMemberResponseBodyMemberCredentialsInner as AtomicMemberResponseBodyMemberCredentialsInner
+from sparkfly.models.atomic_member_response_body_member_credentials_inner_credential import AtomicMemberResponseBodyMemberCredentialsInnerCredential as AtomicMemberResponseBodyMemberCredentialsInnerCredential
+from sparkfly.models.atomic_member_response_body_member_loyalty_enrollments_inner import AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner as AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner
+from sparkfly.models.atomic_member_response_body_member_loyalty_enrollments_inner_loyalty_enrollment import AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment as AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment
+from sparkfly.models.atomic_member_response_body_member_member_profile import AtomicMemberResponseBodyMemberMemberProfile as AtomicMemberResponseBodyMemberMemberProfile
 from sparkfly.models.audience import Audience as Audience
 from sparkfly.models.audience_data import AudienceData as AudienceData
 from sparkfly.models.audience_index_body import AudienceIndexBody as AudienceIndexBody
@@ -259,6 +293,10 @@ from sparkfly.models.credential_batch_response_body import CredentialBatchRespon
 from sparkfly.models.credential_batch_response_body_credential_batch import CredentialBatchResponseBodyCredentialBatch as CredentialBatchResponseBodyCredentialBatch
 from sparkfly.models.credential_batch_response_body_credential_batch_campaign import CredentialBatchResponseBodyCredentialBatchCampaign as CredentialBatchResponseBodyCredentialBatchCampaign
 from sparkfly.models.credential_batch_response_body_credential_batch_offer import CredentialBatchResponseBodyCredentialBatchOffer as CredentialBatchResponseBodyCredentialBatchOffer
+from sparkfly.models.credential_create_request import CredentialCreateRequest as CredentialCreateRequest
+from sparkfly.models.credential_create_request_credential import CredentialCreateRequestCredential as CredentialCreateRequestCredential
+from sparkfly.models.credential_create_response import CredentialCreateResponse as CredentialCreateResponse
+from sparkfly.models.credential_create_response_credential import CredentialCreateResponseCredential as CredentialCreateResponseCredential
 from sparkfly.models.ctm_qitems_request import CtmQitemsRequest as CtmQitemsRequest
 from sparkfly.models.ctm_redemption_job_request import CtmRedemptionJobRequest as CtmRedemptionJobRequest
 from sparkfly.models.ctm_redemption_job_request_items_inner import CtmRedemptionJobRequestItemsInner as CtmRedemptionJobRequestItemsInner

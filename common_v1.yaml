@@ -654,6 +654,26 @@ paths:
           description: Unauthorized
         "404":
           $ref: "#/components/responses/APIError"
+  /members/register:
+    post:
+      tags:
+        - Members
+      summary: Register a New Member
+      description: Creates a new member with profile, credentials, and loyalty enrollments in a single atomic operation.
+      operationId: post-members-register
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      requestBody:
+        $ref: "#/components/requestBodies/AtomicMember"
+      responses:
+        "200":
+          $ref: "#/components/responses/AtomicMember"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+        "500":
+          description: Internal Server Error
   "/members/{id}/profile":
     post:
       tags:
@@ -707,6 +727,26 @@ paths:
           $ref: "#/components/responses/APIError"
         "404":
           $ref: "#/components/responses/APIError"
+  /credentials:
+    post:
+      tags:
+        - Credentials
+      summary: Create a Credential
+      description: Creates a new credential for a member, which can be used to redeem offers or participate in loyalty programs.
+      operationId: post-credentials
+      parameters:
+        - $ref: "#/components/parameters/ContentTypeJSON"
+      requestBody:
+        $ref: "#/components/requestBodies/Credential"
+      responses:
+        "200":
+          $ref: "#/components/responses/Credential"
+        "401":
+          description: Unauthorized
+        "422":
+          description: Unprocessable Entity
+        "500":
+          description: Internal Server Error
   "/merchants/{merchant_id}/stores":
     post:
       tags:
@@ -2726,19 +2766,16 @@ paths:
                   properties:
                     external_ref_id:
                       type: string
-                      nullable: true
                       description: An external reference identifier that will be attached to the offer_state. Meaning and value are not specified and may be useful for external systems that wish to attach data to an offer_state.
                     campaign_id:
                       type: string
                       description: The Sparkfly campaign XID to use when issuing the offer_state. Must be an active (non-suspended) campaign under an active offer.
                     activates_at:
                       type: string
-                      nullable: true
                       description: When the issued offer should become redeemable at the POS.
                       format: date-time
                     expires_at:
                       type: string
-                      nullable: true
                       description: When the issued offer should stop being redeemable at the POS.
                       format: date-time
                     member_identifier:
@@ -3217,6 +3254,11 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/member_request"
+    AtomicMember:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/atomic_member_create_body"
     Impression:
       content:
         application/json:
@@ -3257,6 +3299,11 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/credential_batch_request"
+    Credential:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/credential_create_request"
     Item:
       content:
         application/json:
@@ -3397,6 +3444,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/member"
+    AtomicMember:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/atomic_member_response_body"
     CTMShow:
       description: Example response
       content:
@@ -3439,11 +3492,6 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/bi_store_list"
-            x-examples:
-              Example 1:
-                store_lists:
-                  - id: 1
-                    name: Test
           examples:
             Example 1:
               value:
@@ -3498,6 +3546,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/credential_batch_response_body"
+    Credential:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/credential_create_response"
     CredentialBatchIndex:
       description: Example response
       content:
@@ -3895,6 +3949,118 @@ components:
               type: string
             notification_mode:
               type: string
+    atomic_member_create_body:
+      type: object
+      title: atomic_member_create_body
+      properties:
+        member:
+          type: object
+          properties:
+            identifier:
+              type: string
+            member_profile:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                birth_month:
+                  type: integer
+                birth_day:
+                  type: integer
+                custom_data:
+                  type: object
+            credentials:
+              type: array
+              items:
+                type: object
+                properties:
+                  credential:
+                    type: object
+                    properties:
+                      identifier:
+                        type: string
+                      type:
+                        type: string
+            loyalty_enrollments:
+              type: array
+              items:
+                type: object
+                properties:
+                  loyalty_enrollment:
+                    type: object
+                    properties:
+                      loyalty_program_id:
+                        type: integer
+                      external_id:
+                        type: string
+                      source:
+                        type: string
+    atomic_member_response_body:
+      type: object
+      title: atomic_member_response_body
+      properties:
+        member:
+          type: object
+          properties:
+            id:
+              type: integer
+            identifier:
+              type: string
+            member_profile:
+              type: object
+              properties:
+                id:
+                  type: integer
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                email:
+                  type: string
+                phone:
+                  type: string
+                birth_month:
+                  type: integer
+                birth_day:
+                  type: integer
+                custom_data:
+                  type: object
+            credentials:
+              type: array
+              items:
+                type: object
+                properties:
+                  credential:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      identifier:
+                        type: string
+                      type:
+                        type: string
+            loyalty_enrollments:
+              type: array
+              items:
+                type: object
+                properties:
+                  loyalty_enrollment:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      loyalty_program_id:
+                        type: integer
+                      external_id:
+                        type: string
+                      source:
+                        type: string
     impression_request:
       type: object
       title: impression_request
@@ -3956,17 +4122,14 @@ components:
               type: string
             merchant_id:
               type: string
-              nullable: true
             manufacturer_id:
               type: string
-              nullable: true
             name:
               type: string
             description:
               type: string
             description_template_id:
               type: string
-              nullable: true
             offer_type:
               type: integer
             category:
@@ -3989,10 +4152,8 @@ components:
               type: string
             terms_and_conditions_template_id:
               type: string
-              nullable: true
             quest_only:
               type: boolean
-              nullable: true
             merchant_name:
               type: string
             external_reward:
@@ -4001,7 +4162,6 @@ components:
               type: boolean
             locked:
               type: boolean
-              nullable: true
             activates_at:
               type: string
             expires_at:
@@ -4018,7 +4178,6 @@ components:
               type: integer
             trigger_amount:
               type: integer
-              nullable: true
             max_redemptions:
               type: integer
             max_redemptions_per_member:
@@ -4485,6 +4644,60 @@ components:
           quantity: 0
           name: string
           fulfillment_method: string
+    credential_create_request:
+      type: object
+      title: credential_create_request
+      properties:
+        printable:
+          type: boolean
+        credential:
+          type: object
+          properties:
+            member_identifier:
+              type: string
+            campaign_id:
+              type: string
+            offer_id:
+              type: integer
+            member_id:
+              type: integer
+            reusable:
+              type: boolean
+            channel_id:
+              type: integer
+            merchant_id:
+              type: integer
+            store_id:
+              type: integer
+            identifier:
+              type: string
+            printable:
+              type: boolean
+            offer_ids:
+              type: array
+              items:
+                type: integer
+            type:
+              type: string
+              enum:
+                - offer
+                - loyalty
+      x-examples:
+        Example 1:
+          printable: true
+          credential:
+            member_identifier: string
+            campaign_id: string
+            offer_id: 0
+            member_id: 0
+            reusable: true
+            channel_id: 0
+            merchant_id: 0
+            store_id: 0
+            identifier: string
+            printable: true
+            offer_ids: []
+            type: offer
     item_request:
       type: object
       title: item_request
@@ -4565,7 +4778,6 @@ components:
               type: string
             offer_value_required:
               type: boolean
-              nullable: true
             locked:
               type: boolean
             is_reward:
@@ -4805,7 +5017,6 @@ components:
               type: string
             activation_date:
               type: string
-              nullable: true
             expiration_date:
               type: string
             start_display_at:
@@ -5209,7 +5420,6 @@ components:
                 type: string
               offer_ids:
                 type: string
-                nullable: true
         offer_activities:
           type: array
           items:
@@ -5284,13 +5494,10 @@ components:
                   type: string
                 channel_id:
                   type: string
-                  nullable: true
                 channel_name:
                   type: string
-                  nullable: true
                 creative_name:
                   type: string
-                  nullable: true
                 errors:
                   $ref: "#/components/schemas/errors"
       x-examples:
@@ -5340,16 +5547,12 @@ components:
                   type: string
                 pos_offer_code_type_id:
                   type: string
-                  nullable: true
                 pos_offer_code_pos_id:
                   type: string
-                  nullable: true
                 pos_offer_code_type_name:
                   type: string
-                  nullable: true
                 pos_offer_code_pos_name:
                   type: string
-                  nullable: true
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -5405,17 +5608,14 @@ components:
                   type: string
                 merchant_id:
                   type: string
-                  nullable: true
                 manufacturer_id:
                   type: string
-                  nullable: true
                 name:
                   type: string
                 description:
                   type: string
                 description_template_id:
                   type: string
-                  nullable: true
                 offer_type:
                   type: integer
                 category:
@@ -5438,10 +5638,8 @@ components:
                   type: string
                 terms_and_conditions_template_id:
                   type: string
-                  nullable: true
                 quest_only:
                   type: boolean
-                  nullable: true
                 merchant_name:
                   type: string
                 external_reward:
@@ -5450,7 +5648,6 @@ components:
                   type: boolean
                 locked:
                   type: boolean
-                  nullable: true
                 activates_at:
                   type: string
                 expires_at:
@@ -5467,7 +5664,6 @@ components:
                   type: integer
                 trigger_amount:
                   type: integer
-                  nullable: true
                 max_redemptions:
                   type: integer
                 max_redemptions_per_member:
@@ -5767,6 +5963,121 @@ components:
             quantity: 0
             fulfillment_method: string
             status: string
+    credential_create_response:
+      type: object
+      title: credential_create_response
+      properties:
+        credential:
+          type: object
+          properties:
+            id:
+              type: integer
+            identifier:
+              type: string
+            member_id:
+              type: integer
+            account_id:
+              type: integer
+            redeeming_account_id:
+              type: integer
+            channel_id:
+              type: integer
+            eligible_channel_id:
+              type: integer
+            store_id:
+              type: integer
+            voided_at:
+              type: string
+              format: date-time
+            redeemed_at:
+              type: string
+              format: date-time
+            processed_at:
+              type: string
+              format: date-time
+            reusable:
+              type: boolean
+            locked:
+              type: boolean
+            url:
+              type: string
+            created_at:
+              type: string
+            updated_at:
+              type: string
+            credential_type:
+              type: integer
+            annotations:
+              type: object
+            printable:
+              type: boolean
+            token:
+              type: string
+            offer_ids:
+              type: array
+              items:
+                type: integer
+            redemption_identifier_type:
+              type: integer
+            merchant_id:
+              type: integer
+            merchant_name:
+              type: string
+            offer_name:
+              type: string
+            location_address:
+              type: string
+            supports_barcode:
+              type: boolean
+            barcodes_supported:
+              type: string
+            code_lifetime:
+              type: integer
+            offer_expires:
+              type: string
+              format: date-time
+            type:
+              type: string
+              enum:
+                - offer
+                - loyalty
+            custom_data:
+              type: object
+      x-examples:
+        Example 1:
+          credential:
+            id: 0
+            identifier: string
+            member_id: 0
+            account_id: 0
+            redeeming_account_id: 0
+            channel_id: 0
+            eligible_channel_id: 0
+            store_id: 0
+            voided_at: "2019-08-24T14:15:22Z"
+            redeemed_at: "2019-08-24T14:15:22Z"
+            processed_at: "2019-08-24T14:15:22Z"
+            reusable: true
+            locked: true
+            url: string
+            created_at: string
+            updated_at: string
+            credential_type: 0
+            annotations: {}
+            printable: true
+            token: string
+            offer_ids: []
+            redemption_identifier_type: 0
+            merchant_id: 0
+            merchant_name: string
+            offer_name: string
+            location_address: string
+            supports_barcode: true
+            barcodes_supported: string
+            code_lifetime: 0
+            offer_expires: "2019-08-24T14:15:22Z"
+            type: offer
+            custom_data: {}
     credential_batch_index_body:
       title: credential_batch_index_body
       allOf:
@@ -5793,10 +6104,8 @@ components:
                   type: string
                 merchant_id:
                   type: string
-                  nullable: true
                 manufacturer_id:
                   type: string
-                  nullable: true
                 item_type:
                   type: string
                   enum:
@@ -5839,13 +6148,10 @@ components:
                   type: string
                 merchant_id:
                   type: string
-                  nullable: true
                 manufacturer_id:
                   type: string
-                  nullable: true
                 manufacturer_name:
                   type: string
-                  nullable: true
                 item_ids:
                   type: array
                   items:
@@ -5948,10 +6254,8 @@ components:
                   type: string
                 custom_data:
                   type: string
-                  nullable: true
                 credential_custom_data:
                   type: string
-                  nullable: true
                 offer_activities:
                   type: array
                   items:

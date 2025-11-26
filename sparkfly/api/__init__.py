@@ -5,6 +5,7 @@ from sparkfly.api.audiences_api import AudiencesApi
 from sparkfly.api.authentication_api import AuthenticationApi
 from sparkfly.api.bi_store_lists_api import BIStoreListsApi
 from sparkfly.api.campaigns_api import CampaignsApi
+from sparkfly.api.credentials_api import CredentialsApi
 from sparkfly.api.ctm_api import CtmApi
 from sparkfly.api.eligible_item_sets_api import EligibleItemSetsApi
 from sparkfly.api.email_opt_in_api import EmailOptInApi

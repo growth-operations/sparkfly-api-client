@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_members_search**](MembersApi.md#get_members_search) | **GET** /members/search | Search for a Member
 [**post_members**](MembersApi.md#post_members) | **POST** /members | Create a Member
 [**post_members_profile**](MembersApi.md#post_members_profile) | **POST** /members/{id}/profile | Create/Update a Member Profile
+[**post_members_register**](MembersApi.md#post_members_register) | **POST** /members/register | Register a New Member
 [**put_members_member_id**](MembersApi.md#put_members_member_id) | **PUT** /members/{member_id} | Update a Member
 
 
@@ -589,6 +590,91 @@ void (empty response body)
 **404** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
 **422** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
 **500** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **post_members_register**
+> AtomicMemberResponseBody post_members_register(content_type=content_type, atomic_member_create_body=atomic_member_create_body)
+
+Register a New Member
+
+Creates a new member with profile, credentials, and loyalty enrollments in a single atomic operation.
+
+### Example
+
+* Api Key Authentication (XAuthToken):
+
+```python
+import sparkfly
+from sparkfly.models.atomic_member_create_body import AtomicMemberCreateBody
+from sparkfly.models.atomic_member_response_body import AtomicMemberResponseBody
+from sparkfly.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sparkfly.Configuration(
+    host = "https://api-staging.sparkfly.com/v1.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with sparkfly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = sparkfly.MembersApi(api_client)
+    content_type = 'content_type_example' # str | application/json (optional)
+    atomic_member_create_body = sparkfly.AtomicMemberCreateBody() # AtomicMemberCreateBody |  (optional)
+
+    try:
+        # Register a New Member
+        api_response = await api_instance.post_members_register(content_type=content_type, atomic_member_create_body=atomic_member_create_body)
+        print("The response of MembersApi->post_members_register:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling MembersApi->post_members_register: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **str**| application/json | [optional] 
+ **atomic_member_create_body** | [**AtomicMemberCreateBody**](AtomicMemberCreateBody.md)|  | [optional] 
+
+### Return type
+
+[**AtomicMemberResponseBody**](AtomicMemberResponseBody.md)
+
+### Authorization
+
+[XAuthToken](../README.md#XAuthToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Example response |  -  |
+**401** | Unauthorized |  -  |
+**422** | Unprocessable Entity |  -  |
+**500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
