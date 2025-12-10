@@ -30,6 +30,7 @@ from .api import (
     POSOfferCodesApi,
     StoreListsApi,
     EventNotificationsApi,
+    TransactionsApi,
 )
 
 
@@ -171,6 +172,7 @@ class Sparkfly:
         self.event_notifications: EventNotificationsApi = self._create_retry_wrapper(
             EventNotificationsApi
         )
+        self.transactions: TransactionsApi = self._create_retry_wrapper(TransactionsApi)
 
     def _create_retry_wrapper(self, api_class):
         """Create a wrapper class that automatically applies retry logic to all methods."""
@@ -191,7 +193,7 @@ class Sparkfly:
                     asyncio.iscoroutinefunction(attr)
                     and callable(attr)
                     and not name.startswith("_")
-                    and not name.startswith("post_auth")  # Exclude auth methods
+                    and "authenticate" not in name  # Exclude all authenticate methods
                 ):
                     # Create a wrapped version that preserves the method binding
                     async def retry_wrapper(*args, **kwargs):
