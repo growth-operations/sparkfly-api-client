@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_eligible_item_set**](EligibleItemSetsApi.md#create_eligible_item_set) | **POST** /offers/{offer_id}/eligible_item_sets | Create an Eligible Item Set
-[**delete_offer_eligible_item_sets**](EligibleItemSetsApi.md#delete_offer_eligible_item_sets) | **DELETE** /offers/{offer_id}/eligible_item_sets/{id} | Remove an Eligible Item Set
+[**delete_eligible_item_set**](EligibleItemSetsApi.md#delete_eligible_item_set) | **DELETE** /offers/{offer_id}/eligible_item_sets/{id} | Remove an Eligible Item Set
 [**get_eligible_item_set**](EligibleItemSetsApi.md#get_eligible_item_set) | **GET** /offers/{offer_id}/eligible_item_sets/{id} | Get an Eligible Item Set
 [**list_eligible_item_sets**](EligibleItemSetsApi.md#list_eligible_item_sets) | **GET** /offers/{offer_id}/eligible_item_sets | List all Eligible Item Sets
-[**update_offer_eligible_item_sets**](EligibleItemSetsApi.md#update_offer_eligible_item_sets) | **PUT** /offers/{offer_id}/eligible_item_sets/{id} | Update an Eligible Item Set
+[**update_eligible_item_set**](EligibleItemSetsApi.md#update_eligible_item_set) | **PUT** /offers/{offer_id}/eligible_item_sets/{id} | Update an Eligible Item Set
 
 
 # **create_eligible_item_set**
@@ -98,8 +98,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_offer_eligible_item_sets**
-> delete_offer_eligible_item_sets(offer_id, id, content_type=content_type)
+# **delete_eligible_item_set**
+> delete_eligible_item_set(offer_id, id, content_type=content_type)
 
 Remove an Eligible Item Set
 
@@ -141,9 +141,9 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Remove an Eligible Item Set
-        await api_instance.delete_offer_eligible_item_sets(offer_id, id, content_type=content_type)
+        await api_instance.delete_eligible_item_set(offer_id, id, content_type=content_type)
     except Exception as e:
-        print("Exception when calling EligibleItemSetsApi->delete_offer_eligible_item_sets: %s\n" % e)
+        print("Exception when calling EligibleItemSetsApi->delete_eligible_item_set: %s\n" % e)
 ```
 
 
@@ -348,8 +348,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_offer_eligible_item_sets**
-> OfferEligibleItemSet update_offer_eligible_item_sets(offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
+# **update_eligible_item_set**
+> OfferEligibleItemSet update_eligible_item_set(offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
 
 Update an Eligible Item Set
 
@@ -394,11 +394,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Update an Eligible Item Set
-        api_response = await api_instance.update_offer_eligible_item_sets(offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
-        print("The response of EligibleItemSetsApi->update_offer_eligible_item_sets:\n")
+        api_response = await api_instance.update_eligible_item_set(offer_id, id, content_type=content_type, offer_eligible_item_set_request=offer_eligible_item_set_request)
+        print("The response of EligibleItemSetsApi->update_eligible_item_set:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling EligibleItemSetsApi->update_offer_eligible_item_sets: %s\n" % e)
+        print("Exception when calling EligibleItemSetsApi->update_eligible_item_set: %s\n" % e)
 ```
 
 

@@ -7,13 +7,13 @@ Method | HTTP request | Description
 [**create_audience**](AudiencesApi.md#create_audience) | **POST** /audiences | Create an Audience
 [**create_sub_audience**](AudiencesApi.md#create_sub_audience) | **POST** /audiences/{audience_id}/sub_audiences | Create a Sub-Audience
 [**delete_audience**](AudiencesApi.md#delete_audience) | **DELETE** /audiences/{audience_id} | Remove an Audience
-[**delete_audience_sub_audiences**](AudiencesApi.md#delete_audience_sub_audiences) | **DELETE** /audiences/{audience_id}/sub_audiences/{sub_audience_id} | Remove a Sub-Audience
+[**delete_sub_audience**](AudiencesApi.md#delete_sub_audience) | **DELETE** /audiences/{audience_id}/sub_audiences/{sub_audience_id} | Remove a Sub-Audience
 [**get_audience**](AudiencesApi.md#get_audience) | **GET** /audiences/{audience_id} | Retrieve an Audience
 [**get_sub_audience**](AudiencesApi.md#get_sub_audience) | **GET** /audiences/{audience_id}/sub_audiences/{sub_audience_id} | Retrieve a Sub-Audience
 [**list_audiences**](AudiencesApi.md#list_audiences) | **GET** /audiences | List all Audiences
 [**list_sub_audiences**](AudiencesApi.md#list_sub_audiences) | **GET** /audiences/{audience_id}/sub_audiences | List all Sub-Audiences
 [**update_audience**](AudiencesApi.md#update_audience) | **PUT** /audiences/{audience_id} | Update an Audience
-[**update_audience_sub_audiences**](AudiencesApi.md#update_audience_sub_audiences) | **PUT** /audiences/{audience_id}/sub_audiences/{sub_audience_id} | Update a Sub-Audience
+[**update_sub_audience**](AudiencesApi.md#update_sub_audience) | **PUT** /audiences/{audience_id}/sub_audiences/{sub_audience_id} | Update a Sub-Audience
 
 
 # **create_audience**
@@ -265,8 +265,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_audience_sub_audiences**
-> delete_audience_sub_audiences(sub_audience_id, audience_id)
+# **delete_sub_audience**
+> delete_sub_audience(sub_audience_id, audience_id)
 
 Remove a Sub-Audience
 
@@ -307,9 +307,9 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Remove a Sub-Audience
-        await api_instance.delete_audience_sub_audiences(sub_audience_id, audience_id)
+        await api_instance.delete_sub_audience(sub_audience_id, audience_id)
     except Exception as e:
-        print("Exception when calling AudiencesApi->delete_audience_sub_audiences: %s\n" % e)
+        print("Exception when calling AudiencesApi->delete_sub_audience: %s\n" % e)
 ```
 
 
@@ -775,8 +775,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_audience_sub_audiences**
-> SubAudienceData update_audience_sub_audiences(sub_audience_id, audience_id, content_type=content_type, create_sub_audience_request=create_sub_audience_request)
+# **update_sub_audience**
+> SubAudienceData update_sub_audience(sub_audience_id, audience_id, content_type=content_type, create_sub_audience_request=create_sub_audience_request)
 
 Update a Sub-Audience
 
@@ -821,11 +821,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Update a Sub-Audience
-        api_response = await api_instance.update_audience_sub_audiences(sub_audience_id, audience_id, content_type=content_type, create_sub_audience_request=create_sub_audience_request)
-        print("The response of AudiencesApi->update_audience_sub_audiences:\n")
+        api_response = await api_instance.update_sub_audience(sub_audience_id, audience_id, content_type=content_type, create_sub_audience_request=create_sub_audience_request)
+        print("The response of AudiencesApi->update_sub_audience:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AudiencesApi->update_audience_sub_audiences: %s\n" % e)
+        print("Exception when calling AudiencesApi->update_sub_audience: %s\n" % e)
 ```
 
 

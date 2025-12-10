@@ -356,7 +356,7 @@ class EligibleItemSetsApi:
 
 
     @validate_call
-    async def delete_offer_eligible_item_sets(
+    async def delete_eligible_item_set(
         self,
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
@@ -406,7 +406,7 @@ class EligibleItemSetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_offer_eligible_item_sets_serialize(
+        _param = self._delete_eligible_item_set_serialize(
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -433,7 +433,7 @@ class EligibleItemSetsApi:
 
 
     @validate_call
-    async def delete_offer_eligible_item_sets_with_http_info(
+    async def delete_eligible_item_set_with_http_info(
         self,
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
@@ -483,7 +483,7 @@ class EligibleItemSetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_offer_eligible_item_sets_serialize(
+        _param = self._delete_eligible_item_set_serialize(
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -510,7 +510,7 @@ class EligibleItemSetsApi:
 
 
     @validate_call
-    async def delete_offer_eligible_item_sets_without_preload_content(
+    async def delete_eligible_item_set_without_preload_content(
         self,
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
@@ -560,7 +560,7 @@ class EligibleItemSetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_offer_eligible_item_sets_serialize(
+        _param = self._delete_eligible_item_set_serialize(
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -582,7 +582,7 @@ class EligibleItemSetsApi:
         return response_data.response
 
 
-    def _delete_offer_eligible_item_sets_serialize(
+    def _delete_eligible_item_set_serialize(
         self,
         offer_id,
         id,
@@ -1232,7 +1232,7 @@ class EligibleItemSetsApi:
 
 
     @validate_call
-    async def update_offer_eligible_item_sets(
+    async def update_eligible_item_set(
         self,
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
@@ -1285,7 +1285,7 @@ class EligibleItemSetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_offer_eligible_item_sets_serialize(
+        _param = self._update_eligible_item_set_serialize(
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -1313,7 +1313,7 @@ class EligibleItemSetsApi:
 
 
     @validate_call
-    async def update_offer_eligible_item_sets_with_http_info(
+    async def update_eligible_item_set_with_http_info(
         self,
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
@@ -1366,7 +1366,7 @@ class EligibleItemSetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_offer_eligible_item_sets_serialize(
+        _param = self._update_eligible_item_set_serialize(
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -1394,7 +1394,7 @@ class EligibleItemSetsApi:
 
 
     @validate_call
-    async def update_offer_eligible_item_sets_without_preload_content(
+    async def update_eligible_item_set_without_preload_content(
         self,
         offer_id: Annotated[StrictStr, Field(description="Primary ID of the offer")],
         id: Annotated[StrictStr, Field(description="Primary ID of the eligible item set")],
@@ -1447,7 +1447,7 @@ class EligibleItemSetsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_offer_eligible_item_sets_serialize(
+        _param = self._update_eligible_item_set_serialize(
             offer_id=offer_id,
             id=id,
             content_type=content_type,
@@ -1470,7 +1470,7 @@ class EligibleItemSetsApi:
         return response_data.response
 
 
-    def _update_offer_eligible_item_sets_serialize(
+    def _update_eligible_item_set_serialize(
         self,
         offer_id,
         id,

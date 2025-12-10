@@ -4,265 +4,18 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_member_offer_states_issue**](OfferStatesApi.md#create_member_offer_states_issue) | **POST** /members/offer_states/issue | Issue an Offer to a member (high throughput)
-[**create_member_offer_states_void**](OfferStatesApi.md#create_member_offer_states_void) | **POST** /members/{member_id}/offer_states/{offerstate_id}/void | Void Offer State
-[**create_member_offer_states_voidmember_identifierentifier**](OfferStatesApi.md#create_member_offer_states_voidmember_identifierentifier) | **POST** /members/offer_states/{offerstate_id}/void | Void Offer State by Member Identifier
 [**create_offer_state**](OfferStatesApi.md#create_offer_state) | **POST** /members/offer_states | Create Offer State from Query Parameters
 [**get_offer_state**](OfferStatesApi.md#get_offer_state) | **GET** /members/{member_id}/offer_states/{offerstate_id} | Get Offer State by Offer State ID
+[**issue_offer**](OfferStatesApi.md#issue_offer) | **POST** /members/offer_states/issue | Issue an Offer to a member (high throughput)
 [**issue_offer_state**](OfferStatesApi.md#issue_offer_state) | **POST** /members/{member_id}/offer_states | Create Offer State
 [**list_members_offers**](OfferStatesApi.md#list_members_offers) | **GET** /members/{member_id}/offers/{offer_id} | Get Offer State by Offer ID
 [**list_offer_states**](OfferStatesApi.md#list_offer_states) | **GET** /members/{member_id}/offer_states | Get all Offer States
 [**query_offer_states**](OfferStatesApi.md#query_offer_states) | **GET** /members/offer_states | Get Offer State from Query Parameters
 [**redeem_offer_state**](OfferStatesApi.md#redeem_offer_state) | **POST** /members/{member_id}/offer_states/{offerstate_id} | Update Offer State - Post
 [**update_offer_state**](OfferStatesApi.md#update_offer_state) | **PUT** /members/{member_id}/offer_states/{offerstate_id} | Update Offer State
+[**void_offer_state**](OfferStatesApi.md#void_offer_state) | **POST** /members/{member_id}/offer_states/{offerstate_id}/void | Void Offer State
+[**void_offer_state_by_identifier**](OfferStatesApi.md#void_offer_state_by_identifier) | **POST** /members/offer_states/{offerstate_id}/void | Void Offer State by Member Identifier
 
-
-# **create_member_offer_states_issue**
-> CreateMemberOfferStatesIssue201Response create_member_offer_states_issue(create_member_offer_states_issue_request=create_member_offer_states_issue_request)
-
-Issue an Offer to a member (high throughput)
-
-Issues an offer to a member using an active Sparkfly campaign, optionally allowing attachment of external data, activation and expiration dates. An issued offer is referred to as an offer_state.
-
-This endpoint provides a limited feature set aimed at high throughput offer issuance. This endpoint should be preferred when issuing offer_states to a large number of members.
-
-
-### Example
-
-* Api Key Authentication (XAuthToken):
-
-```python
-import sparkfly
-from sparkfly.models.create_member_offer_states_issue201_response import CreateMemberOfferStatesIssue201Response
-from sparkfly.models.create_member_offer_states_issue_request import CreateMemberOfferStatesIssueRequest
-from sparkfly.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = sparkfly.Configuration(
-    host = "https://api-staging.sparkfly.com/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: XAuthToken
-configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-async with sparkfly.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sparkfly.OfferStatesApi(api_client)
-    create_member_offer_states_issue_request = sparkfly.CreateMemberOfferStatesIssueRequest() # CreateMemberOfferStatesIssueRequest |  (optional)
-
-    try:
-        # Issue an Offer to a member (high throughput)
-        api_response = await api_instance.create_member_offer_states_issue(create_member_offer_states_issue_request=create_member_offer_states_issue_request)
-        print("The response of OfferStatesApi->create_member_offer_states_issue:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling OfferStatesApi->create_member_offer_states_issue: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **create_member_offer_states_issue_request** | [**CreateMemberOfferStatesIssueRequest**](CreateMemberOfferStatesIssueRequest.md)|  | [optional] 
-
-### Return type
-
-[**CreateMemberOfferStatesIssue201Response**](CreateMemberOfferStatesIssue201Response.md)
-
-### Authorization
-
-[XAuthToken](../README.md#XAuthToken)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_member_offer_states_void**
-> create_member_offer_states_void(member_id, offerstate_id)
-
-Void Offer State
-
-Voids an offer state from an offer state ID.
-
-### Example
-
-* Api Key Authentication (XAuthToken):
-
-```python
-import sparkfly
-from sparkfly.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = sparkfly.Configuration(
-    host = "https://api-staging.sparkfly.com/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: XAuthToken
-configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-async with sparkfly.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sparkfly.OfferStatesApi(api_client)
-    member_id = 'member_id_example' # str | The member's primary key
-    offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
-
-    try:
-        # Void Offer State
-        await api_instance.create_member_offer_states_void(member_id, offerstate_id)
-    except Exception as e:
-        print("Exception when calling OfferStatesApi->create_member_offer_states_void: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **member_id** | **str**| The member&#39;s primary key | 
- **offerstate_id** | **str**| The offer state&#39;s primary key | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[XAuthToken](../README.md#XAuthToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
-**404** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
-**422** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
-**500** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **create_member_offer_states_voidmember_identifierentifier**
-> create_member_offer_states_voidmember_identifierentifier(offerstate_id, member_identifier=member_identifier)
-
-Void Offer State by Member Identifier
-
-Voids an offer state by the member identifier.
-
-### Example
-
-* Api Key Authentication (XAuthToken):
-
-```python
-import sparkfly
-from sparkfly.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = sparkfly.Configuration(
-    host = "https://api-staging.sparkfly.com/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: XAuthToken
-configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-async with sparkfly.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sparkfly.OfferStatesApi(api_client)
-    offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
-    member_identifier = 'member_identifier_example' # str | the member identifier attached to a member (optional)
-
-    try:
-        # Void Offer State by Member Identifier
-        await api_instance.create_member_offer_states_voidmember_identifierentifier(offerstate_id, member_identifier=member_identifier)
-    except Exception as e:
-        print("Exception when calling OfferStatesApi->create_member_offer_states_voidmember_identifierentifier: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **offerstate_id** | **str**| The offer state&#39;s primary key | 
- **member_identifier** | **str**| the member identifier attached to a member | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[XAuthToken](../README.md#XAuthToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
-**404** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
-**422** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
-**500** | Internal Server Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_offer_state**
 > OfferState create_offer_state(content_type=content_type, token=token, offer_id=offer_id, channel_id=channel_id, offer_state_request=offer_state_request)
@@ -438,6 +191,89 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **404** | Example response |  -  |
 **500** | Example response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **issue_offer**
+> IssueOffer201Response issue_offer(issue_offer_request=issue_offer_request)
+
+Issue an Offer to a member (high throughput)
+
+Issues an offer to a member using an active Sparkfly campaign, optionally allowing attachment of external data, activation and expiration dates. An issued offer is referred to as an offer_state.
+
+This endpoint provides a limited feature set aimed at high throughput offer issuance. This endpoint should be preferred when issuing offer_states to a large number of members.
+
+
+### Example
+
+* Api Key Authentication (XAuthToken):
+
+```python
+import sparkfly
+from sparkfly.models.issue_offer201_response import IssueOffer201Response
+from sparkfly.models.issue_offer_request import IssueOfferRequest
+from sparkfly.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sparkfly.Configuration(
+    host = "https://api-staging.sparkfly.com/v1.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with sparkfly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = sparkfly.OfferStatesApi(api_client)
+    issue_offer_request = sparkfly.IssueOfferRequest() # IssueOfferRequest |  (optional)
+
+    try:
+        # Issue an Offer to a member (high throughput)
+        api_response = await api_instance.issue_offer(issue_offer_request=issue_offer_request)
+        print("The response of OfferStatesApi->issue_offer:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling OfferStatesApi->issue_offer: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **issue_offer_request** | [**IssueOfferRequest**](IssueOfferRequest.md)|  | [optional] 
+
+### Return type
+
+[**IssueOffer201Response**](IssueOffer201Response.md)
+
+### Authorization
+
+[XAuthToken](../README.md#XAuthToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -963,6 +799,170 @@ Name | Type | Description  | Notes
 **401** | Unauthorized |  -  |
 **404** | Example response |  -  |
 **500** | Example response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **void_offer_state**
+> void_offer_state(member_id, offerstate_id)
+
+Void Offer State
+
+Voids an offer state from an offer state ID.
+
+### Example
+
+* Api Key Authentication (XAuthToken):
+
+```python
+import sparkfly
+from sparkfly.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sparkfly.Configuration(
+    host = "https://api-staging.sparkfly.com/v1.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with sparkfly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = sparkfly.OfferStatesApi(api_client)
+    member_id = 'member_id_example' # str | The member's primary key
+    offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
+
+    try:
+        # Void Offer State
+        await api_instance.void_offer_state(member_id, offerstate_id)
+    except Exception as e:
+        print("Exception when calling OfferStatesApi->void_offer_state: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **member_id** | **str**| The member&#39;s primary key | 
+ **offerstate_id** | **str**| The offer state&#39;s primary key | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[XAuthToken](../README.md#XAuthToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**404** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
+**422** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
+**500** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **void_offer_state_by_identifier**
+> void_offer_state_by_identifier(offerstate_id, member_identifier=member_identifier)
+
+Void Offer State by Member Identifier
+
+Voids an offer state by the member identifier.
+
+### Example
+
+* Api Key Authentication (XAuthToken):
+
+```python
+import sparkfly
+from sparkfly.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sparkfly.Configuration(
+    host = "https://api-staging.sparkfly.com/v1.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with sparkfly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = sparkfly.OfferStatesApi(api_client)
+    offerstate_id = 'offerstate_id_example' # str | The offer state's primary key
+    member_identifier = 'member_identifier_example' # str | the member identifier attached to a member (optional)
+
+    try:
+        # Void Offer State by Member Identifier
+        await api_instance.void_offer_state_by_identifier(offerstate_id, member_identifier=member_identifier)
+    except Exception as e:
+        print("Exception when calling OfferStatesApi->void_offer_state_by_identifier: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offerstate_id** | **str**| The offer state&#39;s primary key | 
+ **member_identifier** | **str**| the member identifier attached to a member | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[XAuthToken](../README.md#XAuthToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**404** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
+**422** | An API error contains both a user friendly message as well as a trace id, which is a unique identifier for the request.  |  -  |
+**500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

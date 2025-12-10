@@ -5,10 +5,10 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_pos_code**](OfferPOSOfferCodesApi.md#create_pos_code) | **POST** /offers/{offer_id}/pos_offer_codes | Create an Offer POS Offer Code
-[**delete_offer_pos_offer_codes**](OfferPOSOfferCodesApi.md#delete_offer_pos_offer_codes) | **DELETE** /offers/{offer_id}/pos_offer_codes/{id} | Remove an Offer POS Offer Code
+[**delete_pos_code**](OfferPOSOfferCodesApi.md#delete_pos_code) | **DELETE** /offers/{offer_id}/pos_offer_codes/{id} | Remove an Offer POS Offer Code
 [**get_offer_pos_code**](OfferPOSOfferCodesApi.md#get_offer_pos_code) | **GET** /offers/{offer_id}/pos_offer_codes/{id} | Get an Offer POS Offer Code
 [**list_pos_codes**](OfferPOSOfferCodesApi.md#list_pos_codes) | **GET** /offers/{offer_id}/pos_offer_codes | List all Offer POS Offer Codes
-[**update_offer_pos_offer_codes**](OfferPOSOfferCodesApi.md#update_offer_pos_offer_codes) | **PUT** /offers/{offer_id}/pos_offer_codes/{id} | Update an Offer POS Offer Code
+[**update_pos_code**](OfferPOSOfferCodesApi.md#update_pos_code) | **PUT** /offers/{offer_id}/pos_offer_codes/{id} | Update an Offer POS Offer Code
 
 
 # **create_pos_code**
@@ -98,8 +98,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **delete_offer_pos_offer_codes**
-> delete_offer_pos_offer_codes(offer_id, id, content_type=content_type)
+# **delete_pos_code**
+> delete_pos_code(offer_id, id, content_type=content_type)
 
 Remove an Offer POS Offer Code
 
@@ -141,9 +141,9 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Remove an Offer POS Offer Code
-        await api_instance.delete_offer_pos_offer_codes(offer_id, id, content_type=content_type)
+        await api_instance.delete_pos_code(offer_id, id, content_type=content_type)
     except Exception as e:
-        print("Exception when calling OfferPOSOfferCodesApi->delete_offer_pos_offer_codes: %s\n" % e)
+        print("Exception when calling OfferPOSOfferCodesApi->delete_pos_code: %s\n" % e)
 ```
 
 
@@ -348,8 +348,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_offer_pos_offer_codes**
-> OfferPosOfferCode update_offer_pos_offer_codes(offer_id, id, content_type=content_type, offer_pos_offer_code_request=offer_pos_offer_code_request)
+# **update_pos_code**
+> OfferPosOfferCode update_pos_code(offer_id, id, content_type=content_type, offer_pos_offer_code_request=offer_pos_offer_code_request)
 
 Update an Offer POS Offer Code
 
@@ -394,11 +394,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Update an Offer POS Offer Code
-        api_response = await api_instance.update_offer_pos_offer_codes(offer_id, id, content_type=content_type, offer_pos_offer_code_request=offer_pos_offer_code_request)
-        print("The response of OfferPOSOfferCodesApi->update_offer_pos_offer_codes:\n")
+        api_response = await api_instance.update_pos_code(offer_id, id, content_type=content_type, offer_pos_offer_code_request=offer_pos_offer_code_request)
+        print("The response of OfferPOSOfferCodesApi->update_pos_code:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling OfferPOSOfferCodesApi->update_offer_pos_offer_codes: %s\n" % e)
+        print("Exception when calling OfferPOSOfferCodesApi->update_pos_code: %s\n" % e)
 ```
 
 

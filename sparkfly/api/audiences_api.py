@@ -914,7 +914,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def delete_audience_sub_audiences(
+    async def delete_sub_audience(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
@@ -961,7 +961,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_audience_sub_audiences_serialize(
+        _param = self._delete_sub_audience_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -988,7 +988,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def delete_audience_sub_audiences_with_http_info(
+    async def delete_sub_audience_with_http_info(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
@@ -1035,7 +1035,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_audience_sub_audiences_serialize(
+        _param = self._delete_sub_audience_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -1062,7 +1062,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def delete_audience_sub_audiences_without_preload_content(
+    async def delete_sub_audience_without_preload_content(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
@@ -1109,7 +1109,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_audience_sub_audiences_serialize(
+        _param = self._delete_sub_audience_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -1131,7 +1131,7 @@ class AudiencesApi:
         return response_data.response
 
 
-    def _delete_audience_sub_audiences_serialize(
+    def _delete_sub_audience_serialize(
         self,
         sub_audience_id,
         audience_id,
@@ -2744,7 +2744,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def update_audience_sub_audiences(
+    async def update_sub_audience(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
@@ -2797,7 +2797,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_audience_sub_audiences_serialize(
+        _param = self._update_sub_audience_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             content_type=content_type,
@@ -2827,7 +2827,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def update_audience_sub_audiences_with_http_info(
+    async def update_sub_audience_with_http_info(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
@@ -2880,7 +2880,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_audience_sub_audiences_serialize(
+        _param = self._update_sub_audience_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             content_type=content_type,
@@ -2910,7 +2910,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def update_audience_sub_audiences_without_preload_content(
+    async def update_sub_audience_without_preload_content(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
@@ -2963,7 +2963,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_audience_sub_audiences_serialize(
+        _param = self._update_sub_audience_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             content_type=content_type,
@@ -2988,7 +2988,7 @@ class AudiencesApi:
         return response_data.response
 
 
-    def _update_audience_sub_audiences_serialize(
+    def _update_sub_audience_serialize(
         self,
         sub_audience_id,
         audience_id,

@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.3.0"
+__version__ = "1.3.2"
 
 # Define package exports
 __all__ = [
@@ -88,10 +88,6 @@ __all__ = [
     "ClarkAndRiggsProductResponseBody",
     "ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct",
     "CreateAudienceRequest",
-    "CreateMemberOfferStatesIssue201Response",
-    "CreateMemberOfferStatesIssue201ResponseOfferState",
-    "CreateMemberOfferStatesIssueRequest",
-    "CreateMemberOfferStatesIssueRequestOfferState",
     "CreateOfferListRequest",
     "CreateOfferListRequestOfferList",
     "CreateProfileRequest",
@@ -136,6 +132,10 @@ __all__ = [
     "ImpressionRequest",
     "ImpressionRequestImpression",
     "ImpressionRequestImpressionAnnotations",
+    "IssueOffer201Response",
+    "IssueOffer201ResponseOfferState",
+    "IssueOfferRequest",
+    "IssueOfferRequestOfferState",
     "Item",
     "ItemAllOfItem",
     "ItemIndexBody",
@@ -299,10 +299,6 @@ from sparkfly.models.clark_and_riggs_product_create_body import ClarkAndRiggsPro
 from sparkfly.models.clark_and_riggs_product_response_body import ClarkAndRiggsProductResponseBody as ClarkAndRiggsProductResponseBody
 from sparkfly.models.clark_and_riggs_product_response_body_clark_and_riggs_product import ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct as ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct
 from sparkfly.models.create_audience_request import CreateAudienceRequest as CreateAudienceRequest
-from sparkfly.models.create_member_offer_states_issue201_response import CreateMemberOfferStatesIssue201Response as CreateMemberOfferStatesIssue201Response
-from sparkfly.models.create_member_offer_states_issue201_response_offer_state import CreateMemberOfferStatesIssue201ResponseOfferState as CreateMemberOfferStatesIssue201ResponseOfferState
-from sparkfly.models.create_member_offer_states_issue_request import CreateMemberOfferStatesIssueRequest as CreateMemberOfferStatesIssueRequest
-from sparkfly.models.create_member_offer_states_issue_request_offer_state import CreateMemberOfferStatesIssueRequestOfferState as CreateMemberOfferStatesIssueRequestOfferState
 from sparkfly.models.create_offer_list_request import CreateOfferListRequest as CreateOfferListRequest
 from sparkfly.models.create_offer_list_request_offer_list import CreateOfferListRequestOfferList as CreateOfferListRequestOfferList
 from sparkfly.models.create_profile_request import CreateProfileRequest as CreateProfileRequest
@@ -347,6 +343,10 @@ from sparkfly.models.impression_index_body import ImpressionIndexBody as Impress
 from sparkfly.models.impression_request import ImpressionRequest as ImpressionRequest
 from sparkfly.models.impression_request_impression import ImpressionRequestImpression as ImpressionRequestImpression
 from sparkfly.models.impression_request_impression_annotations import ImpressionRequestImpressionAnnotations as ImpressionRequestImpressionAnnotations
+from sparkfly.models.issue_offer201_response import IssueOffer201Response as IssueOffer201Response
+from sparkfly.models.issue_offer201_response_offer_state import IssueOffer201ResponseOfferState as IssueOffer201ResponseOfferState
+from sparkfly.models.issue_offer_request import IssueOfferRequest as IssueOfferRequest
+from sparkfly.models.issue_offer_request_offer_state import IssueOfferRequestOfferState as IssueOfferRequestOfferState
 from sparkfly.models.item import Item as Item
 from sparkfly.models.item_all_of_item import ItemAllOfItem as ItemAllOfItem
 from sparkfly.models.item_index_body import ItemIndexBody as ItemIndexBody
