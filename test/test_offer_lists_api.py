@@ -27,36 +27,36 @@ class TestOfferListsApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_delete_offer_lists_offer_list_id(self) -> None:
-        """Test case for delete_offer_lists_offer_list_id
-
-        Remove an Offer List
-        """
-        pass
-
-    async def test_get_offer_lists(self) -> None:
-        """Test case for get_offer_lists
-
-        List all Offer Lists
-        """
-        pass
-
-    async def test_get_offer_lists_offer_list_id(self) -> None:
-        """Test case for get_offer_lists_offer_list_id
-
-        Retrieve an Offer List
-        """
-        pass
-
-    async def test_post_offer_lists(self) -> None:
-        """Test case for post_offer_lists
+    async def test_create_offer_list(self) -> None:
+        """Test case for create_offer_list
 
         Create an Offer List
         """
         pass
 
-    async def test_put_offer_lists_offer_list_id(self) -> None:
-        """Test case for put_offer_lists_offer_list_id
+    async def test_delete_offer_list(self) -> None:
+        """Test case for delete_offer_list
+
+        Remove an Offer List
+        """
+        pass
+
+    async def test_get_offer_list(self) -> None:
+        """Test case for get_offer_list
+
+        Retrieve an Offer List
+        """
+        pass
+
+    async def test_list_offer_lists(self) -> None:
+        """Test case for list_offer_lists
+
+        List all Offer Lists
+        """
+        pass
+
+    async def test_update_offer_list(self) -> None:
+        """Test case for update_offer_list
 
         Update an Offer List
         """

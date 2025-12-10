@@ -27,6 +27,20 @@ class TestCampaignsApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
+    async def test_approve_campaign(self) -> None:
+        """Test case for approve_campaign
+
+        Set a Campaign's Status
+        """
+        pass
+
+    async def test_create_campaign(self) -> None:
+        """Test case for create_campaign
+
+        Create a Campaign
+        """
+        pass
+
     async def test_get_campaign(self) -> None:
         """Test case for get_campaign
 
@@ -34,38 +48,24 @@ class TestCampaignsApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_get_campaign_tags(self) -> None:
-        """Test case for get_campaign_tags
+    async def test_list_campaign_tags(self) -> None:
+        """Test case for list_campaign_tags
 
         Retrieve Campaign Tags
         """
         pass
 
-    async def test_get_campaigns(self) -> None:
-        """Test case for get_campaigns
+    async def test_list_campaigns(self) -> None:
+        """Test case for list_campaigns
 
         List all Campaigns
         """
         pass
 
-    async def test_post_campaign(self) -> None:
-        """Test case for post_campaign
-
-        Create a Campaign
-        """
-        pass
-
-    async def test_put_campaign(self) -> None:
-        """Test case for put_campaign
+    async def test_update_campaign(self) -> None:
+        """Test case for update_campaign
 
         Update a Campaign by Campaign ID
-        """
-        pass
-
-    async def test_put_campaigns_campaign_id_actions_approve(self) -> None:
-        """Test case for put_campaigns_campaign_id_actions_approve
-
-        Set a Campaign's Status
         """
         pass
 

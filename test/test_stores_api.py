@@ -27,43 +27,43 @@ class TestStoresApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_delete_merchants_merchant_id_stores_store_id(self) -> None:
-        """Test case for delete_merchants_merchant_id_stores_store_id
-
-        Remove a Store
-        """
-        pass
-
-    async def test_get_merchants_merchant_id_stores(self) -> None:
-        """Test case for get_merchants_merchant_id_stores
-
-        List all Stores
-        """
-        pass
-
-    async def test_get_merchants_merchant_id_stores_index(self) -> None:
-        """Test case for get_merchants_merchant_id_stores_index
-
-        List all Stores with Active Offers
-        """
-        pass
-
-    async def test_get_merchants_merchant_id_stores_store_id(self) -> None:
-        """Test case for get_merchants_merchant_id_stores_store_id
-
-        Retrieve a Store
-        """
-        pass
-
-    async def test_post_merchants_merchant_id_stores(self) -> None:
-        """Test case for post_merchants_merchant_id_stores
+    async def test_create_store(self) -> None:
+        """Test case for create_store
 
         Create a Store
         """
         pass
 
-    async def test_put_merchants_merchant_id_stores_store_id(self) -> None:
-        """Test case for put_merchants_merchant_id_stores_store_id
+    async def test_delete_store(self) -> None:
+        """Test case for delete_store
+
+        Remove a Store
+        """
+        pass
+
+    async def test_get_store(self) -> None:
+        """Test case for get_store
+
+        Retrieve a Store
+        """
+        pass
+
+    async def test_list_stores(self) -> None:
+        """Test case for list_stores
+
+        List all Stores
+        """
+        pass
+
+    async def test_list_stores_index(self) -> None:
+        """Test case for list_stores_index
+
+        List all Stores with Active Offers
+        """
+        pass
+
+    async def test_update_store(self) -> None:
+        """Test case for update_store
 
         Update a Store
         """

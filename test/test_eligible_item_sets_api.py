@@ -27,36 +27,36 @@ class TestEligibleItemSetsApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_delete_offers_offer_id_eligible_item_sets_id(self) -> None:
-        """Test case for delete_offers_offer_id_eligible_item_sets_id
-
-        Remove an Eligible Item Set
-        """
-        pass
-
-    async def test_get_offers_offer_id_eligible_item_sets(self) -> None:
-        """Test case for get_offers_offer_id_eligible_item_sets
-
-        List all Eligible Item Sets
-        """
-        pass
-
-    async def test_get_offers_offer_id_eligible_item_sets_id(self) -> None:
-        """Test case for get_offers_offer_id_eligible_item_sets_id
-
-        Get an Eligible Item Set
-        """
-        pass
-
-    async def test_post_offers_offer_id_eligible_item_sets(self) -> None:
-        """Test case for post_offers_offer_id_eligible_item_sets
+    async def test_create_eligible_item_set(self) -> None:
+        """Test case for create_eligible_item_set
 
         Create an Eligible Item Set
         """
         pass
 
-    async def test_put_offers_offer_id_eligible_item_sets_id(self) -> None:
-        """Test case for put_offers_offer_id_eligible_item_sets_id
+    async def test_delete_eligible_item_set(self) -> None:
+        """Test case for delete_eligible_item_set
+
+        Remove an Eligible Item Set
+        """
+        pass
+
+    async def test_get_eligible_item_set(self) -> None:
+        """Test case for get_eligible_item_set
+
+        Get an Eligible Item Set
+        """
+        pass
+
+    async def test_list_eligible_item_sets(self) -> None:
+        """Test case for list_eligible_item_sets
+
+        List all Eligible Item Sets
+        """
+        pass
+
+    async def test_update_eligible_item_set(self) -> None:
+        """Test case for update_eligible_item_set
 
         Update an Eligible Item Set
         """

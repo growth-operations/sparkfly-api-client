@@ -43,6 +43,10 @@ class TestAtomicMemberResponseBodyMemberCredentialsInner(unittest.TestCase):
             )
         else:
             return AtomicMemberResponseBodyMemberCredentialsInner(
+                credential = sparkfly.models.atomic_member_response_body_member_credentials_inner_credential.atomic_member_response_body_member_credentials_inner_credential(
+                    id = 56, 
+                    identifier = '', 
+                    type = '', ),
         )
         """
 

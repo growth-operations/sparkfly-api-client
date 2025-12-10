@@ -65,6 +65,8 @@ class TestAtomicMemberResponseBodyMember(unittest.TestCase):
             )
         else:
             return AtomicMemberResponseBodyMember(
+                id = 56,
+                identifier = '',
         )
         """
 

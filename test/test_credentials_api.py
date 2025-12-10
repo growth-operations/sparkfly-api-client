@@ -27,8 +27,8 @@ class TestCredentialsApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_post_credentials(self) -> None:
-        """Test case for post_credentials
+    async def test_create_credential(self) -> None:
+        """Test case for create_credential
 
         Create a Credential
         """

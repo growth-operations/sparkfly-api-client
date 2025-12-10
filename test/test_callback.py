@@ -53,6 +53,20 @@ class TestCallback(unittest.TestCase):
             )
         else:
             return Callback(
+                id = 56,
+                external_id = '',
+                enabled = True,
+                url = '',
+                last_verified_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                signing_key = '',
+                subscriptions = [
+                    sparkfly.models.subscription.Subscription(
+                        id = 56, 
+                        callback_id = 56, 
+                        external_id = '', 
+                        enabled = True, 
+                        event = 'sf.member.created', )
+                    ],
         )
         """
 

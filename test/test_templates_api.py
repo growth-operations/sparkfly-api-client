@@ -27,8 +27,8 @@ class TestTemplatesApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_get_templates(self) -> None:
-        """Test case for get_templates
+    async def test_list_templates(self) -> None:
+        """Test case for list_templates
 
         Get all Templates
         """

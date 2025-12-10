@@ -27,80 +27,80 @@ class TestCtmApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_get_ctm_custom_messages(self) -> None:
-        """Test case for get_ctm_custom_messages
-
-        CTM Custom Messages
-        """
-        pass
-
-    async def test_get_ctm_store(self) -> None:
-        """Test case for get_ctm_store
-
-        CTM Stores
-        """
-        pass
-
-    async def test_get_show_ctm(self) -> None:
-        """Test case for get_show_ctm
-
-        CTM Show Response
-        """
-        pass
-
-    async def test_post_allocate_ctm(self) -> None:
-        """Test case for post_allocate_ctm
+    async def test_ctm_allocate(self) -> None:
+        """Test case for ctm_allocate
 
         CTM Allocate
         """
         pass
 
-    async def test_post_deallocate_ctm(self) -> None:
-        """Test case for post_deallocate_ctm
+    async def test_ctm_create_member(self) -> None:
+        """Test case for ctm_create_member
+
+        CTM Update Response
+        """
+        pass
+
+    async def test_ctm_create_member_by_site(self) -> None:
+        """Test case for ctm_create_member_by_site
+
+        CTM Update Response
+        """
+        pass
+
+    async def test_ctm_deallocate(self) -> None:
+        """Test case for ctm_deallocate
 
         CTM Dealocate
         """
         pass
 
-    async def test_post_qitems_ctm(self) -> None:
-        """Test case for post_qitems_ctm
+    async def test_ctm_get_custom_messages(self) -> None:
+        """Test case for ctm_get_custom_messages
 
-        CTM Qitems
+        CTM Custom Messages
         """
         pass
 
-    async def test_post_update_ctm(self) -> None:
-        """Test case for post_update_ctm
-
-        CTM Update Response
-        """
-        pass
-
-    async def test_post_update_ctm_siteid(self) -> None:
-        """Test case for post_update_ctm_siteid
-
-        CTM Update Response
-        """
-        pass
-
-    async def test_put_show_ctm(self) -> None:
-        """Test case for put_show_ctm
+    async def test_ctm_get_member(self) -> None:
+        """Test case for ctm_get_member
 
         CTM Show Response
         """
         pass
 
-    async def test_put_transaction_update_ctm(self) -> None:
-        """Test case for put_transaction_update_ctm
+    async def test_ctm_get_qitems(self) -> None:
+        """Test case for ctm_get_qitems
 
-        CTM Transaction Update
+        CTM Qitems
         """
         pass
 
-    async def test_put_update_ctm(self) -> None:
-        """Test case for put_update_ctm
+    async def test_ctm_get_store(self) -> None:
+        """Test case for ctm_get_store
+
+        CTM Stores
+        """
+        pass
+
+    async def test_ctm_update_member(self) -> None:
+        """Test case for ctm_update_member
 
         CTM Update Response
+        """
+        pass
+
+    async def test_ctm_update_member_v2(self) -> None:
+        """Test case for ctm_update_member_v2
+
+        CTM Show Response
+        """
+        pass
+
+    async def test_ctm_update_transaction(self) -> None:
+        """Test case for ctm_update_transaction
+
+        CTM Transaction Update
         """
         pass
 

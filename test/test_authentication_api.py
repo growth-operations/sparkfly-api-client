@@ -27,8 +27,8 @@ class TestAuthenticationApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_post_auth(self) -> None:
-        """Test case for post_auth
+    async def test_authenticate(self) -> None:
+        """Test case for authenticate
 
         Request an Authentication Token
         """

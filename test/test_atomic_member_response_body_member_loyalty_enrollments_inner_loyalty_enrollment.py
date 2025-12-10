@@ -43,6 +43,9 @@ class TestAtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment
             )
         else:
             return AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment(
+                id = 56,
+                loyalty_program_id = 56,
+                source = '',
         )
         """
 

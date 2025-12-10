@@ -27,8 +27,8 @@ class TestBIStoreListsApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_get_merchants_bi_store_lists(self) -> None:
-        """Test case for get_merchants_bi_store_lists
+    async def test_list_bi_store_lists(self) -> None:
+        """Test case for list_bi_store_lists
 
         List all BI Store Lists
         """

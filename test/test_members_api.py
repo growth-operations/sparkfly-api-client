@@ -27,57 +27,64 @@ class TestMembersApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_delete_members_member_id(self) -> None:
-        """Test case for delete_members_member_id
-
-        Remove a Member
-        """
-        pass
-
-    async def test_get_members(self) -> None:
-        """Test case for get_members
-
-        List Members
-        """
-        pass
-
-    async def test_get_members_member_id(self) -> None:
-        """Test case for get_members_member_id
-
-        Find a Member
-        """
-        pass
-
-    async def test_get_members_profile(self) -> None:
-        """Test case for get_members_profile
-
-        Retrieve a Member Profile
-        """
-        pass
-
-    async def test_get_members_search(self) -> None:
-        """Test case for get_members_search
-
-        Search for a Member
-        """
-        pass
-
-    async def test_post_members(self) -> None:
-        """Test case for post_members
+    async def test_create_member(self) -> None:
+        """Test case for create_member
 
         Create a Member
         """
         pass
 
-    async def test_post_members_profile(self) -> None:
-        """Test case for post_members_profile
+    async def test_create_profile(self) -> None:
+        """Test case for create_profile
 
         Create/Update a Member Profile
         """
         pass
 
-    async def test_put_members_member_id(self) -> None:
-        """Test case for put_members_member_id
+    async def test_delete_member(self) -> None:
+        """Test case for delete_member
+
+        Remove a Member
+        """
+        pass
+
+    async def test_get_member(self) -> None:
+        """Test case for get_member
+
+        Find a Member
+        """
+        pass
+
+    async def test_get_profile(self) -> None:
+        """Test case for get_profile
+
+        Retrieve a Member Profile
+        """
+        pass
+
+    async def test_list_members(self) -> None:
+        """Test case for list_members
+
+        List Members
+        """
+        pass
+
+    async def test_register_member(self) -> None:
+        """Test case for register_member
+
+        Register a New Member
+        """
+        pass
+
+    async def test_search_members(self) -> None:
+        """Test case for search_members
+
+        Search for a Member
+        """
+        pass
+
+    async def test_update_member(self) -> None:
+        """Test case for update_member
 
         Update a Member
         """

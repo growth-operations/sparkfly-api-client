@@ -27,8 +27,8 @@ class TestEmailOptInApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_post_optins(self) -> None:
-        """Test case for post_optins
+    async def test_create_optin(self) -> None:
+        """Test case for create_optin
 
         Email Opt In
         """

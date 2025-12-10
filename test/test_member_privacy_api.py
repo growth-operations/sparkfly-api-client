@@ -27,15 +27,15 @@ class TestMemberPrivacyApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_get_privacy_member_export(self) -> None:
-        """Test case for get_privacy_member_export
+    async def test_export_member_privacy(self) -> None:
+        """Test case for export_member_privacy
 
         Exports Data Associated with a Member
         """
         pass
 
-    async def test_post_privacy_member_delete_request(self) -> None:
-        """Test case for post_privacy_member_delete_request
+    async def test_request_member_deletion(self) -> None:
+        """Test case for request_member_deletion
 
         Creates a Deletion Request for a Member
         """

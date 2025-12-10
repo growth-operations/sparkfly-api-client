@@ -27,94 +27,94 @@ class TestItemsApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_delete_item_sets_item_set_id(self) -> None:
-        """Test case for delete_item_sets_item_set_id
-
-        Delete an Item Set
-        """
-        pass
-
-    async def test_delete_item_sets_item_set_id_items_id(self) -> None:
-        """Test case for delete_item_sets_item_set_id_items_id
-
-        Remove Item from Set
-        """
-        pass
-
-    async def test_delete_items_id(self) -> None:
-        """Test case for delete_items_id
-
-        Delete Item
-        """
-        pass
-
-    async def test_get_item_sets(self) -> None:
-        """Test case for get_item_sets
-
-        Item Set Index
-        """
-        pass
-
-    async def test_get_item_sets_item_set_id(self) -> None:
-        """Test case for get_item_sets_item_set_id
-
-        Get an Item Set
-        """
-        pass
-
-    async def test_get_item_sets_item_set_id_items(self) -> None:
-        """Test case for get_item_sets_item_set_id_items
-
-        Item Set Item Index
-        """
-        pass
-
-    async def test_get_items(self) -> None:
-        """Test case for get_items
-
-        Item Index
-        """
-        pass
-
-    async def test_get_items_id(self) -> None:
-        """Test case for get_items_id
-
-        Get Item
-        """
-        pass
-
-    async def test_post_item_sets(self) -> None:
-        """Test case for post_item_sets
-
-        Item Set Create
-        """
-        pass
-
-    async def test_post_item_sets_item_set_id_items_id(self) -> None:
-        """Test case for post_item_sets_item_set_id_items_id
+    async def test_add_item_to_set(self) -> None:
+        """Test case for add_item_to_set
 
         Add Item to Set
         """
         pass
 
-    async def test_post_items(self) -> None:
-        """Test case for post_items
+    async def test_create_item(self) -> None:
+        """Test case for create_item
 
         Create Item
         """
         pass
 
-    async def test_put_item_sets_item_set_id(self) -> None:
-        """Test case for put_item_sets_item_set_id
+    async def test_create_item_set(self) -> None:
+        """Test case for create_item_set
 
-        Update an Item Set
+        Item Set Create
         """
         pass
 
-    async def test_put_items_id(self) -> None:
-        """Test case for put_items_id
+    async def test_delete_item(self) -> None:
+        """Test case for delete_item
+
+        Delete Item
+        """
+        pass
+
+    async def test_delete_item_set(self) -> None:
+        """Test case for delete_item_set
+
+        Delete an Item Set
+        """
+        pass
+
+    async def test_get_item(self) -> None:
+        """Test case for get_item
+
+        Get Item
+        """
+        pass
+
+    async def test_get_item_set(self) -> None:
+        """Test case for get_item_set
+
+        Get an Item Set
+        """
+        pass
+
+    async def test_list_item_sets(self) -> None:
+        """Test case for list_item_sets
+
+        Item Set Index
+        """
+        pass
+
+    async def test_list_items(self) -> None:
+        """Test case for list_items
+
+        Item Index
+        """
+        pass
+
+    async def test_list_set_items(self) -> None:
+        """Test case for list_set_items
+
+        Item Set Item Index
+        """
+        pass
+
+    async def test_remove_item_from_set(self) -> None:
+        """Test case for remove_item_from_set
+
+        Remove Item from Set
+        """
+        pass
+
+    async def test_update_item(self) -> None:
+        """Test case for update_item
 
         Update Item
+        """
+        pass
+
+    async def test_update_item_set(self) -> None:
+        """Test case for update_item_set
+
+        Update an Item Set
         """
         pass
 

@@ -27,36 +27,36 @@ class TestStoreListsApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_delete_merchants_merchant_id_store_lists_store_list_id(self) -> None:
-        """Test case for delete_merchants_merchant_id_store_lists_store_list_id
-
-        Remove a Store List
-        """
-        pass
-
-    async def test_get_merchants_merchant_id_store_lists(self) -> None:
-        """Test case for get_merchants_merchant_id_store_lists
-
-        List all Store Lists
-        """
-        pass
-
-    async def test_get_merchants_merchant_id_store_lists_store_list_id(self) -> None:
-        """Test case for get_merchants_merchant_id_store_lists_store_list_id
-
-        Retrieve a Store List
-        """
-        pass
-
-    async def test_post_merchants_merchant_id_store_lists(self) -> None:
-        """Test case for post_merchants_merchant_id_store_lists
+    async def test_create_store_list(self) -> None:
+        """Test case for create_store_list
 
         Create a Store List
         """
         pass
 
-    async def test_put_merchants_merchant_id_store_lists_store_list_id(self) -> None:
-        """Test case for put_merchants_merchant_id_store_lists_store_list_id
+    async def test_delete_store_list(self) -> None:
+        """Test case for delete_store_list
+
+        Remove a Store List
+        """
+        pass
+
+    async def test_get_store_list(self) -> None:
+        """Test case for get_store_list
+
+        Retrieve a Store List
+        """
+        pass
+
+    async def test_list_store_lists(self) -> None:
+        """Test case for list_store_lists
+
+        List all Store Lists
+        """
+        pass
+
+    async def test_update_store_list(self) -> None:
+        """Test case for update_store_list
 
         Update a Store List
         """

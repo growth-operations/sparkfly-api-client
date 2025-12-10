@@ -27,80 +27,80 @@ class TestOfferStatesApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_get_members_member_id_offer_states(self) -> None:
-        """Test case for get_members_member_id_offer_states
-
-        Get all Offer States
-        """
-        pass
-
-    async def test_get_members_member_id_offer_states_offer_state_id(self) -> None:
-        """Test case for get_members_member_id_offer_states_offer_state_id
-
-        Get Offer State by Offer State ID
-        """
-        pass
-
-    async def test_get_members_member_id_offers_offer_id(self) -> None:
-        """Test case for get_members_member_id_offers_offer_id
-
-        Get Offer State by Offer ID
-        """
-        pass
-
-    async def test_get_members_offer_states(self) -> None:
-        """Test case for get_members_offer_states
-
-        Get Offer State from Query Parameters
-        """
-        pass
-
-    async def test_post_members_id_offer_states_issue(self) -> None:
-        """Test case for post_members_id_offer_states_issue
-
-        Issue an Offer to a member (high throughput)
-        """
-        pass
-
-    async def test_post_members_member_id_offer_states(self) -> None:
-        """Test case for post_members_member_id_offer_states
-
-        Create Offer State
-        """
-        pass
-
-    async def test_post_members_member_id_offer_states_offerstate_id(self) -> None:
-        """Test case for post_members_member_id_offer_states_offerstate_id
-
-        Update Offer State - Post
-        """
-        pass
-
-    async def test_post_members_member_id_offer_states_offerstate_id_void(self) -> None:
-        """Test case for post_members_member_id_offer_states_offerstate_id_void
-
-        Void Offer State
-        """
-        pass
-
-    async def test_post_members_member_id_offer_states_offerstate_id_voidmember_identifier_member_identifier(self) -> None:
-        """Test case for post_members_member_id_offer_states_offerstate_id_voidmember_identifier_member_identifier
-
-        Void Offer State by Member Identifier
-        """
-        pass
-
-    async def test_post_members_offer_states(self) -> None:
-        """Test case for post_members_offer_states
+    async def test_create_offer_state(self) -> None:
+        """Test case for create_offer_state
 
         Create Offer State from Query Parameters
         """
         pass
 
-    async def test_put_members_member_id_offer_states_offer_state_id(self) -> None:
-        """Test case for put_members_member_id_offer_states_offer_state_id
+    async def test_get_offer_state(self) -> None:
+        """Test case for get_offer_state
+
+        Get Offer State by Offer State ID
+        """
+        pass
+
+    async def test_issue_offer(self) -> None:
+        """Test case for issue_offer
+
+        Issue an Offer to a member (high throughput)
+        """
+        pass
+
+    async def test_issue_offer_state(self) -> None:
+        """Test case for issue_offer_state
+
+        Create Offer State
+        """
+        pass
+
+    async def test_list_members_offers(self) -> None:
+        """Test case for list_members_offers
+
+        Get Offer State by Offer ID
+        """
+        pass
+
+    async def test_list_offer_states(self) -> None:
+        """Test case for list_offer_states
+
+        Get all Offer States
+        """
+        pass
+
+    async def test_query_offer_states(self) -> None:
+        """Test case for query_offer_states
+
+        Get Offer State from Query Parameters
+        """
+        pass
+
+    async def test_redeem_offer_state(self) -> None:
+        """Test case for redeem_offer_state
+
+        Update Offer State - Post
+        """
+        pass
+
+    async def test_update_offer_state(self) -> None:
+        """Test case for update_offer_state
 
         Update Offer State
+        """
+        pass
+
+    async def test_void_offer_state(self) -> None:
+        """Test case for void_offer_state
+
+        Void Offer State
+        """
+        pass
+
+    async def test_void_offer_state_by_identifier(self) -> None:
+        """Test case for void_offer_state_by_identifier
+
+        Void Offer State by Member Identifier
         """
         pass
 

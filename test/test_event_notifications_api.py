@@ -27,59 +27,59 @@ class TestEventNotificationsApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_delete_event_notifications_callbacks_callback_id(self) -> None:
-        """Test case for delete_event_notifications_callbacks_callback_id
-
-        Delete Callback
-        """
-        pass
-
-    async def test_delete_event_notifications_subscriptions_subscription_id(self) -> None:
-        """Test case for delete_event_notifications_subscriptions_subscription_id
-
-        Delete Subscription
-        """
-        pass
-
-    async def test_get_event_notifications_callbacks(self) -> None:
-        """Test case for get_event_notifications_callbacks
-
-        List Callbacks
-        """
-        pass
-
-    async def test_get_event_notifications_callbacks_callback_id(self) -> None:
-        """Test case for get_event_notifications_callbacks_callback_id
-
-        Get Callback by ID
-        """
-        pass
-
-    async def test_get_event_notifications_subscriptions(self) -> None:
-        """Test case for get_event_notifications_subscriptions
-
-        List Subscriptions
-        """
-        pass
-
-    async def test_get_event_notifications_subscriptions_subscription_id(self) -> None:
-        """Test case for get_event_notifications_subscriptions_subscription_id
-
-        Get Subscription by ID
-        """
-        pass
-
-    async def test_post_event_notifications_callbacks(self) -> None:
-        """Test case for post_event_notifications_callbacks
+    async def test_create_callback(self) -> None:
+        """Test case for create_callback
 
         Create Callback
         """
         pass
 
-    async def test_post_event_notifications_subscriptions(self) -> None:
-        """Test case for post_event_notifications_subscriptions
+    async def test_create_subscription(self) -> None:
+        """Test case for create_subscription
 
         Create Subscription
+        """
+        pass
+
+    async def test_delete_callback(self) -> None:
+        """Test case for delete_callback
+
+        Delete Callback
+        """
+        pass
+
+    async def test_delete_subscription(self) -> None:
+        """Test case for delete_subscription
+
+        Delete Subscription
+        """
+        pass
+
+    async def test_get_callback(self) -> None:
+        """Test case for get_callback
+
+        Get Callback by ID
+        """
+        pass
+
+    async def test_get_subscription(self) -> None:
+        """Test case for get_subscription
+
+        Get Subscription by ID
+        """
+        pass
+
+    async def test_list_callbacks(self) -> None:
+        """Test case for list_callbacks
+
+        List Callbacks
+        """
+        pass
+
+    async def test_list_subscriptions(self) -> None:
+        """Test case for list_subscriptions
+
+        List Subscriptions
         """
         pass
 

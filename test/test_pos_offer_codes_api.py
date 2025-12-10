@@ -27,17 +27,17 @@ class TestPOSOfferCodesApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_get_pos_offer_codes(self) -> None:
-        """Test case for get_pos_offer_codes
+    async def test_get_pos_code(self) -> None:
+        """Test case for get_pos_code
 
-        List all POS Offer Codes
+        Get a POS Offer Code
         """
         pass
 
-    async def test_get_pos_offer_codes_id(self) -> None:
-        """Test case for get_pos_offer_codes_id
+    async def test_list_all_pos_codes(self) -> None:
+        """Test case for list_all_pos_codes
 
-        Get a POS Offer Code
+        List all POS Offer Codes
         """
         pass
 

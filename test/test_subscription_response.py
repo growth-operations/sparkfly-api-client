@@ -45,6 +45,12 @@ class TestSubscriptionResponse(unittest.TestCase):
             )
         else:
             return SubscriptionResponse(
+                subscription = sparkfly.models.subscription.Subscription(
+                    id = 56, 
+                    callback_id = 56, 
+                    external_id = '', 
+                    enabled = True, 
+                    event = 'sf.member.created', ),
         )
         """
 

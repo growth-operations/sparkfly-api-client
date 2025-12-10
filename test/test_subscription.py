@@ -44,6 +44,10 @@ class TestSubscription(unittest.TestCase):
             )
         else:
             return Subscription(
+                id = 56,
+                external_id = '',
+                enabled = True,
+                event = 'sf.member.created',
         )
         """
 

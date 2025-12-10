@@ -27,71 +27,71 @@ class TestAudiencesApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_delete_audiences_id(self) -> None:
-        """Test case for delete_audiences_id
-
-        Remove an Audience
-        """
-        pass
-
-    async def test_delete_audiences_id_sub_audiences_sub_audience_id(self) -> None:
-        """Test case for delete_audiences_id_sub_audiences_sub_audience_id
-
-        Remove a Sub-Audience
-        """
-        pass
-
-    async def test_get_audiences(self) -> None:
-        """Test case for get_audiences
-
-        List all Audiences
-        """
-        pass
-
-    async def test_get_audiences_id(self) -> None:
-        """Test case for get_audiences_id
-
-        Retrieve an Audience
-        """
-        pass
-
-    async def test_get_audiences_id_sub_audiences(self) -> None:
-        """Test case for get_audiences_id_sub_audiences
-
-        List all Sub-Audiences
-        """
-        pass
-
-    async def test_get_audiences_id_sub_audiences_sub_audience_id(self) -> None:
-        """Test case for get_audiences_id_sub_audiences_sub_audience_id
-
-        Retrieve a Sub-Audience
-        """
-        pass
-
-    async def test_post_audiences(self) -> None:
-        """Test case for post_audiences
+    async def test_create_audience(self) -> None:
+        """Test case for create_audience
 
         Create an Audience
         """
         pass
 
-    async def test_post_audiences_id_sub_audiences(self) -> None:
-        """Test case for post_audiences_id_sub_audiences
+    async def test_create_sub_audience(self) -> None:
+        """Test case for create_sub_audience
 
         Create a Sub-Audience
         """
         pass
 
-    async def test_put_audiences_id(self) -> None:
-        """Test case for put_audiences_id
+    async def test_delete_audience(self) -> None:
+        """Test case for delete_audience
+
+        Remove an Audience
+        """
+        pass
+
+    async def test_delete_sub_audience(self) -> None:
+        """Test case for delete_sub_audience
+
+        Remove a Sub-Audience
+        """
+        pass
+
+    async def test_get_audience(self) -> None:
+        """Test case for get_audience
+
+        Retrieve an Audience
+        """
+        pass
+
+    async def test_get_sub_audience(self) -> None:
+        """Test case for get_sub_audience
+
+        Retrieve a Sub-Audience
+        """
+        pass
+
+    async def test_list_audiences(self) -> None:
+        """Test case for list_audiences
+
+        List all Audiences
+        """
+        pass
+
+    async def test_list_sub_audiences(self) -> None:
+        """Test case for list_sub_audiences
+
+        List all Sub-Audiences
+        """
+        pass
+
+    async def test_update_audience(self) -> None:
+        """Test case for update_audience
 
         Update an Audience
         """
         pass
 
-    async def test_put_audiences_id_sub_audiences_sub_audience_id(self) -> None:
-        """Test case for put_audiences_id_sub_audiences_sub_audience_id
+    async def test_update_sub_audience(self) -> None:
+        """Test case for update_sub_audience
 
         Update a Sub-Audience
         """

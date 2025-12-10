@@ -44,6 +44,11 @@ class TestAtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner(unittest.TestCas
             )
         else:
             return AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner(
+                loyalty_enrollment = sparkfly.models.atomic_member_response_body_member_loyalty_enrollments_inner_loyalty_enrollment.atomic_member_response_body_member_loyalty_enrollments_inner_loyalty_enrollment(
+                    id = 56, 
+                    loyalty_program_id = 56, 
+                    external_id = '', 
+                    source = '', ),
         )
         """
 

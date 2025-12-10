@@ -42,6 +42,9 @@ class TestAtomicMemberResponseBodyMemberCredentialsInnerCredential(unittest.Test
             )
         else:
             return AtomicMemberResponseBodyMemberCredentialsInnerCredential(
+                id = 56,
+                identifier = '',
+                type = '',
         )
         """
 

@@ -27,36 +27,36 @@ class TestOfferPOSOfferCodesApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_delete_offers_offer_id_pos_offer_codes_id(self) -> None:
-        """Test case for delete_offers_offer_id_pos_offer_codes_id
-
-        Remove an Offer POS Offer Code
-        """
-        pass
-
-    async def test_get_offers_offer_id_pos_offer_codes(self) -> None:
-        """Test case for get_offers_offer_id_pos_offer_codes
-
-        List all Offer POS Offer Codes
-        """
-        pass
-
-    async def test_get_offers_offer_id_pos_offer_codes_id(self) -> None:
-        """Test case for get_offers_offer_id_pos_offer_codes_id
-
-        Get an Offer POS Offer Code
-        """
-        pass
-
-    async def test_post_offers_offer_id_pos_offer_codes(self) -> None:
-        """Test case for post_offers_offer_id_pos_offer_codes
+    async def test_create_pos_code(self) -> None:
+        """Test case for create_pos_code
 
         Create an Offer POS Offer Code
         """
         pass
 
-    async def test_put_offers_offer_id_pos_offer_codes_id(self) -> None:
-        """Test case for put_offers_offer_id_pos_offer_codes_id
+    async def test_delete_pos_code(self) -> None:
+        """Test case for delete_pos_code
+
+        Remove an Offer POS Offer Code
+        """
+        pass
+
+    async def test_get_offer_pos_code(self) -> None:
+        """Test case for get_offer_pos_code
+
+        Get an Offer POS Offer Code
+        """
+        pass
+
+    async def test_list_pos_codes(self) -> None:
+        """Test case for list_pos_codes
+
+        List all Offer POS Offer Codes
+        """
+        pass
+
+    async def test_update_pos_code(self) -> None:
+        """Test case for update_pos_code
 
         Update an Offer POS Offer Code
         """

@@ -52,6 +52,15 @@ class TestSubscriptionsIndexBody(unittest.TestCase):
             )
         else:
             return SubscriptionsIndexBody(
+                subscriptions = [
+                    sparkfly.models.subscription_response.Subscription Response(
+                        subscription = sparkfly.models.subscription.Subscription(
+                            id = 56, 
+                            callback_id = 56, 
+                            external_id = '', 
+                            enabled = True, 
+                            event = 'sf.member.created', ), )
+                    ],
         )
         """
 
