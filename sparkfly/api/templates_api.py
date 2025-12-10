@@ -41,7 +41,7 @@ class TemplatesApi:
 
 
     @validate_call
-    async def get_templates(
+    async def list_templates(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -85,7 +85,7 @@ class TemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_templates_serialize(
+        _param = self._list_templates_serialize(
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -110,7 +110,7 @@ class TemplatesApi:
 
 
     @validate_call
-    async def get_templates_with_http_info(
+    async def list_templates_with_http_info(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -154,7 +154,7 @@ class TemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_templates_serialize(
+        _param = self._list_templates_serialize(
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -179,7 +179,7 @@ class TemplatesApi:
 
 
     @validate_call
-    async def get_templates_without_preload_content(
+    async def list_templates_without_preload_content(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -223,7 +223,7 @@ class TemplatesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_templates_serialize(
+        _param = self._list_templates_serialize(
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -243,7 +243,7 @@ class TemplatesApi:
         return response_data.response
 
 
-    def _get_templates_serialize(
+    def _list_templates_serialize(
         self,
         content_type,
         _request_auth,

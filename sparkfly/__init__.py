@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.2.3"
+__version__ = "1.3.0"
 
 # Define package exports
 __all__ = [
@@ -40,6 +40,7 @@ __all__ = [
     "StoreListsApi",
     "StoresApi",
     "TemplatesApi",
+    "TransactionsApi",
     "ApiResponse",
     "ApiClient",
     "Configuration",
@@ -68,6 +69,7 @@ __all__ = [
     "AudienceData",
     "AudienceIndexBody",
     "AudienceIndexData",
+    "Authenticate401Response",
     "BiStoreList",
     "BiStoreListStoreListsInner",
     "Callback",
@@ -85,6 +87,15 @@ __all__ = [
     "ClarkAndRiggsProductCreateBody",
     "ClarkAndRiggsProductResponseBody",
     "ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct",
+    "CreateAudienceRequest",
+    "CreateMemberOfferStatesIssue201Response",
+    "CreateMemberOfferStatesIssue201ResponseOfferState",
+    "CreateMemberOfferStatesIssueRequest",
+    "CreateMemberOfferStatesIssueRequestOfferState",
+    "CreateOfferListRequest",
+    "CreateOfferListRequestOfferList",
+    "CreateProfileRequest",
+    "CreateSubAudienceRequest",
     "CredentialBatchIndexBody",
     "CredentialBatchRequest",
     "CredentialBatchResponseBody",
@@ -178,16 +189,6 @@ __all__ = [
     "PosOfferCode",
     "PosOfferCodeAllOfPosOfferCode",
     "PosOfferCodeIndexBody",
-    "PostAudiencesIdSubAudiencesRequest",
-    "PostAudiencesRequest",
-    "PostAuth401Response",
-    "PostMembersIdOfferStatesIssue201Response",
-    "PostMembersIdOfferStatesIssue201ResponseOfferState",
-    "PostMembersIdOfferStatesIssueRequest",
-    "PostMembersIdOfferStatesIssueRequestOfferState",
-    "PostMembersProfileRequest",
-    "PostOfferListsRequest",
-    "PostOfferListsRequestOfferList",
     "Store",
     "StoreAllOfStore",
     "StoreAllOfStoreLocation",
@@ -214,6 +215,14 @@ __all__ = [
     "Template",
     "Template2",
     "TemplateTemplatesInner",
+    "TransactionAppliedCredential",
+    "TransactionCampaign",
+    "TransactionCampaignOffer",
+    "TransactionItem",
+    "TransactionRedemption",
+    "TransactionResponse",
+    "TransactionResponseTransaction",
+    "TransactionTotals",
 ]
 
 # import apis into sdk package
@@ -238,6 +247,7 @@ from sparkfly.api.pos_offer_codes_api import POSOfferCodesApi as POSOfferCodesAp
 from sparkfly.api.store_lists_api import StoreListsApi as StoreListsApi
 from sparkfly.api.stores_api import StoresApi as StoresApi
 from sparkfly.api.templates_api import TemplatesApi as TemplatesApi
+from sparkfly.api.transactions_api import TransactionsApi as TransactionsApi
 
 # import ApiClient
 from sparkfly.api_response import ApiResponse as ApiResponse
@@ -270,6 +280,7 @@ from sparkfly.models.audience import Audience as Audience
 from sparkfly.models.audience_data import AudienceData as AudienceData
 from sparkfly.models.audience_index_body import AudienceIndexBody as AudienceIndexBody
 from sparkfly.models.audience_index_data import AudienceIndexData as AudienceIndexData
+from sparkfly.models.authenticate401_response import Authenticate401Response as Authenticate401Response
 from sparkfly.models.bi_store_list import BiStoreList as BiStoreList
 from sparkfly.models.bi_store_list_store_lists_inner import BiStoreListStoreListsInner as BiStoreListStoreListsInner
 from sparkfly.models.callback import Callback as Callback
@@ -287,6 +298,15 @@ from sparkfly.models.clark_and_riggs_index_body import ClarkAndRiggsIndexBody as
 from sparkfly.models.clark_and_riggs_product_create_body import ClarkAndRiggsProductCreateBody as ClarkAndRiggsProductCreateBody
 from sparkfly.models.clark_and_riggs_product_response_body import ClarkAndRiggsProductResponseBody as ClarkAndRiggsProductResponseBody
 from sparkfly.models.clark_and_riggs_product_response_body_clark_and_riggs_product import ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct as ClarkAndRiggsProductResponseBodyClarkAndRiggsProduct
+from sparkfly.models.create_audience_request import CreateAudienceRequest as CreateAudienceRequest
+from sparkfly.models.create_member_offer_states_issue201_response import CreateMemberOfferStatesIssue201Response as CreateMemberOfferStatesIssue201Response
+from sparkfly.models.create_member_offer_states_issue201_response_offer_state import CreateMemberOfferStatesIssue201ResponseOfferState as CreateMemberOfferStatesIssue201ResponseOfferState
+from sparkfly.models.create_member_offer_states_issue_request import CreateMemberOfferStatesIssueRequest as CreateMemberOfferStatesIssueRequest
+from sparkfly.models.create_member_offer_states_issue_request_offer_state import CreateMemberOfferStatesIssueRequestOfferState as CreateMemberOfferStatesIssueRequestOfferState
+from sparkfly.models.create_offer_list_request import CreateOfferListRequest as CreateOfferListRequest
+from sparkfly.models.create_offer_list_request_offer_list import CreateOfferListRequestOfferList as CreateOfferListRequestOfferList
+from sparkfly.models.create_profile_request import CreateProfileRequest as CreateProfileRequest
+from sparkfly.models.create_sub_audience_request import CreateSubAudienceRequest as CreateSubAudienceRequest
 from sparkfly.models.credential_batch_index_body import CredentialBatchIndexBody as CredentialBatchIndexBody
 from sparkfly.models.credential_batch_request import CredentialBatchRequest as CredentialBatchRequest
 from sparkfly.models.credential_batch_response_body import CredentialBatchResponseBody as CredentialBatchResponseBody
@@ -380,16 +400,6 @@ from sparkfly.models.page_response_body import PageResponseBody as PageResponseB
 from sparkfly.models.pos_offer_code import PosOfferCode as PosOfferCode
 from sparkfly.models.pos_offer_code_all_of_pos_offer_code import PosOfferCodeAllOfPosOfferCode as PosOfferCodeAllOfPosOfferCode
 from sparkfly.models.pos_offer_code_index_body import PosOfferCodeIndexBody as PosOfferCodeIndexBody
-from sparkfly.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest as PostAudiencesIdSubAudiencesRequest
-from sparkfly.models.post_audiences_request import PostAudiencesRequest as PostAudiencesRequest
-from sparkfly.models.post_auth401_response import PostAuth401Response as PostAuth401Response
-from sparkfly.models.post_members_id_offer_states_issue201_response import PostMembersIdOfferStatesIssue201Response as PostMembersIdOfferStatesIssue201Response
-from sparkfly.models.post_members_id_offer_states_issue201_response_offer_state import PostMembersIdOfferStatesIssue201ResponseOfferState as PostMembersIdOfferStatesIssue201ResponseOfferState
-from sparkfly.models.post_members_id_offer_states_issue_request import PostMembersIdOfferStatesIssueRequest as PostMembersIdOfferStatesIssueRequest
-from sparkfly.models.post_members_id_offer_states_issue_request_offer_state import PostMembersIdOfferStatesIssueRequestOfferState as PostMembersIdOfferStatesIssueRequestOfferState
-from sparkfly.models.post_members_profile_request import PostMembersProfileRequest as PostMembersProfileRequest
-from sparkfly.models.post_offer_lists_request import PostOfferListsRequest as PostOfferListsRequest
-from sparkfly.models.post_offer_lists_request_offer_list import PostOfferListsRequestOfferList as PostOfferListsRequestOfferList
 from sparkfly.models.store import Store as Store
 from sparkfly.models.store_all_of_store import StoreAllOfStore as StoreAllOfStore
 from sparkfly.models.store_all_of_store_location import StoreAllOfStoreLocation as StoreAllOfStoreLocation
@@ -416,3 +426,11 @@ from sparkfly.models.subscriptions_index_body import SubscriptionsIndexBody as S
 from sparkfly.models.template import Template as Template
 from sparkfly.models.template2 import Template2 as Template2
 from sparkfly.models.template_templates_inner import TemplateTemplatesInner as TemplateTemplatesInner
+from sparkfly.models.transaction_applied_credential import TransactionAppliedCredential as TransactionAppliedCredential
+from sparkfly.models.transaction_campaign import TransactionCampaign as TransactionCampaign
+from sparkfly.models.transaction_campaign_offer import TransactionCampaignOffer as TransactionCampaignOffer
+from sparkfly.models.transaction_item import TransactionItem as TransactionItem
+from sparkfly.models.transaction_redemption import TransactionRedemption as TransactionRedemption
+from sparkfly.models.transaction_response import TransactionResponse as TransactionResponse
+from sparkfly.models.transaction_response_transaction import TransactionResponseTransaction as TransactionResponseTransaction
+from sparkfly.models.transaction_totals import TransactionTotals as TransactionTotals

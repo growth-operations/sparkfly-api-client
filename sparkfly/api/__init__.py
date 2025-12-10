@@ -22,4 +22,5 @@ from sparkfly.api.pos_offer_codes_api import POSOfferCodesApi
 from sparkfly.api.store_lists_api import StoreListsApi
 from sparkfly.api.stores_api import StoresApi
 from sparkfly.api.templates_api import TemplatesApi
+from sparkfly.api.transactions_api import TransactionsApi
 

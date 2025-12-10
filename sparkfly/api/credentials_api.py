@@ -42,7 +42,7 @@ class CredentialsApi:
 
 
     @validate_call
-    async def post_credentials(
+    async def create_credential(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         credential_create_request: Optional[CredentialCreateRequest] = None,
@@ -89,7 +89,7 @@ class CredentialsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_credentials_serialize(
+        _param = self._create_credential_serialize(
             content_type=content_type,
             credential_create_request=credential_create_request,
             _request_auth=_request_auth,
@@ -116,7 +116,7 @@ class CredentialsApi:
 
 
     @validate_call
-    async def post_credentials_with_http_info(
+    async def create_credential_with_http_info(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         credential_create_request: Optional[CredentialCreateRequest] = None,
@@ -163,7 +163,7 @@ class CredentialsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_credentials_serialize(
+        _param = self._create_credential_serialize(
             content_type=content_type,
             credential_create_request=credential_create_request,
             _request_auth=_request_auth,
@@ -190,7 +190,7 @@ class CredentialsApi:
 
 
     @validate_call
-    async def post_credentials_without_preload_content(
+    async def create_credential_without_preload_content(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         credential_create_request: Optional[CredentialCreateRequest] = None,
@@ -237,7 +237,7 @@ class CredentialsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_credentials_serialize(
+        _param = self._create_credential_serialize(
             content_type=content_type,
             credential_create_request=credential_create_request,
             _request_auth=_request_auth,
@@ -259,7 +259,7 @@ class CredentialsApi:
         return response_data.response
 
 
-    def _post_credentials_serialize(
+    def _create_credential_serialize(
         self,
         content_type,
         credential_create_request,

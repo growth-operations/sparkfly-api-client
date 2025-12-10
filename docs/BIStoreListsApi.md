@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_merchants_bi_store_lists**](BIStoreListsApi.md#get_merchants_bi_store_lists) | **GET** /merchants/bi_store_lists | List all BI Store Lists
+[**list_bi_store_lists**](BIStoreListsApi.md#list_bi_store_lists) | **GET** /merchants/bi_store_lists | List all BI Store Lists
 
 
-# **get_merchants_bi_store_lists**
-> BiStoreList get_merchants_bi_store_lists(content_type=content_type)
+# **list_bi_store_lists**
+> BiStoreList list_bi_store_lists(content_type=content_type)
 
 List all BI Store Lists
 
@@ -49,11 +49,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # List all BI Store Lists
-        api_response = await api_instance.get_merchants_bi_store_lists(content_type=content_type)
-        print("The response of BIStoreListsApi->get_merchants_bi_store_lists:\n")
+        api_response = await api_instance.list_bi_store_lists(content_type=content_type)
+        print("The response of BIStoreListsApi->list_bi_store_lists:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BIStoreListsApi->get_merchants_bi_store_lists: %s\n" % e)
+        print("Exception when calling BIStoreListsApi->list_bi_store_lists: %s\n" % e)
 ```
 
 

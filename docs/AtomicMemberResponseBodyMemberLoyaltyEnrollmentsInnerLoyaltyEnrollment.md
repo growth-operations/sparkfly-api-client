@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [optional] 
-**loyalty_program_id** | **int** |  | [optional] 
+**id** | **int** |  | 
+**loyalty_program_id** | **int** |  | 
 **external_id** | **str** |  | [optional] 
-**source** | **str** |  | [optional] 
+**source** | **str** |  | 
 
 ## Example
 

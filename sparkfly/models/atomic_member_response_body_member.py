@@ -30,8 +30,8 @@ class AtomicMemberResponseBodyMember(BaseModel):
     """
     AtomicMemberResponseBodyMember
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    identifier: Optional[StrictStr] = None
+    id: StrictInt
+    identifier: StrictStr
     member_profile: Optional[AtomicMemberResponseBodyMemberMemberProfile] = None
     credentials: Optional[List[AtomicMemberResponseBodyMemberCredentialsInner]] = None
     loyalty_enrollments: Optional[List[AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner]] = None

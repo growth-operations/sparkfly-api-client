@@ -46,7 +46,1191 @@ class ItemsApi:
 
 
     @validate_call
-    async def delete_item_sets_item_set_id(
+    async def add_item_to_set(
+        self,
+        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
+        id: Annotated[StrictStr, Field(description="The primary key of the item")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """Add Item to Set
+
+        Adds an item to the item set.
+
+        :param item_set_id: The primary key of the item set (required)
+        :type item_set_id: str
+        :param id: The primary key of the item (required)
+        :type id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_item_to_set_serialize(
+            item_set_id=item_set_id,
+            id=id,
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '404': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def add_item_to_set_with_http_info(
+        self,
+        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
+        id: Annotated[StrictStr, Field(description="The primary key of the item")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """Add Item to Set
+
+        Adds an item to the item set.
+
+        :param item_set_id: The primary key of the item set (required)
+        :type item_set_id: str
+        :param id: The primary key of the item (required)
+        :type id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_item_to_set_serialize(
+            item_set_id=item_set_id,
+            id=id,
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '404': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def add_item_to_set_without_preload_content(
+        self,
+        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
+        id: Annotated[StrictStr, Field(description="The primary key of the item")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Add Item to Set
+
+        Adds an item to the item set.
+
+        :param item_set_id: The primary key of the item set (required)
+        :type item_set_id: str
+        :param id: The primary key of the item (required)
+        :type id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_item_to_set_serialize(
+            item_set_id=item_set_id,
+            id=id,
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '404': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _add_item_to_set_serialize(
+        self,
+        item_set_id,
+        id,
+        content_type,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if item_set_id is not None:
+            _path_params['item_set_id'] = item_set_id
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/item_sets/{item_set_id}/items/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def create_item(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        item_request: Optional[ItemRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> Item:
+        """Create Item
+
+        Creates an item.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param item_request:
+        :type item_request: ItemRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_item_serialize(
+            content_type=content_type,
+            item_request=item_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "Item",
+            '401': None,
+            '422': "Item",
+            '500': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def create_item_with_http_info(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        item_request: Optional[ItemRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[Item]:
+        """Create Item
+
+        Creates an item.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param item_request:
+        :type item_request: ItemRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_item_serialize(
+            content_type=content_type,
+            item_request=item_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "Item",
+            '401': None,
+            '422': "Item",
+            '500': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def create_item_without_preload_content(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        item_request: Optional[ItemRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create Item
+
+        Creates an item.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param item_request:
+        :type item_request: ItemRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_item_serialize(
+            content_type=content_type,
+            item_request=item_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "Item",
+            '401': None,
+            '422': "Item",
+            '500': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_item_serialize(
+        self,
+        content_type,
+        item_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        # process the form parameters
+        # process the body parameter
+        if item_request is not None:
+            _body_params = item_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/items',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def create_item_set(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        item_set_request: Optional[ItemSetRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ItemSet:
+        """Item Set Create
+
+        Creates an item set.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param item_set_request:
+        :type item_set_request: ItemSetRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_item_set_serialize(
+            content_type=content_type,
+            item_set_request=item_set_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "ItemSet",
+            '401': None,
+            '422': "ItemSet",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def create_item_set_with_http_info(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        item_set_request: Optional[ItemSetRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ItemSet]:
+        """Item Set Create
+
+        Creates an item set.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param item_set_request:
+        :type item_set_request: ItemSetRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_item_set_serialize(
+            content_type=content_type,
+            item_set_request=item_set_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "ItemSet",
+            '401': None,
+            '422': "ItemSet",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def create_item_set_without_preload_content(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        item_set_request: Optional[ItemSetRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Item Set Create
+
+        Creates an item set.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param item_set_request:
+        :type item_set_request: ItemSetRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_item_set_serialize(
+            content_type=content_type,
+            item_set_request=item_set_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "ItemSet",
+            '401': None,
+            '422': "ItemSet",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_item_set_serialize(
+        self,
+        content_type,
+        item_set_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        # process the form parameters
+        # process the body parameter
+        if item_set_request is not None:
+            _body_params = item_set_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/item_sets',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def delete_item(
+        self,
+        id: Annotated[StrictStr, Field(description="Primary key for the item")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """Delete Item
+
+        Deletes an item.
+
+        :param id: Primary key for the item (required)
+        :type id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_item_serialize(
+            id=id,
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def delete_item_with_http_info(
+        self,
+        id: Annotated[StrictStr, Field(description="Primary key for the item")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """Delete Item
+
+        Deletes an item.
+
+        :param id: Primary key for the item (required)
+        :type id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_item_serialize(
+            id=id,
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def delete_item_without_preload_content(
+        self,
+        id: Annotated[StrictStr, Field(description="Primary key for the item")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Delete Item
+
+        Deletes an item.
+
+        :param id: Primary key for the item (required)
+        :type id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._delete_item_serialize(
+            id=id,
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _delete_item_serialize(
+        self,
+        id,
+        content_type,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
+        # process the query parameters
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='DELETE',
+            resource_path='/items/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def delete_item_set(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -93,7 +1277,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_item_sets_item_set_id_serialize(
+        _param = self._delete_item_set_serialize(
             item_set_id=item_set_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -120,7 +1304,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def delete_item_sets_item_set_id_with_http_info(
+    async def delete_item_set_with_http_info(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -167,7 +1351,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_item_sets_item_set_id_serialize(
+        _param = self._delete_item_set_serialize(
             item_set_id=item_set_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -194,7 +1378,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def delete_item_sets_item_set_id_without_preload_content(
+    async def delete_item_set_without_preload_content(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -241,7 +1425,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_item_sets_item_set_id_serialize(
+        _param = self._delete_item_set_serialize(
             item_set_id=item_set_id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -263,7 +1447,7 @@ class ItemsApi:
         return response_data.response
 
 
-    def _delete_item_sets_item_set_id_serialize(
+    def _delete_item_set_serialize(
         self,
         item_set_id,
         content_type,
@@ -324,7 +1508,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def delete_item_sets_item_set_id_items_id(
+    async def delete_item_set_items(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         id: Annotated[StrictStr, Field(description="The primary key of the item")],
@@ -374,7 +1558,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_item_sets_item_set_id_items_id_serialize(
+        _param = self._delete_item_set_items_serialize(
             item_set_id=item_set_id,
             id=id,
             content_type=content_type,
@@ -403,7 +1587,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def delete_item_sets_item_set_id_items_id_with_http_info(
+    async def delete_item_set_items_with_http_info(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         id: Annotated[StrictStr, Field(description="The primary key of the item")],
@@ -453,7 +1637,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_item_sets_item_set_id_items_id_serialize(
+        _param = self._delete_item_set_items_serialize(
             item_set_id=item_set_id,
             id=id,
             content_type=content_type,
@@ -482,7 +1666,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def delete_item_sets_item_set_id_items_id_without_preload_content(
+    async def delete_item_set_items_without_preload_content(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         id: Annotated[StrictStr, Field(description="The primary key of the item")],
@@ -532,7 +1716,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_item_sets_item_set_id_items_id_serialize(
+        _param = self._delete_item_set_items_serialize(
             item_set_id=item_set_id,
             id=id,
             content_type=content_type,
@@ -556,7 +1740,7 @@ class ItemsApi:
         return response_data.response
 
 
-    def _delete_item_sets_item_set_id_items_id_serialize(
+    def _delete_item_set_items_serialize(
         self,
         item_set_id,
         id,
@@ -627,7 +1811,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def delete_items_id(
+    async def get_item(
         self,
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -643,10 +1827,10 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """Delete Item
+    ) -> Item:
+        """Get Item
 
-        Deletes an item.
+        Gets an item.
 
         :param id: Primary key for the item (required)
         :type id: str
@@ -674,7 +1858,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_items_id_serialize(
+        _param = self._get_item_serialize(
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -684,7 +1868,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '200': "Item",
             '401': None,
             '404': "ApiError",
             '500': "ApiError",
@@ -701,7 +1885,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def delete_items_id_with_http_info(
+    async def get_item_with_http_info(
         self,
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -717,10 +1901,10 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """Delete Item
+    ) -> ApiResponse[Item]:
+        """Get Item
 
-        Deletes an item.
+        Gets an item.
 
         :param id: Primary key for the item (required)
         :type id: str
@@ -748,7 +1932,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_items_id_serialize(
+        _param = self._get_item_serialize(
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -758,7 +1942,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '200': "Item",
             '401': None,
             '404': "ApiError",
             '500': "ApiError",
@@ -775,7 +1959,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def delete_items_id_without_preload_content(
+    async def get_item_without_preload_content(
         self,
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -792,9 +1976,9 @@ class ItemsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Delete Item
+        """Get Item
 
-        Deletes an item.
+        Gets an item.
 
         :param id: Primary key for the item (required)
         :type id: str
@@ -822,7 +2006,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_items_id_serialize(
+        _param = self._get_item_serialize(
             id=id,
             content_type=content_type,
             _request_auth=_request_auth,
@@ -832,7 +2016,7 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '200': "Item",
             '401': None,
             '404': "ApiError",
             '500': "ApiError",
@@ -844,7 +2028,7 @@ class ItemsApi:
         return response_data.response
 
 
-    def _delete_items_id_serialize(
+    def _get_item_serialize(
         self,
         id,
         content_type,
@@ -894,7 +2078,7 @@ class ItemsApi:
         ]
 
         return self.api_client.param_serialize(
-            method='DELETE',
+            method='GET',
             resource_path='/items/{id}',
             path_params=_path_params,
             query_params=_query_params,
@@ -912,7 +2096,289 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_item_sets(
+    async def get_item_set(
+        self,
+        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ItemSet:
+        """Get an Item Set
+
+        Gets an item set.
+
+        :param item_set_id: The primary key of the item set (required)
+        :type item_set_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_item_set_serialize(
+            item_set_id=item_set_id,
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ItemSet",
+            '401': None,
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def get_item_set_with_http_info(
+        self,
+        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[ItemSet]:
+        """Get an Item Set
+
+        Gets an item set.
+
+        :param item_set_id: The primary key of the item set (required)
+        :type item_set_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_item_set_serialize(
+            item_set_id=item_set_id,
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ItemSet",
+            '401': None,
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def get_item_set_without_preload_content(
+        self,
+        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get an Item Set
+
+        Gets an item set.
+
+        :param item_set_id: The primary key of the item set (required)
+        :type item_set_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_item_set_serialize(
+            item_set_id=item_set_id,
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "ItemSet",
+            '401': None,
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_item_set_serialize(
+        self,
+        item_set_id,
+        content_type,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if item_set_id is not None:
+            _path_params['item_set_id'] = item_set_id
+        # process the query parameters
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/item_sets/{item_set_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def list_item_sets(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
@@ -971,7 +2437,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_item_sets_serialize(
+        _param = self._list_item_sets_serialize(
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -1001,7 +2467,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_item_sets_with_http_info(
+    async def list_item_sets_with_http_info(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
@@ -1060,7 +2526,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_item_sets_serialize(
+        _param = self._list_item_sets_serialize(
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -1090,7 +2556,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_item_sets_without_preload_content(
+    async def list_item_sets_without_preload_content(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
@@ -1149,7 +2615,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_item_sets_serialize(
+        _param = self._list_item_sets_serialize(
             content_type=content_type,
             page=page,
             per_page=per_page,
@@ -1174,7 +2640,7 @@ class ItemsApi:
         return response_data.response
 
 
-    def _get_item_sets_serialize(
+    def _list_item_sets_serialize(
         self,
         content_type,
         page,
@@ -1264,10 +2730,14 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_item_sets_item_set_id(
+    async def list_items(
         self,
-        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
+        per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
+        search_text: Annotated[Optional[StrictStr], Field(description="search for records containing the text")] = None,
+        sort_by: Annotated[Optional[StrictStr], Field(description="order the returned records by a specified field")] = None,
+        order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1280,15 +2750,23 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ItemSet:
-        """Get an Item Set
+    ) -> ItemIndexBody:
+        """Item Index
 
-        Gets an item set.
+        Get all items.
 
-        :param item_set_id: The primary key of the item set (required)
-        :type item_set_id: str
         :param content_type: application/json
         :type content_type: str
+        :param page: page offset to display a range of records from
+        :type page: str
+        :param per_page: maximum number of records to return in the search
+        :type per_page: str
+        :param search_text: search for records containing the text
+        :type search_text: str
+        :param sort_by: order the returned records by a specified field
+        :type sort_by: str
+        :param order: sort the records in either ascending (asc) or descending (desc) order
+        :type order: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1311,9 +2789,13 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_item_sets_item_set_id_serialize(
-            item_set_id=item_set_id,
+        _param = self._list_items_serialize(
             content_type=content_type,
+            page=page,
+            per_page=per_page,
+            search_text=search_text,
+            sort_by=sort_by,
+            order=order,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1321,9 +2803,9 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ItemSet",
+            '200': "ItemIndexBody",
             '401': None,
-            '500': "ApiError",
+            '500': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1337,10 +2819,14 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_item_sets_item_set_id_with_http_info(
+    async def list_items_with_http_info(
         self,
-        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
+        per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
+        search_text: Annotated[Optional[StrictStr], Field(description="search for records containing the text")] = None,
+        sort_by: Annotated[Optional[StrictStr], Field(description="order the returned records by a specified field")] = None,
+        order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1353,15 +2839,23 @@ class ItemsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ItemSet]:
-        """Get an Item Set
+    ) -> ApiResponse[ItemIndexBody]:
+        """Item Index
 
-        Gets an item set.
+        Get all items.
 
-        :param item_set_id: The primary key of the item set (required)
-        :type item_set_id: str
         :param content_type: application/json
         :type content_type: str
+        :param page: page offset to display a range of records from
+        :type page: str
+        :param per_page: maximum number of records to return in the search
+        :type per_page: str
+        :param search_text: search for records containing the text
+        :type search_text: str
+        :param sort_by: order the returned records by a specified field
+        :type sort_by: str
+        :param order: sort the records in either ascending (asc) or descending (desc) order
+        :type order: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1384,9 +2878,13 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_item_sets_item_set_id_serialize(
-            item_set_id=item_set_id,
+        _param = self._list_items_serialize(
             content_type=content_type,
+            page=page,
+            per_page=per_page,
+            search_text=search_text,
+            sort_by=sort_by,
+            order=order,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1394,9 +2892,9 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ItemSet",
+            '200': "ItemIndexBody",
             '401': None,
-            '500': "ApiError",
+            '500': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1410,10 +2908,14 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_item_sets_item_set_id_without_preload_content(
+    async def list_items_without_preload_content(
         self,
-        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
+        per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
+        search_text: Annotated[Optional[StrictStr], Field(description="search for records containing the text")] = None,
+        sort_by: Annotated[Optional[StrictStr], Field(description="order the returned records by a specified field")] = None,
+        order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1427,14 +2929,22 @@ class ItemsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Get an Item Set
+        """Item Index
 
-        Gets an item set.
+        Get all items.
 
-        :param item_set_id: The primary key of the item set (required)
-        :type item_set_id: str
         :param content_type: application/json
         :type content_type: str
+        :param page: page offset to display a range of records from
+        :type page: str
+        :param per_page: maximum number of records to return in the search
+        :type per_page: str
+        :param search_text: search for records containing the text
+        :type search_text: str
+        :param sort_by: order the returned records by a specified field
+        :type sort_by: str
+        :param order: sort the records in either ascending (asc) or descending (desc) order
+        :type order: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1457,9 +2967,13 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_item_sets_item_set_id_serialize(
-            item_set_id=item_set_id,
+        _param = self._list_items_serialize(
             content_type=content_type,
+            page=page,
+            per_page=per_page,
+            search_text=search_text,
+            sort_by=sort_by,
+            order=order,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1467,9 +2981,9 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ItemSet",
+            '200': "ItemIndexBody",
             '401': None,
-            '500': "ApiError",
+            '500': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1478,10 +2992,14 @@ class ItemsApi:
         return response_data.response
 
 
-    def _get_item_sets_item_set_id_serialize(
+    def _list_items_serialize(
         self,
-        item_set_id,
         content_type,
+        page,
+        per_page,
+        search_text,
+        sort_by,
+        order,
         _request_auth,
         _content_type,
         _headers,
@@ -1503,9 +3021,27 @@ class ItemsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if item_set_id is not None:
-            _path_params['item_set_id'] = item_set_id
         # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if per_page is not None:
+            
+            _query_params.append(('per_page', per_page))
+            
+        if search_text is not None:
+            
+            _query_params.append(('search_text', search_text))
+            
+        if sort_by is not None:
+            
+            _query_params.append(('sort_by', sort_by))
+            
+        if order is not None:
+            
+            _query_params.append(('order', order))
+            
         # process the header parameters
         if content_type is not None:
             _header_params['Content-Type'] = content_type
@@ -1529,7 +3065,7 @@ class ItemsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/item_sets/{item_set_id}',
+            resource_path='/items',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1546,7 +3082,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_item_sets_item_set_id_items(
+    async def list_set_items(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1608,7 +3144,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_item_sets_item_set_id_items_serialize(
+        _param = self._list_set_items_serialize(
             item_set_id=item_set_id,
             content_type=content_type,
             page=page,
@@ -1640,7 +3176,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_item_sets_item_set_id_items_with_http_info(
+    async def list_set_items_with_http_info(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1702,7 +3238,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_item_sets_item_set_id_items_serialize(
+        _param = self._list_set_items_serialize(
             item_set_id=item_set_id,
             content_type=content_type,
             page=page,
@@ -1734,7 +3270,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_item_sets_item_set_id_items_without_preload_content(
+    async def list_set_items_without_preload_content(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -1796,7 +3332,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_item_sets_item_set_id_items_serialize(
+        _param = self._list_set_items_serialize(
             item_set_id=item_set_id,
             content_type=content_type,
             page=page,
@@ -1823,7 +3359,7 @@ class ItemsApi:
         return response_data.response
 
 
-    def _get_item_sets_item_set_id_items_serialize(
+    def _list_set_items_serialize(
         self,
         item_set_id,
         content_type,
@@ -1916,1246 +3452,9 @@ class ItemsApi:
 
 
     @validate_call
-    async def get_items(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
-        per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
-        search_text: Annotated[Optional[StrictStr], Field(description="search for records containing the text")] = None,
-        sort_by: Annotated[Optional[StrictStr], Field(description="order the returned records by a specified field")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ItemIndexBody:
-        """Item Index
-
-        Get all items.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param page: page offset to display a range of records from
-        :type page: str
-        :param per_page: maximum number of records to return in the search
-        :type per_page: str
-        :param search_text: search for records containing the text
-        :type search_text: str
-        :param sort_by: order the returned records by a specified field
-        :type sort_by: str
-        :param order: sort the records in either ascending (asc) or descending (desc) order
-        :type order: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_items_serialize(
-            content_type=content_type,
-            page=page,
-            per_page=per_page,
-            search_text=search_text,
-            sort_by=sort_by,
-            order=order,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ItemIndexBody",
-            '401': None,
-            '500': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def get_items_with_http_info(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
-        per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
-        search_text: Annotated[Optional[StrictStr], Field(description="search for records containing the text")] = None,
-        sort_by: Annotated[Optional[StrictStr], Field(description="order the returned records by a specified field")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ItemIndexBody]:
-        """Item Index
-
-        Get all items.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param page: page offset to display a range of records from
-        :type page: str
-        :param per_page: maximum number of records to return in the search
-        :type per_page: str
-        :param search_text: search for records containing the text
-        :type search_text: str
-        :param sort_by: order the returned records by a specified field
-        :type sort_by: str
-        :param order: sort the records in either ascending (asc) or descending (desc) order
-        :type order: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_items_serialize(
-            content_type=content_type,
-            page=page,
-            per_page=per_page,
-            search_text=search_text,
-            sort_by=sort_by,
-            order=order,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ItemIndexBody",
-            '401': None,
-            '500': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def get_items_without_preload_content(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
-        per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
-        search_text: Annotated[Optional[StrictStr], Field(description="search for records containing the text")] = None,
-        sort_by: Annotated[Optional[StrictStr], Field(description="order the returned records by a specified field")] = None,
-        order: Annotated[Optional[StrictStr], Field(description="sort the records in either ascending (asc) or descending (desc) order")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Item Index
-
-        Get all items.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param page: page offset to display a range of records from
-        :type page: str
-        :param per_page: maximum number of records to return in the search
-        :type per_page: str
-        :param search_text: search for records containing the text
-        :type search_text: str
-        :param sort_by: order the returned records by a specified field
-        :type sort_by: str
-        :param order: sort the records in either ascending (asc) or descending (desc) order
-        :type order: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_items_serialize(
-            content_type=content_type,
-            page=page,
-            per_page=per_page,
-            search_text=search_text,
-            sort_by=sort_by,
-            order=order,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ItemIndexBody",
-            '401': None,
-            '500': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_items_serialize(
-        self,
-        content_type,
-        page,
-        per_page,
-        search_text,
-        sort_by,
-        order,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if per_page is not None:
-            
-            _query_params.append(('per_page', per_page))
-            
-        if search_text is not None:
-            
-            _query_params.append(('search_text', search_text))
-            
-        if sort_by is not None:
-            
-            _query_params.append(('sort_by', sort_by))
-            
-        if order is not None:
-            
-            _query_params.append(('order', order))
-            
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/items',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def get_items_id(
+    async def update_item(
         self,
         id: Annotated[StrictStr, Field(description="Primary key for the item")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Item:
-        """Get Item
-
-        Gets an item.
-
-        :param id: Primary key for the item (required)
-        :type id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_items_id_serialize(
-            id=id,
-            content_type=content_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Item",
-            '401': None,
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def get_items_id_with_http_info(
-        self,
-        id: Annotated[StrictStr, Field(description="Primary key for the item")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Item]:
-        """Get Item
-
-        Gets an item.
-
-        :param id: Primary key for the item (required)
-        :type id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_items_id_serialize(
-            id=id,
-            content_type=content_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Item",
-            '401': None,
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def get_items_id_without_preload_content(
-        self,
-        id: Annotated[StrictStr, Field(description="Primary key for the item")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Get Item
-
-        Gets an item.
-
-        :param id: Primary key for the item (required)
-        :type id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_items_id_serialize(
-            id=id,
-            content_type=content_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Item",
-            '401': None,
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_items_id_serialize(
-        self,
-        id,
-        content_type,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/items/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def post_item_sets(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        item_set_request: Optional[ItemSetRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ItemSet:
-        """Item Set Create
-
-        Creates an item set.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param item_set_request:
-        :type item_set_request: ItemSetRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_item_sets_serialize(
-            content_type=content_type,
-            item_set_request=item_set_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ItemSet",
-            '401': None,
-            '422': "ItemSet",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def post_item_sets_with_http_info(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        item_set_request: Optional[ItemSetRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ItemSet]:
-        """Item Set Create
-
-        Creates an item set.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param item_set_request:
-        :type item_set_request: ItemSetRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_item_sets_serialize(
-            content_type=content_type,
-            item_set_request=item_set_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ItemSet",
-            '401': None,
-            '422': "ItemSet",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def post_item_sets_without_preload_content(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        item_set_request: Optional[ItemSetRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Item Set Create
-
-        Creates an item set.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param item_set_request:
-        :type item_set_request: ItemSetRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_item_sets_serialize(
-            content_type=content_type,
-            item_set_request=item_set_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "ItemSet",
-            '401': None,
-            '422': "ItemSet",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_item_sets_serialize(
-        self,
-        content_type,
-        item_set_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        # process the form parameters
-        # process the body parameter
-        if item_set_request is not None:
-            _body_params = item_set_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/item_sets',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def post_item_sets_item_set_id_items_id(
-        self,
-        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
-        id: Annotated[StrictStr, Field(description="The primary key of the item")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """Add Item to Set
-
-        Adds an item to the item set.
-
-        :param item_set_id: The primary key of the item set (required)
-        :type item_set_id: str
-        :param id: The primary key of the item (required)
-        :type id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_item_sets_item_set_id_items_id_serialize(
-            item_set_id=item_set_id,
-            id=id,
-            content_type=content_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '404': "ApiError",
-            '422': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def post_item_sets_item_set_id_items_id_with_http_info(
-        self,
-        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
-        id: Annotated[StrictStr, Field(description="The primary key of the item")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """Add Item to Set
-
-        Adds an item to the item set.
-
-        :param item_set_id: The primary key of the item set (required)
-        :type item_set_id: str
-        :param id: The primary key of the item (required)
-        :type id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_item_sets_item_set_id_items_id_serialize(
-            item_set_id=item_set_id,
-            id=id,
-            content_type=content_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '404': "ApiError",
-            '422': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def post_item_sets_item_set_id_items_id_without_preload_content(
-        self,
-        item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
-        id: Annotated[StrictStr, Field(description="The primary key of the item")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Add Item to Set
-
-        Adds an item to the item set.
-
-        :param item_set_id: The primary key of the item set (required)
-        :type item_set_id: str
-        :param id: The primary key of the item (required)
-        :type id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_item_sets_item_set_id_items_id_serialize(
-            item_set_id=item_set_id,
-            id=id,
-            content_type=content_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '404': "ApiError",
-            '422': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_item_sets_item_set_id_items_id_serialize(
-        self,
-        item_set_id,
-        id,
-        content_type,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if item_set_id is not None:
-            _path_params['item_set_id'] = item_set_id
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/item_sets/{item_set_id}/items/{id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def post_items(
-        self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_request: Optional[ItemRequest] = None,
         _request_timeout: Union[
@@ -3171,10 +3470,12 @@ class ItemsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Item:
-        """Create Item
+        """Update Item
 
-        Creates an item.
+        Updates an item.
 
+        :param id: Primary key for the item (required)
+        :type id: str
         :param content_type: application/json
         :type content_type: str
         :param item_request:
@@ -3201,7 +3502,8 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_items_serialize(
+        _param = self._update_item_serialize(
+            id=id,
             content_type=content_type,
             item_request=item_request,
             _request_auth=_request_auth,
@@ -3211,10 +3513,10 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Item",
+            '200': "Item",
             '401': None,
-            '422': "Item",
-            '500': None,
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -3228,8 +3530,9 @@ class ItemsApi:
 
 
     @validate_call
-    async def post_items_with_http_info(
+    async def update_item_with_http_info(
         self,
+        id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_request: Optional[ItemRequest] = None,
         _request_timeout: Union[
@@ -3245,10 +3548,12 @@ class ItemsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Item]:
-        """Create Item
+        """Update Item
 
-        Creates an item.
+        Updates an item.
 
+        :param id: Primary key for the item (required)
+        :type id: str
         :param content_type: application/json
         :type content_type: str
         :param item_request:
@@ -3275,7 +3580,8 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_items_serialize(
+        _param = self._update_item_serialize(
+            id=id,
             content_type=content_type,
             item_request=item_request,
             _request_auth=_request_auth,
@@ -3285,10 +3591,10 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Item",
+            '200': "Item",
             '401': None,
-            '422': "Item",
-            '500': None,
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -3302,8 +3608,9 @@ class ItemsApi:
 
 
     @validate_call
-    async def post_items_without_preload_content(
+    async def update_item_without_preload_content(
         self,
+        id: Annotated[StrictStr, Field(description="Primary key for the item")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         item_request: Optional[ItemRequest] = None,
         _request_timeout: Union[
@@ -3319,10 +3626,12 @@ class ItemsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Create Item
+        """Update Item
 
-        Creates an item.
+        Updates an item.
 
+        :param id: Primary key for the item (required)
+        :type id: str
         :param content_type: application/json
         :type content_type: str
         :param item_request:
@@ -3349,7 +3658,8 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_items_serialize(
+        _param = self._update_item_serialize(
+            id=id,
             content_type=content_type,
             item_request=item_request,
             _request_auth=_request_auth,
@@ -3359,10 +3669,10 @@ class ItemsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '201': "Item",
+            '200': "Item",
             '401': None,
-            '422': "Item",
-            '500': None,
+            '404': "ApiError",
+            '500': "ApiError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -3371,8 +3681,9 @@ class ItemsApi:
         return response_data.response
 
 
-    def _post_items_serialize(
+    def _update_item_serialize(
         self,
+        id,
         content_type,
         item_request,
         _request_auth,
@@ -3396,6 +3707,8 @@ class ItemsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         if content_type is not None:
@@ -3434,8 +3747,8 @@ class ItemsApi:
         ]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/items',
+            method='PUT',
+            resource_path='/items/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3452,7 +3765,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def put_item_sets_item_set_id(
+    async def update_item_set(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3502,7 +3815,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_item_sets_item_set_id_serialize(
+        _param = self._update_item_set_serialize(
             item_set_id=item_set_id,
             content_type=content_type,
             item_set_request=item_set_request,
@@ -3531,7 +3844,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def put_item_sets_item_set_id_with_http_info(
+    async def update_item_set_with_http_info(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3581,7 +3894,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_item_sets_item_set_id_serialize(
+        _param = self._update_item_set_serialize(
             item_set_id=item_set_id,
             content_type=content_type,
             item_set_request=item_set_request,
@@ -3610,7 +3923,7 @@ class ItemsApi:
 
 
     @validate_call
-    async def put_item_sets_item_set_id_without_preload_content(
+    async def update_item_set_without_preload_content(
         self,
         item_set_id: Annotated[StrictStr, Field(description="The primary key of the item set")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
@@ -3660,7 +3973,7 @@ class ItemsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_item_sets_item_set_id_serialize(
+        _param = self._update_item_set_serialize(
             item_set_id=item_set_id,
             content_type=content_type,
             item_set_request=item_set_request,
@@ -3684,7 +3997,7 @@ class ItemsApi:
         return response_data.response
 
 
-    def _put_item_sets_item_set_id_serialize(
+    def _update_item_set_serialize(
         self,
         item_set_id,
         content_type,
@@ -3752,319 +4065,6 @@ class ItemsApi:
         return self.api_client.param_serialize(
             method='PUT',
             resource_path='/item_sets/{item_set_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def put_items_id(
-        self,
-        id: Annotated[StrictStr, Field(description="Primary key for the item")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        item_request: Optional[ItemRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Item:
-        """Update Item
-
-        Updates an item.
-
-        :param id: Primary key for the item (required)
-        :type id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param item_request:
-        :type item_request: ItemRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._put_items_id_serialize(
-            id=id,
-            content_type=content_type,
-            item_request=item_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Item",
-            '401': None,
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def put_items_id_with_http_info(
-        self,
-        id: Annotated[StrictStr, Field(description="Primary key for the item")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        item_request: Optional[ItemRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Item]:
-        """Update Item
-
-        Updates an item.
-
-        :param id: Primary key for the item (required)
-        :type id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param item_request:
-        :type item_request: ItemRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._put_items_id_serialize(
-            id=id,
-            content_type=content_type,
-            item_request=item_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Item",
-            '401': None,
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def put_items_id_without_preload_content(
-        self,
-        id: Annotated[StrictStr, Field(description="Primary key for the item")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        item_request: Optional[ItemRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Update Item
-
-        Updates an item.
-
-        :param id: Primary key for the item (required)
-        :type id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param item_request:
-        :type item_request: ItemRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._put_items_id_serialize(
-            id=id,
-            content_type=content_type,
-            item_request=item_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Item",
-            '401': None,
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _put_items_id_serialize(
-        self,
-        id,
-        content_type,
-        item_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if id is not None:
-            _path_params['id'] = id
-        # process the query parameters
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        # process the form parameters
-        # process the body parameter
-        if item_request is not None:
-            _body_params = item_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/items/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

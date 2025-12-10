@@ -27,10 +27,10 @@ class AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment(Bas
     """
     AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    loyalty_program_id: Optional[StrictInt] = None
+    id: StrictInt
+    loyalty_program_id: StrictInt
     external_id: Optional[StrictStr] = None
-    source: Optional[StrictStr] = None
+    source: StrictStr
     __properties: ClassVar[List[str]] = ["id", "loyalty_program_id", "external_id", "source"]
 
     model_config = ConfigDict(

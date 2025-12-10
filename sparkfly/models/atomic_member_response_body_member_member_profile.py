@@ -27,7 +27,7 @@ class AtomicMemberResponseBodyMemberMemberProfile(BaseModel):
     """
     AtomicMemberResponseBodyMemberMemberProfile
     """ # noqa: E501
-    id: Optional[StrictInt] = None
+    id: StrictInt
     first_name: Optional[StrictStr] = None
     last_name: Optional[StrictStr] = None
     email: Optional[StrictStr] = None

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [optional] 
-**identifier** | **str** |  | [optional] 
+**id** | **int** |  | 
+**identifier** | **str** |  | 
 **member_profile** | [**AtomicMemberResponseBodyMemberMemberProfile**](AtomicMemberResponseBodyMemberMemberProfile.md) |  | [optional] 
 **credentials** | [**List[AtomicMemberResponseBodyMemberCredentialsInner]**](AtomicMemberResponseBodyMemberCredentialsInner.md) |  | [optional] 
 **loyalty_enrollments** | [**List[AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner]**](AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner.md) |  | [optional] 

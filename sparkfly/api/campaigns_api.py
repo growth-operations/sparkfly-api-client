@@ -44,6 +44,571 @@ class CampaignsApi:
 
 
     @validate_call
+    async def approve_campaign(
+        self,
+        campaign_id: Annotated[StrictInt, Field(description="primary identifier of the campaign")],
+        action: Annotated[StrictStr, Field(description="desired status of the campaign")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CampaignResponse:
+        """Set a Campaign's Status
+
+        Set the status of a currently pending or suspended campaign to active.
+
+        :param campaign_id: primary identifier of the campaign (required)
+        :type campaign_id: int
+        :param action: desired status of the campaign (required)
+        :type action: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._approve_campaign_serialize(
+            campaign_id=campaign_id,
+            action=action,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CampaignResponse",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def approve_campaign_with_http_info(
+        self,
+        campaign_id: Annotated[StrictInt, Field(description="primary identifier of the campaign")],
+        action: Annotated[StrictStr, Field(description="desired status of the campaign")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CampaignResponse]:
+        """Set a Campaign's Status
+
+        Set the status of a currently pending or suspended campaign to active.
+
+        :param campaign_id: primary identifier of the campaign (required)
+        :type campaign_id: int
+        :param action: desired status of the campaign (required)
+        :type action: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._approve_campaign_serialize(
+            campaign_id=campaign_id,
+            action=action,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CampaignResponse",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def approve_campaign_without_preload_content(
+        self,
+        campaign_id: Annotated[StrictInt, Field(description="primary identifier of the campaign")],
+        action: Annotated[StrictStr, Field(description="desired status of the campaign")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Set a Campaign's Status
+
+        Set the status of a currently pending or suspended campaign to active.
+
+        :param campaign_id: primary identifier of the campaign (required)
+        :type campaign_id: int
+        :param action: desired status of the campaign (required)
+        :type action: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._approve_campaign_serialize(
+            campaign_id=campaign_id,
+            action=action,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CampaignResponse",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _approve_campaign_serialize(
+        self,
+        campaign_id,
+        action,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if campaign_id is not None:
+            _path_params['campaign_id'] = campaign_id
+        if action is not None:
+            _path_params['action'] = action
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='PUT',
+            resource_path='/campaigns/{campaign_id}/actions/{action}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def create_campaign(
+        self,
+        campaign_request: Optional[CampaignRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> CampaignResponse:
+        """Create a Campaign
+
+        Creates a campaign.  redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date. IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
+
+        :param campaign_request:
+        :type campaign_request: CampaignRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_campaign_serialize(
+            campaign_request=campaign_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CampaignResponse",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def create_campaign_with_http_info(
+        self,
+        campaign_request: Optional[CampaignRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[CampaignResponse]:
+        """Create a Campaign
+
+        Creates a campaign.  redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date. IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
+
+        :param campaign_request:
+        :type campaign_request: CampaignRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_campaign_serialize(
+            campaign_request=campaign_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CampaignResponse",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def create_campaign_without_preload_content(
+        self,
+        campaign_request: Optional[CampaignRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create a Campaign
+
+        Creates a campaign.  redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date. IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
+
+        :param campaign_request:
+        :type campaign_request: CampaignRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_campaign_serialize(
+            campaign_request=campaign_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "CampaignResponse",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_campaign_serialize(
+        self,
+        campaign_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if campaign_request is not None:
+            _body_params = campaign_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/campaigns',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
     async def get_campaign(
         self,
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
@@ -311,7 +876,7 @@ class CampaignsApi:
 
 
     @validate_call
-    async def get_campaign_tags(
+    async def list_campaign_tags(
         self,
         _request_timeout: Union[
             None,
@@ -352,7 +917,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_campaign_tags_serialize(
+        _param = self._list_campaign_tags_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -376,7 +941,7 @@ class CampaignsApi:
 
 
     @validate_call
-    async def get_campaign_tags_with_http_info(
+    async def list_campaign_tags_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -417,7 +982,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_campaign_tags_serialize(
+        _param = self._list_campaign_tags_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -441,7 +1006,7 @@ class CampaignsApi:
 
 
     @validate_call
-    async def get_campaign_tags_without_preload_content(
+    async def list_campaign_tags_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -482,7 +1047,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_campaign_tags_serialize(
+        _param = self._list_campaign_tags_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -501,7 +1066,7 @@ class CampaignsApi:
         return response_data.response
 
 
-    def _get_campaign_tags_serialize(
+    def _list_campaign_tags_serialize(
         self,
         _request_auth,
         _content_type,
@@ -563,7 +1128,7 @@ class CampaignsApi:
 
 
     @validate_call
-    async def get_campaigns(
+    async def list_campaigns(
         self,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -628,7 +1193,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_campaigns_serialize(
+        _param = self._list_campaigns_serialize(
             page=page,
             per_page=per_page,
             order=order,
@@ -660,7 +1225,7 @@ class CampaignsApi:
 
 
     @validate_call
-    async def get_campaigns_with_http_info(
+    async def list_campaigns_with_http_info(
         self,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -725,7 +1290,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_campaigns_serialize(
+        _param = self._list_campaigns_serialize(
             page=page,
             per_page=per_page,
             order=order,
@@ -757,7 +1322,7 @@ class CampaignsApi:
 
 
     @validate_call
-    async def get_campaigns_without_preload_content(
+    async def list_campaigns_without_preload_content(
         self,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -822,7 +1387,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_campaigns_serialize(
+        _param = self._list_campaigns_serialize(
             page=page,
             per_page=per_page,
             order=order,
@@ -849,7 +1414,7 @@ class CampaignsApi:
         return response_data.response
 
 
-    def _get_campaigns_serialize(
+    def _list_campaigns_serialize(
         self,
         page,
         per_page,
@@ -951,290 +1516,7 @@ class CampaignsApi:
 
 
     @validate_call
-    async def post_campaign(
-        self,
-        campaign_request: Optional[CampaignRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CampaignResponse:
-        """Create a Campaign
-
-        Creates a campaign.  redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date. IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
-
-        :param campaign_request:
-        :type campaign_request: CampaignRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_campaign_serialize(
-            campaign_request=campaign_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CampaignResponse",
-            '400': "ApiError",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def post_campaign_with_http_info(
-        self,
-        campaign_request: Optional[CampaignRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CampaignResponse]:
-        """Create a Campaign
-
-        Creates a campaign.  redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date. IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
-
-        :param campaign_request:
-        :type campaign_request: CampaignRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_campaign_serialize(
-            campaign_request=campaign_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CampaignResponse",
-            '400': "ApiError",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def post_campaign_without_preload_content(
-        self,
-        campaign_request: Optional[CampaignRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Create a Campaign
-
-        Creates a campaign.  redemption_grace_period is the grace period provided for generating and redeeming codes.  If not provided. The default will be the related Campaign's End Date. If not provided however a grace period exists on the Campaign. The grace period will be the Campaign End Date + Campaign Grace Period Days.  If the grace period exists on the Offer but is not defined in the campaign. The grace period will be the Campaign End Date + Offer Grace Period Days = Code Redemption Expiration Date. IF the grace period exists on the Offer and IS defined in the campaign, then the grace period will be Campaign End Date + Campaign Grace Period Days = Code Redemption Expiration Date.  In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.  (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
-
-        :param campaign_request:
-        :type campaign_request: CampaignRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_campaign_serialize(
-            campaign_request=campaign_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CampaignResponse",
-            '400': "ApiError",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_campaign_serialize(
-        self,
-        campaign_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if campaign_request is not None:
-            _body_params = campaign_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/campaigns',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def put_campaign(
+    async def update_campaign(
         self,
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
         campaign_request: Optional[CampaignRequest] = None,
@@ -1281,7 +1563,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_campaign_serialize(
+        _param = self._update_campaign_serialize(
             campaign_id=campaign_id,
             campaign_request=campaign_request,
             _request_auth=_request_auth,
@@ -1308,7 +1590,7 @@ class CampaignsApi:
 
 
     @validate_call
-    async def put_campaign_with_http_info(
+    async def update_campaign_with_http_info(
         self,
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
         campaign_request: Optional[CampaignRequest] = None,
@@ -1355,7 +1637,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_campaign_serialize(
+        _param = self._update_campaign_serialize(
             campaign_id=campaign_id,
             campaign_request=campaign_request,
             _request_auth=_request_auth,
@@ -1382,7 +1664,7 @@ class CampaignsApi:
 
 
     @validate_call
-    async def put_campaign_without_preload_content(
+    async def update_campaign_without_preload_content(
         self,
         campaign_id: Annotated[StrictStr, Field(description="search for records with a matching campaign ID")],
         campaign_request: Optional[CampaignRequest] = None,
@@ -1429,7 +1711,7 @@ class CampaignsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_campaign_serialize(
+        _param = self._update_campaign_serialize(
             campaign_id=campaign_id,
             campaign_request=campaign_request,
             _request_auth=_request_auth,
@@ -1451,7 +1733,7 @@ class CampaignsApi:
         return response_data.response
 
 
-    def _put_campaign_serialize(
+    def _update_campaign_serialize(
         self,
         campaign_id,
         campaign_request,
@@ -1516,288 +1798,6 @@ class CampaignsApi:
         return self.api_client.param_serialize(
             method='PUT',
             resource_path='/campaigns/{campaign_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def put_campaigns_campaign_id_actions_approve(
-        self,
-        campaign_id: Annotated[StrictInt, Field(description="primary identifier of the campaign")],
-        action: Annotated[StrictStr, Field(description="desired status of the campaign")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> CampaignResponse:
-        """Set a Campaign's Status
-
-        Set the status of a currently pending or suspended campaign to active.
-
-        :param campaign_id: primary identifier of the campaign (required)
-        :type campaign_id: int
-        :param action: desired status of the campaign (required)
-        :type action: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._put_campaigns_campaign_id_actions_approve_serialize(
-            campaign_id=campaign_id,
-            action=action,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CampaignResponse",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def put_campaigns_campaign_id_actions_approve_with_http_info(
-        self,
-        campaign_id: Annotated[StrictInt, Field(description="primary identifier of the campaign")],
-        action: Annotated[StrictStr, Field(description="desired status of the campaign")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[CampaignResponse]:
-        """Set a Campaign's Status
-
-        Set the status of a currently pending or suspended campaign to active.
-
-        :param campaign_id: primary identifier of the campaign (required)
-        :type campaign_id: int
-        :param action: desired status of the campaign (required)
-        :type action: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._put_campaigns_campaign_id_actions_approve_serialize(
-            campaign_id=campaign_id,
-            action=action,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CampaignResponse",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def put_campaigns_campaign_id_actions_approve_without_preload_content(
-        self,
-        campaign_id: Annotated[StrictInt, Field(description="primary identifier of the campaign")],
-        action: Annotated[StrictStr, Field(description="desired status of the campaign")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Set a Campaign's Status
-
-        Set the status of a currently pending or suspended campaign to active.
-
-        :param campaign_id: primary identifier of the campaign (required)
-        :type campaign_id: int
-        :param action: desired status of the campaign (required)
-        :type action: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._put_campaigns_campaign_id_actions_approve_serialize(
-            campaign_id=campaign_id,
-            action=action,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "CampaignResponse",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _put_campaigns_campaign_id_actions_approve_serialize(
-        self,
-        campaign_id,
-        action,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if campaign_id is not None:
-            _path_params['campaign_id'] = campaign_id
-        if action is not None:
-            _path_params['action'] = action
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/campaigns/{campaign_id}/actions/{action}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loyalty_enrollment** | [**AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment**](AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment.md) |  | [optional] 
+**loyalty_enrollment** | [**AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment**](AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment.md) |  | 
 
 ## Example
 

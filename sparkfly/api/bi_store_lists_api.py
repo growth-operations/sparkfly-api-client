@@ -41,7 +41,7 @@ class BIStoreListsApi:
 
 
     @validate_call
-    async def get_merchants_bi_store_lists(
+    async def list_bi_store_lists(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -85,7 +85,7 @@ class BIStoreListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_merchants_bi_store_lists_serialize(
+        _param = self._list_bi_store_lists_serialize(
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -109,7 +109,7 @@ class BIStoreListsApi:
 
 
     @validate_call
-    async def get_merchants_bi_store_lists_with_http_info(
+    async def list_bi_store_lists_with_http_info(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -153,7 +153,7 @@ class BIStoreListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_merchants_bi_store_lists_serialize(
+        _param = self._list_bi_store_lists_serialize(
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -177,7 +177,7 @@ class BIStoreListsApi:
 
 
     @validate_call
-    async def get_merchants_bi_store_lists_without_preload_content(
+    async def list_bi_store_lists_without_preload_content(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -221,7 +221,7 @@ class BIStoreListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_merchants_bi_store_lists_serialize(
+        _param = self._list_bi_store_lists_serialize(
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -240,7 +240,7 @@ class BIStoreListsApi:
         return response_data.response
 
 
-    def _get_merchants_bi_store_lists_serialize(
+    def _list_bi_store_lists_serialize(
         self,
         content_type,
         _request_auth,

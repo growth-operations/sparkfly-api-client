@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_templates**](TemplatesApi.md#get_templates) | **GET** /templates | Get all Templates
+[**list_templates**](TemplatesApi.md#list_templates) | **GET** /templates | Get all Templates
 
 
-# **get_templates**
-> Template get_templates(content_type=content_type)
+# **list_templates**
+> Template list_templates(content_type=content_type)
 
 Get all Templates
 
@@ -49,11 +49,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Get all Templates
-        api_response = await api_instance.get_templates(content_type=content_type)
-        print("The response of TemplatesApi->get_templates:\n")
+        api_response = await api_instance.list_templates(content_type=content_type)
+        print("The response of TemplatesApi->list_templates:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling TemplatesApi->get_templates: %s\n" % e)
+        print("Exception when calling TemplatesApi->list_templates: %s\n" % e)
 ```
 
 

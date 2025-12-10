@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from sparkfly.models.atomic_member_response_body_member_loyalty_enrollments_inner_loyalty_enrollment import AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner(BaseModel):
     """
     AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInner
     """ # noqa: E501
-    loyalty_enrollment: Optional[AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment] = None
+    loyalty_enrollment: AtomicMemberResponseBodyMemberLoyaltyEnrollmentsInnerLoyaltyEnrollment
     __properties: ClassVar[List[str]] = ["loyalty_enrollment"]
 
     model_config = ConfigDict(

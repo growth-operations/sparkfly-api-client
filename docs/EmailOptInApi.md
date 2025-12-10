@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_optins**](EmailOptInApi.md#post_optins) | **POST** /optins | Email Opt In
+[**create_optin**](EmailOptInApi.md#create_optin) | **POST** /optins | Email Opt In
 
 
-# **post_optins**
-> EmailOptIn post_optins(address, xid, content_type=content_type, code=code)
+# **create_optin**
+> EmailOptIn create_optin(address, xid, content_type=content_type, code=code)
 
 Email Opt In
 
@@ -52,11 +52,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Email Opt In
-        api_response = await api_instance.post_optins(address, xid, content_type=content_type, code=code)
-        print("The response of EmailOptInApi->post_optins:\n")
+        api_response = await api_instance.create_optin(address, xid, content_type=content_type, code=code)
+        print("The response of EmailOptInApi->create_optin:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling EmailOptInApi->post_optins: %s\n" % e)
+        print("Exception when calling EmailOptInApi->create_optin: %s\n" % e)
 ```
 
 

@@ -41,7 +41,7 @@ class EmailOptInApi:
 
 
     @validate_call
-    async def post_optins(
+    async def create_optin(
         self,
         address: Annotated[StrictStr, Field(description="email address for email opt in")],
         xid: Annotated[StrictStr, Field(description="xid for email opt in")],
@@ -94,7 +94,7 @@ class EmailOptInApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_optins_serialize(
+        _param = self._create_optin_serialize(
             address=address,
             xid=xid,
             content_type=content_type,
@@ -123,7 +123,7 @@ class EmailOptInApi:
 
 
     @validate_call
-    async def post_optins_with_http_info(
+    async def create_optin_with_http_info(
         self,
         address: Annotated[StrictStr, Field(description="email address for email opt in")],
         xid: Annotated[StrictStr, Field(description="xid for email opt in")],
@@ -176,7 +176,7 @@ class EmailOptInApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_optins_serialize(
+        _param = self._create_optin_serialize(
             address=address,
             xid=xid,
             content_type=content_type,
@@ -205,7 +205,7 @@ class EmailOptInApi:
 
 
     @validate_call
-    async def post_optins_without_preload_content(
+    async def create_optin_without_preload_content(
         self,
         address: Annotated[StrictStr, Field(description="email address for email opt in")],
         xid: Annotated[StrictStr, Field(description="xid for email opt in")],
@@ -258,7 +258,7 @@ class EmailOptInApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_optins_serialize(
+        _param = self._create_optin_serialize(
             address=address,
             xid=xid,
             content_type=content_type,
@@ -282,7 +282,7 @@ class EmailOptInApi:
         return response_data.response
 
 
-    def _post_optins_serialize(
+    def _create_optin_serialize(
         self,
         address,
         xid,

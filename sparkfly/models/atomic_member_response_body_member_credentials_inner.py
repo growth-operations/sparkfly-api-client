@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from sparkfly.models.atomic_member_response_body_member_credentials_inner_credential import AtomicMemberResponseBodyMemberCredentialsInnerCredential
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,7 +28,7 @@ class AtomicMemberResponseBodyMemberCredentialsInner(BaseModel):
     """
     AtomicMemberResponseBodyMemberCredentialsInner
     """ # noqa: E501
-    credential: Optional[AtomicMemberResponseBodyMemberCredentialsInnerCredential] = None
+    credential: AtomicMemberResponseBodyMemberCredentialsInnerCredential
     __properties: ClassVar[List[str]] = ["credential"]
 
     model_config = ConfigDict(

@@ -4,176 +4,13 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**delete_impressions_id**](ImpressionsApi.md#delete_impressions_id) | **DELETE** /impressions/{id} | Delete an Impression
-[**get_impressions**](ImpressionsApi.md#get_impressions) | **GET** /impressions | List Impressions
-[**post_impressions**](ImpressionsApi.md#post_impressions) | **POST** /impressions | Create an Impression
+[**create_impression**](ImpressionsApi.md#create_impression) | **POST** /impressions | Create an Impression
+[**delete_impression**](ImpressionsApi.md#delete_impression) | **DELETE** /impressions/{id} | Delete an Impression
+[**list_impressions**](ImpressionsApi.md#list_impressions) | **GET** /impressions | List Impressions
 
 
-# **delete_impressions_id**
-> delete_impressions_id(id, content_type=content_type)
-
-Delete an Impression
-
-Deletes an impression.
-
-### Example
-
-* Api Key Authentication (XAuthToken):
-
-```python
-import sparkfly
-from sparkfly.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = sparkfly.Configuration(
-    host = "https://api-staging.sparkfly.com/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: XAuthToken
-configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-async with sparkfly.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sparkfly.ImpressionsApi(api_client)
-    id = 'id_example' # str | primary id for impressions
-    content_type = 'content_type_example' # str | application/json (optional)
-
-    try:
-        # Delete an Impression
-        await api_instance.delete_impressions_id(id, content_type=content_type)
-    except Exception as e:
-        print("Exception when calling ImpressionsApi->delete_impressions_id: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **str**| primary id for impressions | 
- **content_type** | **str**| application/json | [optional] 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[XAuthToken](../README.md#XAuthToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
-**404** | Example response |  -  |
-**500** | Example response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_impressions**
-> ImpressionIndexBody get_impressions(content_type=content_type)
-
-List Impressions
-
-List impressions.
-
-### Example
-
-* Api Key Authentication (XAuthToken):
-
-```python
-import sparkfly
-from sparkfly.models.impression_index_body import ImpressionIndexBody
-from sparkfly.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
-# See configuration.py for a list of all supported configuration parameters.
-configuration = sparkfly.Configuration(
-    host = "https://api-staging.sparkfly.com/v1.0"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: XAuthToken
-configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-async with sparkfly.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = sparkfly.ImpressionsApi(api_client)
-    content_type = 'content_type_example' # str | application/json (optional)
-
-    try:
-        # List Impressions
-        api_response = await api_instance.get_impressions(content_type=content_type)
-        print("The response of ImpressionsApi->get_impressions:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling ImpressionsApi->get_impressions: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **content_type** | **str**| application/json | [optional] 
-
-### Return type
-
-[**ImpressionIndexBody**](ImpressionIndexBody.md)
-
-### Authorization
-
-[XAuthToken](../README.md#XAuthToken)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Example response |  -  |
-**401** | Unauthorized |  -  |
-**404** | Example response |  -  |
-**500** | Example response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **post_impressions**
-> Impression post_impressions(content_type=content_type, impression_request=impression_request)
+# **create_impression**
+> Impression create_impression(content_type=content_type, impression_request=impression_request)
 
 Create an Impression
 
@@ -216,11 +53,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Create an Impression
-        api_response = await api_instance.post_impressions(content_type=content_type, impression_request=impression_request)
-        print("The response of ImpressionsApi->post_impressions:\n")
+        api_response = await api_instance.create_impression(content_type=content_type, impression_request=impression_request)
+        print("The response of ImpressionsApi->create_impression:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ImpressionsApi->post_impressions: %s\n" % e)
+        print("Exception when calling ImpressionsApi->create_impression: %s\n" % e)
 ```
 
 
@@ -253,6 +90,169 @@ Name | Type | Description  | Notes
 **201** | Example response |  -  |
 **401** | Unauthorized |  -  |
 **422** | Example response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_impression**
+> delete_impression(id, content_type=content_type)
+
+Delete an Impression
+
+Deletes an impression.
+
+### Example
+
+* Api Key Authentication (XAuthToken):
+
+```python
+import sparkfly
+from sparkfly.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sparkfly.Configuration(
+    host = "https://api-staging.sparkfly.com/v1.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with sparkfly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = sparkfly.ImpressionsApi(api_client)
+    id = 'id_example' # str | primary id for impressions
+    content_type = 'content_type_example' # str | application/json (optional)
+
+    try:
+        # Delete an Impression
+        await api_instance.delete_impression(id, content_type=content_type)
+    except Exception as e:
+        print("Exception when calling ImpressionsApi->delete_impression: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **str**| primary id for impressions | 
+ **content_type** | **str**| application/json | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[XAuthToken](../README.md#XAuthToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+**404** | Example response |  -  |
+**500** | Example response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **list_impressions**
+> ImpressionIndexBody list_impressions(content_type=content_type)
+
+List Impressions
+
+List impressions.
+
+### Example
+
+* Api Key Authentication (XAuthToken):
+
+```python
+import sparkfly
+from sparkfly.models.impression_index_body import ImpressionIndexBody
+from sparkfly.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api-staging.sparkfly.com/v1.0
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sparkfly.Configuration(
+    host = "https://api-staging.sparkfly.com/v1.0"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: XAuthToken
+configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['XAuthToken'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with sparkfly.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = sparkfly.ImpressionsApi(api_client)
+    content_type = 'content_type_example' # str | application/json (optional)
+
+    try:
+        # List Impressions
+        api_response = await api_instance.list_impressions(content_type=content_type)
+        print("The response of ImpressionsApi->list_impressions:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ImpressionsApi->list_impressions: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **content_type** | **str**| application/json | [optional] 
+
+### Return type
+
+[**ImpressionIndexBody**](ImpressionIndexBody.md)
+
+### Authorization
+
+[XAuthToken](../README.md#XAuthToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Example response |  -  |
+**401** | Unauthorized |  -  |
+**404** | Example response |  -  |
+**500** | Example response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

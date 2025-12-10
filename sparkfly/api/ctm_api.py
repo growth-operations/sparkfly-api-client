@@ -44,7 +44,1449 @@ class CtmApi:
 
 
     @validate_call
-    async def get_ctm_custom_messages(
+    async def ctm_allocate(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """CTM Allocate
+
+        ctm allocate
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param credential: search for records with a matching credential (required)
+        :type credential: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param offer_id: search for records with a matching offer id
+        :type offer_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_allocate_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            credential=credential,
+            content_type=content_type,
+            token=token,
+            offer_id=offer_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def ctm_allocate_with_http_info(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """CTM Allocate
+
+        ctm allocate
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param credential: search for records with a matching credential (required)
+        :type credential: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param offer_id: search for records with a matching offer id
+        :type offer_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_allocate_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            credential=credential,
+            content_type=content_type,
+            token=token,
+            offer_id=offer_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def ctm_allocate_without_preload_content(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """CTM Allocate
+
+        ctm allocate
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param credential: search for records with a matching credential (required)
+        :type credential: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param offer_id: search for records with a matching offer id
+        :type offer_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_allocate_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            credential=credential,
+            content_type=content_type,
+            token=token,
+            offer_id=offer_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ctm_allocate_serialize(
+        self,
+        tran_id,
+        term_id,
+        site_id,
+        credential,
+        content_type,
+        token,
+        offer_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if site_id is not None:
+            _path_params['site_id'] = site_id
+        if credential is not None:
+            _path_params['credential'] = credential
+        # process the query parameters
+        if token is not None:
+            
+            _query_params.append(('token', token))
+            
+        if offer_id is not None:
+            
+            _query_params.append(('offer_id', offer_id))
+            
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        if tran_id is not None:
+            _header_params['tran_id'] = tran_id
+        if term_id is not None:
+            _header_params['term_id'] = term_id
+        # process the form parameters
+        # process the body parameter
+
+
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/ctm/allocate/{site_id}/{credential}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def ctm_create_member(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """CTM Update Response
+
+        ctm update response
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param credential: search for records with a matching credential (required)
+        :type credential: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param ctm_transaction_job_request:
+        :type ctm_transaction_job_request: CtmTransactionJobRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_create_member_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            credential=credential,
+            content_type=content_type,
+            token=token,
+            ctm_transaction_job_request=ctm_transaction_job_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def ctm_create_member_with_http_info(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """CTM Update Response
+
+        ctm update response
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param credential: search for records with a matching credential (required)
+        :type credential: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param ctm_transaction_job_request:
+        :type ctm_transaction_job_request: CtmTransactionJobRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_create_member_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            credential=credential,
+            content_type=content_type,
+            token=token,
+            ctm_transaction_job_request=ctm_transaction_job_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def ctm_create_member_without_preload_content(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """CTM Update Response
+
+        ctm update response
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param credential: search for records with a matching credential (required)
+        :type credential: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param ctm_transaction_job_request:
+        :type ctm_transaction_job_request: CtmTransactionJobRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_create_member_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            credential=credential,
+            content_type=content_type,
+            token=token,
+            ctm_transaction_job_request=ctm_transaction_job_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ctm_create_member_serialize(
+        self,
+        tran_id,
+        term_id,
+        site_id,
+        credential,
+        content_type,
+        token,
+        ctm_transaction_job_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if site_id is not None:
+            _path_params['site_id'] = site_id
+        if credential is not None:
+            _path_params['credential'] = credential
+        # process the query parameters
+        if token is not None:
+            
+            _query_params.append(('token', token))
+            
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        if tran_id is not None:
+            _header_params['tran_id'] = tran_id
+        if term_id is not None:
+            _header_params['term_id'] = term_id
+        # process the form parameters
+        # process the body parameter
+        if ctm_transaction_job_request is not None:
+            _body_params = ctm_transaction_job_request
+
+
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v2/ctm/members/{site_id}/{credential}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def ctm_create_member_by_site(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """CTM Update Response
+
+        ctm update response
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param ctm_transaction_job_request:
+        :type ctm_transaction_job_request: CtmTransactionJobRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_create_member_by_site_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            content_type=content_type,
+            token=token,
+            ctm_transaction_job_request=ctm_transaction_job_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def ctm_create_member_by_site_with_http_info(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """CTM Update Response
+
+        ctm update response
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param ctm_transaction_job_request:
+        :type ctm_transaction_job_request: CtmTransactionJobRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_create_member_by_site_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            content_type=content_type,
+            token=token,
+            ctm_transaction_job_request=ctm_transaction_job_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def ctm_create_member_by_site_without_preload_content(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """CTM Update Response
+
+        ctm update response
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param ctm_transaction_job_request:
+        :type ctm_transaction_job_request: CtmTransactionJobRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_create_member_by_site_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            content_type=content_type,
+            token=token,
+            ctm_transaction_job_request=ctm_transaction_job_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ctm_create_member_by_site_serialize(
+        self,
+        tran_id,
+        term_id,
+        site_id,
+        content_type,
+        token,
+        ctm_transaction_job_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if site_id is not None:
+            _path_params['site_id'] = site_id
+        # process the query parameters
+        if token is not None:
+            
+            _query_params.append(('token', token))
+            
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        if tran_id is not None:
+            _header_params['tran_id'] = tran_id
+        if term_id is not None:
+            _header_params['term_id'] = term_id
+        # process the form parameters
+        # process the body parameter
+        if ctm_transaction_job_request is not None:
+            _body_params = ctm_transaction_job_request
+
+
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v2/ctm/members/{site_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def ctm_deallocate(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
+        credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
+        pos_vendor: Annotated[Optional[StrictStr], Field(description="search for records with a pos vendor")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """CTM Dealocate
+
+        ctm dealocate
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param offer_id: search for records with a matching offer id
+        :type offer_id: str
+        :param credential_identifier: The identifier of the credential
+        :type credential_identifier: str
+        :param pos_vendor: search for records with a pos vendor
+        :type pos_vendor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_deallocate_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            content_type=content_type,
+            token=token,
+            offer_id=offer_id,
+            credential_identifier=credential_identifier,
+            pos_vendor=pos_vendor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def ctm_deallocate_with_http_info(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
+        credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
+        pos_vendor: Annotated[Optional[StrictStr], Field(description="search for records with a pos vendor")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """CTM Dealocate
+
+        ctm dealocate
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param offer_id: search for records with a matching offer id
+        :type offer_id: str
+        :param credential_identifier: The identifier of the credential
+        :type credential_identifier: str
+        :param pos_vendor: search for records with a pos vendor
+        :type pos_vendor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_deallocate_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            content_type=content_type,
+            token=token,
+            offer_id=offer_id,
+            credential_identifier=credential_identifier,
+            pos_vendor=pos_vendor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def ctm_deallocate_without_preload_content(
+        self,
+        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
+        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
+        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
+        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
+        credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
+        pos_vendor: Annotated[Optional[StrictStr], Field(description="search for records with a pos vendor")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """CTM Dealocate
+
+        ctm dealocate
+
+        :param tran_id: Required transaction identifier (required)
+        :type tran_id: str
+        :param term_id: Required term identifier (required)
+        :type term_id: str
+        :param site_id: search for records with a matching site id (required)
+        :type site_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param token: search for records with a matching token
+        :type token: str
+        :param offer_id: search for records with a matching offer id
+        :type offer_id: str
+        :param credential_identifier: The identifier of the credential
+        :type credential_identifier: str
+        :param pos_vendor: search for records with a pos vendor
+        :type pos_vendor: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_deallocate_serialize(
+            tran_id=tran_id,
+            term_id=term_id,
+            site_id=site_id,
+            content_type=content_type,
+            token=token,
+            offer_id=offer_id,
+            credential_identifier=credential_identifier,
+            pos_vendor=pos_vendor,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+            '401': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ctm_deallocate_serialize(
+        self,
+        tran_id,
+        term_id,
+        site_id,
+        content_type,
+        token,
+        offer_id,
+        credential_identifier,
+        pos_vendor,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if site_id is not None:
+            _path_params['site_id'] = site_id
+        # process the query parameters
+        if token is not None:
+            
+            _query_params.append(('token', token))
+            
+        if offer_id is not None:
+            
+            _query_params.append(('offer_id', offer_id))
+            
+        if credential_identifier is not None:
+            
+            _query_params.append(('credential_identifier', credential_identifier))
+            
+        if pos_vendor is not None:
+            
+            _query_params.append(('pos_vendor', pos_vendor))
+            
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        if tran_id is not None:
+            _header_params['tran_id'] = tran_id
+        if term_id is not None:
+            _header_params['term_id'] = term_id
+        # process the form parameters
+        # process the body parameter
+
+
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/ctm/deallocate/{site_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def ctm_get_custom_messages(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -88,7 +1530,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_ctm_custom_messages_serialize(
+        _param = self._ctm_get_custom_messages_serialize(
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -112,7 +1554,7 @@ class CtmApi:
 
 
     @validate_call
-    async def get_ctm_custom_messages_with_http_info(
+    async def ctm_get_custom_messages_with_http_info(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -156,7 +1598,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_ctm_custom_messages_serialize(
+        _param = self._ctm_get_custom_messages_serialize(
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -180,7 +1622,7 @@ class CtmApi:
 
 
     @validate_call
-    async def get_ctm_custom_messages_without_preload_content(
+    async def ctm_get_custom_messages_without_preload_content(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         _request_timeout: Union[
@@ -224,7 +1666,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_ctm_custom_messages_serialize(
+        _param = self._ctm_get_custom_messages_serialize(
             content_type=content_type,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -243,7 +1685,7 @@ class CtmApi:
         return response_data.response
 
 
-    def _get_ctm_custom_messages_serialize(
+    def _ctm_get_custom_messages_serialize(
         self,
         content_type,
         _request_auth,
@@ -308,271 +1750,7 @@ class CtmApi:
 
 
     @validate_call
-    async def get_ctm_store(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
-        """CTM Stores
-
-        ctm stores
-
-        :param content_type: application/json
-        :type content_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_ctm_store_serialize(
-            content_type=content_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '500': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def get_ctm_store_with_http_info(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
-        """CTM Stores
-
-        ctm stores
-
-        :param content_type: application/json
-        :type content_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_ctm_store_serialize(
-            content_type=content_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '500': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def get_ctm_store_without_preload_content(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """CTM Stores
-
-        ctm stores
-
-        :param content_type: application/json
-        :type content_type: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_ctm_store_serialize(
-            content_type=content_type,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '500': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_ctm_store_serialize(
-        self,
-        content_type,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/v2/ctm/stores',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def get_show_ctm(
+    async def ctm_get_member(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -643,7 +1821,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_show_ctm_serialize(
+        _param = self._ctm_get_member_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -677,7 +1855,7 @@ class CtmApi:
 
 
     @validate_call
-    async def get_show_ctm_with_http_info(
+    async def ctm_get_member_with_http_info(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -748,7 +1926,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_show_ctm_serialize(
+        _param = self._ctm_get_member_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -782,7 +1960,7 @@ class CtmApi:
 
 
     @validate_call
-    async def get_show_ctm_without_preload_content(
+    async def ctm_get_member_without_preload_content(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -853,7 +2031,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_show_ctm_serialize(
+        _param = self._ctm_get_member_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -882,7 +2060,7 @@ class CtmApi:
         return response_data.response
 
 
-    def _get_show_ctm_serialize(
+    def _ctm_get_member_serialize(
         self,
         tran_id,
         term_id,
@@ -993,734 +2171,7 @@ class CtmApi:
 
 
     @validate_call
-    async def post_allocate_ctm(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """CTM Allocate
-
-        ctm allocate
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param credential: search for records with a matching credential (required)
-        :type credential: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param offer_id: search for records with a matching offer id
-        :type offer_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_allocate_ctm_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            credential=credential,
-            content_type=content_type,
-            token=token,
-            offer_id=offer_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def post_allocate_ctm_with_http_info(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """CTM Allocate
-
-        ctm allocate
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param credential: search for records with a matching credential (required)
-        :type credential: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param offer_id: search for records with a matching offer id
-        :type offer_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_allocate_ctm_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            credential=credential,
-            content_type=content_type,
-            token=token,
-            offer_id=offer_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def post_allocate_ctm_without_preload_content(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """CTM Allocate
-
-        ctm allocate
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param credential: search for records with a matching credential (required)
-        :type credential: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param offer_id: search for records with a matching offer id
-        :type offer_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_allocate_ctm_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            credential=credential,
-            content_type=content_type,
-            token=token,
-            offer_id=offer_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_allocate_ctm_serialize(
-        self,
-        tran_id,
-        term_id,
-        site_id,
-        credential,
-        content_type,
-        token,
-        offer_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if site_id is not None:
-            _path_params['site_id'] = site_id
-        if credential is not None:
-            _path_params['credential'] = credential
-        # process the query parameters
-        if token is not None:
-            
-            _query_params.append(('token', token))
-            
-        if offer_id is not None:
-            
-            _query_params.append(('offer_id', offer_id))
-            
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if tran_id is not None:
-            _header_params['tran_id'] = tran_id
-        if term_id is not None:
-            _header_params['term_id'] = term_id
-        # process the form parameters
-        # process the body parameter
-
-
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/ctm/allocate/{site_id}/{credential}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def post_deallocate_ctm(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
-        credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
-        pos_vendor: Annotated[Optional[StrictStr], Field(description="search for records with a pos vendor")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """CTM Dealocate
-
-        ctm dealocate
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param offer_id: search for records with a matching offer id
-        :type offer_id: str
-        :param credential_identifier: The identifier of the credential
-        :type credential_identifier: str
-        :param pos_vendor: search for records with a pos vendor
-        :type pos_vendor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_deallocate_ctm_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            content_type=content_type,
-            token=token,
-            offer_id=offer_id,
-            credential_identifier=credential_identifier,
-            pos_vendor=pos_vendor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def post_deallocate_ctm_with_http_info(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
-        credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
-        pos_vendor: Annotated[Optional[StrictStr], Field(description="search for records with a pos vendor")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """CTM Dealocate
-
-        ctm dealocate
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param offer_id: search for records with a matching offer id
-        :type offer_id: str
-        :param credential_identifier: The identifier of the credential
-        :type credential_identifier: str
-        :param pos_vendor: search for records with a pos vendor
-        :type pos_vendor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_deallocate_ctm_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            content_type=content_type,
-            token=token,
-            offer_id=offer_id,
-            credential_identifier=credential_identifier,
-            pos_vendor=pos_vendor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def post_deallocate_ctm_without_preload_content(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        offer_id: Annotated[Optional[StrictStr], Field(description="search for records with a matching offer id")] = None,
-        credential_identifier: Annotated[Optional[StrictStr], Field(description="The identifier of the credential")] = None,
-        pos_vendor: Annotated[Optional[StrictStr], Field(description="search for records with a pos vendor")] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """CTM Dealocate
-
-        ctm dealocate
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param offer_id: search for records with a matching offer id
-        :type offer_id: str
-        :param credential_identifier: The identifier of the credential
-        :type credential_identifier: str
-        :param pos_vendor: search for records with a pos vendor
-        :type pos_vendor: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_deallocate_ctm_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            content_type=content_type,
-            token=token,
-            offer_id=offer_id,
-            credential_identifier=credential_identifier,
-            pos_vendor=pos_vendor,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_deallocate_ctm_serialize(
-        self,
-        tran_id,
-        term_id,
-        site_id,
-        content_type,
-        token,
-        offer_id,
-        credential_identifier,
-        pos_vendor,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if site_id is not None:
-            _path_params['site_id'] = site_id
-        # process the query parameters
-        if token is not None:
-            
-            _query_params.append(('token', token))
-            
-        if offer_id is not None:
-            
-            _query_params.append(('offer_id', offer_id))
-            
-        if credential_identifier is not None:
-            
-            _query_params.append(('credential_identifier', credential_identifier))
-            
-        if pos_vendor is not None:
-            
-            _query_params.append(('pos_vendor', pos_vendor))
-            
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if tran_id is not None:
-            _header_params['tran_id'] = tran_id
-        if term_id is not None:
-            _header_params['term_id'] = term_id
-        # process the form parameters
-        # process the body parameter
-
-
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/ctm/deallocate/{site_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def post_qitems_ctm(
+    async def ctm_get_qitems(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -1782,7 +2233,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_qitems_ctm_serialize(
+        _param = self._ctm_get_qitems_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1813,7 +2264,7 @@ class CtmApi:
 
 
     @validate_call
-    async def post_qitems_ctm_with_http_info(
+    async def ctm_get_qitems_with_http_info(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -1875,7 +2326,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_qitems_ctm_serialize(
+        _param = self._ctm_get_qitems_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1906,7 +2357,7 @@ class CtmApi:
 
 
     @validate_call
-    async def post_qitems_ctm_without_preload_content(
+    async def ctm_get_qitems_without_preload_content(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -1968,7 +2419,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_qitems_ctm_serialize(
+        _param = self._ctm_get_qitems_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -1994,7 +2445,7 @@ class CtmApi:
         return response_data.response
 
 
-    def _post_qitems_ctm_serialize(
+    def _ctm_get_qitems_serialize(
         self,
         tran_id,
         term_id,
@@ -2085,7 +2536,271 @@ class CtmApi:
 
 
     @validate_call
-    async def post_update_ctm(
+    async def ctm_get_store(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> object:
+        """CTM Stores
+
+        ctm stores
+
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_get_store_serialize(
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '500': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def ctm_get_store_with_http_info(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[object]:
+        """CTM Stores
+
+        ctm stores
+
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_get_store_serialize(
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '500': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def ctm_get_store_without_preload_content(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """CTM Stores
+
+        ctm stores
+
+        :param content_type: application/json
+        :type content_type: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._ctm_get_store_serialize(
+            content_type=content_type,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '500': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _ctm_get_store_serialize(
+        self,
+        content_type,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v2/ctm/stores',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def ctm_update_member(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -2147,7 +2862,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_update_ctm_serialize(
+        _param = self._ctm_update_member_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2178,7 +2893,7 @@ class CtmApi:
 
 
     @validate_call
-    async def post_update_ctm_with_http_info(
+    async def ctm_update_member_with_http_info(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -2240,7 +2955,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_update_ctm_serialize(
+        _param = self._ctm_update_member_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2271,7 +2986,7 @@ class CtmApi:
 
 
     @validate_call
-    async def post_update_ctm_without_preload_content(
+    async def ctm_update_member_without_preload_content(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -2333,7 +3048,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_update_ctm_serialize(
+        _param = self._ctm_update_member_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2359,7 +3074,7 @@ class CtmApi:
         return response_data.response
 
 
-    def _post_update_ctm_serialize(
+    def _ctm_update_member_serialize(
         self,
         tran_id,
         term_id,
@@ -2432,8 +3147,8 @@ class CtmApi:
         ]
 
         return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v2/ctm/members/{site_id}/{credential}',
+            method='PUT',
+            resource_path='/ctm/members/{site_id}/{credential}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2450,357 +3165,7 @@ class CtmApi:
 
 
     @validate_call
-    async def post_update_ctm_siteid(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """CTM Update Response
-
-        ctm update response
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param ctm_transaction_job_request:
-        :type ctm_transaction_job_request: CtmTransactionJobRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_update_ctm_siteid_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            content_type=content_type,
-            token=token,
-            ctm_transaction_job_request=ctm_transaction_job_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def post_update_ctm_siteid_with_http_info(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """CTM Update Response
-
-        ctm update response
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param ctm_transaction_job_request:
-        :type ctm_transaction_job_request: CtmTransactionJobRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_update_ctm_siteid_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            content_type=content_type,
-            token=token,
-            ctm_transaction_job_request=ctm_transaction_job_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def post_update_ctm_siteid_without_preload_content(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """CTM Update Response
-
-        ctm update response
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param ctm_transaction_job_request:
-        :type ctm_transaction_job_request: CtmTransactionJobRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_update_ctm_siteid_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            content_type=content_type,
-            token=token,
-            ctm_transaction_job_request=ctm_transaction_job_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_update_ctm_siteid_serialize(
-        self,
-        tran_id,
-        term_id,
-        site_id,
-        content_type,
-        token,
-        ctm_transaction_job_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if site_id is not None:
-            _path_params['site_id'] = site_id
-        # process the query parameters
-        if token is not None:
-            
-            _query_params.append(('token', token))
-            
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if tran_id is not None:
-            _header_params['tran_id'] = tran_id
-        if term_id is not None:
-            _header_params['term_id'] = term_id
-        # process the form parameters
-        # process the body parameter
-        if ctm_transaction_job_request is not None:
-            _body_params = ctm_transaction_job_request
-
-
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v2/ctm/members/{site_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def put_show_ctm(
+    async def ctm_update_member_v2(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -2871,7 +3236,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_show_ctm_serialize(
+        _param = self._ctm_update_member_v2_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -2905,7 +3270,7 @@ class CtmApi:
 
 
     @validate_call
-    async def put_show_ctm_with_http_info(
+    async def ctm_update_member_v2_with_http_info(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -2976,7 +3341,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_show_ctm_serialize(
+        _param = self._ctm_update_member_v2_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3010,7 +3375,7 @@ class CtmApi:
 
 
     @validate_call
-    async def put_show_ctm_without_preload_content(
+    async def ctm_update_member_v2_without_preload_content(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -3081,7 +3446,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_show_ctm_serialize(
+        _param = self._ctm_update_member_v2_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3110,7 +3475,7 @@ class CtmApi:
         return response_data.response
 
 
-    def _put_show_ctm_serialize(
+    def _ctm_update_member_v2_serialize(
         self,
         tran_id,
         term_id,
@@ -3221,7 +3586,7 @@ class CtmApi:
 
 
     @validate_call
-    async def put_transaction_update_ctm(
+    async def ctm_update_transaction(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -3280,7 +3645,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_transaction_update_ctm_serialize(
+        _param = self._ctm_update_transaction_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3310,7 +3675,7 @@ class CtmApi:
 
 
     @validate_call
-    async def put_transaction_update_ctm_with_http_info(
+    async def ctm_update_transaction_with_http_info(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -3369,7 +3734,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_transaction_update_ctm_serialize(
+        _param = self._ctm_update_transaction_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3399,7 +3764,7 @@ class CtmApi:
 
 
     @validate_call
-    async def put_transaction_update_ctm_without_preload_content(
+    async def ctm_update_transaction_without_preload_content(
         self,
         tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
         term_id: Annotated[StrictStr, Field(description="Required term identifier")],
@@ -3458,7 +3823,7 @@ class CtmApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_transaction_update_ctm_serialize(
+        _param = self._ctm_update_transaction_serialize(
             tran_id=tran_id,
             term_id=term_id,
             site_id=site_id,
@@ -3483,7 +3848,7 @@ class CtmApi:
         return response_data.response
 
 
-    def _put_transaction_update_ctm_serialize(
+    def _ctm_update_transaction_serialize(
         self,
         tran_id,
         term_id,
@@ -3555,371 +3920,6 @@ class CtmApi:
         return self.api_client.param_serialize(
             method='PUT',
             resource_path='/ctm/members/{site_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def put_update_ctm(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """CTM Update Response
-
-        ctm update response
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param credential: search for records with a matching credential (required)
-        :type credential: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param ctm_transaction_job_request:
-        :type ctm_transaction_job_request: CtmTransactionJobRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._put_update_ctm_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            credential=credential,
-            content_type=content_type,
-            token=token,
-            ctm_transaction_job_request=ctm_transaction_job_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def put_update_ctm_with_http_info(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """CTM Update Response
-
-        ctm update response
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param credential: search for records with a matching credential (required)
-        :type credential: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param ctm_transaction_job_request:
-        :type ctm_transaction_job_request: CtmTransactionJobRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._put_update_ctm_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            credential=credential,
-            content_type=content_type,
-            token=token,
-            ctm_transaction_job_request=ctm_transaction_job_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def put_update_ctm_without_preload_content(
-        self,
-        tran_id: Annotated[StrictStr, Field(description="Required transaction identifier")],
-        term_id: Annotated[StrictStr, Field(description="Required term identifier")],
-        site_id: Annotated[StrictStr, Field(description="search for records with a matching site id")],
-        credential: Annotated[StrictStr, Field(description="search for records with a matching credential")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        token: Annotated[Optional[StrictStr], Field(description="search for records with a matching token")] = None,
-        ctm_transaction_job_request: Optional[CtmTransactionJobRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """CTM Update Response
-
-        ctm update response
-
-        :param tran_id: Required transaction identifier (required)
-        :type tran_id: str
-        :param term_id: Required term identifier (required)
-        :type term_id: str
-        :param site_id: search for records with a matching site id (required)
-        :type site_id: str
-        :param credential: search for records with a matching credential (required)
-        :type credential: str
-        :param content_type: application/json
-        :type content_type: str
-        :param token: search for records with a matching token
-        :type token: str
-        :param ctm_transaction_job_request:
-        :type ctm_transaction_job_request: CtmTransactionJobRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._put_update_ctm_serialize(
-            tran_id=tran_id,
-            term_id=term_id,
-            site_id=site_id,
-            credential=credential,
-            content_type=content_type,
-            token=token,
-            ctm_transaction_job_request=ctm_transaction_job_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
-            '401': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _put_update_ctm_serialize(
-        self,
-        tran_id,
-        term_id,
-        site_id,
-        credential,
-        content_type,
-        token,
-        ctm_transaction_job_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if site_id is not None:
-            _path_params['site_id'] = site_id
-        if credential is not None:
-            _path_params['credential'] = credential
-        # process the query parameters
-        if token is not None:
-            
-            _query_params.append(('token', token))
-            
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        if tran_id is not None:
-            _header_params['tran_id'] = tran_id
-        if term_id is not None:
-            _header_params['term_id'] = term_id
-        # process the form parameters
-        # process the body parameter
-        if ctm_transaction_job_request is not None:
-            _body_params = ctm_transaction_job_request
-
-
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='PUT',
-            resource_path='/ctm/members/{site_id}/{credential}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

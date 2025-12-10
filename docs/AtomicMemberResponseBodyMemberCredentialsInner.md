@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential** | [**AtomicMemberResponseBodyMemberCredentialsInnerCredential**](AtomicMemberResponseBodyMemberCredentialsInnerCredential.md) |  | [optional] 
+**credential** | [**AtomicMemberResponseBodyMemberCredentialsInnerCredential**](AtomicMemberResponseBodyMemberCredentialsInnerCredential.md) |  | 
 
 ## Example
 

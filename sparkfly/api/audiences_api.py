@@ -22,8 +22,8 @@ from typing import Optional
 from typing_extensions import Annotated
 from sparkfly.models.audience_data import AudienceData
 from sparkfly.models.audience_index_body import AudienceIndexBody
-from sparkfly.models.post_audiences_id_sub_audiences_request import PostAudiencesIdSubAudiencesRequest
-from sparkfly.models.post_audiences_request import PostAudiencesRequest
+from sparkfly.models.create_audience_request import CreateAudienceRequest
+from sparkfly.models.create_sub_audience_request import CreateSubAudienceRequest
 from sparkfly.models.sub_audience_data import SubAudienceData
 from sparkfly.models.sub_audience_index_body import SubAudienceIndexBody
 
@@ -46,7 +46,615 @@ class AudiencesApi:
 
 
     @validate_call
-    async def delete_audiences_id(
+    async def create_audience(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        create_audience_request: Optional[CreateAudienceRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AudienceData:
+        """Create an Audience
+
+        Creates a new audience.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param create_audience_request:
+        :type create_audience_request: CreateAudienceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_audience_serialize(
+            content_type=content_type,
+            create_audience_request=create_audience_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "AudienceData",
+            '400': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def create_audience_with_http_info(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        create_audience_request: Optional[CreateAudienceRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AudienceData]:
+        """Create an Audience
+
+        Creates a new audience.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param create_audience_request:
+        :type create_audience_request: CreateAudienceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_audience_serialize(
+            content_type=content_type,
+            create_audience_request=create_audience_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "AudienceData",
+            '400': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def create_audience_without_preload_content(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        create_audience_request: Optional[CreateAudienceRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create an Audience
+
+        Creates a new audience.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param create_audience_request:
+        :type create_audience_request: CreateAudienceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_audience_serialize(
+            content_type=content_type,
+            create_audience_request=create_audience_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "AudienceData",
+            '400': None,
+            '422': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_audience_serialize(
+        self,
+        content_type,
+        create_audience_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        # process the form parameters
+        # process the body parameter
+        if create_audience_request is not None:
+            _body_params = create_audience_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/audiences',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def create_sub_audience(
+        self,
+        audience_id: Annotated[StrictStr, Field(description="parent audience")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        create_sub_audience_request: Optional[CreateSubAudienceRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> SubAudienceData:
+        """Create a Sub-Audience
+
+        Creates a sub-audience within this audience.
+
+        :param audience_id: parent audience (required)
+        :type audience_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param create_sub_audience_request:
+        :type create_sub_audience_request: CreateSubAudienceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_sub_audience_serialize(
+            audience_id=audience_id,
+            content_type=content_type,
+            create_sub_audience_request=create_sub_audience_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "SubAudienceData",
+            '400': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def create_sub_audience_with_http_info(
+        self,
+        audience_id: Annotated[StrictStr, Field(description="parent audience")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        create_sub_audience_request: Optional[CreateSubAudienceRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[SubAudienceData]:
+        """Create a Sub-Audience
+
+        Creates a sub-audience within this audience.
+
+        :param audience_id: parent audience (required)
+        :type audience_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param create_sub_audience_request:
+        :type create_sub_audience_request: CreateSubAudienceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_sub_audience_serialize(
+            audience_id=audience_id,
+            content_type=content_type,
+            create_sub_audience_request=create_sub_audience_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "SubAudienceData",
+            '400': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def create_sub_audience_without_preload_content(
+        self,
+        audience_id: Annotated[StrictStr, Field(description="parent audience")],
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        create_sub_audience_request: Optional[CreateSubAudienceRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create a Sub-Audience
+
+        Creates a sub-audience within this audience.
+
+        :param audience_id: parent audience (required)
+        :type audience_id: str
+        :param content_type: application/json
+        :type content_type: str
+        :param create_sub_audience_request:
+        :type create_sub_audience_request: CreateSubAudienceRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_sub_audience_serialize(
+            audience_id=audience_id,
+            content_type=content_type,
+            create_sub_audience_request=create_sub_audience_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "SubAudienceData",
+            '400': "ApiError",
+            '422': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_sub_audience_serialize(
+        self,
+        audience_id,
+        content_type,
+        create_sub_audience_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if audience_id is not None:
+            _path_params['audience_id'] = audience_id
+        # process the query parameters
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        # process the form parameters
+        # process the body parameter
+        if create_sub_audience_request is not None:
+            _body_params = create_sub_audience_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/audiences/{audience_id}/sub_audiences',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def delete_audience(
         self,
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         _request_timeout: Union[
@@ -90,7 +698,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_audiences_id_serialize(
+        _param = self._delete_audience_serialize(
             audience_id=audience_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -115,7 +723,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def delete_audiences_id_with_http_info(
+    async def delete_audience_with_http_info(
         self,
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         _request_timeout: Union[
@@ -159,7 +767,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_audiences_id_serialize(
+        _param = self._delete_audience_serialize(
             audience_id=audience_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -184,7 +792,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def delete_audiences_id_without_preload_content(
+    async def delete_audience_without_preload_content(
         self,
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         _request_timeout: Union[
@@ -228,7 +836,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_audiences_id_serialize(
+        _param = self._delete_audience_serialize(
             audience_id=audience_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -248,7 +856,7 @@ class AudiencesApi:
         return response_data.response
 
 
-    def _delete_audiences_id_serialize(
+    def _delete_audience_serialize(
         self,
         audience_id,
         _request_auth,
@@ -306,7 +914,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def delete_audiences_id_sub_audiences_sub_audience_id(
+    async def delete_audience_sub_audiences(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
@@ -353,7 +961,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_audiences_id_sub_audiences_sub_audience_id_serialize(
+        _param = self._delete_audience_sub_audiences_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -380,7 +988,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def delete_audiences_id_sub_audiences_sub_audience_id_with_http_info(
+    async def delete_audience_sub_audiences_with_http_info(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
@@ -427,7 +1035,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_audiences_id_sub_audiences_sub_audience_id_serialize(
+        _param = self._delete_audience_sub_audiences_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -454,7 +1062,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def delete_audiences_id_sub_audiences_sub_audience_id_without_preload_content(
+    async def delete_audience_sub_audiences_without_preload_content(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
@@ -501,7 +1109,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_audiences_id_sub_audiences_sub_audience_id_serialize(
+        _param = self._delete_audience_sub_audiences_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -523,7 +1131,7 @@ class AudiencesApi:
         return response_data.response
 
 
-    def _delete_audiences_id_sub_audiences_sub_audience_id_serialize(
+    def _delete_audience_sub_audiences_serialize(
         self,
         sub_audience_id,
         audience_id,
@@ -591,7 +1199,559 @@ class AudiencesApi:
 
 
     @validate_call
-    async def get_audiences(
+    async def get_audience(
+        self,
+        audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AudienceData:
+        """Retrieve an Audience
+
+        Find an audience by its primary identifier.
+
+        :param audience_id: audience to find or modify (required)
+        :type audience_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_audience_serialize(
+            audience_id=audience_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AudienceData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "SubAudienceData",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def get_audience_with_http_info(
+        self,
+        audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AudienceData]:
+        """Retrieve an Audience
+
+        Find an audience by its primary identifier.
+
+        :param audience_id: audience to find or modify (required)
+        :type audience_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_audience_serialize(
+            audience_id=audience_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AudienceData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "SubAudienceData",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def get_audience_without_preload_content(
+        self,
+        audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an Audience
+
+        Find an audience by its primary identifier.
+
+        :param audience_id: audience to find or modify (required)
+        :type audience_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_audience_serialize(
+            audience_id=audience_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AudienceData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "SubAudienceData",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_audience_serialize(
+        self,
+        audience_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if audience_id is not None:
+            _path_params['audience_id'] = audience_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/audiences/{audience_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def get_sub_audience(
+        self,
+        sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
+        audience_id: Annotated[StrictStr, Field(description="parent audience")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> SubAudienceData:
+        """Retrieve a Sub-Audience
+
+        Get a sub-audience by it's primary identifier.
+
+        :param sub_audience_id: sub-audience to find or modify (required)
+        :type sub_audience_id: str
+        :param audience_id: parent audience (required)
+        :type audience_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_sub_audience_serialize(
+            sub_audience_id=sub_audience_id,
+            audience_id=audience_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SubAudienceData",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def get_sub_audience_with_http_info(
+        self,
+        sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
+        audience_id: Annotated[StrictStr, Field(description="parent audience")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[SubAudienceData]:
+        """Retrieve a Sub-Audience
+
+        Get a sub-audience by it's primary identifier.
+
+        :param sub_audience_id: sub-audience to find or modify (required)
+        :type sub_audience_id: str
+        :param audience_id: parent audience (required)
+        :type audience_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_sub_audience_serialize(
+            sub_audience_id=sub_audience_id,
+            audience_id=audience_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SubAudienceData",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def get_sub_audience_without_preload_content(
+        self,
+        sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
+        audience_id: Annotated[StrictStr, Field(description="parent audience")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve a Sub-Audience
+
+        Get a sub-audience by it's primary identifier.
+
+        :param sub_audience_id: sub-audience to find or modify (required)
+        :type sub_audience_id: str
+        :param audience_id: parent audience (required)
+        :type audience_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_sub_audience_serialize(
+            sub_audience_id=sub_audience_id,
+            audience_id=audience_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "SubAudienceData",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_sub_audience_serialize(
+        self,
+        sub_audience_id,
+        audience_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if sub_audience_id is not None:
+            _path_params['sub_audience_id'] = sub_audience_id
+        if audience_id is not None:
+            _path_params['audience_id'] = audience_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/audiences/{audience_id}/sub_audiences/{sub_audience_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def list_audiences(
         self,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -647,7 +1807,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_audiences_serialize(
+        _param = self._list_audiences_serialize(
             page=page,
             per_page=per_page,
             order=order,
@@ -675,7 +1835,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def get_audiences_with_http_info(
+    async def list_audiences_with_http_info(
         self,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -731,7 +1891,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_audiences_serialize(
+        _param = self._list_audiences_serialize(
             page=page,
             per_page=per_page,
             order=order,
@@ -759,7 +1919,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def get_audiences_without_preload_content(
+    async def list_audiences_without_preload_content(
         self,
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
         per_page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="maximum number of records to return in the search")] = None,
@@ -815,7 +1975,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_audiences_serialize(
+        _param = self._list_audiences_serialize(
             page=page,
             per_page=per_page,
             order=order,
@@ -838,7 +1998,7 @@ class AudiencesApi:
         return response_data.response
 
 
-    def _get_audiences_serialize(
+    def _list_audiences_serialize(
         self,
         page,
         per_page,
@@ -925,277 +2085,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def get_audiences_id(
-        self,
-        audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AudienceData:
-        """Retrieve an Audience
-
-        Find an audience by its primary identifier.
-
-        :param audience_id: audience to find or modify (required)
-        :type audience_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_audiences_id_serialize(
-            audience_id=audience_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AudienceData",
-            '400': "ApiError",
-            '404': "ApiError",
-            '500': "SubAudienceData",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def get_audiences_id_with_http_info(
-        self,
-        audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AudienceData]:
-        """Retrieve an Audience
-
-        Find an audience by its primary identifier.
-
-        :param audience_id: audience to find or modify (required)
-        :type audience_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_audiences_id_serialize(
-            audience_id=audience_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AudienceData",
-            '400': "ApiError",
-            '404': "ApiError",
-            '500': "SubAudienceData",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def get_audiences_id_without_preload_content(
-        self,
-        audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Retrieve an Audience
-
-        Find an audience by its primary identifier.
-
-        :param audience_id: audience to find or modify (required)
-        :type audience_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_audiences_id_serialize(
-            audience_id=audience_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AudienceData",
-            '400': "ApiError",
-            '404': "ApiError",
-            '500': "SubAudienceData",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_audiences_id_serialize(
-        self,
-        audience_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if audience_id is not None:
-            _path_params['audience_id'] = audience_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/audiences/{audience_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def get_audiences_id_sub_audiences(
+    async def list_sub_audiences(
         self,
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
@@ -1254,7 +2144,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_audiences_id_sub_audiences_serialize(
+        _param = self._list_sub_audiences_serialize(
             audience_id=audience_id,
             page=page,
             per_page=per_page,
@@ -1283,7 +2173,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def get_audiences_id_sub_audiences_with_http_info(
+    async def list_sub_audiences_with_http_info(
         self,
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
@@ -1342,7 +2232,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_audiences_id_sub_audiences_serialize(
+        _param = self._list_sub_audiences_serialize(
             audience_id=audience_id,
             page=page,
             per_page=per_page,
@@ -1371,7 +2261,7 @@ class AudiencesApi:
 
 
     @validate_call
-    async def get_audiences_id_sub_audiences_without_preload_content(
+    async def list_sub_audiences_without_preload_content(
         self,
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         page: Annotated[Optional[Annotated[str, Field(min_length=1, strict=True)]], Field(description="page offset to display a range of records from")] = None,
@@ -1430,7 +2320,7 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_audiences_id_sub_audiences_serialize(
+        _param = self._list_sub_audiences_serialize(
             audience_id=audience_id,
             page=page,
             per_page=per_page,
@@ -1454,7 +2344,7 @@ class AudiencesApi:
         return response_data.response
 
 
-    def _get_audiences_id_sub_audiences_serialize(
+    def _list_sub_audiences_serialize(
         self,
         audience_id,
         page,
@@ -1544,901 +2434,11 @@ class AudiencesApi:
 
 
     @validate_call
-    async def get_audiences_id_sub_audiences_sub_audience_id(
-        self,
-        sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
-        audience_id: Annotated[StrictStr, Field(description="parent audience")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SubAudienceData:
-        """Retrieve a Sub-Audience
-
-        Get a sub-audience by it's primary identifier.
-
-        :param sub_audience_id: sub-audience to find or modify (required)
-        :type sub_audience_id: str
-        :param audience_id: parent audience (required)
-        :type audience_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_audiences_id_sub_audiences_sub_audience_id_serialize(
-            sub_audience_id=sub_audience_id,
-            audience_id=audience_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SubAudienceData",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def get_audiences_id_sub_audiences_sub_audience_id_with_http_info(
-        self,
-        sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
-        audience_id: Annotated[StrictStr, Field(description="parent audience")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SubAudienceData]:
-        """Retrieve a Sub-Audience
-
-        Get a sub-audience by it's primary identifier.
-
-        :param sub_audience_id: sub-audience to find or modify (required)
-        :type sub_audience_id: str
-        :param audience_id: parent audience (required)
-        :type audience_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_audiences_id_sub_audiences_sub_audience_id_serialize(
-            sub_audience_id=sub_audience_id,
-            audience_id=audience_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SubAudienceData",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def get_audiences_id_sub_audiences_sub_audience_id_without_preload_content(
-        self,
-        sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
-        audience_id: Annotated[StrictStr, Field(description="parent audience")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Retrieve a Sub-Audience
-
-        Get a sub-audience by it's primary identifier.
-
-        :param sub_audience_id: sub-audience to find or modify (required)
-        :type sub_audience_id: str
-        :param audience_id: parent audience (required)
-        :type audience_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_audiences_id_sub_audiences_sub_audience_id_serialize(
-            sub_audience_id=sub_audience_id,
-            audience_id=audience_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "SubAudienceData",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_audiences_id_sub_audiences_sub_audience_id_serialize(
-        self,
-        sub_audience_id,
-        audience_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if sub_audience_id is not None:
-            _path_params['sub_audience_id'] = sub_audience_id
-        if audience_id is not None:
-            _path_params['audience_id'] = audience_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/audiences/{audience_id}/sub_audiences/{sub_audience_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def post_audiences(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_request: Optional[PostAudiencesRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> AudienceData:
-        """Create an Audience
-
-        Creates a new audience.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param post_audiences_request:
-        :type post_audiences_request: PostAudiencesRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_audiences_serialize(
-            content_type=content_type,
-            post_audiences_request=post_audiences_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "AudienceData",
-            '400': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def post_audiences_with_http_info(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_request: Optional[PostAudiencesRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[AudienceData]:
-        """Create an Audience
-
-        Creates a new audience.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param post_audiences_request:
-        :type post_audiences_request: PostAudiencesRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_audiences_serialize(
-            content_type=content_type,
-            post_audiences_request=post_audiences_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "AudienceData",
-            '400': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def post_audiences_without_preload_content(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_request: Optional[PostAudiencesRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Create an Audience
-
-        Creates a new audience.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param post_audiences_request:
-        :type post_audiences_request: PostAudiencesRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_audiences_serialize(
-            content_type=content_type,
-            post_audiences_request=post_audiences_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "AudienceData",
-            '400': None,
-            '422': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_audiences_serialize(
-        self,
-        content_type,
-        post_audiences_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        # process the form parameters
-        # process the body parameter
-        if post_audiences_request is not None:
-            _body_params = post_audiences_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/audiences',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def post_audiences_id_sub_audiences(
-        self,
-        audience_id: Annotated[StrictStr, Field(description="parent audience")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_id_sub_audiences_request: Optional[PostAudiencesIdSubAudiencesRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> SubAudienceData:
-        """Create a Sub-Audience
-
-        Creates a sub-audience within this audience.
-
-        :param audience_id: parent audience (required)
-        :type audience_id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param post_audiences_id_sub_audiences_request:
-        :type post_audiences_id_sub_audiences_request: PostAudiencesIdSubAudiencesRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_audiences_id_sub_audiences_serialize(
-            audience_id=audience_id,
-            content_type=content_type,
-            post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "SubAudienceData",
-            '400': "ApiError",
-            '422': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def post_audiences_id_sub_audiences_with_http_info(
-        self,
-        audience_id: Annotated[StrictStr, Field(description="parent audience")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_id_sub_audiences_request: Optional[PostAudiencesIdSubAudiencesRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[SubAudienceData]:
-        """Create a Sub-Audience
-
-        Creates a sub-audience within this audience.
-
-        :param audience_id: parent audience (required)
-        :type audience_id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param post_audiences_id_sub_audiences_request:
-        :type post_audiences_id_sub_audiences_request: PostAudiencesIdSubAudiencesRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_audiences_id_sub_audiences_serialize(
-            audience_id=audience_id,
-            content_type=content_type,
-            post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "SubAudienceData",
-            '400': "ApiError",
-            '422': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def post_audiences_id_sub_audiences_without_preload_content(
-        self,
-        audience_id: Annotated[StrictStr, Field(description="parent audience")],
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_id_sub_audiences_request: Optional[PostAudiencesIdSubAudiencesRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Create a Sub-Audience
-
-        Creates a sub-audience within this audience.
-
-        :param audience_id: parent audience (required)
-        :type audience_id: str
-        :param content_type: application/json
-        :type content_type: str
-        :param post_audiences_id_sub_audiences_request:
-        :type post_audiences_id_sub_audiences_request: PostAudiencesIdSubAudiencesRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_audiences_id_sub_audiences_serialize(
-            audience_id=audience_id,
-            content_type=content_type,
-            post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "SubAudienceData",
-            '400': "ApiError",
-            '422': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_audiences_id_sub_audiences_serialize(
-        self,
-        audience_id,
-        content_type,
-        post_audiences_id_sub_audiences_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if audience_id is not None:
-            _path_params['audience_id'] = audience_id
-        # process the query parameters
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        # process the form parameters
-        # process the body parameter
-        if post_audiences_id_sub_audiences_request is not None:
-            _body_params = post_audiences_id_sub_audiences_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/audiences/{audience_id}/sub_audiences',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def put_audiences_id(
+    async def update_audience(
         self,
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_request: Optional[PostAudiencesRequest] = None,
+        create_audience_request: Optional[CreateAudienceRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2460,8 +2460,8 @@ class AudiencesApi:
         :type audience_id: str
         :param content_type: application/json
         :type content_type: str
-        :param post_audiences_request:
-        :type post_audiences_request: PostAudiencesRequest
+        :param create_audience_request:
+        :type create_audience_request: CreateAudienceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2484,10 +2484,10 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_audiences_id_serialize(
+        _param = self._update_audience_serialize(
             audience_id=audience_id,
             content_type=content_type,
-            post_audiences_request=post_audiences_request,
+            create_audience_request=create_audience_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2511,11 +2511,11 @@ class AudiencesApi:
 
 
     @validate_call
-    async def put_audiences_id_with_http_info(
+    async def update_audience_with_http_info(
         self,
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_request: Optional[PostAudiencesRequest] = None,
+        create_audience_request: Optional[CreateAudienceRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2537,8 +2537,8 @@ class AudiencesApi:
         :type audience_id: str
         :param content_type: application/json
         :type content_type: str
-        :param post_audiences_request:
-        :type post_audiences_request: PostAudiencesRequest
+        :param create_audience_request:
+        :type create_audience_request: CreateAudienceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2561,10 +2561,10 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_audiences_id_serialize(
+        _param = self._update_audience_serialize(
             audience_id=audience_id,
             content_type=content_type,
-            post_audiences_request=post_audiences_request,
+            create_audience_request=create_audience_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2588,11 +2588,11 @@ class AudiencesApi:
 
 
     @validate_call
-    async def put_audiences_id_without_preload_content(
+    async def update_audience_without_preload_content(
         self,
         audience_id: Annotated[StrictStr, Field(description="audience to find or modify")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_request: Optional[PostAudiencesRequest] = None,
+        create_audience_request: Optional[CreateAudienceRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2614,8 +2614,8 @@ class AudiencesApi:
         :type audience_id: str
         :param content_type: application/json
         :type content_type: str
-        :param post_audiences_request:
-        :type post_audiences_request: PostAudiencesRequest
+        :param create_audience_request:
+        :type create_audience_request: CreateAudienceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2638,10 +2638,10 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_audiences_id_serialize(
+        _param = self._update_audience_serialize(
             audience_id=audience_id,
             content_type=content_type,
-            post_audiences_request=post_audiences_request,
+            create_audience_request=create_audience_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2660,11 +2660,11 @@ class AudiencesApi:
         return response_data.response
 
 
-    def _put_audiences_id_serialize(
+    def _update_audience_serialize(
         self,
         audience_id,
         content_type,
-        post_audiences_request,
+        create_audience_request,
         _request_auth,
         _content_type,
         _headers,
@@ -2694,8 +2694,8 @@ class AudiencesApi:
             _header_params['Content-Type'] = content_type
         # process the form parameters
         # process the body parameter
-        if post_audiences_request is not None:
-            _body_params = post_audiences_request
+        if create_audience_request is not None:
+            _body_params = create_audience_request
 
 
         # set the HTTP header `Accept`
@@ -2744,12 +2744,12 @@ class AudiencesApi:
 
 
     @validate_call
-    async def put_audiences_id_sub_audiences_sub_audience_id(
+    async def update_audience_sub_audiences(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_id_sub_audiences_request: Optional[PostAudiencesIdSubAudiencesRequest] = None,
+        create_sub_audience_request: Optional[CreateSubAudienceRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2773,8 +2773,8 @@ class AudiencesApi:
         :type audience_id: str
         :param content_type: application/json
         :type content_type: str
-        :param post_audiences_id_sub_audiences_request:
-        :type post_audiences_id_sub_audiences_request: PostAudiencesIdSubAudiencesRequest
+        :param create_sub_audience_request:
+        :type create_sub_audience_request: CreateSubAudienceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2797,11 +2797,11 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_audiences_id_sub_audiences_sub_audience_id_serialize(
+        _param = self._update_audience_sub_audiences_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             content_type=content_type,
-            post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request,
+            create_sub_audience_request=create_sub_audience_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2827,12 +2827,12 @@ class AudiencesApi:
 
 
     @validate_call
-    async def put_audiences_id_sub_audiences_sub_audience_id_with_http_info(
+    async def update_audience_sub_audiences_with_http_info(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_id_sub_audiences_request: Optional[PostAudiencesIdSubAudiencesRequest] = None,
+        create_sub_audience_request: Optional[CreateSubAudienceRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2856,8 +2856,8 @@ class AudiencesApi:
         :type audience_id: str
         :param content_type: application/json
         :type content_type: str
-        :param post_audiences_id_sub_audiences_request:
-        :type post_audiences_id_sub_audiences_request: PostAudiencesIdSubAudiencesRequest
+        :param create_sub_audience_request:
+        :type create_sub_audience_request: CreateSubAudienceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2880,11 +2880,11 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_audiences_id_sub_audiences_sub_audience_id_serialize(
+        _param = self._update_audience_sub_audiences_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             content_type=content_type,
-            post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request,
+            create_sub_audience_request=create_sub_audience_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2910,12 +2910,12 @@ class AudiencesApi:
 
 
     @validate_call
-    async def put_audiences_id_sub_audiences_sub_audience_id_without_preload_content(
+    async def update_audience_sub_audiences_without_preload_content(
         self,
         sub_audience_id: Annotated[StrictStr, Field(description="sub-audience to find or modify")],
         audience_id: Annotated[StrictStr, Field(description="parent audience")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_audiences_id_sub_audiences_request: Optional[PostAudiencesIdSubAudiencesRequest] = None,
+        create_sub_audience_request: Optional[CreateSubAudienceRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2939,8 +2939,8 @@ class AudiencesApi:
         :type audience_id: str
         :param content_type: application/json
         :type content_type: str
-        :param post_audiences_id_sub_audiences_request:
-        :type post_audiences_id_sub_audiences_request: PostAudiencesIdSubAudiencesRequest
+        :param create_sub_audience_request:
+        :type create_sub_audience_request: CreateSubAudienceRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2963,11 +2963,11 @@ class AudiencesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_audiences_id_sub_audiences_sub_audience_id_serialize(
+        _param = self._update_audience_sub_audiences_serialize(
             sub_audience_id=sub_audience_id,
             audience_id=audience_id,
             content_type=content_type,
-            post_audiences_id_sub_audiences_request=post_audiences_id_sub_audiences_request,
+            create_sub_audience_request=create_sub_audience_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2988,12 +2988,12 @@ class AudiencesApi:
         return response_data.response
 
 
-    def _put_audiences_id_sub_audiences_sub_audience_id_serialize(
+    def _update_audience_sub_audiences_serialize(
         self,
         sub_audience_id,
         audience_id,
         content_type,
-        post_audiences_id_sub_audiences_request,
+        create_sub_audience_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3025,8 +3025,8 @@ class AudiencesApi:
             _header_params['Content-Type'] = content_type
         # process the form parameters
         # process the body parameter
-        if post_audiences_id_sub_audiences_request is not None:
-            _body_params = post_audiences_id_sub_audiences_request
+        if create_sub_audience_request is not None:
+            _body_params = create_sub_audience_request
 
 
         # set the HTTP header `Accept`

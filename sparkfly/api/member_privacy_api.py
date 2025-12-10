@@ -41,7 +41,7 @@ class MemberPrivacyApi:
 
 
     @validate_call
-    async def get_privacy_member_export(
+    async def export_member_privacy(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
@@ -91,7 +91,7 @@ class MemberPrivacyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_privacy_member_export_serialize(
+        _param = self._export_member_privacy_serialize(
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -120,7 +120,7 @@ class MemberPrivacyApi:
 
 
     @validate_call
-    async def get_privacy_member_export_with_http_info(
+    async def export_member_privacy_with_http_info(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
@@ -170,7 +170,7 @@ class MemberPrivacyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_privacy_member_export_serialize(
+        _param = self._export_member_privacy_serialize(
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -199,7 +199,7 @@ class MemberPrivacyApi:
 
 
     @validate_call
-    async def get_privacy_member_export_without_preload_content(
+    async def export_member_privacy_without_preload_content(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
@@ -249,7 +249,7 @@ class MemberPrivacyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_privacy_member_export_serialize(
+        _param = self._export_member_privacy_serialize(
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -273,7 +273,7 @@ class MemberPrivacyApi:
         return response_data.response
 
 
-    def _get_privacy_member_export_serialize(
+    def _export_member_privacy_serialize(
         self,
         content_type,
         member_identifier,
@@ -348,7 +348,7 @@ class MemberPrivacyApi:
 
 
     @validate_call
-    async def post_privacy_member_delete_request(
+    async def request_member_deletion(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
@@ -398,7 +398,7 @@ class MemberPrivacyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_privacy_member_delete_request_serialize(
+        _param = self._request_member_deletion_serialize(
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -427,7 +427,7 @@ class MemberPrivacyApi:
 
 
     @validate_call
-    async def post_privacy_member_delete_request_with_http_info(
+    async def request_member_deletion_with_http_info(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
@@ -477,7 +477,7 @@ class MemberPrivacyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_privacy_member_delete_request_serialize(
+        _param = self._request_member_deletion_serialize(
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -506,7 +506,7 @@ class MemberPrivacyApi:
 
 
     @validate_call
-    async def post_privacy_member_delete_request_without_preload_content(
+    async def request_member_deletion_without_preload_content(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         member_identifier: Annotated[Optional[StrictStr], Field(description="the member identifier attached to a member")] = None,
@@ -556,7 +556,7 @@ class MemberPrivacyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_privacy_member_delete_request_serialize(
+        _param = self._request_member_deletion_serialize(
             content_type=content_type,
             member_identifier=member_identifier,
             credential_identifier=credential_identifier,
@@ -580,7 +580,7 @@ class MemberPrivacyApi:
         return response_data.response
 
 
-    def _post_privacy_member_delete_request_serialize(
+    def _request_member_deletion_serialize(
         self,
         content_type,
         member_identifier,

@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_credentials**](CredentialsApi.md#post_credentials) | **POST** /credentials | Create a Credential
+[**create_credential**](CredentialsApi.md#create_credential) | **POST** /credentials | Create a Credential
 
 
-# **post_credentials**
-> CredentialCreateResponse post_credentials(content_type=content_type, credential_create_request=credential_create_request)
+# **create_credential**
+> CredentialCreateResponse create_credential(content_type=content_type, credential_create_request=credential_create_request)
 
 Create a Credential
 
@@ -51,11 +51,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Create a Credential
-        api_response = await api_instance.post_credentials(content_type=content_type, credential_create_request=credential_create_request)
-        print("The response of CredentialsApi->post_credentials:\n")
+        api_response = await api_instance.create_credential(content_type=content_type, credential_create_request=credential_create_request)
+        print("The response of CredentialsApi->create_credential:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling CredentialsApi->post_credentials: %s\n" % e)
+        print("Exception when calling CredentialsApi->create_credential: %s\n" % e)
 ```
 
 

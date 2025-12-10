@@ -4,12 +4,12 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_privacy_member_export**](MemberPrivacyApi.md#get_privacy_member_export) | **GET** /privacy/member/export | Exports Data Associated with a Member
-[**post_privacy_member_delete_request**](MemberPrivacyApi.md#post_privacy_member_delete_request) | **POST** /privacy/member/delete_request | Creates a Deletion Request for a Member
+[**export_member_privacy**](MemberPrivacyApi.md#export_member_privacy) | **GET** /privacy/member/export | Exports Data Associated with a Member
+[**request_member_deletion**](MemberPrivacyApi.md#request_member_deletion) | **POST** /privacy/member/delete_request | Creates a Deletion Request for a Member
 
 
-# **get_privacy_member_export**
-> MemberPrivacy get_privacy_member_export(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+# **export_member_privacy**
+> MemberPrivacy export_member_privacy(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
 
 Exports Data Associated with a Member
 
@@ -52,11 +52,11 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Exports Data Associated with a Member
-        api_response = await api_instance.get_privacy_member_export(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
-        print("The response of MemberPrivacyApi->get_privacy_member_export:\n")
+        api_response = await api_instance.export_member_privacy(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+        print("The response of MemberPrivacyApi->export_member_privacy:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MemberPrivacyApi->get_privacy_member_export: %s\n" % e)
+        print("Exception when calling MemberPrivacyApi->export_member_privacy: %s\n" % e)
 ```
 
 
@@ -95,8 +95,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **post_privacy_member_delete_request**
-> post_privacy_member_delete_request(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+# **request_member_deletion**
+> request_member_deletion(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
 
 Creates a Deletion Request for a Member
 
@@ -138,9 +138,9 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Creates a Deletion Request for a Member
-        await api_instance.post_privacy_member_delete_request(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
+        await api_instance.request_member_deletion(content_type=content_type, member_identifier=member_identifier, credential_identifier=credential_identifier)
     except Exception as e:
-        print("Exception when calling MemberPrivacyApi->post_privacy_member_delete_request: %s\n" % e)
+        print("Exception when calling MemberPrivacyApi->request_member_deletion: %s\n" % e)
 ```
 
 

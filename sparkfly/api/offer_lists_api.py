@@ -20,9 +20,9 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr, field_validator
 from typing import Optional
 from typing_extensions import Annotated
+from sparkfly.models.create_offer_list_request import CreateOfferListRequest
 from sparkfly.models.offer_list_data import OfferListData
 from sparkfly.models.offer_lists_index_body import OfferListsIndexBody
-from sparkfly.models.post_offer_lists_request import PostOfferListsRequest
 
 from sparkfly.api_client import ApiClient, RequestSerialized
 from sparkfly.api_response import ApiResponse
@@ -43,7 +43,305 @@ class OfferListsApi:
 
 
     @validate_call
-    async def delete_offer_lists_offer_list_id(
+    async def create_offer_list(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        create_offer_list_request: Optional[CreateOfferListRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> OfferListData:
+        """Create an Offer List
+
+        Create a new offer list containing the specified offer IDs.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param create_offer_list_request:
+        :type create_offer_list_request: CreateOfferListRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_offer_list_serialize(
+            content_type=content_type,
+            create_offer_list_request=create_offer_list_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "OfferListData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def create_offer_list_with_http_info(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        create_offer_list_request: Optional[CreateOfferListRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[OfferListData]:
+        """Create an Offer List
+
+        Create a new offer list containing the specified offer IDs.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param create_offer_list_request:
+        :type create_offer_list_request: CreateOfferListRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_offer_list_serialize(
+            content_type=content_type,
+            create_offer_list_request=create_offer_list_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "OfferListData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def create_offer_list_without_preload_content(
+        self,
+        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
+        create_offer_list_request: Optional[CreateOfferListRequest] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Create an Offer List
+
+        Create a new offer list containing the specified offer IDs.
+
+        :param content_type: application/json
+        :type content_type: str
+        :param create_offer_list_request:
+        :type create_offer_list_request: CreateOfferListRequest
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._create_offer_list_serialize(
+            content_type=content_type,
+            create_offer_list_request=create_offer_list_request,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "OfferListData",
+            '400': "ApiError",
+            '404': "ApiError",
+            '500': "ApiError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _create_offer_list_serialize(
+        self,
+        content_type,
+        create_offer_list_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        if content_type is not None:
+            _header_params['Content-Type'] = content_type
+        # process the form parameters
+        # process the body parameter
+        if create_offer_list_request is not None:
+            _body_params = create_offer_list_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/offer_lists',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def delete_offer_list(
         self,
         offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
         _request_timeout: Union[
@@ -87,7 +385,7 @@ class OfferListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_offer_lists_offer_list_id_serialize(
+        _param = self._delete_offer_list_serialize(
             offer_list_id=offer_list_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -112,7 +410,7 @@ class OfferListsApi:
 
 
     @validate_call
-    async def delete_offer_lists_offer_list_id_with_http_info(
+    async def delete_offer_list_with_http_info(
         self,
         offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
         _request_timeout: Union[
@@ -156,7 +454,7 @@ class OfferListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_offer_lists_offer_list_id_serialize(
+        _param = self._delete_offer_list_serialize(
             offer_list_id=offer_list_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -181,7 +479,7 @@ class OfferListsApi:
 
 
     @validate_call
-    async def delete_offer_lists_offer_list_id_without_preload_content(
+    async def delete_offer_list_without_preload_content(
         self,
         offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
         _request_timeout: Union[
@@ -225,7 +523,7 @@ class OfferListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._delete_offer_lists_offer_list_id_serialize(
+        _param = self._delete_offer_list_serialize(
             offer_list_id=offer_list_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -245,7 +543,7 @@ class OfferListsApi:
         return response_data.response
 
 
-    def _delete_offer_lists_offer_list_id_serialize(
+    def _delete_offer_list_serialize(
         self,
         offer_list_id,
         _request_auth,
@@ -310,7 +608,274 @@ class OfferListsApi:
 
 
     @validate_call
-    async def get_offer_lists(
+    async def get_offer_list(
+        self,
+        offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> OfferListData:
+        """Retrieve an Offer List
+
+        Search for an offer list by ID.
+
+        :param offer_list_id: primary id of the offer list (required)
+        :type offer_list_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_offer_list_serialize(
+            offer_list_id=offer_list_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "OfferListData",
+            '404': "ApiError",
+            '500': "AudienceIndexBody",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def get_offer_list_with_http_info(
+        self,
+        offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[OfferListData]:
+        """Retrieve an Offer List
+
+        Search for an offer list by ID.
+
+        :param offer_list_id: primary id of the offer list (required)
+        :type offer_list_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_offer_list_serialize(
+            offer_list_id=offer_list_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "OfferListData",
+            '404': "ApiError",
+            '500': "AudienceIndexBody",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def get_offer_list_without_preload_content(
+        self,
+        offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve an Offer List
+
+        Search for an offer list by ID.
+
+        :param offer_list_id: primary id of the offer list (required)
+        :type offer_list_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_offer_list_serialize(
+            offer_list_id=offer_list_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "OfferListData",
+            '404': "ApiError",
+            '500': "AudienceIndexBody",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_offer_list_serialize(
+        self,
+        offer_list_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if offer_list_id is not None:
+            _path_params['offer_list_id'] = offer_list_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'XAuthToken'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/offer_lists/{offer_list_id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def list_offer_lists(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="sort records by a field name")] = None,
@@ -369,7 +934,7 @@ class OfferListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_offer_lists_serialize(
+        _param = self._list_offer_lists_serialize(
             content_type=content_type,
             sort_by=sort_by,
             search_text=search_text,
@@ -399,7 +964,7 @@ class OfferListsApi:
 
 
     @validate_call
-    async def get_offer_lists_with_http_info(
+    async def list_offer_lists_with_http_info(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="sort records by a field name")] = None,
@@ -458,7 +1023,7 @@ class OfferListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_offer_lists_serialize(
+        _param = self._list_offer_lists_serialize(
             content_type=content_type,
             sort_by=sort_by,
             search_text=search_text,
@@ -488,7 +1053,7 @@ class OfferListsApi:
 
 
     @validate_call
-    async def get_offer_lists_without_preload_content(
+    async def list_offer_lists_without_preload_content(
         self,
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="sort records by a field name")] = None,
@@ -547,7 +1112,7 @@ class OfferListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_offer_lists_serialize(
+        _param = self._list_offer_lists_serialize(
             content_type=content_type,
             sort_by=sort_by,
             search_text=search_text,
@@ -572,7 +1137,7 @@ class OfferListsApi:
         return response_data.response
 
 
-    def _get_offer_lists_serialize(
+    def _list_offer_lists_serialize(
         self,
         content_type,
         sort_by,
@@ -662,576 +1227,11 @@ class OfferListsApi:
 
 
     @validate_call
-    async def get_offer_lists_offer_list_id(
-        self,
-        offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> OfferListData:
-        """Retrieve an Offer List
-
-        Search for an offer list by ID.
-
-        :param offer_list_id: primary id of the offer list (required)
-        :type offer_list_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_offer_lists_offer_list_id_serialize(
-            offer_list_id=offer_list_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OfferListData",
-            '404': "ApiError",
-            '500': "AudienceIndexBody",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def get_offer_lists_offer_list_id_with_http_info(
-        self,
-        offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[OfferListData]:
-        """Retrieve an Offer List
-
-        Search for an offer list by ID.
-
-        :param offer_list_id: primary id of the offer list (required)
-        :type offer_list_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_offer_lists_offer_list_id_serialize(
-            offer_list_id=offer_list_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OfferListData",
-            '404': "ApiError",
-            '500': "AudienceIndexBody",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def get_offer_lists_offer_list_id_without_preload_content(
-        self,
-        offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Retrieve an Offer List
-
-        Search for an offer list by ID.
-
-        :param offer_list_id: primary id of the offer list (required)
-        :type offer_list_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_offer_lists_offer_list_id_serialize(
-            offer_list_id=offer_list_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OfferListData",
-            '404': "ApiError",
-            '500': "AudienceIndexBody",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_offer_lists_offer_list_id_serialize(
-        self,
-        offer_list_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if offer_list_id is not None:
-            _path_params['offer_list_id'] = offer_list_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/offer_lists/{offer_list_id}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def post_offer_lists(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_offer_lists_request: Optional[PostOfferListsRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> OfferListData:
-        """Create an Offer List
-
-        Create a new offer list containing the specified offer IDs.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param post_offer_lists_request:
-        :type post_offer_lists_request: PostOfferListsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_offer_lists_serialize(
-            content_type=content_type,
-            post_offer_lists_request=post_offer_lists_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "OfferListData",
-            '400': "ApiError",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def post_offer_lists_with_http_info(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_offer_lists_request: Optional[PostOfferListsRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[OfferListData]:
-        """Create an Offer List
-
-        Create a new offer list containing the specified offer IDs.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param post_offer_lists_request:
-        :type post_offer_lists_request: PostOfferListsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_offer_lists_serialize(
-            content_type=content_type,
-            post_offer_lists_request=post_offer_lists_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "OfferListData",
-            '400': "ApiError",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def post_offer_lists_without_preload_content(
-        self,
-        content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_offer_lists_request: Optional[PostOfferListsRequest] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Create an Offer List
-
-        Create a new offer list containing the specified offer IDs.
-
-        :param content_type: application/json
-        :type content_type: str
-        :param post_offer_lists_request:
-        :type post_offer_lists_request: PostOfferListsRequest
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._post_offer_lists_serialize(
-            content_type=content_type,
-            post_offer_lists_request=post_offer_lists_request,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': "OfferListData",
-            '400': "ApiError",
-            '404': "ApiError",
-            '500': "ApiError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _post_offer_lists_serialize(
-        self,
-        content_type,
-        post_offer_lists_request,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        if content_type is not None:
-            _header_params['Content-Type'] = content_type
-        # process the form parameters
-        # process the body parameter
-        if post_offer_lists_request is not None:
-            _body_params = post_offer_lists_request
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'XAuthToken'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/offer_lists',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def put_offer_lists_offer_list_id(
+    async def update_offer_list(
         self,
         offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_offer_lists_request: Optional[PostOfferListsRequest] = None,
+        create_offer_list_request: Optional[CreateOfferListRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1253,8 +1253,8 @@ class OfferListsApi:
         :type offer_list_id: str
         :param content_type: application/json
         :type content_type: str
-        :param post_offer_lists_request:
-        :type post_offer_lists_request: PostOfferListsRequest
+        :param create_offer_list_request:
+        :type create_offer_list_request: CreateOfferListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1277,10 +1277,10 @@ class OfferListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_offer_lists_offer_list_id_serialize(
+        _param = self._update_offer_list_serialize(
             offer_list_id=offer_list_id,
             content_type=content_type,
-            post_offer_lists_request=post_offer_lists_request,
+            create_offer_list_request=create_offer_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1305,11 +1305,11 @@ class OfferListsApi:
 
 
     @validate_call
-    async def put_offer_lists_offer_list_id_with_http_info(
+    async def update_offer_list_with_http_info(
         self,
         offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_offer_lists_request: Optional[PostOfferListsRequest] = None,
+        create_offer_list_request: Optional[CreateOfferListRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1331,8 +1331,8 @@ class OfferListsApi:
         :type offer_list_id: str
         :param content_type: application/json
         :type content_type: str
-        :param post_offer_lists_request:
-        :type post_offer_lists_request: PostOfferListsRequest
+        :param create_offer_list_request:
+        :type create_offer_list_request: CreateOfferListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1355,10 +1355,10 @@ class OfferListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_offer_lists_offer_list_id_serialize(
+        _param = self._update_offer_list_serialize(
             offer_list_id=offer_list_id,
             content_type=content_type,
-            post_offer_lists_request=post_offer_lists_request,
+            create_offer_list_request=create_offer_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1383,11 +1383,11 @@ class OfferListsApi:
 
 
     @validate_call
-    async def put_offer_lists_offer_list_id_without_preload_content(
+    async def update_offer_list_without_preload_content(
         self,
         offer_list_id: Annotated[StrictStr, Field(description="primary id of the offer list")],
         content_type: Annotated[Optional[StrictStr], Field(description="application/json")] = None,
-        post_offer_lists_request: Optional[PostOfferListsRequest] = None,
+        create_offer_list_request: Optional[CreateOfferListRequest] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1409,8 +1409,8 @@ class OfferListsApi:
         :type offer_list_id: str
         :param content_type: application/json
         :type content_type: str
-        :param post_offer_lists_request:
-        :type post_offer_lists_request: PostOfferListsRequest
+        :param create_offer_list_request:
+        :type create_offer_list_request: CreateOfferListRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1433,10 +1433,10 @@ class OfferListsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._put_offer_lists_offer_list_id_serialize(
+        _param = self._update_offer_list_serialize(
             offer_list_id=offer_list_id,
             content_type=content_type,
-            post_offer_lists_request=post_offer_lists_request,
+            create_offer_list_request=create_offer_list_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1456,11 +1456,11 @@ class OfferListsApi:
         return response_data.response
 
 
-    def _put_offer_lists_offer_list_id_serialize(
+    def _update_offer_list_serialize(
         self,
         offer_list_id,
         content_type,
-        post_offer_lists_request,
+        create_offer_list_request,
         _request_auth,
         _content_type,
         _headers,
@@ -1490,8 +1490,8 @@ class OfferListsApi:
             _header_params['Content-Type'] = content_type
         # process the form parameters
         # process the body parameter
-        if post_offer_lists_request is not None:
-            _body_params = post_offer_lists_request
+        if create_offer_list_request is not None:
+            _body_params = create_offer_list_request
 
 
         # set the HTTP header `Accept`

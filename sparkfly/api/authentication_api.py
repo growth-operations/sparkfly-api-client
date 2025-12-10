@@ -40,7 +40,7 @@ class AuthenticationApi:
 
 
     @validate_call
-    async def post_auth(
+    async def authenticate(
         self,
         x_auth_scope: Annotated[Optional[StrictStr], Field(description="API scope availability for an auth token")] = None,
         x_forwarded_for: Annotated[Optional[StrictStr], Field(description="Available IP address for an auth token")] = None,
@@ -87,7 +87,7 @@ class AuthenticationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_auth_serialize(
+        _param = self._authenticate_serialize(
             x_auth_scope=x_auth_scope,
             x_forwarded_for=x_forwarded_for,
             _request_auth=_request_auth,
@@ -98,7 +98,7 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '401': "PostAuth401Response",
+            '401': "Authenticate401Response",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -112,7 +112,7 @@ class AuthenticationApi:
 
 
     @validate_call
-    async def post_auth_with_http_info(
+    async def authenticate_with_http_info(
         self,
         x_auth_scope: Annotated[Optional[StrictStr], Field(description="API scope availability for an auth token")] = None,
         x_forwarded_for: Annotated[Optional[StrictStr], Field(description="Available IP address for an auth token")] = None,
@@ -159,7 +159,7 @@ class AuthenticationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_auth_serialize(
+        _param = self._authenticate_serialize(
             x_auth_scope=x_auth_scope,
             x_forwarded_for=x_forwarded_for,
             _request_auth=_request_auth,
@@ -170,7 +170,7 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '401': "PostAuth401Response",
+            '401': "Authenticate401Response",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -184,7 +184,7 @@ class AuthenticationApi:
 
 
     @validate_call
-    async def post_auth_without_preload_content(
+    async def authenticate_without_preload_content(
         self,
         x_auth_scope: Annotated[Optional[StrictStr], Field(description="API scope availability for an auth token")] = None,
         x_forwarded_for: Annotated[Optional[StrictStr], Field(description="Available IP address for an auth token")] = None,
@@ -231,7 +231,7 @@ class AuthenticationApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._post_auth_serialize(
+        _param = self._authenticate_serialize(
             x_auth_scope=x_auth_scope,
             x_forwarded_for=x_forwarded_for,
             _request_auth=_request_auth,
@@ -242,7 +242,7 @@ class AuthenticationApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '401': "PostAuth401Response",
+            '401': "Authenticate401Response",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -251,7 +251,7 @@ class AuthenticationApi:
         return response_data.response
 
 
-    def _post_auth_serialize(
+    def _authenticate_serialize(
         self,
         x_auth_scope,
         x_forwarded_for,

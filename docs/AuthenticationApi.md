@@ -4,11 +4,11 @@ All URIs are relative to *https://api-staging.sparkfly.com/v1.0*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**post_auth**](AuthenticationApi.md#post_auth) | **POST** /auth | Request an Authentication Token
+[**authenticate**](AuthenticationApi.md#authenticate) | **POST** /auth | Request an Authentication Token
 
 
-# **post_auth**
-> post_auth(x_auth_scope=x_auth_scope, x_forwarded_for=x_forwarded_for)
+# **authenticate**
+> authenticate(x_auth_scope=x_auth_scope, x_forwarded_for=x_forwarded_for)
 
 Request an Authentication Token
 
@@ -56,9 +56,9 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
     try:
         # Request an Authentication Token
-        await api_instance.post_auth(x_auth_scope=x_auth_scope, x_forwarded_for=x_forwarded_for)
+        await api_instance.authenticate(x_auth_scope=x_auth_scope, x_forwarded_for=x_forwarded_for)
     except Exception as e:
-        print("Exception when calling AuthenticationApi->post_auth: %s\n" % e)
+        print("Exception when calling AuthenticationApi->authenticate: %s\n" % e)
 ```
 
 

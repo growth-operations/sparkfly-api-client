@@ -38,7 +38,7 @@ paths:
         - Authentication
       summary: Request an Authentication Token
       description: Request an authentication token that is required for most Sparkfly core API requests. An authentication token is good for 24 hours before expiring.
-      operationId: post-auth
+      operationId: authenticate
       security:
         - XAuthIdentity: []
         - XAuthKey: []
@@ -83,7 +83,7 @@ paths:
         - Ctm
       summary: CTM Transaction Update
       description: ctm transaction update
-      operationId: put-transaction-update-ctm
+      operationId: ctm-update-transaction
       security:
         - XAuthToken: []
       parameters:
@@ -107,7 +107,7 @@ paths:
         - Ctm
       summary: CTM Allocate
       description: ctm allocate
-      operationId: post-allocate-ctm
+      operationId: ctm-allocate
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
@@ -129,7 +129,7 @@ paths:
         - Ctm
       summary: CTM Dealocate
       description: ctm dealocate
-      operationId: post-deallocate-ctm
+      operationId: ctm-deallocate
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
@@ -152,7 +152,7 @@ paths:
         - Ctm
       summary: CTM Qitems
       description: ctm qitems
-      operationId: post-qitems-ctm
+      operationId: ctm-get-qitems
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
@@ -175,7 +175,7 @@ paths:
         - Ctm
       summary: CTM Show Response
       description: ctm show response
-      operationId: get-show-ctm
+      operationId: ctm-get-member
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/X-Sparkfly-Metadata"
@@ -200,7 +200,7 @@ paths:
         - Ctm
       summary: CTM Update Response
       description: ctm update response
-      operationId: put-update-ctm
+      operationId: ctm-update-member
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
@@ -223,7 +223,7 @@ paths:
         - Ctm
       summary: CTM Update Response
       description: ctm update response
-      operationId: post-update-ctm
+      operationId: ctm-create-member
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
@@ -245,7 +245,7 @@ paths:
         - Ctm
       summary: CTM Show Response
       description: ctm show response
-      operationId: put-show-ctm
+      operationId: ctm-update-member-v2
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/X-Sparkfly-Metadata"
@@ -271,7 +271,7 @@ paths:
         - Ctm
       summary: CTM Update Response
       description: ctm update response
-      operationId: post-update-ctm-siteid
+      operationId: ctm-create-member-by-site
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/TranID"
@@ -293,7 +293,7 @@ paths:
         - Ctm
       summary: CTM Custom Messages
       description: ctm custom messages
-      operationId: get-ctm-custom-messages
+      operationId: ctm-get-custom-messages
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
@@ -311,7 +311,7 @@ paths:
         - Ctm
       summary: CTM Stores
       description: ctm stores
-      operationId: get-ctm-store
+      operationId: ctm-get-store
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
@@ -329,7 +329,7 @@ paths:
         - Members
       summary: Create a Member
       description: Create a new member.
-      operationId: post-members
+      operationId: create-member
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -348,7 +348,7 @@ paths:
         - Members
       summary: List Members
       description: Retrieve a paginated list of all members.
-      operationId: get-members
+      operationId: list-members
       parameters:
         - name: page
           in: query
@@ -571,7 +571,7 @@ paths:
         - Members
       summary: Update a Member
       description: Update a member's data.
-      operationId: put-members-member_id
+      operationId: update-member
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: member_id
@@ -594,7 +594,7 @@ paths:
         - Members
       summary: Find a Member
       description: Find a particular member by its' Sparkfly ID.
-      operationId: get-members-member_id
+      operationId: get-member
       parameters:
         - name: member_id
           in: path
@@ -616,7 +616,7 @@ paths:
         - Members
       summary: Remove a Member
       description: Attempts to delete a member.
-      operationId: delete-members-member_id
+      operationId: delete-member
       parameters:
         - name: member_id
           in: path
@@ -639,7 +639,7 @@ paths:
         - Members
       summary: Search for a Member
       description: Performs a search of an already existing member using the identifier.
-      operationId: get-members-search
+      operationId: search-members
       parameters:
         - name: identifier
           in: query
@@ -660,7 +660,7 @@ paths:
         - Members
       summary: Register a New Member
       description: Creates a new member with profile, credentials, and loyalty enrollments in a single atomic operation.
-      operationId: post-members-register
+      operationId: register-member
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -680,7 +680,7 @@ paths:
         - Members
       summary: Create/Update a Member Profile
       description: "Creates or updates a member's profile. If Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned."
-      operationId: post-members-profile
+      operationId: create-profile
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
@@ -710,7 +710,7 @@ paths:
         - Members
       summary: Retrieve a Member Profile
       description: "Get a member's profile data. If the caller's Sparkfly account is configured to store profile data on a remote platform, this call may communicate with that platform to service the request. If no member profile provider is configured within Sparkfly, an error will be returned."
-      operationId: get-members-profile
+      operationId: get-profile
       parameters:
         - name: id
           in: path
@@ -733,7 +733,7 @@ paths:
         - Credentials
       summary: Create a Credential
       description: Creates a new credential for a member, which can be used to redeem offers or participate in loyalty programs.
-      operationId: post-credentials
+      operationId: create-credential
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -747,13 +747,36 @@ paths:
           description: Unprocessable Entity
         "500":
           description: Internal Server Error
+  "/transactions/{transaction_id}":
+    get:
+      tags:
+        - Transactions
+      summary: Get Transaction Details
+      description: Retrieves detailed information about a specific transaction including items, redemptions, and applied credentials.
+      operationId: get-transaction
+      parameters:
+        - name: transaction_id
+          in: path
+          description: The unique transaction ID
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          $ref: "#/components/responses/Transaction"
+        "401":
+          description: Unauthorized
+        "404":
+          description: Not Found
+        "500":
+          description: Internal Server Error
   "/merchants/{merchant_id}/stores":
     post:
       tags:
         - Stores
       summary: Create a Store
       description: Add a new store for a merchant.
-      operationId: post-merchants-merchant_id-stores
+      operationId: create-store
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: merchant_id
@@ -778,7 +801,7 @@ paths:
         - Stores
       summary: List all Stores
       description: Search for stores by merchant ID.
-      operationId: get-merchants-merchant_id-stores
+      operationId: list-stores
       parameters:
         - $ref: "#/components/parameters/SearchText"
         - $ref: "#/components/parameters/StoreSortBy"
@@ -806,7 +829,7 @@ paths:
         - Stores
       summary: Retrieve a Store
       description: Look a store up by it's ID.
-      operationId: get-merchants-merchant_id-stores-store_id
+      operationId: get-store
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: store_id
@@ -833,7 +856,7 @@ paths:
         - Stores
       summary: Update a Store
       description: Update an existing store.
-      operationId: put-merchants-merchant_id-stores-store_id
+      operationId: update-store
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: store_id
@@ -864,7 +887,7 @@ paths:
         - Stores
       summary: Remove a Store
       description: Remove a store.
-      operationId: delete-merchants-merchant_id-stores-store_id
+      operationId: delete-store
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: store_id
@@ -892,7 +915,7 @@ paths:
         - Stores
       summary: List all Stores with Active Offers
       description: Search stores with active offers.
-      operationId: get-merchants-merchant_id-stores-index
+      operationId: list-stores-index
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Page"
@@ -923,7 +946,7 @@ paths:
         - Store Lists
       summary: Create a Store List
       description: Add a new store list for a merchant.
-      operationId: post-merchants-merchant_id-store_lists
+      operationId: create-store-list
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: merchant_id
@@ -960,7 +983,7 @@ paths:
         - Store Lists
       summary: List all Store Lists
       description: Search for store lists by merchant ID.
-      operationId: get-merchants-merchant_id-store_lists
+      operationId: list-store-lists
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Page"
@@ -987,7 +1010,7 @@ paths:
         - Store Lists
       summary: Update a Store List
       description: Update an existing store list.
-      operationId: put-merchants-merchant_id-store_lists-store_list_id
+      operationId: update-store-list
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: merchant_id
@@ -1018,7 +1041,7 @@ paths:
         - Store Lists
       summary: Remove a Store List
       description: Remove a store list.
-      operationId: delete-merchants-merchant_id-store_lists-store_list_id
+      operationId: delete-store-list
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: merchant_id
@@ -1053,7 +1076,7 @@ paths:
         - Store Lists
       summary: Retrieve a Store List
       description: Look up a store list by ID.
-      operationId: get-merchants-merchant_id-store_lists-store_list_id
+      operationId: get-store-list
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: page
@@ -1112,7 +1135,7 @@ paths:
         - BI Store Lists
       summary: List all BI Store Lists
       description: List all BI Store Lists by Account ID.
-      operationId: get-merchants-bi_store_lists
+      operationId: list-bi-store-lists
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
@@ -1126,7 +1149,7 @@ paths:
         - Offer Lists
       summary: List all Offer Lists
       description: "Fetch a list of offer lists. The list may be filtered according to the request's query parameters. If no filters are applied, the complete list of available offer lists will be returned."
-      operationId: get-offer_lists
+      operationId: list-offer-lists
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: sort_by
@@ -1157,7 +1180,7 @@ paths:
         - Offer Lists
       summary: Create an Offer List
       description: Create a new offer list containing the specified offer IDs.
-      operationId: post-offer_lists
+      operationId: create-offer-list
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -1177,7 +1200,7 @@ paths:
         - Offer Lists
       summary: Update an Offer List
       description: Update an offer list's contents.
-      operationId: put-offer_lists-offer_list_id
+      operationId: update-offer-list
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_list_id
@@ -1219,7 +1242,7 @@ paths:
         - Offer Lists
       summary: Remove an Offer List
       description: Remove an offer list.
-      operationId: delete-offer_lists-offer_list_id
+      operationId: delete-offer-list
       parameters:
         - name: offer_list_id
           in: path
@@ -1249,7 +1272,7 @@ paths:
         - Offer Lists
       summary: Retrieve an Offer List
       description: Search for an offer list by ID.
-      operationId: get-offer_lists-offer_list_id
+      operationId: get-offer-list
       parameters:
         - name: offer_list_id
           in: path
@@ -1272,7 +1295,7 @@ paths:
         - Offers
       summary: List all Offers
       description: Search for offers.
-      operationId: get-offers
+      operationId: list-offers
       parameters:
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
@@ -1312,7 +1335,7 @@ paths:
         In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.
 
         (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
-      operationId: post-offers
+      operationId: create-offer
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -1334,7 +1357,7 @@ paths:
         - Offers
       summary: Find an Offer
       description: Finds an offer by the ID.
-      operationId: get-offers-offer_id
+      operationId: get-offer
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1357,7 +1380,7 @@ paths:
         - Offers
       summary: Update an Offer
       description: Updates an offer by ID.
-      operationId: put-offers-offer_id
+      operationId: update-offer
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1380,7 +1403,7 @@ paths:
         - Offers
       summary: Delete an Offer
       description: Deletes an offer by ID.
-      operationId: delete-offers-offer_id
+      operationId: delete-offer
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1402,7 +1425,7 @@ paths:
         - Eligible Item Sets
       summary: List all Eligible Item Sets
       description: List all eligible item sets for an offer ID.
-      operationId: get-offers-offer_id-eligible_item_sets
+      operationId: list-eligible-item-sets
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1423,7 +1446,7 @@ paths:
         - Eligible Item Sets
       summary: Create an Eligible Item Set
       description: Creates an eligible item set on an offer.
-      operationId: post-offers-offer_id-eligible_item_sets
+      operationId: create-eligible-item-set
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1449,7 +1472,7 @@ paths:
         - Eligible Item Sets
       summary: Update an Eligible Item Set
       description: Updates an eligible item set on an offer.
-      operationId: put-offers-offer_id-eligible_item_sets-id
+      operationId: update-offer-eligible-item-sets
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1478,7 +1501,7 @@ paths:
         - Eligible Item Sets
       summary: Get an Eligible Item Set
       description: Get an eligible item set by offer ID and ID.
-      operationId: get-offers-offer_id-eligible_item_sets-id
+      operationId: get-eligible-item-set
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1505,7 +1528,7 @@ paths:
         - Eligible Item Sets
       summary: Remove an Eligible Item Set
       description: Removes an eligible item set from an offer.
-      operationId: delete-offers-offer_id-eligible_item_sets-id
+      operationId: delete-offer-eligible-item-sets
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1533,7 +1556,7 @@ paths:
         - Offer POS Offer Codes
       summary: List all Offer POS Offer Codes
       description: List offer POS offer codes for an offer ID.
-      operationId: get-offers-offer_id-pos_offer_codes
+      operationId: list-pos-codes
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1554,7 +1577,7 @@ paths:
         - Offer POS Offer Codes
       summary: Create an Offer POS Offer Code
       description: Creates an offer POS offer code.
-      operationId: post-offers-offer_id-pos_offer_codes
+      operationId: create-pos-code
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1580,7 +1603,7 @@ paths:
         - Offer POS Offer Codes
       summary: Update an Offer POS Offer Code
       description: Updates an offer POS offer code by it's ID.
-      operationId: put-offers-offer_id-pos_offer_codes-id
+      operationId: update-offer-pos-offer-codes
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1609,7 +1632,7 @@ paths:
         - Offer POS Offer Codes
       summary: Get an Offer POS Offer Code
       description: Gets an offer POS offer code from it's ID.
-      operationId: get-offers-offer_id-pos_offer_codes-id
+      operationId: get-offer-pos-code
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1636,7 +1659,7 @@ paths:
         - Offer POS Offer Codes
       summary: Remove an Offer POS Offer Code
       description: Removes an offer POS offer Code by from it's ID.
-      operationId: delete-offers-offer_id-pos_offer_codes-id
+      operationId: delete-offer-pos-offer-codes
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: offer_id
@@ -1664,7 +1687,7 @@ paths:
         - Campaigns
       summary: Set a Campaign's Status
       description: Set the status of a currently pending or suspended campaign to active.
-      operationId: put-campaigns-campaign_id-actions-approve
+      operationId: approve-campaign
       parameters:
         - name: campaign_id
           in: path
@@ -1699,7 +1722,7 @@ paths:
         - Campaigns
       summary: Retrieve Campaign Tags
       description: Retrieve campaign tags.
-      operationId: get-campaign-tags
+      operationId: list-campaign-tags
       parameters: []
       responses:
         "200":
@@ -1726,7 +1749,7 @@ paths:
         In all cases, the Campaign End Date or Offer End Date - which ever occurs first - plus any applicable grace period days.
 
         (ex: You cannot set a campaign end date beyond the offer expiration date. In this case it will follow the offer expiration date)
-      operationId: post-campaign
+      operationId: create-campaign
       parameters: []
       requestBody:
         $ref: "#/components/requestBodies/Campaign"
@@ -1744,7 +1767,7 @@ paths:
         - Campaigns
       summary: List all Campaigns
       description: Retrieve all campaigns associated with your account.
-      operationId: get-campaigns
+      operationId: list-campaigns
       parameters:
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
@@ -1794,7 +1817,7 @@ paths:
         - Campaigns
       summary: Update a Campaign by Campaign ID
       description: Updates a campaign.
-      operationId: put-campaign
+      operationId: update-campaign
       parameters:
         - $ref: "#/components/parameters/CampaignID"
       requestBody:
@@ -1814,7 +1837,7 @@ paths:
         - Audiences
       summary: List all Audiences
       description: Retrieve all audiences associated with your account.
-      operationId: get-audiences
+      operationId: list-audiences
       parameters:
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
@@ -1843,7 +1866,7 @@ paths:
         - Audiences
       summary: Create an Audience
       description: Creates a new audience.
-      operationId: post-audiences
+      operationId: create-audience
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -1861,7 +1884,7 @@ paths:
         - Audiences
       summary: Retrieve an Audience
       description: Find an audience by its primary identifier.
-      operationId: get-audiences-id
+      operationId: get-audience
       parameters:
         - name: audience_id
           in: path
@@ -1884,7 +1907,7 @@ paths:
         - Audiences
       summary: Update an Audience
       description: Updates an existing audience.
-      operationId: put-audiences-id
+      operationId: update-audience
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: audience_id
@@ -1907,7 +1930,7 @@ paths:
         - Audiences
       summary: Remove an Audience
       description: Removes an existing audience.
-      operationId: delete-audiences-id
+      operationId: delete-audience
       parameters:
         - name: audience_id
           in: path
@@ -1928,7 +1951,7 @@ paths:
         - Audiences
       summary: List all Sub-Audiences
       description: Search within all sub-audiences.
-      operationId: get-audiences-id-sub_audiences
+      operationId: list-sub-audiences
       parameters:
         - $ref: "#/components/parameters/Page"
         - $ref: "#/components/parameters/PerPage"
@@ -1962,7 +1985,7 @@ paths:
         - Audiences
       summary: Create a Sub-Audience
       description: Creates a sub-audience within this audience.
-      operationId: post-audiences-id-sub_audiences
+      operationId: create-sub-audience
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: audience_id
@@ -1988,7 +2011,7 @@ paths:
         - Audiences
       summary: Retrieve a Sub-Audience
       description: Get a sub-audience by it's primary identifier.
-      operationId: get-audiences-id-sub_audiences-sub_audience_id
+      operationId: get-sub-audience
       parameters:
         - name: sub_audience_id
           in: path
@@ -2014,7 +2037,7 @@ paths:
         - Audiences
       summary: Update a Sub-Audience
       description: Updates an existing sub-audience.
-      operationId: put-audiences-id-sub_audiences-sub_audience_id
+      operationId: update-audience-sub-audiences
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: sub_audience_id
@@ -2047,7 +2070,7 @@ paths:
         - Audiences
       summary: Remove a Sub-Audience
       description: Removes an existing sub-audience.
-      operationId: delete-audiences-id-sub_audiences-sub_audience_id
+      operationId: delete-audience-sub-audiences
       parameters:
         - name: sub_audience_id
           in: path
@@ -2076,7 +2099,7 @@ paths:
         - POS Offer Codes
       summary: Get a POS Offer Code
       description: Gets POS offer code by ID.
-      operationId: get-pos_offer_codes-id
+      operationId: get-pos-code
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
@@ -2102,7 +2125,7 @@ paths:
         - POS Offer Codes
       summary: List all POS Offer Codes
       description: List POS offer codes by account ID.
-      operationId: get-pos_offer_codes
+      operationId: list-all-pos-codes
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
@@ -2118,7 +2141,7 @@ paths:
         - Templates
       summary: Get all Templates
       description: Gets all templates.
-      operationId: get-templates
+      operationId: list-templates
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
@@ -2134,7 +2157,7 @@ paths:
         - Offer States
       summary: Get Offer State from Query Parameters
       description: "Gets an offer state from a token, credential_identifier, and/or an external_ref_id."
-      operationId: get-members-offer_states
+      operationId: query-offer-states
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/OSID"
@@ -2154,7 +2177,7 @@ paths:
         - Offer States
       summary: Create Offer State from Query Parameters
       description: "Creates an offer state using the osid, offer_id or channel_id."
-      operationId: post-members-offer_states
+      operationId: create-offer-state
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/OSID"
@@ -2177,7 +2200,7 @@ paths:
         - Offer States
       summary: Get all Offer States
       description: Gets all offer states.
-      operationId: get-members-member_id-offer_states
+      operationId: list-offer-states
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/MemberIDPath"
@@ -2195,7 +2218,7 @@ paths:
         - Offer States
       summary: Create Offer State
       description: "Creates an offer state from member, offer, and channel IDs."
-      operationId: post-members-member_id-offer_states
+      operationId: issue-offer-state
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ChannelID"
@@ -2218,7 +2241,7 @@ paths:
         - Offer States
       summary: Get Offer State by Offer ID
       description: Gets the offer state by the offer ID.
-      operationId: get-members-member_id-offers-offer_id
+      operationId: list-members-offers
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/MemberIDPath"
@@ -2238,7 +2261,7 @@ paths:
         - Offer States
       summary: Get Offer State by Offer State ID
       description: Gets the offer state by the offer state ID.
-      operationId: get-members-member_id-offer_states-offer_state_id
+      operationId: get-offer-state
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/OfferStateIDPath"
@@ -2257,7 +2280,7 @@ paths:
         - Offer States
       summary: Update Offer State
       description: Updates an offer state by offer state ID.
-      operationId: put-members-member_id-offer_states-offer_state_id
+      operationId: update-offer-state
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/OfferStateIDPath"
@@ -2278,7 +2301,7 @@ paths:
         - Offer States
       summary: Update Offer State - Post
       description: Updates the offer state by offer state ID through a post.
-      operationId: post-members-member_id-offer_states-offerstate_id
+      operationId: redeem-offer-state
       parameters:
         - $ref: "#/components/parameters/OfferStateIDPath"
         - $ref: "#/components/parameters/MemberIDPath"
@@ -2299,7 +2322,7 @@ paths:
         - Offer States
       summary: Void Offer State by Member Identifier
       description: Voids an offer state by the member identifier.
-      operationId: post-members-member_id-offer_states-offerstate_id-void?member_identifier=-member_identifier
+      operationId: create-member-offer-states-void?member-identifier=entifier
       parameters:
         - $ref: "#/components/parameters/MemberIdentifier"
         - $ref: "#/components/parameters/OfferStateIDPath"
@@ -2320,7 +2343,7 @@ paths:
         - Offer States
       summary: Void Offer State
       description: Voids an offer state from an offer state ID.
-      operationId: post-members-member_id-offer_states-offerstate_id-void
+      operationId: create-member-offer-states-void
       parameters:
         - $ref: "#/components/parameters/MemberIDPath"
         - $ref: "#/components/parameters/OfferStateIDPath"
@@ -2341,7 +2364,7 @@ paths:
         - Impressions
       summary: Create an Impression
       description: Creates an impression.
-      operationId: post-impressions
+      operationId: create-impression
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -2358,7 +2381,7 @@ paths:
         - Impressions
       summary: List Impressions
       description: List impressions.
-      operationId: get-impressions
+      operationId: list-impressions
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       responses:
@@ -2376,7 +2399,7 @@ paths:
         - Impressions
       summary: Delete an Impression
       description: Deletes an impression.
-      operationId: delete-impressions-id
+      operationId: delete-impression
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
@@ -2400,7 +2423,7 @@ paths:
         - Email Opt In
       summary: Email Opt In
       description: "Email opt in with an address, xid, and code."
-      operationId: post-optins
+      operationId: create-optin
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Address"
@@ -2421,7 +2444,7 @@ paths:
         - Member Privacy
       summary: Exports Data Associated with a Member
       description: Looks up and exports data for the member associated with the provided member_identifier or credential_identifier query parameter.
-      operationId: get-privacy-member-export
+      operationId: export-member-privacy
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/MemberIdentifier"
@@ -2443,7 +2466,7 @@ paths:
         - Member Privacy
       summary: Creates a Deletion Request for a Member
       description: "Looks up and creates a deletion request for the member associated with the provided member_identifier or credential_identifier query parameter. For each deletion request, all member offers will first be voided, then after 7 days, or longer if specified in an Account's preferences, the member will be anonymized."
-      operationId: post-privacy-member-delete_request
+      operationId: request-member-deletion
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/MemberIdentifier"
@@ -2465,7 +2488,7 @@ paths:
         - Items
       summary: Create Item
       description: Creates an item.
-      operationId: post-items
+      operationId: create-item
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -2484,7 +2507,7 @@ paths:
         - Items
       summary: Item Index
       description: Get all items.
-      operationId: get-items
+      operationId: list-items
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Page"
@@ -2505,7 +2528,7 @@ paths:
         - Items
       summary: Get Item
       description: Gets an item.
-      operationId: get-items-id
+      operationId: get-item
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
@@ -2528,7 +2551,7 @@ paths:
         - Items
       summary: Delete Item
       description: Deletes an item.
-      operationId: delete-items-id
+      operationId: delete-item
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
@@ -2551,7 +2574,7 @@ paths:
         - Items
       summary: Update Item
       description: Updates an item.
-      operationId: put-items-id
+      operationId: update-item
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - name: id
@@ -2577,7 +2600,7 @@ paths:
         - Items
       summary: Item Set Index
       description: Get all item sets.
-      operationId: get-item_sets
+      operationId: list-item-sets
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Page"
@@ -2597,7 +2620,7 @@ paths:
         - Items
       summary: Item Set Create
       description: Creates an item set.
-      operationId: post-item_sets
+      operationId: create-item-set
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
       requestBody:
@@ -2617,7 +2640,7 @@ paths:
         - Items
       summary: Get an Item Set
       description: Gets an item set.
-      operationId: get-item_sets-item_set_id
+      operationId: get-item-set
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
@@ -2633,7 +2656,7 @@ paths:
         - Items
       summary: Update an Item Set
       description: Updates an item set.
-      operationId: put-item_sets-item_set_id
+      operationId: update-item-set
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
@@ -2655,7 +2678,7 @@ paths:
         - Items
       summary: Delete an Item Set
       description: Deletes an item set.
-      operationId: delete-item_sets-item_set_id
+      operationId: delete-item-set
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
@@ -2674,7 +2697,7 @@ paths:
         - Items
       summary: Add Item to Set
       description: Adds an item to the item set.
-      operationId: post-item_sets-item_set_id-items-id
+      operationId: add-item-to-set
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
@@ -2700,7 +2723,7 @@ paths:
         - Items
       summary: Remove Item from Set
       description: Removes an item from an item set.
-      operationId: delete-item_sets-item_set_id-items-id
+      operationId: delete-item-set-items
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/ItemSetIDPath"
@@ -2727,7 +2750,7 @@ paths:
         - Items
       summary: Item Set Item Index
       description: Gets a list of items from the item set.
-      operationId: get-item_sets-item_set_id-items
+      operationId: list-set-items
       parameters:
         - $ref: "#/components/parameters/ContentTypeJSON"
         - $ref: "#/components/parameters/Page"
@@ -2751,7 +2774,7 @@ paths:
         - Offer States
       summary: Issue an Offer to a member (high throughput)
       description: "Issues an offer to a member using an active Sparkfly campaign, optionally allowing attachment of external data, activation and expiration dates. An issued offer is referred to as an offer_state.\r\n\r\nThis endpoint provides a limited feature set aimed at high throughput offer issuance. This endpoint should be preferred when issuing offer_states to a large number of members.\r\n"
-      operationId: post-members-id-offer_states-issue
+      operationId: create-member-offer-states-issue
       parameters: []
       requestBody:
         description: ""
@@ -3456,6 +3479,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/ctm_transaction_show_response"
+    Transaction:
+      description: Example response
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/transaction_response"
     MemberIndex:
       description: Example response
       content:
@@ -4007,6 +4036,9 @@ components:
       properties:
         member:
           type: object
+          required:
+            - id
+            - identifier
           properties:
             id:
               type: integer
@@ -4014,6 +4046,8 @@ components:
               type: string
             member_profile:
               type: object
+              required:
+                - id
               properties:
                 id:
                   type: integer
@@ -4035,9 +4069,15 @@ components:
               type: array
               items:
                 type: object
+                required:
+                  - credential
                 properties:
                   credential:
                     type: object
+                    required:
+                      - id
+                      - identifier
+                      - type
                     properties:
                       id:
                         type: integer
@@ -4049,9 +4089,15 @@ components:
               type: array
               items:
                 type: object
+                required:
+                  - loyalty_enrollment
                 properties:
                   loyalty_enrollment:
                     type: object
+                    required:
+                      - id
+                      - loyalty_program_id
+                      - source
                     properties:
                       id:
                         type: integer
@@ -5390,6 +5436,161 @@ components:
           type: string
         account_default_language:
           type: string
+    transaction_totals:
+      type: object
+      title: transaction_totals
+      properties:
+        paid:
+          type: integer
+        discount:
+          type: integer
+        subtotal:
+          type: integer
+        service_charge:
+          type: integer
+        tax:
+          type: integer
+        total:
+          type: integer
+    transaction_item:
+      type: object
+      title: transaction_item
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        item_code:
+          type: string
+        quantity:
+          type: integer
+        ext_price:
+          type: integer
+        amount:
+          type: integer
+    transaction_campaign_offer:
+      type: object
+      title: transaction_campaign_offer
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+    transaction_campaign:
+      type: object
+      title: transaction_campaign
+      properties:
+        id:
+          type: integer
+        external_id:
+          type: string
+        xid:
+          type: string
+        name:
+          type: string
+        offer:
+          $ref: "#/components/schemas/transaction_campaign_offer"
+    transaction_redemption:
+      type: object
+      title: transaction_redemption
+      properties:
+        id:
+          type: integer
+        offer_state_id:
+          type: integer
+        campaign:
+          $ref: "#/components/schemas/transaction_campaign"
+    transaction_applied_credential:
+      type: object
+      title: transaction_applied_credential
+      properties:
+        id:
+          type: integer
+        identifier:
+          type: string
+        type:
+          type: integer
+        member_id:
+          type: integer
+    transaction_response:
+      type: object
+      title: transaction_response
+      properties:
+        transaction:
+          type: object
+          properties:
+            id:
+              type: integer
+            transaction_identifier:
+              type: string
+            receipt_id:
+              type: string
+            totals:
+              $ref: "#/components/schemas/transaction_totals"
+            external_id:
+              type: string
+            store_number:
+              type: string
+            store_id:
+              type: integer
+            occurred_at:
+              type: string
+              format: date-time
+            transaction_items:
+              type: array
+              items:
+                $ref: "#/components/schemas/transaction_item"
+            redemptions:
+              type: array
+              items:
+                $ref: "#/components/schemas/transaction_redemption"
+            applied_credentials:
+              type: array
+              items:
+                $ref: "#/components/schemas/transaction_applied_credential"
+      x-examples:
+        Example 1:
+          transaction:
+            id: 382278679
+            transaction_identifier: 5582f637-4f36-43e9-af0d-77a0203943e8
+            receipt_id: 5582f637-4f36-43e9-af0d-77a0203943e8
+            totals:
+              paid: 0
+              discount: 8250
+              subtotal: 10350
+              service_charge: 0
+              tax: 943
+              total: 0
+            external_id: ""
+            store_number: ""
+            store_id: 54621
+            occurred_at: "2025-12-09T02:28:51Z"
+            transaction_items:
+              - id: 5097424694
+                name: Mary Taylor Tempranillo GL
+                item_code: 5bd2c7d5-52bb-401f-a5c4-4ec0611f694d
+                quantity: 1
+                ext_price: 600
+                amount: 600
+            redemptions:
+              - id: 2646263878
+                offer_state_id: 5450619970
+                campaign:
+                  id: 115689
+                  external_id: ""
+                  xid: 2tTdWws
+                  name: ""
+                  offer:
+                    id: 69706
+                    name: Monthly Wine Bottle, AZ/CA/CO/TX, 1 Bottle Membership
+                    description: Your monthly wine bottle perk.
+            applied_credentials:
+              - id: 5604568950
+                identifier: CRV9YG
+                type: 0
+                member_id: 751794234
     member_index_body:
       title: member_index_body
       allOf:

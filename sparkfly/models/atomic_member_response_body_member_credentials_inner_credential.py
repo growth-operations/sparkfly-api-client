@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +27,9 @@ class AtomicMemberResponseBodyMemberCredentialsInnerCredential(BaseModel):
     """
     AtomicMemberResponseBodyMemberCredentialsInnerCredential
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    identifier: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    id: StrictInt
+    identifier: StrictStr
+    type: StrictStr
     __properties: ClassVar[List[str]] = ["id", "identifier", "type"]
 
     model_config = ConfigDict(
