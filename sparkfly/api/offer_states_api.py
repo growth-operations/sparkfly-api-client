@@ -412,7 +412,7 @@ class OfferStatesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> OfferStateIndexBody:
+    ) -> OfferState:
         """Get Offer State by Offer State ID
 
         Gets the offer state by the offer state ID.
@@ -456,7 +456,7 @@ class OfferStatesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OfferStateIndexBody",
+            '200': "OfferState",
             '401': None,
             '404': "OfferStateError",
             '500': "OfferStateError",
@@ -490,7 +490,7 @@ class OfferStatesApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[OfferStateIndexBody]:
+    ) -> ApiResponse[OfferState]:
         """Get Offer State by Offer State ID
 
         Gets the offer state by the offer state ID.
@@ -534,7 +534,7 @@ class OfferStatesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OfferStateIndexBody",
+            '200': "OfferState",
             '401': None,
             '404': "OfferStateError",
             '500': "OfferStateError",
@@ -612,7 +612,7 @@ class OfferStatesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "OfferStateIndexBody",
+            '200': "OfferState",
             '401': None,
             '404': "OfferStateError",
             '500': "OfferStateError",

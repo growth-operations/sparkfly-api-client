@@ -33,11 +33,16 @@ class OfferStateAllOfOfferState(BaseModel):
     status: Optional[StrictStr] = None
     value: Optional[StrictInt] = None
     locked: Optional[StrictBool] = None
+    created_at: Optional[StrictStr] = None
+    updated_at: Optional[StrictStr] = None
     activates_at: Optional[StrictStr] = None
     expires_at: Optional[StrictStr] = None
     external_ref_id: Optional[StrictStr] = None
+    barcode_image_url: Optional[StrictStr] = None
     custom_data: Optional[StrictStr] = None
     credential_custom_data: Optional[StrictStr] = None
+    effective_activates_at: Optional[StrictStr] = None
+    effective_expires_at: Optional[StrictStr] = None
     offer_activities: Optional[List[Dict[str, Any]]] = None
     offer_name: Optional[StrictStr] = None
     offer_short_name: Optional[StrictStr] = None
@@ -60,7 +65,7 @@ class OfferStateAllOfOfferState(BaseModel):
     campaign_external_id: Optional[StrictStr] = None
     campaign_xid: Optional[StrictStr] = None
     campaign_id: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["offer_state_id", "offer_id", "member_id", "status", "value", "locked", "activates_at", "expires_at", "external_ref_id", "custom_data", "credential_custom_data", "offer_activities", "offer_name", "offer_short_name", "offer_campaign_name", "offer_group", "offer_description", "offer_value_required", "offer_terms_and_conditions", "offer_web_image_url", "offer_web_thumb_url", "offer_mobile_image_url", "offer_mobile_thumb_url", "is_reward", "credential_identifier", "token", "transferable", "reusable", "offer_tags", "offer_campaign_tags", "campaign_external_id", "campaign_xid", "campaign_id"]
+    __properties: ClassVar[List[str]] = ["offer_state_id", "offer_id", "member_id", "status", "value", "locked", "created_at", "updated_at", "activates_at", "expires_at", "external_ref_id", "barcode_image_url", "custom_data", "credential_custom_data", "effective_activates_at", "effective_expires_at", "offer_activities", "offer_name", "offer_short_name", "offer_campaign_name", "offer_group", "offer_description", "offer_value_required", "offer_terms_and_conditions", "offer_web_image_url", "offer_web_thumb_url", "offer_mobile_image_url", "offer_mobile_thumb_url", "is_reward", "credential_identifier", "token", "transferable", "reusable", "offer_tags", "offer_campaign_tags", "campaign_external_id", "campaign_xid", "campaign_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -119,11 +124,16 @@ class OfferStateAllOfOfferState(BaseModel):
             "status": obj.get("status"),
             "value": obj.get("value"),
             "locked": obj.get("locked"),
+            "created_at": obj.get("created_at"),
+            "updated_at": obj.get("updated_at"),
             "activates_at": obj.get("activates_at"),
             "expires_at": obj.get("expires_at"),
             "external_ref_id": obj.get("external_ref_id"),
+            "barcode_image_url": obj.get("barcode_image_url"),
             "custom_data": obj.get("custom_data"),
             "credential_custom_data": obj.get("credential_custom_data"),
+            "effective_activates_at": obj.get("effective_activates_at"),
+            "effective_expires_at": obj.get("effective_expires_at"),
             "offer_activities": obj.get("offer_activities"),
             "offer_name": obj.get("offer_name"),
             "offer_short_name": obj.get("offer_short_name"),

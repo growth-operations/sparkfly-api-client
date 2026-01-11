@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_offer_state**
-> OfferStateIndexBody get_offer_state(offerstate_id, member_id, content_type=content_type)
+> OfferState get_offer_state(offerstate_id, member_id, content_type=content_type)
 
 Get Offer State by Offer State ID
 
@@ -121,7 +121,7 @@ Gets the offer state by the offer state ID.
 
 ```python
 import sparkfly
-from sparkfly.models.offer_state_index_body import OfferStateIndexBody
+from sparkfly.models.offer_state import OfferState
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OfferStateIndexBody**](OfferStateIndexBody.md)
+[**OfferState**](OfferState.md)
 
 ### Authorization
 
