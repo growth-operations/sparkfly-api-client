@@ -12,6 +12,7 @@ from .configuration import Configuration
 from .api import (
     AuthenticationApi,
     CampaignsApi,
+    CredentialsApi,
     StoresApi,
     OffersApi,
     OfferStatesApi,
@@ -141,6 +142,7 @@ class Sparkfly:
 
         # Initialize API classes with retry wrappers
         self.auth: AuthenticationApi = self._create_retry_wrapper(AuthenticationApi)
+        self.credentials: CredentialsApi = self._create_retry_wrapper(CredentialsApi)
         self.campaigns: CampaignsApi = self._create_retry_wrapper(CampaignsApi)
         self.stores: StoresApi = self._create_retry_wrapper(StoresApi)
         self.offers: OffersApi = self._create_retry_wrapper(OffersApi)
