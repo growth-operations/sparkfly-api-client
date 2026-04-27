@@ -6327,9 +6327,23 @@ components:
         only the entry whose `voided_at` is null is the currently active credential.
       items:
         type: object
+        required:
+          - credential
         properties:
           credential:
             type: object
+            required:
+              - id
+              - identifier
+              - member_id
+              - account_id
+              - channel_id
+              - type
+              - created_at
+              - updated_at
+              - reusable
+              - locked
+              - supports_barcode
             properties:
               id:
                 type: integer
@@ -6350,22 +6364,18 @@ components:
               voided_at:
                 type: string
                 format: date-time
-                nullable: true
               redeemed_at:
                 type: string
                 format: date-time
-                nullable: true
               processed_at:
                 type: string
                 format: date-time
-                nullable: true
               reusable:
                 type: boolean
               locked:
                 type: boolean
               url:
                 type: string
-                nullable: true
               created_at:
                 type: string
                 format: date-time
@@ -6379,26 +6389,20 @@ components:
                   - loyalty
               offer_ids:
                 type: array
-                nullable: true
                 items:
                   type: integer
               merchant_id:
                 type: integer
-                nullable: true
               merchant_name:
                 type: string
-                nullable: true
               offer_name:
                 type: string
-                nullable: true
               location_address:
                 type: string
-                nullable: true
               supports_barcode:
                 type: boolean
               barcodes_supported:
                 type: string
-                nullable: true
           errors:
             type: object
       x-examples:

@@ -5,29 +5,29 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | [optional] 
-**identifier** | **str** |  | [optional] 
-**member_id** | **int** |  | [optional] 
-**account_id** | **int** |  | [optional] 
+**id** | **int** |  | 
+**identifier** | **str** |  | 
+**member_id** | **int** |  | 
+**account_id** | **int** |  | 
 **redeeming_account_id** | **int** |  | [optional] 
-**channel_id** | **int** |  | [optional] 
+**channel_id** | **int** |  | 
 **eligible_channel_id** | **int** |  | [optional] 
 **store_id** | **int** |  | [optional] 
 **voided_at** | **datetime** |  | [optional] 
 **redeemed_at** | **datetime** |  | [optional] 
 **processed_at** | **datetime** |  | [optional] 
-**reusable** | **bool** |  | [optional] 
-**locked** | **bool** |  | [optional] 
+**reusable** | **bool** |  | 
+**locked** | **bool** |  | 
 **url** | **str** |  | [optional] 
-**created_at** | **datetime** |  | [optional] 
-**updated_at** | **datetime** |  | [optional] 
-**type** | **str** |  | [optional] 
+**created_at** | **datetime** |  | 
+**updated_at** | **datetime** |  | 
+**type** | **str** |  | 
 **offer_ids** | **List[int]** |  | [optional] 
 **merchant_id** | **int** |  | [optional] 
 **merchant_name** | **str** |  | [optional] 
 **offer_name** | **str** |  | [optional] 
 **location_address** | **str** |  | [optional] 
-**supports_barcode** | **bool** |  | [optional] 
+**supports_barcode** | **bool** |  | 
 **barcodes_supported** | **str** |  | [optional] 
 
 ## Example

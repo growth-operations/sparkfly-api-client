@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**credential** | [**CredentialIndexBodyInnerCredential**](CredentialIndexBodyInnerCredential.md) |  | [optional] 
+**credential** | [**CredentialIndexBodyInnerCredential**](CredentialIndexBodyInnerCredential.md) |  | 
 **errors** | **object** |  | [optional] 
 
 ## Example

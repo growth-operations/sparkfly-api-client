@@ -28,38 +28,35 @@ class CredentialIndexBodyInnerCredential(BaseModel):
     """
     CredentialIndexBodyInnerCredential
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    identifier: Optional[StrictStr] = None
-    member_id: Optional[StrictInt] = None
-    account_id: Optional[StrictInt] = None
+    id: StrictInt
+    identifier: StrictStr
+    member_id: StrictInt
+    account_id: StrictInt
     redeeming_account_id: Optional[StrictInt] = None
-    channel_id: Optional[StrictInt] = None
+    channel_id: StrictInt
     eligible_channel_id: Optional[StrictInt] = None
     store_id: Optional[StrictInt] = None
     voided_at: Optional[datetime] = None
     redeemed_at: Optional[datetime] = None
     processed_at: Optional[datetime] = None
-    reusable: Optional[StrictBool] = None
-    locked: Optional[StrictBool] = None
+    reusable: StrictBool
+    locked: StrictBool
     url: Optional[StrictStr] = None
-    created_at: Optional[datetime] = None
-    updated_at: Optional[datetime] = None
-    type: Optional[StrictStr] = None
+    created_at: datetime
+    updated_at: datetime
+    type: StrictStr
     offer_ids: Optional[List[StrictInt]] = None
     merchant_id: Optional[StrictInt] = None
     merchant_name: Optional[StrictStr] = None
     offer_name: Optional[StrictStr] = None
     location_address: Optional[StrictStr] = None
-    supports_barcode: Optional[StrictBool] = None
+    supports_barcode: StrictBool
     barcodes_supported: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["id", "identifier", "member_id", "account_id", "redeeming_account_id", "channel_id", "eligible_channel_id", "store_id", "voided_at", "redeemed_at", "processed_at", "reusable", "locked", "url", "created_at", "updated_at", "type", "offer_ids", "merchant_id", "merchant_name", "offer_name", "location_address", "supports_barcode", "barcodes_supported"]
 
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value is None:
-            return value
-
         if value not in set(['offer', 'loyalty']):
             raise ValueError("must be one of enum values ('offer', 'loyalty')")
         return value

@@ -412,6 +412,4 @@ sparkfly/py.typed
 sparkfly/rest.py
 test-requirements.txt
 test/__init__.py
-test/test_credential_index_body_inner.py
-test/test_credential_index_body_inner_credential.py
 tox.ini

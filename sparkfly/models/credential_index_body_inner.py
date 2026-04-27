@@ -28,7 +28,7 @@ class CredentialIndexBodyInner(BaseModel):
     """
     CredentialIndexBodyInner
     """ # noqa: E501
-    credential: Optional[CredentialIndexBodyInnerCredential] = None
+    credential: CredentialIndexBodyInnerCredential
     errors: Optional[Dict[str, Any]] = None
     __properties: ClassVar[List[str]] = ["credential", "errors"]
 
