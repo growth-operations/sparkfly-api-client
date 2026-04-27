@@ -747,6 +747,29 @@ paths:
           description: Unprocessable Entity
         "500":
           description: Internal Server Error
+    get:
+      tags:
+        - Credentials
+      summary: Search Credentials
+      description: |
+        Search for credentials by identifier. Returns all credentials matching the given identifier across members.
+        A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued
+        to another member). Callers should treat any credential with a non-null `voided_at` as inactive.
+      operationId: search-credentials
+      parameters:
+        - name: identifier
+          in: query
+          description: The credential identifier to search for (e.g., a phone number, email, or external ID).
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/CredentialIndex"
+        "401":
+          description: Unauthorized
+        "500":
+          description: Internal Server Error
   "/transactions/{transaction_id}":
     get:
       tags:
@@ -3581,6 +3604,12 @@ components:
         application/json:
           schema:
             $ref: "#/components/schemas/credential_create_response"
+    CredentialIndex:
+      description: A list of credentials matching the searched identifier.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/credential_index_body"
     CredentialBatchIndex:
       description: Example response
       content:
@@ -6289,6 +6318,143 @@ components:
               type: array
               items:
                 $ref: "#/components/schemas/credential_batch_response_body"
+    credential_index_body:
+      title: credential_index_body
+      type: array
+      description: |
+        A list of credentials matching a search. Each entry mirrors the shape of `credential_create_response`,
+        with a `credential` object and an `errors` object. Multiple entries may share the same `identifier` —
+        only the entry whose `voided_at` is null is the currently active credential.
+      items:
+        type: object
+        properties:
+          credential:
+            type: object
+            properties:
+              id:
+                type: integer
+              identifier:
+                type: string
+              member_id:
+                type: integer
+              account_id:
+                type: integer
+              redeeming_account_id:
+                type: integer
+              channel_id:
+                type: integer
+              eligible_channel_id:
+                type: integer
+              store_id:
+                type: integer
+              voided_at:
+                type: string
+                format: date-time
+                nullable: true
+              redeemed_at:
+                type: string
+                format: date-time
+                nullable: true
+              processed_at:
+                type: string
+                format: date-time
+                nullable: true
+              reusable:
+                type: boolean
+              locked:
+                type: boolean
+              url:
+                type: string
+                nullable: true
+              created_at:
+                type: string
+                format: date-time
+              updated_at:
+                type: string
+                format: date-time
+              type:
+                type: string
+                enum:
+                  - offer
+                  - loyalty
+              offer_ids:
+                type: array
+                nullable: true
+                items:
+                  type: integer
+              merchant_id:
+                type: integer
+                nullable: true
+              merchant_name:
+                type: string
+                nullable: true
+              offer_name:
+                type: string
+                nullable: true
+              location_address:
+                type: string
+                nullable: true
+              supports_barcode:
+                type: boolean
+              barcodes_supported:
+                type: string
+                nullable: true
+          errors:
+            type: object
+      x-examples:
+        Example 1:
+          - credential:
+              id: 5009787216
+              identifier: "6786339171"
+              member_id: 575491397
+              account_id: 236
+              redeeming_account_id: 236
+              channel_id: 869
+              eligible_channel_id: null
+              store_id: null
+              voided_at: "2025-07-31T17:11:52.761765Z"
+              redeemed_at: null
+              processed_at: null
+              reusable: true
+              locked: false
+              url: null
+              created_at: "2025-07-30T22:39:49.956376Z"
+              updated_at: "2025-07-30T22:40:42.27121Z"
+              type: offer
+              offer_ids: null
+              merchant_id: null
+              merchant_name: null
+              offer_name: null
+              location_address: null
+              supports_barcode: false
+              barcodes_supported: null
+            errors: {}
+          - credential:
+              id: 5027801654
+              identifier: "6786339171"
+              member_id: 589106278
+              account_id: 236
+              redeeming_account_id: 236
+              channel_id: 869
+              eligible_channel_id: null
+              store_id: null
+              voided_at: null
+              redeemed_at: null
+              processed_at: null
+              reusable: true
+              locked: false
+              url: null
+              created_at: "2025-08-08T18:00:49.488092Z"
+              updated_at: "2025-08-08T18:00:49.488092Z"
+              type: loyalty
+              offer_ids: null
+              merchant_id: null
+              merchant_name: null
+              offer_name: null
+              location_address: null
+              supports_barcode: false
+              barcodes_supported: null
+            errors: {}
     item:
       title: item
       allOf:

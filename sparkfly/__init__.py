@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.3.7"
+__version__ = "1.4.0"
 
 # Define package exports
 __all__ = [
@@ -102,6 +102,8 @@ __all__ = [
     "CredentialCreateRequestCredential",
     "CredentialCreateResponse",
     "CredentialCreateResponseCredential",
+    "CredentialIndexBodyInner",
+    "CredentialIndexBodyInnerCredential",
     "CtmQitemsRequest",
     "CtmRedemptionJobRequest",
     "CtmRedemptionJobRequestItemsInner",
@@ -313,6 +315,8 @@ from sparkfly.models.credential_create_request import CredentialCreateRequest as
 from sparkfly.models.credential_create_request_credential import CredentialCreateRequestCredential as CredentialCreateRequestCredential
 from sparkfly.models.credential_create_response import CredentialCreateResponse as CredentialCreateResponse
 from sparkfly.models.credential_create_response_credential import CredentialCreateResponseCredential as CredentialCreateResponseCredential
+from sparkfly.models.credential_index_body_inner import CredentialIndexBodyInner as CredentialIndexBodyInner
+from sparkfly.models.credential_index_body_inner_credential import CredentialIndexBodyInnerCredential as CredentialIndexBodyInnerCredential
 from sparkfly.models.ctm_qitems_request import CtmQitemsRequest as CtmQitemsRequest
 from sparkfly.models.ctm_redemption_job_request import CtmRedemptionJobRequest as CtmRedemptionJobRequest
 from sparkfly.models.ctm_redemption_job_request_items_inner import CtmRedemptionJobRequestItemsInner as CtmRedemptionJobRequestItemsInner

@@ -59,6 +59,8 @@ docs/CredentialCreateRequest.md
 docs/CredentialCreateRequestCredential.md
 docs/CredentialCreateResponse.md
 docs/CredentialCreateResponseCredential.md
+docs/CredentialIndexBodyInner.md
+docs/CredentialIndexBodyInnerCredential.md
 docs/CredentialsApi.md
 docs/CtmApi.md
 docs/CtmQitemsRequest.md
@@ -283,6 +285,8 @@ sparkfly/models/credential_create_request.py
 sparkfly/models/credential_create_request_credential.py
 sparkfly/models/credential_create_response.py
 sparkfly/models/credential_create_response_credential.py
+sparkfly/models/credential_index_body_inner.py
+sparkfly/models/credential_index_body_inner_credential.py
 sparkfly/models/ctm_qitems_request.py
 sparkfly/models/ctm_redemption_job_request.py
 sparkfly/models/ctm_redemption_job_request_items_inner.py
@@ -408,4 +412,6 @@ sparkfly/py.typed
 sparkfly/rest.py
 test-requirements.txt
 test/__init__.py
+test/test_credential_index_body_inner.py
+test/test_credential_index_body_inner_credential.py
 tox.ini
