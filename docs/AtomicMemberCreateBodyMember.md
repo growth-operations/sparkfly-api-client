@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifier** | **str** |  | [optional] 
+**identifier** | **str** |  | 
 **member_profile** | [**AtomicMemberCreateBodyMemberMemberProfile**](AtomicMemberCreateBodyMemberMemberProfile.md) |  | [optional] 
 **credentials** | [**List[AtomicMemberCreateBodyMemberCredentialsInner]**](AtomicMemberCreateBodyMemberCredentialsInner.md) |  | [optional] 
 **loyalty_enrollments** | [**List[AtomicMemberCreateBodyMemberLoyaltyEnrollmentsInner]**](AtomicMemberCreateBodyMemberLoyaltyEnrollmentsInner.md) |  | [optional] 

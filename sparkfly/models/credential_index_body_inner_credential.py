@@ -33,7 +33,7 @@ class CredentialIndexBodyInnerCredential(BaseModel):
     member_id: StrictInt
     account_id: StrictInt
     redeeming_account_id: Optional[StrictInt] = None
-    channel_id: StrictInt
+    channel_id: Optional[StrictInt] = None
     eligible_channel_id: Optional[StrictInt] = None
     store_id: Optional[StrictInt] = None
     voided_at: Optional[datetime] = None

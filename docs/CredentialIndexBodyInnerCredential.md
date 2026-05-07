@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **member_id** | **int** |  | 
 **account_id** | **int** |  | 
 **redeeming_account_id** | **int** |  | [optional] 
-**channel_id** | **int** |  | 
+**channel_id** | **int** |  | [optional] 
 **eligible_channel_id** | **int** |  | [optional] 
 **store_id** | **int** |  | [optional] 
 **voided_at** | **datetime** |  | [optional] 

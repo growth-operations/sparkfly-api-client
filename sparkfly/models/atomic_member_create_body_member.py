@@ -30,7 +30,7 @@ class AtomicMemberCreateBodyMember(BaseModel):
     """
     AtomicMemberCreateBodyMember
     """ # noqa: E501
-    identifier: Optional[StrictStr] = None
+    identifier: StrictStr
     member_profile: Optional[AtomicMemberCreateBodyMemberMemberProfile] = None
     credentials: Optional[List[AtomicMemberCreateBodyMemberCredentialsInner]] = None
     loyalty_enrollments: Optional[List[AtomicMemberCreateBodyMemberLoyaltyEnrollmentsInner]] = None

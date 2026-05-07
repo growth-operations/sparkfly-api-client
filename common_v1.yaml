@@ -4013,6 +4013,8 @@ components:
       properties:
         member:
           type: object
+          required:
+            - identifier
           properties:
             identifier:
               type: string
@@ -6372,7 +6374,6 @@ components:
             - identifier
             - member_id
             - account_id
-            - channel_id
             - type
             - created_at
             - updated_at
