@@ -67,6 +67,7 @@ from sparkfly.models.credential_create_request import CredentialCreateRequest
 from sparkfly.models.credential_create_request_credential import CredentialCreateRequestCredential
 from sparkfly.models.credential_create_response import CredentialCreateResponse
 from sparkfly.models.credential_create_response_credential import CredentialCreateResponseCredential
+from sparkfly.models.credential_index_body import CredentialIndexBody
 from sparkfly.models.credential_index_body_inner import CredentialIndexBodyInner
 from sparkfly.models.credential_index_body_inner_credential import CredentialIndexBodyInnerCredential
 from sparkfly.models.ctm_qitems_request import CtmQitemsRequest
@@ -115,6 +116,9 @@ from sparkfly.models.item_set_request import ItemSetRequest
 from sparkfly.models.item_set_request_item_set import ItemSetRequestItemSet
 from sparkfly.models.member import Member
 from sparkfly.models.member_all_of_member import MemberAllOfMember
+from sparkfly.models.member_all_of_member_credential import MemberAllOfMemberCredential
+from sparkfly.models.member_all_of_member_credentials import MemberAllOfMemberCredentials
+from sparkfly.models.member_all_of_member_member_profile import MemberAllOfMemberMemberProfile
 from sparkfly.models.member_index_body import MemberIndexBody
 from sparkfly.models.member_privacy import MemberPrivacy
 from sparkfly.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner

@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.4.2"
+__version__ = "1.4.4"
 
 # Define package exports
 __all__ = [
@@ -102,6 +102,7 @@ __all__ = [
     "CredentialCreateRequestCredential",
     "CredentialCreateResponse",
     "CredentialCreateResponseCredential",
+    "CredentialIndexBody",
     "CredentialIndexBodyInner",
     "CredentialIndexBodyInnerCredential",
     "CtmQitemsRequest",
@@ -150,6 +151,9 @@ __all__ = [
     "ItemSetRequestItemSet",
     "Member",
     "MemberAllOfMember",
+    "MemberAllOfMemberCredential",
+    "MemberAllOfMemberCredentials",
+    "MemberAllOfMemberMemberProfile",
     "MemberIndexBody",
     "MemberPrivacy",
     "MemberPrivacyCredentialsInner",
@@ -315,6 +319,7 @@ from sparkfly.models.credential_create_request import CredentialCreateRequest as
 from sparkfly.models.credential_create_request_credential import CredentialCreateRequestCredential as CredentialCreateRequestCredential
 from sparkfly.models.credential_create_response import CredentialCreateResponse as CredentialCreateResponse
 from sparkfly.models.credential_create_response_credential import CredentialCreateResponseCredential as CredentialCreateResponseCredential
+from sparkfly.models.credential_index_body import CredentialIndexBody as CredentialIndexBody
 from sparkfly.models.credential_index_body_inner import CredentialIndexBodyInner as CredentialIndexBodyInner
 from sparkfly.models.credential_index_body_inner_credential import CredentialIndexBodyInnerCredential as CredentialIndexBodyInnerCredential
 from sparkfly.models.ctm_qitems_request import CtmQitemsRequest as CtmQitemsRequest
@@ -363,6 +368,9 @@ from sparkfly.models.item_set_request import ItemSetRequest as ItemSetRequest
 from sparkfly.models.item_set_request_item_set import ItemSetRequestItemSet as ItemSetRequestItemSet
 from sparkfly.models.member import Member as Member
 from sparkfly.models.member_all_of_member import MemberAllOfMember as MemberAllOfMember
+from sparkfly.models.member_all_of_member_credential import MemberAllOfMemberCredential as MemberAllOfMemberCredential
+from sparkfly.models.member_all_of_member_credentials import MemberAllOfMemberCredentials as MemberAllOfMemberCredentials
+from sparkfly.models.member_all_of_member_member_profile import MemberAllOfMemberMemberProfile as MemberAllOfMemberMemberProfile
 from sparkfly.models.member_index_body import MemberIndexBody as MemberIndexBody
 from sparkfly.models.member_privacy import MemberPrivacy as MemberPrivacy
 from sparkfly.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner as MemberPrivacyCredentialsInner

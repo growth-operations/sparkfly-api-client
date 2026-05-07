@@ -5250,9 +5250,6 @@ components:
               required:
                 - id
                 - identifier
-                - created_at
-                - updated_at
-                - notification_mode
               properties:
                 id:
                   type: integer
@@ -5264,6 +5261,35 @@ components:
                   type: string
                 notification_mode:
                   type: string
+                member_profile:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    first_name:
+                      type: string
+                    last_name:
+                      type: string
+                    email:
+                      type: string
+                    phone:
+                      type: string
+                credentials:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      credential:
+                        type: object
+                        properties:
+                          id:
+                            type: integer
+                          identifier:
+                            type: string
+                          type:
+                            type: string
+                          channel_id:
+                            type: integer
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:
@@ -6320,145 +6346,100 @@ components:
                 $ref: "#/components/schemas/credential_batch_response_body"
     credential_index_body:
       title: credential_index_body
-      type: array
       description: |
-        A list of credentials matching a search. Each entry mirrors the shape of `credential_create_response`,
-        with a `credential` object and an `errors` object. Multiple entries may share the same `identifier` —
-        only the entry whose `voided_at` is null is the currently active credential.
-      items:
-        type: object
-        required:
-          - credential
-        properties:
-          credential:
-            type: object
-            required:
-              - id
-              - identifier
-              - member_id
-              - account_id
-              - channel_id
-              - type
-              - created_at
-              - updated_at
-              - reusable
-              - locked
-              - supports_barcode
-            properties:
-              id:
+        A paged list of credentials matching a search. Each entry in `credentials` mirrors the shape of
+        `credential_create_response`, with a `credential` object and an `errors` object. Multiple entries
+        may share the same `identifier` — only the entry whose `voided_at` is null is the currently
+        active credential.
+      allOf:
+        - $ref: "#/components/schemas/page_response_body"
+        - type: object
+          properties:
+            credentials:
+              type: array
+              items:
+                $ref: "#/components/schemas/credential_index_body_inner"
+    credential_index_body_inner:
+      title: credential_index_body_inner
+      type: object
+      required:
+        - credential
+      properties:
+        credential:
+          type: object
+          required:
+            - id
+            - identifier
+            - member_id
+            - account_id
+            - channel_id
+            - type
+            - created_at
+            - updated_at
+            - reusable
+            - locked
+            - supports_barcode
+          properties:
+            id:
+              type: integer
+            identifier:
+              type: string
+            member_id:
+              type: integer
+            account_id:
+              type: integer
+            redeeming_account_id:
+              type: integer
+            channel_id:
+              type: integer
+            eligible_channel_id:
+              type: integer
+            store_id:
+              type: integer
+            voided_at:
+              type: string
+              format: date-time
+            redeemed_at:
+              type: string
+              format: date-time
+            processed_at:
+              type: string
+              format: date-time
+            reusable:
+              type: boolean
+            locked:
+              type: boolean
+            url:
+              type: string
+            created_at:
+              type: string
+              format: date-time
+            updated_at:
+              type: string
+              format: date-time
+            type:
+              type: string
+              enum:
+                - offer
+                - loyalty
+            offer_ids:
+              type: array
+              items:
                 type: integer
-              identifier:
-                type: string
-              member_id:
-                type: integer
-              account_id:
-                type: integer
-              redeeming_account_id:
-                type: integer
-              channel_id:
-                type: integer
-              eligible_channel_id:
-                type: integer
-              store_id:
-                type: integer
-              voided_at:
-                type: string
-                format: date-time
-              redeemed_at:
-                type: string
-                format: date-time
-              processed_at:
-                type: string
-                format: date-time
-              reusable:
-                type: boolean
-              locked:
-                type: boolean
-              url:
-                type: string
-              created_at:
-                type: string
-                format: date-time
-              updated_at:
-                type: string
-                format: date-time
-              type:
-                type: string
-                enum:
-                  - offer
-                  - loyalty
-              offer_ids:
-                type: array
-                items:
-                  type: integer
-              merchant_id:
-                type: integer
-              merchant_name:
-                type: string
-              offer_name:
-                type: string
-              location_address:
-                type: string
-              supports_barcode:
-                type: boolean
-              barcodes_supported:
-                type: string
-          errors:
-            type: object
-      x-examples:
-        Example 1:
-          - credential:
-              id: 5009787216
-              identifier: "6786339171"
-              member_id: 575491397
-              account_id: 236
-              redeeming_account_id: 236
-              channel_id: 869
-              eligible_channel_id: null
-              store_id: null
-              voided_at: "2025-07-31T17:11:52.761765Z"
-              redeemed_at: null
-              processed_at: null
-              reusable: true
-              locked: false
-              url: null
-              created_at: "2025-07-30T22:39:49.956376Z"
-              updated_at: "2025-07-30T22:40:42.27121Z"
-              type: offer
-              offer_ids: null
-              merchant_id: null
-              merchant_name: null
-              offer_name: null
-              location_address: null
-              supports_barcode: false
-              barcodes_supported: null
-            errors: {}
-          - credential:
-              id: 5027801654
-              identifier: "6786339171"
-              member_id: 589106278
-              account_id: 236
-              redeeming_account_id: 236
-              channel_id: 869
-              eligible_channel_id: null
-              store_id: null
-              voided_at: null
-              redeemed_at: null
-              processed_at: null
-              reusable: true
-              locked: false
-              url: null
-              created_at: "2025-08-08T18:00:49.488092Z"
-              updated_at: "2025-08-08T18:00:49.488092Z"
-              type: loyalty
-              offer_ids: null
-              merchant_id: null
-              merchant_name: null
-              offer_name: null
-              location_address: null
-              supports_barcode: false
-              barcodes_supported: null
-            errors: {}
+            merchant_id:
+              type: integer
+            merchant_name:
+              type: string
+            offer_name:
+              type: string
+            location_address:
+              type: string
+            supports_barcode:
+              type: boolean
+            barcodes_supported:
+              type: string
+        errors:
+          type: object
     item:
       title: item
       allOf:

@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_credentials**
-> List[CredentialIndexBodyInner] search_credentials(identifier)
+> CredentialIndexBody search_credentials(identifier)
 
 Search Credentials
 
@@ -109,7 +109,7 @@ to another member). Callers should treat any credential with a non-null `voided_
 
 ```python
 import sparkfly
-from sparkfly.models.credential_index_body_inner import CredentialIndexBodyInner
+from sparkfly.models.credential_index_body import CredentialIndexBody
 from sparkfly.rest import ApiException
 from pprint import pprint
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**List[CredentialIndexBodyInner]**](CredentialIndexBodyInner.md)
+[**CredentialIndexBody**](CredentialIndexBody.md)
 
 ### Authorization
 

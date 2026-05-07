@@ -59,6 +59,7 @@ docs/CredentialCreateRequest.md
 docs/CredentialCreateRequestCredential.md
 docs/CredentialCreateResponse.md
 docs/CredentialCreateResponseCredential.md
+docs/CredentialIndexBody.md
 docs/CredentialIndexBodyInner.md
 docs/CredentialIndexBodyInnerCredential.md
 docs/CredentialsApi.md
@@ -114,6 +115,9 @@ docs/ItemSetRequestItemSet.md
 docs/ItemsApi.md
 docs/Member.md
 docs/MemberAllOfMember.md
+docs/MemberAllOfMemberCredential.md
+docs/MemberAllOfMemberCredentials.md
+docs/MemberAllOfMemberMemberProfile.md
 docs/MemberIndexBody.md
 docs/MemberPrivacy.md
 docs/MemberPrivacyApi.md
@@ -285,6 +289,7 @@ sparkfly/models/credential_create_request.py
 sparkfly/models/credential_create_request_credential.py
 sparkfly/models/credential_create_response.py
 sparkfly/models/credential_create_response_credential.py
+sparkfly/models/credential_index_body.py
 sparkfly/models/credential_index_body_inner.py
 sparkfly/models/credential_index_body_inner_credential.py
 sparkfly/models/ctm_qitems_request.py
@@ -333,6 +338,9 @@ sparkfly/models/item_set_request.py
 sparkfly/models/item_set_request_item_set.py
 sparkfly/models/member.py
 sparkfly/models/member_all_of_member.py
+sparkfly/models/member_all_of_member_credential.py
+sparkfly/models/member_all_of_member_credentials.py
+sparkfly/models/member_all_of_member_member_profile.py
 sparkfly/models/member_index_body.py
 sparkfly/models/member_privacy.py
 sparkfly/models/member_privacy_credentials_inner.py

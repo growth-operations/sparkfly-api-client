@@ -7,9 +7,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
 **identifier** | **str** |  | 
-**created_at** | **str** |  | 
-**updated_at** | **str** |  | 
-**notification_mode** | **str** |  | 
+**created_at** | **str** |  | [optional] 
+**updated_at** | **str** |  | [optional] 
+**notification_mode** | **str** |  | [optional] 
+**member_profile** | [**MemberAllOfMemberMemberProfile**](MemberAllOfMemberMemberProfile.md) |  | [optional] 
+**credentials** | [**List[MemberAllOfMemberCredentials]**](MemberAllOfMemberCredentials.md) |  | [optional] 
 
 ## Example
 

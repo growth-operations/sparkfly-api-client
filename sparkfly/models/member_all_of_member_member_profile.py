@@ -20,23 +20,19 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from sparkfly.models.member_all_of_member_credentials import MemberAllOfMemberCredentials
-from sparkfly.models.member_all_of_member_member_profile import MemberAllOfMemberMemberProfile
 from typing import Optional, Set
 from typing_extensions import Self
 
-class MemberAllOfMember(BaseModel):
+class MemberAllOfMemberMemberProfile(BaseModel):
     """
-    MemberAllOfMember
+    MemberAllOfMemberMemberProfile
     """ # noqa: E501
-    id: StrictInt
-    identifier: StrictStr
-    created_at: Optional[StrictStr] = None
-    updated_at: Optional[StrictStr] = None
-    notification_mode: Optional[StrictStr] = None
-    member_profile: Optional[MemberAllOfMemberMemberProfile] = None
-    credentials: Optional[List[MemberAllOfMemberCredentials]] = None
-    __properties: ClassVar[List[str]] = ["id", "identifier", "created_at", "updated_at", "notification_mode", "member_profile", "credentials"]
+    id: Optional[StrictInt] = None
+    first_name: Optional[StrictStr] = None
+    last_name: Optional[StrictStr] = None
+    email: Optional[StrictStr] = None
+    phone: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["id", "first_name", "last_name", "email", "phone"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -56,7 +52,7 @@ class MemberAllOfMember(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of MemberAllOfMember from a JSON string"""
+        """Create an instance of MemberAllOfMemberMemberProfile from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,21 +73,11 @@ class MemberAllOfMember(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of member_profile
-        if self.member_profile:
-            _dict['member_profile'] = self.member_profile.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in credentials (list)
-        _items = []
-        if self.credentials:
-            for _item_credentials in self.credentials:
-                if _item_credentials:
-                    _items.append(_item_credentials.to_dict())
-            _dict['credentials'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of MemberAllOfMember from a dict"""
+        """Create an instance of MemberAllOfMemberMemberProfile from a dict"""
         if obj is None:
             return None
 
@@ -100,12 +86,10 @@ class MemberAllOfMember(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "identifier": obj.get("identifier"),
-            "created_at": obj.get("created_at"),
-            "updated_at": obj.get("updated_at"),
-            "notification_mode": obj.get("notification_mode"),
-            "member_profile": MemberAllOfMemberMemberProfile.from_dict(obj["member_profile"]) if obj.get("member_profile") is not None else None,
-            "credentials": [MemberAllOfMemberCredentials.from_dict(_item) for _item in obj["credentials"]] if obj.get("credentials") is not None else None
+            "first_name": obj.get("first_name"),
+            "last_name": obj.get("last_name"),
+            "email": obj.get("email"),
+            "phone": obj.get("phone")
         })
         return _obj
 

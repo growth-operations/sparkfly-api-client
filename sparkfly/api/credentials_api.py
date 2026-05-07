@@ -18,11 +18,11 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
-from typing import List, Optional
+from typing import Optional
 from typing_extensions import Annotated
 from sparkfly.models.credential_create_request import CredentialCreateRequest
 from sparkfly.models.credential_create_response import CredentialCreateResponse
-from sparkfly.models.credential_index_body_inner import CredentialIndexBodyInner
+from sparkfly.models.credential_index_body import CredentialIndexBody
 
 from sparkfly.api_client import ApiClient, RequestSerialized
 from sparkfly.api_response import ApiResponse
@@ -356,7 +356,7 @@ class CredentialsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[CredentialIndexBodyInner]:
+    ) -> CredentialIndexBody:
         """Search Credentials
 
         Search for credentials by identifier. Returns all credentials matching the given identifier across members. A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued to another member). Callers should treat any credential with a non-null `voided_at` as inactive. 
@@ -394,7 +394,7 @@ class CredentialsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[CredentialIndexBodyInner]",
+            '200': "CredentialIndexBody",
             '401': None,
             '500': None,
         }
@@ -425,7 +425,7 @@ class CredentialsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[CredentialIndexBodyInner]]:
+    ) -> ApiResponse[CredentialIndexBody]:
         """Search Credentials
 
         Search for credentials by identifier. Returns all credentials matching the given identifier across members. A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued to another member). Callers should treat any credential with a non-null `voided_at` as inactive. 
@@ -463,7 +463,7 @@ class CredentialsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[CredentialIndexBodyInner]",
+            '200': "CredentialIndexBody",
             '401': None,
             '500': None,
         }
@@ -532,7 +532,7 @@ class CredentialsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[CredentialIndexBodyInner]",
+            '200': "CredentialIndexBody",
             '401': None,
             '500': None,
         }
