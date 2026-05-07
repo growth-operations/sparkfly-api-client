@@ -1817,7 +1817,7 @@ class MembersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AtomicMemberResponseBody",
+            '201': "AtomicMemberResponseBody",
             '401': None,
             '422': None,
             '500': None,
@@ -1891,7 +1891,7 @@ class MembersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AtomicMemberResponseBody",
+            '201': "AtomicMemberResponseBody",
             '401': None,
             '422': None,
             '500': None,
@@ -1965,7 +1965,7 @@ class MembersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "AtomicMemberResponseBody",
+            '201': "AtomicMemberResponseBody",
             '401': None,
             '422': None,
             '500': None,

@@ -590,7 +590,7 @@ Name | Type | Description  | Notes
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Example response |  -  |
+**201** | Example response |  -  |
 **401** | Unauthorized |  -  |
 **422** | Unprocessable Entity |  -  |
 **500** | Internal Server Error |  -  |

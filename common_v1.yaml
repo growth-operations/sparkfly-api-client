@@ -666,7 +666,7 @@ paths:
       requestBody:
         $ref: "#/components/requestBodies/AtomicMember"
       responses:
-        "200":
+        "201":
           $ref: "#/components/responses/AtomicMember"
         "401":
           description: Unauthorized
