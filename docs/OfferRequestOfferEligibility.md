@@ -6,9 +6,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **merchant_ids** | **List[int]** |  | [optional] 
-**store_list_ids** | **List[object]** |  | [optional] 
-**member_list_ids** | **List[object]** |  | [optional] 
-**channel_ids** | **List[object]** |  | [optional] 
+**store_list_ids** | **List[int]** |  | [optional] 
+**member_list_ids** | **List[int]** |  | [optional] 
+**channel_ids** | **List[int]** |  | [optional] 
 
 ## Example
 

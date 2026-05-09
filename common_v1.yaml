@@ -4309,15 +4309,15 @@ components:
                 store_list_ids:
                   type: array
                   items:
-                    type: object
+                    type: integer
                 member_list_ids:
                   type: array
                   items:
-                    type: object
+                    type: integer
                 channel_ids:
                   type: array
                   items:
-                    type: object
+                    type: integer
             redeem_until_depleted:
               type: boolean
             redemption_grace_period:
@@ -5976,15 +5976,15 @@ components:
                     store_list_ids:
                       type: array
                       items:
-                        type: object
+                        type: integer
                     member_list_ids:
                       type: array
                       items:
-                        type: object
+                        type: integer
                     channel_ids:
                       type: array
                       items:
-                        type: object
+                        type: integer
                 redeem_until_depleted:
                   type: boolean
                 redemption_grace_period:

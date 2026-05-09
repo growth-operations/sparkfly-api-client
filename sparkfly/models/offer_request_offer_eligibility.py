@@ -28,9 +28,9 @@ class OfferRequestOfferEligibility(BaseModel):
     OfferRequestOfferEligibility
     """ # noqa: E501
     merchant_ids: Optional[List[StrictInt]] = None
-    store_list_ids: Optional[List[Dict[str, Any]]] = None
-    member_list_ids: Optional[List[Dict[str, Any]]] = None
-    channel_ids: Optional[List[Dict[str, Any]]] = None
+    store_list_ids: Optional[List[StrictInt]] = None
+    member_list_ids: Optional[List[StrictInt]] = None
+    channel_ids: Optional[List[StrictInt]] = None
     __properties: ClassVar[List[str]] = ["merchant_ids", "store_list_ids", "member_list_ids", "channel_ids"]
 
     model_config = ConfigDict(

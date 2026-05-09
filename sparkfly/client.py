@@ -241,9 +241,27 @@ class Sparkfly:
             return False
         return time.time() < self._token_expires_at
 
+    # Transport-level error fragments that indicate a transient connection
+    # issue rather than a real auth failure. Retrying with a fresh request
+    # is safe and almost always succeeds.
+    _TRANSIENT_TRANSPORT_ERROR_SIGNATURES = (
+        "Cannot write to closing transport",
+        "Server disconnected",
+        "RemoteProtocolError",
+        "ConnectError",
+        "ReadError",
+        "WriteError",
+    )
+
     async def authenticate(self) -> str:
         """
         Authenticate with the Sparkfly API and get a token.
+
+        Retries once on transient HTTP transport errors (half-closed
+        connections, brief server disconnects). The underlying
+        `_call_with_retry` API loop runs *after* authentication, so without
+        this an in-auth transport blip fails the entire call without
+        retry — observed at ~1/hour in production.
 
         Returns:
             The authentication token
@@ -251,39 +269,55 @@ class Sparkfly:
         Raises:
             Exception: If authentication fails
         """
-        try:
-            # Determine the host index based on environment
-            host_index = 1 if self.environment.lower() == "production" else 0
+        for attempt in range(2):
+            try:
+                return await self._authenticate_once()
+            except Exception as e:
+                if attempt == 1 or not self._is_transient_transport_error(e):
+                    raise Exception(f"Authentication failed: {e}")
+                # Drop any partially-set state so the retry starts cleanly.
+                self._token = None
+                self._token_expires_at = None
+        # Unreachable: the loop either returns or re-raises.
+        raise Exception("Authentication failed: exhausted retries")
 
-            # Request authentication token
-            response = await self.auth.authenticate_with_http_info(
-                _host_index=host_index
-            )
+    @classmethod
+    def _is_transient_transport_error(cls, exc: BaseException) -> bool:
+        message = str(exc)
+        return any(
+            sig in message for sig in cls._TRANSIENT_TRANSPORT_ERROR_SIGNATURES
+        )
 
-            # Extract the token from the response headers
-            if (
-                hasattr(response, "headers")
-                and response.headers
-                and "X-Auth-Token" in response.headers
-            ):
-                self._token = response.headers["X-Auth-Token"]
-            else:
-                # Fallback: check if the token is in the API client configuration
-                self._token = self._config.api_key.get("XAuthToken")
+    async def _authenticate_once(self) -> str:
+        # Determine the host index based on environment
+        host_index = 1 if self.environment.lower() == "production" else 0
 
-            if not self._token:
-                raise Exception("No authentication token received from the API")
+        # Request authentication token
+        response = await self.auth.authenticate_with_http_info(
+            _host_index=host_index
+        )
 
-            # Set token expiration to 24 hours from now
-            self._token_expires_at = time.time() + (24 * 60 * 60)  # 24 hours
+        # Extract the token from the response headers
+        if (
+            hasattr(response, "headers")
+            and response.headers
+            and "X-Auth-Token" in response.headers
+        ):
+            self._token = response.headers["X-Auth-Token"]
+        else:
+            # Fallback: check if the token is in the API client configuration
+            self._token = self._config.api_key.get("XAuthToken")
 
-            # Update the API client configuration with the token
-            self._config.api_key["XAuthToken"] = self._token
+        if not self._token:
+            raise Exception("No authentication token received from the API")
 
-            return self._token
+        # Set token expiration to 24 hours from now
+        self._token_expires_at = time.time() + (24 * 60 * 60)  # 24 hours
 
-        except Exception as e:
-            raise Exception(f"Authentication failed: {e}")
+        # Update the API client configuration with the token
+        self._config.api_key["XAuthToken"] = self._token
+
+        return self._token
 
     async def ensure_authenticated(self) -> str:
         """
