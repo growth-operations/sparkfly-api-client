@@ -20,8 +20,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from sparkfly.models.member_all_of_member_credentials import MemberAllOfMemberCredentials
-from sparkfly.models.member_all_of_member_member_profile import MemberAllOfMemberMemberProfile
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -34,9 +32,7 @@ class MemberAllOfMember(BaseModel):
     created_at: Optional[StrictStr] = None
     updated_at: Optional[StrictStr] = None
     notification_mode: Optional[StrictStr] = None
-    member_profile: Optional[MemberAllOfMemberMemberProfile] = None
-    credentials: Optional[List[MemberAllOfMemberCredentials]] = None
-    __properties: ClassVar[List[str]] = ["id", "identifier", "created_at", "updated_at", "notification_mode", "member_profile", "credentials"]
+    __properties: ClassVar[List[str]] = ["id", "identifier", "created_at", "updated_at", "notification_mode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,16 +73,6 @@ class MemberAllOfMember(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of member_profile
-        if self.member_profile:
-            _dict['member_profile'] = self.member_profile.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of each item in credentials (list)
-        _items = []
-        if self.credentials:
-            for _item_credentials in self.credentials:
-                if _item_credentials:
-                    _items.append(_item_credentials.to_dict())
-            _dict['credentials'] = _items
         return _dict
 
     @classmethod
@@ -103,9 +89,7 @@ class MemberAllOfMember(BaseModel):
             "identifier": obj.get("identifier"),
             "created_at": obj.get("created_at"),
             "updated_at": obj.get("updated_at"),
-            "notification_mode": obj.get("notification_mode"),
-            "member_profile": MemberAllOfMemberMemberProfile.from_dict(obj["member_profile"]) if obj.get("member_profile") is not None else None,
-            "credentials": [MemberAllOfMemberCredentials.from_dict(_item) for _item in obj["credentials"]] if obj.get("credentials") is not None else None
+            "notification_mode": obj.get("notification_mode")
         })
         return _obj
 

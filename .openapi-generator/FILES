@@ -115,9 +115,6 @@ docs/ItemSetRequestItemSet.md
 docs/ItemsApi.md
 docs/Member.md
 docs/MemberAllOfMember.md
-docs/MemberAllOfMemberCredential.md
-docs/MemberAllOfMemberCredentials.md
-docs/MemberAllOfMemberMemberProfile.md
 docs/MemberIndexBody.md
 docs/MemberPrivacy.md
 docs/MemberPrivacyApi.md
@@ -338,9 +335,6 @@ sparkfly/models/item_set_request.py
 sparkfly/models/item_set_request_item_set.py
 sparkfly/models/member.py
 sparkfly/models/member_all_of_member.py
-sparkfly/models/member_all_of_member_credential.py
-sparkfly/models/member_all_of_member_credentials.py
-sparkfly/models/member_all_of_member_member_profile.py
 sparkfly/models/member_index_body.py
 sparkfly/models/member_privacy.py
 sparkfly/models/member_privacy_credentials_inner.py

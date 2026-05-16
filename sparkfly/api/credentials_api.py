@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictStr
-from typing import Optional
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from sparkfly.models.credential_create_request import CredentialCreateRequest
 from sparkfly.models.credential_create_response import CredentialCreateResponse
@@ -343,7 +343,19 @@ class CredentialsApi:
     @validate_call
     async def search_credentials(
         self,
-        identifier: Annotated[StrictStr, Field(description="The credential identifier to search for (e.g., a phone number, email, or external ID).")],
+        identifier: Annotated[Optional[StrictStr], Field(description="The credential identifier to search for (e.g., a phone number, email, or external ID).")] = None,
+        member_id: Annotated[Optional[StrictInt], Field(description="Return all credentials attached to this Sparkfly member.")] = None,
+        store_id: Annotated[Optional[StrictInt], Field(description="Filter by store ID.")] = None,
+        channel_id: Annotated[Optional[StrictStr], Field(description="Filter by channel ID.")] = None,
+        ids: Annotated[Optional[List[StrictInt]], Field(description="Filter by specific credential IDs.")] = None,
+        redeemed: Annotated[Optional[StrictBool], Field(description="Only return credentials that have / have not been redeemed.")] = None,
+        inactive_later_than: Annotated[Optional[StrictStr], Field(description="Return credentials inactive after this timestamp.")] = None,
+        offer_id: Annotated[Optional[StrictStr], Field(description="Filter by offer ID.")] = None,
+        eligible_channel_id: Annotated[Optional[StrictInt], Field(description="Filter by eligible channel ID.")] = None,
+        reusable: Annotated[Optional[StrictBool], Field(description="Filter by reusable flag.")] = None,
+        credential_type: Annotated[Optional[StrictInt], Field(description="Filter by credential type.")] = None,
+        page: Annotated[Optional[StrictStr], Field(description="Page offset to display a range of records from.")] = None,
+        per_page: Annotated[Optional[StrictStr], Field(description="Maximum number of records to return in the search.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -359,10 +371,34 @@ class CredentialsApi:
     ) -> CredentialIndexBody:
         """Search Credentials
 
-        Search for credentials by identifier. Returns all credentials matching the given identifier across members. A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued to another member). Callers should treat any credential with a non-null `voided_at` as inactive. 
+        Retrieve credentials matching the provided filters. All parameters are optional and may be combined. Common uses: lookup by identifier (e.g., phone/email/external ID) or enumerate every credential attached to a specific member via `member_id`. A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued to another member). Callers should treat any credential with a non-null `voided_at` as inactive. 
 
-        :param identifier: The credential identifier to search for (e.g., a phone number, email, or external ID). (required)
+        :param identifier: The credential identifier to search for (e.g., a phone number, email, or external ID).
         :type identifier: str
+        :param member_id: Return all credentials attached to this Sparkfly member.
+        :type member_id: int
+        :param store_id: Filter by store ID.
+        :type store_id: int
+        :param channel_id: Filter by channel ID.
+        :type channel_id: str
+        :param ids: Filter by specific credential IDs.
+        :type ids: List[int]
+        :param redeemed: Only return credentials that have / have not been redeemed.
+        :type redeemed: bool
+        :param inactive_later_than: Return credentials inactive after this timestamp.
+        :type inactive_later_than: str
+        :param offer_id: Filter by offer ID.
+        :type offer_id: str
+        :param eligible_channel_id: Filter by eligible channel ID.
+        :type eligible_channel_id: int
+        :param reusable: Filter by reusable flag.
+        :type reusable: bool
+        :param credential_type: Filter by credential type.
+        :type credential_type: int
+        :param page: Page offset to display a range of records from.
+        :type page: str
+        :param per_page: Maximum number of records to return in the search.
+        :type per_page: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -387,6 +423,18 @@ class CredentialsApi:
 
         _param = self._search_credentials_serialize(
             identifier=identifier,
+            member_id=member_id,
+            store_id=store_id,
+            channel_id=channel_id,
+            ids=ids,
+            redeemed=redeemed,
+            inactive_later_than=inactive_later_than,
+            offer_id=offer_id,
+            eligible_channel_id=eligible_channel_id,
+            reusable=reusable,
+            credential_type=credential_type,
+            page=page,
+            per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -412,7 +460,19 @@ class CredentialsApi:
     @validate_call
     async def search_credentials_with_http_info(
         self,
-        identifier: Annotated[StrictStr, Field(description="The credential identifier to search for (e.g., a phone number, email, or external ID).")],
+        identifier: Annotated[Optional[StrictStr], Field(description="The credential identifier to search for (e.g., a phone number, email, or external ID).")] = None,
+        member_id: Annotated[Optional[StrictInt], Field(description="Return all credentials attached to this Sparkfly member.")] = None,
+        store_id: Annotated[Optional[StrictInt], Field(description="Filter by store ID.")] = None,
+        channel_id: Annotated[Optional[StrictStr], Field(description="Filter by channel ID.")] = None,
+        ids: Annotated[Optional[List[StrictInt]], Field(description="Filter by specific credential IDs.")] = None,
+        redeemed: Annotated[Optional[StrictBool], Field(description="Only return credentials that have / have not been redeemed.")] = None,
+        inactive_later_than: Annotated[Optional[StrictStr], Field(description="Return credentials inactive after this timestamp.")] = None,
+        offer_id: Annotated[Optional[StrictStr], Field(description="Filter by offer ID.")] = None,
+        eligible_channel_id: Annotated[Optional[StrictInt], Field(description="Filter by eligible channel ID.")] = None,
+        reusable: Annotated[Optional[StrictBool], Field(description="Filter by reusable flag.")] = None,
+        credential_type: Annotated[Optional[StrictInt], Field(description="Filter by credential type.")] = None,
+        page: Annotated[Optional[StrictStr], Field(description="Page offset to display a range of records from.")] = None,
+        per_page: Annotated[Optional[StrictStr], Field(description="Maximum number of records to return in the search.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -428,10 +488,34 @@ class CredentialsApi:
     ) -> ApiResponse[CredentialIndexBody]:
         """Search Credentials
 
-        Search for credentials by identifier. Returns all credentials matching the given identifier across members. A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued to another member). Callers should treat any credential with a non-null `voided_at` as inactive. 
+        Retrieve credentials matching the provided filters. All parameters are optional and may be combined. Common uses: lookup by identifier (e.g., phone/email/external ID) or enumerate every credential attached to a specific member via `member_id`. A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued to another member). Callers should treat any credential with a non-null `voided_at` as inactive. 
 
-        :param identifier: The credential identifier to search for (e.g., a phone number, email, or external ID). (required)
+        :param identifier: The credential identifier to search for (e.g., a phone number, email, or external ID).
         :type identifier: str
+        :param member_id: Return all credentials attached to this Sparkfly member.
+        :type member_id: int
+        :param store_id: Filter by store ID.
+        :type store_id: int
+        :param channel_id: Filter by channel ID.
+        :type channel_id: str
+        :param ids: Filter by specific credential IDs.
+        :type ids: List[int]
+        :param redeemed: Only return credentials that have / have not been redeemed.
+        :type redeemed: bool
+        :param inactive_later_than: Return credentials inactive after this timestamp.
+        :type inactive_later_than: str
+        :param offer_id: Filter by offer ID.
+        :type offer_id: str
+        :param eligible_channel_id: Filter by eligible channel ID.
+        :type eligible_channel_id: int
+        :param reusable: Filter by reusable flag.
+        :type reusable: bool
+        :param credential_type: Filter by credential type.
+        :type credential_type: int
+        :param page: Page offset to display a range of records from.
+        :type page: str
+        :param per_page: Maximum number of records to return in the search.
+        :type per_page: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -456,6 +540,18 @@ class CredentialsApi:
 
         _param = self._search_credentials_serialize(
             identifier=identifier,
+            member_id=member_id,
+            store_id=store_id,
+            channel_id=channel_id,
+            ids=ids,
+            redeemed=redeemed,
+            inactive_later_than=inactive_later_than,
+            offer_id=offer_id,
+            eligible_channel_id=eligible_channel_id,
+            reusable=reusable,
+            credential_type=credential_type,
+            page=page,
+            per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -481,7 +577,19 @@ class CredentialsApi:
     @validate_call
     async def search_credentials_without_preload_content(
         self,
-        identifier: Annotated[StrictStr, Field(description="The credential identifier to search for (e.g., a phone number, email, or external ID).")],
+        identifier: Annotated[Optional[StrictStr], Field(description="The credential identifier to search for (e.g., a phone number, email, or external ID).")] = None,
+        member_id: Annotated[Optional[StrictInt], Field(description="Return all credentials attached to this Sparkfly member.")] = None,
+        store_id: Annotated[Optional[StrictInt], Field(description="Filter by store ID.")] = None,
+        channel_id: Annotated[Optional[StrictStr], Field(description="Filter by channel ID.")] = None,
+        ids: Annotated[Optional[List[StrictInt]], Field(description="Filter by specific credential IDs.")] = None,
+        redeemed: Annotated[Optional[StrictBool], Field(description="Only return credentials that have / have not been redeemed.")] = None,
+        inactive_later_than: Annotated[Optional[StrictStr], Field(description="Return credentials inactive after this timestamp.")] = None,
+        offer_id: Annotated[Optional[StrictStr], Field(description="Filter by offer ID.")] = None,
+        eligible_channel_id: Annotated[Optional[StrictInt], Field(description="Filter by eligible channel ID.")] = None,
+        reusable: Annotated[Optional[StrictBool], Field(description="Filter by reusable flag.")] = None,
+        credential_type: Annotated[Optional[StrictInt], Field(description="Filter by credential type.")] = None,
+        page: Annotated[Optional[StrictStr], Field(description="Page offset to display a range of records from.")] = None,
+        per_page: Annotated[Optional[StrictStr], Field(description="Maximum number of records to return in the search.")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -497,10 +605,34 @@ class CredentialsApi:
     ) -> RESTResponseType:
         """Search Credentials
 
-        Search for credentials by identifier. Returns all credentials matching the given identifier across members. A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued to another member). Callers should treat any credential with a non-null `voided_at` as inactive. 
+        Retrieve credentials matching the provided filters. All parameters are optional and may be combined. Common uses: lookup by identifier (e.g., phone/email/external ID) or enumerate every credential attached to a specific member via `member_id`. A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued to another member). Callers should treat any credential with a non-null `voided_at` as inactive. 
 
-        :param identifier: The credential identifier to search for (e.g., a phone number, email, or external ID). (required)
+        :param identifier: The credential identifier to search for (e.g., a phone number, email, or external ID).
         :type identifier: str
+        :param member_id: Return all credentials attached to this Sparkfly member.
+        :type member_id: int
+        :param store_id: Filter by store ID.
+        :type store_id: int
+        :param channel_id: Filter by channel ID.
+        :type channel_id: str
+        :param ids: Filter by specific credential IDs.
+        :type ids: List[int]
+        :param redeemed: Only return credentials that have / have not been redeemed.
+        :type redeemed: bool
+        :param inactive_later_than: Return credentials inactive after this timestamp.
+        :type inactive_later_than: str
+        :param offer_id: Filter by offer ID.
+        :type offer_id: str
+        :param eligible_channel_id: Filter by eligible channel ID.
+        :type eligible_channel_id: int
+        :param reusable: Filter by reusable flag.
+        :type reusable: bool
+        :param credential_type: Filter by credential type.
+        :type credential_type: int
+        :param page: Page offset to display a range of records from.
+        :type page: str
+        :param per_page: Maximum number of records to return in the search.
+        :type per_page: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -525,6 +657,18 @@ class CredentialsApi:
 
         _param = self._search_credentials_serialize(
             identifier=identifier,
+            member_id=member_id,
+            store_id=store_id,
+            channel_id=channel_id,
+            ids=ids,
+            redeemed=redeemed,
+            inactive_later_than=inactive_later_than,
+            offer_id=offer_id,
+            eligible_channel_id=eligible_channel_id,
+            reusable=reusable,
+            credential_type=credential_type,
+            page=page,
+            per_page=per_page,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -546,6 +690,18 @@ class CredentialsApi:
     def _search_credentials_serialize(
         self,
         identifier,
+        member_id,
+        store_id,
+        channel_id,
+        ids,
+        redeemed,
+        inactive_later_than,
+        offer_id,
+        eligible_channel_id,
+        reusable,
+        credential_type,
+        page,
+        per_page,
         _request_auth,
         _content_type,
         _headers,
@@ -555,6 +711,7 @@ class CredentialsApi:
         _host = None
 
         _collection_formats: Dict[str, str] = {
+            'ids': 'multi',
         }
 
         _path_params: Dict[str, str] = {}
@@ -571,6 +728,54 @@ class CredentialsApi:
         if identifier is not None:
             
             _query_params.append(('identifier', identifier))
+            
+        if member_id is not None:
+            
+            _query_params.append(('member_id', member_id))
+            
+        if store_id is not None:
+            
+            _query_params.append(('store_id', store_id))
+            
+        if channel_id is not None:
+            
+            _query_params.append(('channel_id', channel_id))
+            
+        if ids is not None:
+            
+            _query_params.append(('ids', ids))
+            
+        if redeemed is not None:
+            
+            _query_params.append(('redeemed', redeemed))
+            
+        if inactive_later_than is not None:
+            
+            _query_params.append(('inactive_later_than', inactive_later_than))
+            
+        if offer_id is not None:
+            
+            _query_params.append(('offer_id', offer_id))
+            
+        if eligible_channel_id is not None:
+            
+            _query_params.append(('eligible_channel_id', eligible_channel_id))
+            
+        if reusable is not None:
+            
+            _query_params.append(('reusable', reusable))
+            
+        if credential_type is not None:
+            
+            _query_params.append(('credential_type', credential_type))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if per_page is not None:
+            
+            _query_params.append(('per_page', per_page))
             
         # process the header parameters
         # process the form parameters

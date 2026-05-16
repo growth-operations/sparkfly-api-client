@@ -15,7 +15,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.4.8"
+__version__ = "1.4.9"
 
 # Define package exports
 __all__ = [
@@ -151,9 +151,6 @@ __all__ = [
     "ItemSetRequestItemSet",
     "Member",
     "MemberAllOfMember",
-    "MemberAllOfMemberCredential",
-    "MemberAllOfMemberCredentials",
-    "MemberAllOfMemberMemberProfile",
     "MemberIndexBody",
     "MemberPrivacy",
     "MemberPrivacyCredentialsInner",
@@ -368,9 +365,6 @@ from sparkfly.models.item_set_request import ItemSetRequest as ItemSetRequest
 from sparkfly.models.item_set_request_item_set import ItemSetRequestItemSet as ItemSetRequestItemSet
 from sparkfly.models.member import Member as Member
 from sparkfly.models.member_all_of_member import MemberAllOfMember as MemberAllOfMember
-from sparkfly.models.member_all_of_member_credential import MemberAllOfMemberCredential as MemberAllOfMemberCredential
-from sparkfly.models.member_all_of_member_credentials import MemberAllOfMemberCredentials as MemberAllOfMemberCredentials
-from sparkfly.models.member_all_of_member_member_profile import MemberAllOfMemberMemberProfile as MemberAllOfMemberMemberProfile
 from sparkfly.models.member_index_body import MemberIndexBody as MemberIndexBody
 from sparkfly.models.member_privacy import MemberPrivacy as MemberPrivacy
 from sparkfly.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner as MemberPrivacyCredentialsInner

@@ -116,9 +116,6 @@ from sparkfly.models.item_set_request import ItemSetRequest
 from sparkfly.models.item_set_request_item_set import ItemSetRequestItemSet
 from sparkfly.models.member import Member
 from sparkfly.models.member_all_of_member import MemberAllOfMember
-from sparkfly.models.member_all_of_member_credential import MemberAllOfMemberCredential
-from sparkfly.models.member_all_of_member_credentials import MemberAllOfMemberCredentials
-from sparkfly.models.member_all_of_member_member_profile import MemberAllOfMemberMemberProfile
 from sparkfly.models.member_index_body import MemberIndexBody
 from sparkfly.models.member_privacy import MemberPrivacy
 from sparkfly.models.member_privacy_credentials_inner import MemberPrivacyCredentialsInner

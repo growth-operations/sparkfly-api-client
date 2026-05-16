@@ -94,13 +94,15 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_credentials**
-> CredentialIndexBody search_credentials(identifier)
+> CredentialIndexBody search_credentials(identifier=identifier, member_id=member_id, store_id=store_id, channel_id=channel_id, ids=ids, redeemed=redeemed, inactive_later_than=inactive_later_than, offer_id=offer_id, eligible_channel_id=eligible_channel_id, reusable=reusable, credential_type=credential_type, page=page, per_page=per_page)
 
 Search Credentials
 
-Search for credentials by identifier. Returns all credentials matching the given identifier across members.
-A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued
-to another member). Callers should treat any credential with a non-null `voided_at` as inactive.
+Retrieve credentials matching the provided filters. All parameters are optional and may be combined.
+Common uses: lookup by identifier (e.g., phone/email/external ID) or enumerate every credential
+attached to a specific member via `member_id`. A single identifier may match multiple credentials
+over time (e.g., when a credential is voided and reissued to another member). Callers should treat
+any credential with a non-null `voided_at` as inactive.
 
 
 ### Example
@@ -134,11 +136,23 @@ configuration.api_key['XAuthToken'] = os.environ["API_KEY"]
 async with sparkfly.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sparkfly.CredentialsApi(api_client)
-    identifier = 'identifier_example' # str | The credential identifier to search for (e.g., a phone number, email, or external ID).
+    identifier = 'identifier_example' # str | The credential identifier to search for (e.g., a phone number, email, or external ID). (optional)
+    member_id = 56 # int | Return all credentials attached to this Sparkfly member. (optional)
+    store_id = 56 # int | Filter by store ID. (optional)
+    channel_id = 'channel_id_example' # str | Filter by channel ID. (optional)
+    ids = [56] # List[int] | Filter by specific credential IDs. (optional)
+    redeemed = True # bool | Only return credentials that have / have not been redeemed. (optional)
+    inactive_later_than = 'inactive_later_than_example' # str | Return credentials inactive after this timestamp. (optional)
+    offer_id = 'offer_id_example' # str | Filter by offer ID. (optional)
+    eligible_channel_id = 56 # int | Filter by eligible channel ID. (optional)
+    reusable = True # bool | Filter by reusable flag. (optional)
+    credential_type = 56 # int | Filter by credential type. (optional)
+    page = 'page_example' # str | Page offset to display a range of records from. (optional)
+    per_page = 'per_page_example' # str | Maximum number of records to return in the search. (optional)
 
     try:
         # Search Credentials
-        api_response = await api_instance.search_credentials(identifier)
+        api_response = await api_instance.search_credentials(identifier=identifier, member_id=member_id, store_id=store_id, channel_id=channel_id, ids=ids, redeemed=redeemed, inactive_later_than=inactive_later_than, offer_id=offer_id, eligible_channel_id=eligible_channel_id, reusable=reusable, credential_type=credential_type, page=page, per_page=per_page)
         print("The response of CredentialsApi->search_credentials:\n")
         pprint(api_response)
     except Exception as e:
@@ -152,7 +166,19 @@ async with sparkfly.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **identifier** | **str**| The credential identifier to search for (e.g., a phone number, email, or external ID). | 
+ **identifier** | **str**| The credential identifier to search for (e.g., a phone number, email, or external ID). | [optional] 
+ **member_id** | **int**| Return all credentials attached to this Sparkfly member. | [optional] 
+ **store_id** | **int**| Filter by store ID. | [optional] 
+ **channel_id** | **str**| Filter by channel ID. | [optional] 
+ **ids** | [**List[int]**](int.md)| Filter by specific credential IDs. | [optional] 
+ **redeemed** | **bool**| Only return credentials that have / have not been redeemed. | [optional] 
+ **inactive_later_than** | **str**| Return credentials inactive after this timestamp. | [optional] 
+ **offer_id** | **str**| Filter by offer ID. | [optional] 
+ **eligible_channel_id** | **int**| Filter by eligible channel ID. | [optional] 
+ **reusable** | **bool**| Filter by reusable flag. | [optional] 
+ **credential_type** | **int**| Filter by credential type. | [optional] 
+ **page** | **str**| Page offset to display a range of records from. | [optional] 
+ **per_page** | **str**| Maximum number of records to return in the search. | [optional] 
 
 ### Return type
 

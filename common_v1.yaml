@@ -752,15 +752,91 @@ paths:
         - Credentials
       summary: Search Credentials
       description: |
-        Search for credentials by identifier. Returns all credentials matching the given identifier across members.
-        A single identifier may match multiple credentials over time (e.g., when a credential is voided and reissued
-        to another member). Callers should treat any credential with a non-null `voided_at` as inactive.
+        Retrieve credentials matching the provided filters. All parameters are optional and may be combined.
+        Common uses: lookup by identifier (e.g., phone/email/external ID) or enumerate every credential
+        attached to a specific member via `member_id`. A single identifier may match multiple credentials
+        over time (e.g., when a credential is voided and reissued to another member). Callers should treat
+        any credential with a non-null `voided_at` as inactive.
       operationId: search-credentials
       parameters:
         - name: identifier
           in: query
           description: The credential identifier to search for (e.g., a phone number, email, or external ID).
-          required: true
+          required: false
+          schema:
+            type: string
+        - name: member_id
+          in: query
+          description: Return all credentials attached to this Sparkfly member.
+          required: false
+          schema:
+            type: integer
+        - name: store_id
+          in: query
+          description: Filter by store ID.
+          required: false
+          schema:
+            type: integer
+        - name: channel_id
+          in: query
+          description: Filter by channel ID.
+          required: false
+          schema:
+            type: string
+        - name: ids
+          in: query
+          description: Filter by specific credential IDs.
+          required: false
+          schema:
+            type: array
+            items:
+              type: integer
+        - name: redeemed
+          in: query
+          description: Only return credentials that have / have not been redeemed.
+          required: false
+          schema:
+            type: boolean
+        - name: inactive_later_than
+          in: query
+          description: Return credentials inactive after this timestamp.
+          required: false
+          schema:
+            type: string
+        - name: offer_id
+          in: query
+          description: Filter by offer ID.
+          required: false
+          schema:
+            type: string
+        - name: eligible_channel_id
+          in: query
+          description: Filter by eligible channel ID.
+          required: false
+          schema:
+            type: integer
+        - name: reusable
+          in: query
+          description: Filter by reusable flag.
+          required: false
+          schema:
+            type: boolean
+        - name: credential_type
+          in: query
+          description: Filter by credential type.
+          required: false
+          schema:
+            type: integer
+        - name: page
+          in: query
+          description: Page offset to display a range of records from.
+          required: false
+          schema:
+            type: string
+        - name: per_page
+          in: query
+          description: Maximum number of records to return in the search.
+          required: false
           schema:
             type: string
       responses:
@@ -5263,35 +5339,6 @@ components:
                   type: string
                 notification_mode:
                   type: string
-                member_profile:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    first_name:
-                      type: string
-                    last_name:
-                      type: string
-                    email:
-                      type: string
-                    phone:
-                      type: string
-                credentials:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      credential:
-                        type: object
-                        properties:
-                          id:
-                            type: integer
-                          identifier:
-                            type: string
-                          type:
-                            type: string
-                          channel_id:
-                            type: integer
         - $ref: "#/components/schemas/errors"
       x-examples:
         Example 1:

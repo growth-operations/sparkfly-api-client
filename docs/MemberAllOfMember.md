@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **created_at** | **str** |  | [optional] 
 **updated_at** | **str** |  | [optional] 
 **notification_mode** | **str** |  | [optional] 
-**member_profile** | [**MemberAllOfMemberMemberProfile**](MemberAllOfMemberMemberProfile.md) |  | [optional] 
-**credentials** | [**List[MemberAllOfMemberCredentials]**](MemberAllOfMemberCredentials.md) |  | [optional] 
 
 ## Example
 
