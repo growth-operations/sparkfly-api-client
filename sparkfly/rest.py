@@ -75,6 +75,13 @@ class RESTClientObject:
 
         self.retries = configuration.retries
 
+        # Default per-request timeout (seconds). Applied when a call does not
+        # pass an explicit `_request_timeout`. Bounds every HTTP call so a slow
+        # Sparkfly endpoint fails fast instead of hanging on the historical
+        # hardcoded 5-minute default. `getattr` keeps this safe for any
+        # Configuration built before this field existed.
+        self.request_timeout = getattr(configuration, "request_timeout", 30.0)
+
         self.pool_manager: Optional[aiohttp.ClientSession] = None
         self.retry_client: Optional[aiohttp_retry.RetryClient] = None
 
@@ -125,8 +132,13 @@ class RESTClientObject:
 
         post_params = post_params or {}
         headers = headers or {}
-        # url already contains the URL query string
-        timeout = _request_timeout or 5 * 60
+        # url already contains the URL query string.
+        # Fall back to the client-configured default timeout (not an
+        # unbounded 5-minute hardcode) so a slow/unresponsive Sparkfly call
+        # fails fast and frees the caller's concurrency slot. An explicit
+        # per-call `_request_timeout` still wins; `self.request_timeout` may
+        # be None to opt back into unbounded behavior.
+        timeout = _request_timeout if _request_timeout is not None else self.request_timeout
 
         if 'Content-Type' not in headers:
             headers['Content-Type'] = 'application/json'

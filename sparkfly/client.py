@@ -83,6 +83,7 @@ class Sparkfly:
         token: Optional[str] = None,
         token_expires_at: Optional[float] = None,
         retry_config: Optional[RetryConfig] = None,
+        request_timeout: Optional[float] = 30.0,
     ):
         """
         Initialize the Sparkfly client.
@@ -99,6 +100,12 @@ class Sparkfly:
             token: Optional pre-existing auth token
             token_expires_at: Optional token expiration timestamp
             retry_config: Optional retry configuration (defaults to 3 retries, 1s delay)
+            request_timeout: Default per-request timeout in seconds applied to
+                every API call that does not pass an explicit ``_request_timeout``.
+                Defaults to 30s so a slow/unresponsive Sparkfly endpoint fails
+                fast instead of hanging up to 5 minutes (which held the caller's
+                Cloud Run concurrency slot for the full request timeout and
+                wedged instances). Pass ``None`` to restore unbounded behavior.
         """
         self.identity = identity
         self.key = key
@@ -137,6 +144,7 @@ class Sparkfly:
                 "XAuthIdentity": identity,
                 "XAuthKey": key,
             },
+            request_timeout=request_timeout,
         )
         self._api_client = ApiClient(configuration=self._config)
 
