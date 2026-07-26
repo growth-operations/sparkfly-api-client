@@ -205,6 +205,7 @@ conf = sparkfly.Configuration(
         ignore_operation_servers: bool=False,
         ssl_ca_cert: Optional[str]=None,
         retries: Optional[int] = None,
+        request_timeout: Optional[float] = 30.0,
         ca_cert_data: Optional[Union[str, bytes]] = None,
         *,
         debug: Optional[bool] = None,
@@ -317,6 +318,14 @@ conf = sparkfly.Configuration(
         """
         self.retries = retries
         """Adding retries to override urllib3 default value 3
+        """
+        self.request_timeout = request_timeout
+        """Default per-request timeout (seconds) applied when a call does not
+        pass an explicit ``_request_timeout``. Bounds every HTTP call so a slow
+        or unresponsive Sparkfly endpoint fails fast instead of hanging up to
+        the historical 5-minute default (which held a caller's Cloud Run
+        concurrency slot for the full request timeout and wedged instances).
+        Set to ``None`` to restore the old unbounded behavior.
         """
         # Enable client side validation
         self.client_side_validation = True
