@@ -1,0 +1,55 @@
+name: Publish to PyPI
+
+# Publishes on a GitHub Release. Uses PyPI's Trusted Publishing (OIDC) —
+# no long-lived API token to store, rotate, or leak. One-time manual setup
+# required on PyPI's side before this works (see repo README):
+#   https://pypi.org/manage/project/sparkfly/settings/publishing/
+#   Add a trusted publisher: owner=growth-operations, repo=sparkfly-api-client,
+#   workflow=publish-pypi.yml, environment=pypi (must match the `environment:`
+#   below).
+#
+# Runs the full test suite first so a broken build can never reach PyPI —
+# a bad publish there can't be un-published or re-uploaded under the same
+# version number.
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install -r test-requirements.txt
+      - name: Run test suite
+        run: pytest
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      # Required for PyPI Trusted Publishing (OIDC) — no API token needed.
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build
+        run: |
+          python -m pip install --upgrade build
+          python -m build
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
