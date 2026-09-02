@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **identifier** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
+**channel_id** | **int** |  | [optional] 
 
 ## Example
 

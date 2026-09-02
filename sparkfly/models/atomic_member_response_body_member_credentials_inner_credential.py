@@ -19,7 +19,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +30,8 @@ class AtomicMemberResponseBodyMemberCredentialsInnerCredential(BaseModel):
     id: StrictInt
     identifier: StrictStr
     type: StrictStr
-    __properties: ClassVar[List[str]] = ["id", "identifier", "type"]
+    channel_id: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["id", "identifier", "type", "channel_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -85,7 +86,8 @@ class AtomicMemberResponseBodyMemberCredentialsInnerCredential(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "identifier": obj.get("identifier"),
-            "type": obj.get("type")
+            "type": obj.get("type"),
+            "channel_id": obj.get("channel_id")
         })
         return _obj
 

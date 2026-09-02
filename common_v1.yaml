@@ -4123,6 +4123,8 @@ components:
                         type: string
                       type:
                         type: string
+                      channel_id:
+                        type: integer
             loyalty_enrollments:
               type: array
               items:
@@ -4192,6 +4194,8 @@ components:
                         type: string
                       type:
                         type: string
+                      channel_id:
+                        type: integer
             loyalty_enrollments:
               type: array
               items:
